@@ -8,7 +8,16 @@
   </div>
   <div class="drawer-side z-40">
     <label aria-label="close sidebar" class="drawer-overlay" for="nav-toggle"></label>
+
     <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+      <li>
+        <label aria-label="close sidebar" class="btn btn-ghost btn-circle self-end" for="nav-toggle">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+               xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </label>
+      </li>
       @for (item of navItems; track item.label) {
         <li>
           @if (!item?.children) {
