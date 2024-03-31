@@ -24,6 +24,9 @@
       "@ng-tool-collection/password-generator": [
         "libs/password-generator/src/index.ts"
       ],
+      "@ng-tool-collection/ui": [
+        "libs/ui/src/index.ts"
+      ],
       "@ng-tool-collection/url-rewrites": [
         "libs/url-rewrites/src/index.ts"
       ]
