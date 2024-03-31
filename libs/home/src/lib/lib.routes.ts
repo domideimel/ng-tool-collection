@@ -1,6 +1,13 @@
 import { Route } from '@angular/router';
-import { HomeComponent } from './components/home.component';
+import { CardGridComponent } from './components/card-grid/card-grid.component';
 
 export const homeRoutes: Route[] = [
-  { path: '', pathMatch: 'full', component: HomeComponent }
+  {
+    path: '',
+    pathMatch: 'full',
+    children: [{
+      path: '',
+      component: CardGridComponent
+    }]
+  }
 ];
