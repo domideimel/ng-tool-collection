@@ -1,0 +1,122 @@
+<form #form="ngForm" (ngSubmit)="onSubmit()">
+  @for (item of model.items; track item.label) {
+    @switch (item.type) {
+      @case ("text") {
+        <label class="form-control w-full max-w-xs">
+          <div class="label">
+            <span class="label-text">{{ item.label }}</span>
+          </div>
+          <input
+            type="text"
+            class="input input-bordered w-full max-w-xs"
+            [placeholder]="item.placeholder"
+            [(ngModel)]="item.name"
+            [required]="item.required"
+            [disabled]="item.disabled"
+          />
+        </label>
+      }
+      @case ("checkbox") {
+        <div class="form-control">
+          <label class="label cursor-pointer">
+            <input
+              type="checkbox"
+              [(ngModel)]="item.name"
+              [checked]="item.checked"
+              [required]="item.required"
+              [disabled]="item.disabled"
+              class="checkbox"
+            />
+            <span class="label-text">{{ item.label }}</span>
+          </label>
+        </div>
+      }
+      @case ("radio") {
+        @for (option of item.options; track option.value) {
+          <div class="form-control">
+            <label class="label cursor-pointer">
+              <input
+                type="radio"
+                [(ngModel)]="item.name"
+                [value]="item.value"
+                [checked]="item.checked"
+                [required]="item.required"
+                [disabled]="item.disabled"
+              />
+              <span class="label-text">{{ option.label }}</span>
+            </label>
+          </div>
+        }
+      }
+      @case ("select") {
+        <label class="form-control w-full max-w-xs">
+          <div class="label">
+            <span class="label-text">{{ item.label }}</span>
+          </div>
+          <select
+            [(ngModel)]="item.name"
+            [required]="item.required"
+            [disabled]="item.disabled"
+            class="select select-bordered"
+          >
+            @for (option of item.options; track option.value) {
+              <option [value]="option.value" [selected]="option.selected" [disabled]="option.disabled">
+                {{ option.label }}
+              </option>
+            }
+          </select>
+        </label>
+      }
+      @case ("textarea") {
+        <label class="form-control">
+          <div class="label">
+            <span class="label-text">{{ item.label }}</span>
+          </div>
+          <textarea
+            class="textarea textarea-bordered h-24"
+            [name]="item.name"
+            [placeholder]="item.placeholder"
+            [(ngModel)]="item.value"
+            [required]="item.required"
+            [disabled]="item.disabled"
+          ></textarea>
+        </label>
+      }
+      @case ("date") {
+        <label class="form-control w-full max-w-xs">
+          <div class="label">
+            <span class="label-text">{{ item.label }}</span>
+          </div>
+          <input
+            type="date"
+            class="input input-bordered w-full max-w-xs"
+            [required]="item.required"
+            [disabled]="item.disabled"
+            [min]="item.min"
+            [max]="item.max"
+            [(ngModel)]="item.value"
+          />
+        </label>
+      }
+      @case ("rage") {
+        <label class="form-control w-full max-w-xs">
+          <div class="label">
+            <span class="label-text">{{ item.label }}</span>
+          </div>
+          <input
+            type="range"
+            [required]="item.required"
+            [disabled]="item.disabled"
+            [min]="item.min"
+            [max]="item.max"
+            [(ngModel)]="item.value"
+            class="range"
+          />
+        </label>
+      }
+    }
+  }
+  <button [disabled]="form.invalid" class="btn">
+    {{ model.submitButtonLabel }}
+  </button>
+</form>
