@@ -1,22 +1,11 @@
 {
+  "extends": [
+    "../../.eslintrc.base.json"
+  ],
   "ignorePatterns": [
     "!**/*"
   ],
   "overrides": [
-    {
-      "files": [
-        "*.ts",
-        "*.tsx"
-      ],
-      "rules": {}
-    },
-    {
-      "files": [
-        "*.js",
-        "*.jsx"
-      ],
-      "rules": {}
-    },
     {
       "files": [
         "*.ts"
@@ -30,7 +19,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "app",
+            "prefix": "lib",
             "style": "camelCase"
           }
         ],
@@ -38,7 +27,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "app",
+            "prefix": "lib",
             "style": "kebab-case"
           }
         ]
@@ -53,8 +42,5 @@
       ],
       "rules": {}
     }
-  ],
-  "extends": [
-    "./.eslintrc.base.json"
   ]
 }
