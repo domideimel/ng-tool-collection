@@ -21,6 +21,9 @@
       "@ng-tool-collection/home": [
         "libs/home/src/index.ts"
       ],
+      "@ng-tool-collection/models": [
+        "libs/models/src/index.ts"
+      ],
       "@ng-tool-collection/password-generator": [
         "libs/password-generator/src/index.ts"
       ],
