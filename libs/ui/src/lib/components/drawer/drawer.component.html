@@ -12,7 +12,7 @@
       @for (item of navItems; track item.label) {
         <li>
           @if (!item?.children) {
-            <a [routerLink]="item.path">{{ item.label }}</a>
+            <a routerLinkActive="btn-active" [routerLink]="item.path">{{ item.label }}</a>
           }
 
           @if (item?.children) {

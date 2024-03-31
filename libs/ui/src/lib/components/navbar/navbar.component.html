@@ -8,7 +8,7 @@
         @for (item of links; track item.label) {
           <li>
             @if (!item?.children) {
-              <a [routerLink]="item.path" class="btn btn-ghost">{{ item.label }}</a>
+              <a [routerLink]="item.path" routerLinkActive="btn-active" class="btn btn-ghost">{{ item.label }}</a>
             }
 
             @if (item?.children) {
@@ -28,10 +28,9 @@
       </ul>
     </nav>
     <div class="flex-none lg:hidden">
-      <label aria-label="open sidebar" class="btn btn-square btn-ghost" for="nav-toggle">
-        <svg class="inline-block w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24"
-             xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+      <label aria-label="open sidebar" class="btn btn-circle btn-ghost" for="nav-toggle">
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 6h16M4 12h16M4 18h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
         </svg>
       </label>
     </div>

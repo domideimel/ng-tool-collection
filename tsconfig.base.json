@@ -18,6 +18,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ng-tool-collection/constants": [
+        "libs/constants/src/index.ts"
+      ],
       "@ng-tool-collection/home": [
         "libs/home/src/index.ts"
       ],
