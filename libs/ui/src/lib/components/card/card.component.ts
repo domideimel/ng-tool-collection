@@ -9,4 +9,5 @@ export class CardComponent {
   @Input() description = '';
   @Input() link = '';
   @Input() linkText = 'Zum Tool';
+  @Input() showLink = true;
 }

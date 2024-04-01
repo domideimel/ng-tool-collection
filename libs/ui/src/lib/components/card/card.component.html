@@ -6,8 +6,10 @@
     } @else {
       <ng-content />
     }
-    <div class="card-actions justify-end">
-      <button [routerLink]="link" class="btn btn-primary">{{ linkText }}</button>
-    </div>
+    @if (showLink) {
+      <div class="card-actions justify-end">
+        <button [routerLink]="link" class="btn btn-primary">{{ linkText }}</button>
+      </div>
+    }
   </div>
 </div>
