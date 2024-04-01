@@ -9,9 +9,30 @@ export class GeneratorFormComponent {
   formModel: FormModel = {
     items: [{
       label: 'Länge',
-      type: 'text',
-      placeholder: 'Länge'
+      controlName: 'length',
+      type: 'range'
+    }, {
+      label: 'Großbuchstaben verwenden',
+      controlName: 'uppercase',
+      type: 'checkbox'
+    }, {
+      label: 'Kleinbuchstaben verwenden',
+      controlName: 'lowercase',
+      type: 'checkbox'
+    }, {
+      label: 'Sonderzeichen verwenden',
+      controlName: 'specialCharacters',
+      type: 'checkbox'
+    }, {
+      label: 'Zahlen verwenden',
+      controlName: 'numbers',
+      type: 'checkbox'
     }],
     submitButtonLabel: 'Passwort generieren'
   };
+
+  onSubmit (value: any) {
+    console.log(value);
+  }
+
 }

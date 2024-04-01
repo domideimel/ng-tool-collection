@@ -1,4 +1,4 @@
-<form #form="ngForm" (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" [formGroup]="formGroup" class="flex flex-col gap-4">
   @for (item of model.items; track item.label) {
     @switch (item.type) {
       @case ("text") {
@@ -9,25 +9,18 @@
           <input
             type="text"
             class="input input-bordered w-full max-w-xs"
-            [ngModelOptions]="{standalone: true}"
             [placeholder]="item?.placeholder"
-            [(ngModel)]="item.name"
-            [required]="item?.required ?? false"
-            [disabled]="item?.disabled ?? false"
+            [formControlName]="item.controlName"
           />
         </label>
       }
       @case ("checkbox") {
         <div class="form-control">
-          <label class="label cursor-pointer">
+          <label class="label cursor-pointer justify-normal gap-4">
             <input
               type="checkbox"
-              [(ngModel)]="item.name"
-              [ngModelOptions]="{standalone: true}"
-              [checked]="item?.checked ?? false"
-              [required]="item?.required ?? false"
-              [disabled]="item?.disabled ?? false"
               class="checkbox"
+              [formControlName]="item.controlName"
             />
             <span class="label-text">{{ item.label }}</span>
           </label>
@@ -36,15 +29,10 @@
       @case ("radio") {
         @for (option of item.options; track option.value) {
           <div class="form-control">
-            <label class="label cursor-pointer">
+            <label class="label cursor-pointer justify-normal gap-4">
               <input
                 type="radio"
-                [(ngModel)]="item.name"
-                [ngModelOptions]="{standalone: true}"
-                [value]="item?.value"
-                [checked]="item?.checked"
-                [required]="item?.required ?? false"
-                [disabled]="item?.disabled ?? false"
+                [formControlName]="item.controlName"
               />
               <span class="label-text">{{ option.label }}</span>
             </label>
@@ -57,14 +45,11 @@
             <span class="label-text">{{ item.label }}</span>
           </div>
           <select
-            [(ngModel)]="item.name"
-            [ngModelOptions]="{standalone: true}"
-            [required]="item?.required ?? false"
-            [disabled]="item?.disabled ?? false"
             class="select select-bordered"
+            [formControlName]="item.controlName"
           >
             @for (option of item.options; track option.value) {
-              <option [value]="option?.value" [selected]="option?.selected" [disabled]="option?.disabled">
+              <option [value]="option?.value">
                 {{ option.label }}
               </option>
             }
@@ -79,10 +64,7 @@
           <textarea
             class="textarea textarea-bordered h-24"
             [placeholder]="item?.placeholder"
-            [ngModelOptions]="{standalone: true}"
-            [(ngModel)]="item.name"
-            [required]="item?.required ?? false"
-            [disabled]="item?.disabled ?? false"
+            [formControlName]="item.controlName"
           ></textarea>
         </label>
       }
@@ -94,35 +76,25 @@
           <input
             type="date"
             class="input input-bordered w-full max-w-xs"
-            [required]="item?.required ?? false"
-            [disabled]="item?.disabled ?? false"
-            [min]="item?.min"
-            [max]="item?.max"
-            [ngModelOptions]="{standalone: true}"
-            [(ngModel)]="item.name"
+            [formControlName]="item.controlName"
           />
         </label>
       }
-      @case ("rage") {
+      @case ("range") {
         <label class="form-control w-full max-w-xs">
           <div class="label">
             <span class="label-text">{{ item.label }}</span>
           </div>
           <input
             type="range"
-            [required]="item?.required ?? false"
-            [disabled]="item?.disabled ?? false"
-            [min]="item?.min"
-            [max]="item?.max"
-            [ngModelOptions]="{standalone: true}"
-            [(ngModel)]="item.name"
             class="range"
+            [formControlName]="item.controlName"
           />
         </label>
       }
     }
   }
-  <button [disabled]="form.invalid" class="btn">
+  <button class="btn">
     {{ model.submitButtonLabel }}
   </button>
 </form>
