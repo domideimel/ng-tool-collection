@@ -9,10 +9,11 @@
           <input
             type="text"
             class="input input-bordered w-full max-w-xs"
-            [placeholder]="item.placeholder"
+            [ngModelOptions]="{standalone: true}"
+            [placeholder]="item?.placeholder"
             [(ngModel)]="item.name"
-            [required]="item.required"
-            [disabled]="item.disabled"
+            [required]="item?.required ?? false"
+            [disabled]="item?.disabled ?? false"
           />
         </label>
       }
@@ -22,9 +23,10 @@
             <input
               type="checkbox"
               [(ngModel)]="item.name"
-              [checked]="item.checked"
-              [required]="item.required"
-              [disabled]="item.disabled"
+              [ngModelOptions]="{standalone: true}"
+              [checked]="item?.checked ?? false"
+              [required]="item?.required ?? false"
+              [disabled]="item?.disabled ?? false"
               class="checkbox"
             />
             <span class="label-text">{{ item.label }}</span>
@@ -38,10 +40,11 @@
               <input
                 type="radio"
                 [(ngModel)]="item.name"
-                [value]="item.value"
-                [checked]="item.checked"
-                [required]="item.required"
-                [disabled]="item.disabled"
+                [ngModelOptions]="{standalone: true}"
+                [value]="item?.value"
+                [checked]="item?.checked"
+                [required]="item?.required ?? false"
+                [disabled]="item?.disabled ?? false"
               />
               <span class="label-text">{{ option.label }}</span>
             </label>
@@ -55,12 +58,13 @@
           </div>
           <select
             [(ngModel)]="item.name"
-            [required]="item.required"
-            [disabled]="item.disabled"
+            [ngModelOptions]="{standalone: true}"
+            [required]="item?.required ?? false"
+            [disabled]="item?.disabled ?? false"
             class="select select-bordered"
           >
             @for (option of item.options; track option.value) {
-              <option [value]="option.value" [selected]="option.selected" [disabled]="option.disabled">
+              <option [value]="option?.value" [selected]="option?.selected" [disabled]="option?.disabled">
                 {{ option.label }}
               </option>
             }
@@ -74,11 +78,11 @@
           </div>
           <textarea
             class="textarea textarea-bordered h-24"
-            [name]="item.name"
-            [placeholder]="item.placeholder"
-            [(ngModel)]="item.value"
-            [required]="item.required"
-            [disabled]="item.disabled"
+            [placeholder]="item?.placeholder"
+            [ngModelOptions]="{standalone: true}"
+            [(ngModel)]="item.name"
+            [required]="item?.required ?? false"
+            [disabled]="item?.disabled ?? false"
           ></textarea>
         </label>
       }
@@ -90,11 +94,12 @@
           <input
             type="date"
             class="input input-bordered w-full max-w-xs"
-            [required]="item.required"
-            [disabled]="item.disabled"
-            [min]="item.min"
-            [max]="item.max"
-            [(ngModel)]="item.value"
+            [required]="item?.required ?? false"
+            [disabled]="item?.disabled ?? false"
+            [min]="item?.min"
+            [max]="item?.max"
+            [ngModelOptions]="{standalone: true}"
+            [(ngModel)]="item.name"
           />
         </label>
       }
@@ -105,11 +110,12 @@
           </div>
           <input
             type="range"
-            [required]="item.required"
-            [disabled]="item.disabled"
-            [min]="item.min"
-            [max]="item.max"
-            [(ngModel)]="item.value"
+            [required]="item?.required ?? false"
+            [disabled]="item?.disabled ?? false"
+            [min]="item?.min"
+            [max]="item?.max"
+            [ngModelOptions]="{standalone: true}"
+            [(ngModel)]="item.name"
             class="range"
           />
         </label>

@@ -1,6 +1,6 @@
 import { Route } from '@angular/router';
-import { PasswordGeneratorComponent } from './components/password-generator.component';
+import { GeneratorFormComponent } from './components/generator-form/generator-form.component';
 
 export const passwordGeneratorRoutes: Route[] = [
-  { path: '', pathMatch: 'full', component: PasswordGeneratorComponent }
+  { path: '', pathMatch: 'full', children: [{ path: '', component: GeneratorFormComponent }] }
 ];
