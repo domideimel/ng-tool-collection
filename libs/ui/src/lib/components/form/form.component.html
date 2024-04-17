@@ -103,7 +103,7 @@
       }
     }
   }
-  <button [disabled]="!formGroup.valid" class="btn">
+  <button [disabled]="!formGroup.valid" [ngClass]="!formGroup.valid ? 'cursor-not-allowed' : ''" class="btn">
     {{ model.submitButtonLabel }}
   </button>
 </form>
