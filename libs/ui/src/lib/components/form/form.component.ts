@@ -1,8 +1,9 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { FormModel } from '@ng-tool-collection/models';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'lib-form',
   templateUrl: './form.component.html'
 })
@@ -15,6 +16,10 @@ export class FormComponent implements OnInit {
 
   ngOnInit () {
     this.formGroup = this.createForm();
+
+    if (this.model.customValidators) {
+      this.formGroup.setValidators(this.model.customValidators);
+    }
   }
 
   onSubmit () {

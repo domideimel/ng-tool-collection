@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { UiModule } from '@ng-tool-collection/ui';
 
@@ -6,7 +6,8 @@ import { UiModule } from '@ng-tool-collection/ui';
   standalone: true,
   imports: [RouterModule, UiModule],
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
 }
