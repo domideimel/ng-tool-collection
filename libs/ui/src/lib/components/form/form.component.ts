@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, ValidationErrors } from '@angular/forms';
 import { FormModel } from '@ng-tool-collection/models';
 
 @Component({
@@ -13,6 +13,10 @@ export class FormComponent implements OnInit {
   formGroup!: FormGroup;
 
   constructor (private fb: FormBuilder) {}
+
+  hasErrors (controlName: string): ValidationErrors | undefined | null {
+    return this.formGroup.get(controlName)?.errors;
+  }
 
   ngOnInit () {
     this.formGroup = this.createForm();
