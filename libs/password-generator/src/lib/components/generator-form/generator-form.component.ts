@@ -43,10 +43,10 @@ export class GeneratorFormComponent {
   };
   password = signal<string>('');
 
-  constructor (private pgenService: PasswordGeneratorService) {}
+  constructor (private passwordGeneratorService: PasswordGeneratorService) {}
 
   onSubmit (value: GenerationProperties) {
-    this.password.set(this.pgenService.generatePassword(value));
+    this.password.set(this.passwordGeneratorService.generatePassword(value));
   }
 
   async copyToClipboard () {
