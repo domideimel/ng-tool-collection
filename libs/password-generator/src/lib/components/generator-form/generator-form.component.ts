@@ -1,9 +1,11 @@
-import { Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { FormModel, GenerationProperties } from '@ng-tool-collection/models';
 import { Validators } from '@angular/forms';
 import { PasswordGeneratorService } from '../../services/password-generator.service';
+import { atLeastOneCheckedValidator } from '@ng-tool-collection/ui';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'lib-generator-form',
   templateUrl: './generator-form.component.html'
 })
@@ -36,7 +38,8 @@ export class GeneratorFormComponent {
       type: 'checkbox',
       value: true
     }],
-    submitButtonLabel: 'Passwort generieren'
+    submitButtonLabel: 'Passwort generieren',
+    customValidators: atLeastOneCheckedValidator(['upper', 'lower', 'symbol', 'number'])
   };
   password = signal<string>('');
 
