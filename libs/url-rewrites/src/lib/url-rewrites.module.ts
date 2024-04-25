@@ -5,7 +5,6 @@ import { urlRewritesRoutes } from './lib.routes';
 import { UrlRewritesComponent } from './components/url-rewrites.component';
 
 @NgModule({
-  imports: [CommonModule, RouterModule.forChild(urlRewritesRoutes)],
-  declarations: [UrlRewritesComponent]
+  imports: [CommonModule, RouterModule.forChild(urlRewritesRoutes), UrlRewritesComponent]
 })
 export class UrlRewritesModule {}
