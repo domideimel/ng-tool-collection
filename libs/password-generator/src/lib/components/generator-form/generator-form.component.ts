@@ -4,11 +4,16 @@ import { Validators } from '@angular/forms';
 import { PasswordGeneratorService } from '../../services/password-generator.service';
 import { atLeastOneCheckedValidator } from '@ng-tool-collection/ui';
 import { LocalStorageService } from 'ngx-localstorage';
+import { ToastsComponent } from '../../../../../ui/src/lib/components/toasts/toasts.component';
+import { FormComponent } from '../../../../../ui/src/lib/components/form/form.component';
+import { CardComponent } from '../../../../../ui/src/lib/components/card/card.component';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'lib-generator-form',
-  templateUrl: './generator-form.component.html'
+  templateUrl: './generator-form.component.html',
+  standalone: true,
+  imports: [CardComponent, FormComponent, ToastsComponent]
 })
 export class GeneratorFormComponent {
   formModel: FormModel = {

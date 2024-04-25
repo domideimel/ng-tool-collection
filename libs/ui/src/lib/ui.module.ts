@@ -9,14 +9,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ToastsComponent } from './components/toasts/toasts.component';
 
 @NgModule({
-  imports: [CommonModule, RouterLink, RouterLinkActive, ReactiveFormsModule],
-  declarations: [
-    NavbarComponent,
+  imports: [CommonModule, RouterLink, RouterLinkActive, ReactiveFormsModule, NavbarComponent,
     DrawerComponent,
     CardComponent,
     FormComponent,
-    ToastsComponent
-  ],
+    ToastsComponent],
   exports: [NavbarComponent, DrawerComponent, CardComponent, FormComponent, ToastsComponent]
 })
 export class UiModule {}
