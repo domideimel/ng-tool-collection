@@ -3,6 +3,7 @@ import { FormModel, GenerationProperties, Toast } from '@ng-tool-collection/mode
 import { Validators } from '@angular/forms';
 import { PasswordGeneratorService } from '../../services/password-generator.service';
 import { atLeastOneCheckedValidator } from '@ng-tool-collection/ui';
+import { LocalStorageService } from 'ngx-localstorage';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -45,7 +46,10 @@ export class GeneratorFormComponent {
   password = signal<string>('');
   messages = signal<Toast[]>([]);
 
-  constructor (private passwordGeneratorService: PasswordGeneratorService) {}
+  constructor (
+    private passwordGeneratorService: PasswordGeneratorService,
+    private storageService: LocalStorageService
+  ) {}
 
   onSubmit (value: GenerationProperties) {
     this.password.set(this.passwordGeneratorService.generatePassword(value));
@@ -54,6 +58,8 @@ export class GeneratorFormComponent {
   async copyToClipboard () {
     try {
       await navigator.clipboard.writeText(this.password());
+      const oldPasswords = this.storageService.get('passwords') as string[];
+      this.storageService.set('passwords', [this.password(), ...oldPasswords ?? []]);
       this.messages.update(old => [...old, {
         alertType: 'alert-success',
         message: 'Passwort wurde erfolgreich kopiert'
