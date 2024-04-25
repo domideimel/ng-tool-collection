@@ -6,7 +6,7 @@ import { GeneratorFormComponent } from './components/generator-form/generator-fo
 import { UiModule } from '@ng-tool-collection/ui';
 
 @NgModule({
-  imports: [CommonModule, RouterModule.forChild(passwordGeneratorRoutes), UiModule],
+  imports: [CommonModule, UiModule, RouterModule.forChild(passwordGeneratorRoutes)],
   declarations: [GeneratorFormComponent]
 })
 export class PasswordGeneratorModule {}
