@@ -1,14 +1,11 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, ValidationErrors } from '@angular/forms';
+import { FormBuilder, FormGroup, ValidationErrors } from '@angular/forms';
 import { FormModel } from '@ng-tool-collection/models';
-import { NgClass } from '@angular/common';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'lib-form',
-  templateUrl: './form.component.html',
-  standalone: true,
-  imports: [ReactiveFormsModule, NgClass]
+  templateUrl: './form.component.html'
 })
 export class FormComponent implements OnInit {
   @Input() model: FormModel = {} as FormModel;
