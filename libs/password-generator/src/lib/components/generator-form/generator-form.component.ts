@@ -3,7 +3,7 @@ import { FormModel, GenerationProperties, Toast } from '@ng-tool-collection/mode
 import { Validators } from '@angular/forms';
 import { PasswordGeneratorService } from '../../services/password-generator.service';
 import { atLeastOneCheckedValidator } from '@ng-tool-collection/ui';
-import { LocalStorageService } from 'ngx-localstorage';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -45,6 +45,7 @@ export class GeneratorFormComponent {
 
   password = signal<string>('');
   messages = signal<Toast[]>([]);
+  hasCopied = signal<boolean>(false);
 
   constructor (
     private passwordGeneratorService: PasswordGeneratorService,
@@ -53,18 +54,20 @@ export class GeneratorFormComponent {
 
   onSubmit (value: GenerationProperties) {
     this.password.set(this.passwordGeneratorService.generatePassword(value));
+    this.hasCopied.set(false);
   }
 
   async copyToClipboard () {
     try {
       await navigator.clipboard.writeText(this.password());
-      const oldPasswords = this.storageService.get('passwords') as string[];
-      this.storageService.set('passwords', [this.password(), ...oldPasswords ?? []]);
+      const oldPasswords = this.storageService.retrieve('passwords') ?? [];
+      this.storageService.store('passwords', [this.password(), ...oldPasswords]);
+      this.hasCopied.set(true);
       this.messages.update(old => [...old, {
         alertType: 'alert-success',
         message: 'Passwort wurde erfolgreich kopiert'
       }]);
-    } catch (e: any) {
+    } catch (e: unknown) {
       this.messages.update(old => [...old, {
         alertType: 'alert-error',
         message: 'Beim kopieren ist etwas schief gelaufen'
