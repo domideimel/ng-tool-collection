@@ -5,16 +5,18 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { DrawerComponent } from './components/drawer/drawer.component';
 import { CardComponent } from './components/card/card.component';
 import { FormComponent } from './components/form/form.component';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ToastsComponent } from './components/toasts/toasts.component';
 
 @NgModule({
-  imports: [CommonModule, RouterLink, RouterLinkActive, FormsModule],
+  imports: [CommonModule, RouterLink, RouterLinkActive, ReactiveFormsModule],
   declarations: [
     NavbarComponent,
     DrawerComponent,
     CardComponent,
-    FormComponent
+    FormComponent,
+    ToastsComponent
   ],
-  exports: [NavbarComponent, DrawerComponent, CardComponent, FormComponent]
+  exports: [NavbarComponent, DrawerComponent, CardComponent, FormComponent, ToastsComponent]
 })
 export class UiModule {}

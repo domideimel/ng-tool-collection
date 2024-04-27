@@ -4,9 +4,16 @@ import { RouterModule } from '@angular/router';
 import { passwordGeneratorRoutes } from './lib.routes';
 import { GeneratorFormComponent } from './components/generator-form/generator-form.component';
 import { UiModule } from '@ng-tool-collection/ui';
+import { GeneratorPasswordOverviewComponent } from './components/generator-password-overview/generator-password-overview.component';
+import { GeneratorWrapperComponent } from './components/generator-wrapper/generator-wrapper.component';
 
 @NgModule({
-  imports: [CommonModule, RouterModule.forChild(passwordGeneratorRoutes), UiModule],
-  declarations: [GeneratorFormComponent]
+  imports: [
+    CommonModule,
+    UiModule,
+    RouterModule.forChild(passwordGeneratorRoutes)
+  ],
+  declarations: [GeneratorFormComponent, GeneratorPasswordOverviewComponent, GeneratorWrapperComponent],
+  exports: [GeneratorFormComponent, GeneratorPasswordOverviewComponent, GeneratorWrapperComponent]
 })
 export class PasswordGeneratorModule {}
