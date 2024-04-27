@@ -1,4 +1,4 @@
-<lib-card [showLink]='false'>
+<lib-card [showLink]='false' title="Password Generator">
   <label class="input input-bordered flex items-center gap-2">
     <input [value]="password()" class="grow" placeholder="Passwort" readonly type="text" />
     <button (click)="copyToClipboard()" [disabled]="hasCopied()" class="btn btn-circle btn-sm">
@@ -17,6 +17,3 @@
     [model]="formModel"
   />
 </lib-card>
-<lib-toasts
-  [toasts]="messages()"
-/>

@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { FormModel, GenerationProperties, Toast } from '@ng-tool-collection/models';
+import { FormModel, GenerationProperties } from '@ng-tool-collection/models';
 import { Validators } from '@angular/forms';
 import { PasswordGeneratorService } from '../../services/password-generator.service';
 import { atLeastOneCheckedValidator } from '@ng-tool-collection/ui';
-import { LocalStorageService } from 'ngx-webstorage';
+import { LocalStorageService, SessionStorageService } from 'ngx-webstorage';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -44,12 +44,12 @@ export class GeneratorFormComponent {
   };
 
   password = signal<string>('');
-  messages = signal<Toast[]>([]);
   hasCopied = signal<boolean>(false);
 
   constructor (
     private passwordGeneratorService: PasswordGeneratorService,
-    private storageService: LocalStorageService
+    private storageService: LocalStorageService,
+    private sessionStorageService: SessionStorageService
   ) {}
 
   onSubmit (value: GenerationProperties) {
@@ -63,14 +63,16 @@ export class GeneratorFormComponent {
       const oldPasswords = this.storageService.retrieve('passwords') ?? [];
       this.storageService.store('passwords', [this.password(), ...oldPasswords]);
       this.hasCopied.set(true);
-      this.messages.update(old => [...old, {
+      this.sessionStorageService.store('toasts', [{
         alertType: 'alert-success',
-        message: 'Passwort wurde erfolgreich kopiert'
+        message: 'Passwort wurde erfolgreich kopiert',
+        index: crypto.randomUUID()
       }]);
     } catch (e: unknown) {
-      this.messages.update(old => [...old, {
+      this.sessionStorageService.store('toasts', [{
         alertType: 'alert-error',
-        message: 'Beim kopieren ist etwas schief gelaufen'
+        message: 'Beim kopieren ist etwas schief gelaufen',
+        index: crypto.randomUUID()
       }]);
     }
   }
