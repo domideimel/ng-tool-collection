@@ -73,7 +73,7 @@
         </label>
       }
       @case ("date") {
-        <label class="form-control w-full max-w-xs">
+        <label class="form-control w-full lg:max-w-xs">
           <div class="label">
             <span class="label-text">{{ item.label }}</span>
           </div>
@@ -93,7 +93,7 @@
           <div class="flex gap-4 flex-wrap">
             <input
               type="range"
-              class="range max-w-xs"
+              class="range w-full lg:max-w-xs"
               [formControlName]="item.controlName"
               [ngClass]="[hasErrors(item.controlName) ? 'range-error' : '']"
             />
