@@ -4,44 +4,32 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UrlRewritesService {
-  generateRewrites = ({
-    oldUrl,
-    newUrl,
-    is301 = true
-  }: {
-    oldUrl: string;
-    newUrl: string;
-    is301?: boolean;
-  }): string => {
-    try {
-      const url = new URL(oldUrl);
+  generateRewrites (urlRows: { urlRows: { oldUrl: string; newUrl: string }[] }): string {
+    let rewrites = '';
+    for (const urlRow of urlRows.urlRows) {
+      try {
+        const oldUrl = new URL(urlRow.oldUrl);
 
-      if (!url) {
-        new Error('Invalid URL');
-      }
+        const statusCode = 301; // Assuming 301 for now (can be configurable)
 
-      const statusCode = is301 ? 301 : 302;
+        const path = this.preparePathForRegex(oldUrl.pathname);
+        const query = this.preparePathForRegex(oldUrl.search);
+        const host = this.preparePathForRegex(oldUrl.hostname);
 
-      const path = this.preparePathForRegex(url.pathname);
-      const query = this.preparePathForRegex(url.search);
-      const host = this.preparePathForRegex(url.hostname);
-
-      if (!query.length) {
-        return `RewriteCond %{HTTP_HOST} ${host}$
+        const rewrite = `
+RewriteCond %{HTTP_HOST} ${host}$
+${query.length ? `RewriteCond %{QUERY_STRING} ^${query}$` : ''}
 RewriteCond %{REQUEST_URI} ^${path}$
-RewriteRule .* RewriteRule .* ${newUrl} [NE,R=${statusCode},L]`;
-      }
+RewriteRule .* ${urlRow.newUrl} [NE,R=${statusCode},L]
+`;
 
-      return `RewriteCond %{HTTP_HOST} ${host}$
-RewriteCond %{QUERY_STRING} ^${query}$
-RewriteCond %{REQUEST_URI} ^${path}$
-RewriteRule .* RewriteRule .* ${newUrl} [NE,R=${statusCode},L]`;
-    } catch (error: unknown) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
-      return error.message;
+        rewrites += rewrite;
+      } catch (error: unknown) {
+        console.error('Error generating rewrite for URL row:', urlRow, error);
+      }
     }
-  };
+    return rewrites;
+  }
 
   preparePathForRegex = (path: string): string => {
     return path.replaceAll(/[\^$*+?{}\[\]\\|()\-\/_.]/g, '\\$&');

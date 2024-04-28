@@ -1,5 +1,8 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HotToastService } from '@ngneat/hot-toast';
+import { urlValidator } from '@ng-tool-collection/ui';
+import { UrlRewritesService } from '../services/url-rewrites.service';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -8,8 +11,9 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class UrlRewritesComponent implements OnInit {
   formGroup!: FormGroup;
+  result = signal<string>('');
 
-  constructor (private fb: FormBuilder) {}
+  constructor (private fb: FormBuilder, private toast: HotToastService, private rewriteService: UrlRewritesService) {}
 
   get urlRowsFormArray () {
     return this.formGroup.get('urlRows') as FormArray;
@@ -22,16 +26,16 @@ export class UrlRewritesComponent implements OnInit {
   ngOnInit (): void {
     this.formGroup = this.fb.group({
       urlRows: this.fb.array([this.fb.group({
-        oldUrl: ['', [Validators.min(1), Validators.required]],
-        newUrl: ['', [Validators.min(1), Validators.required]]
+        oldUrl: ['', [urlValidator, Validators.required]],
+        newUrl: ['', [urlValidator, Validators.required]]
       })])
     });
   }
 
   addUrlRow () {
     const urlRow = this.fb.group({
-      oldUrl: ['', [Validators.min(1), Validators.required]],
-      newUrl: ['', [Validators.min(1), Validators.required]]
+      oldUrl: ['', [urlValidator, Validators.required]],
+      newUrl: ['', [urlValidator, Validators.required]]
     });
     this.urlRowsFormArray.push(urlRow);
   }
@@ -40,8 +44,20 @@ export class UrlRewritesComponent implements OnInit {
     if (this.hasOnlyOneRow) {
       return;
     }
-    this.urlRowsFormArray.removeAt(index);
+    (this.formGroup.get('urlRows') as FormArray).removeAt(index);
   }
 
-  onSubmit () {}
+  onSubmit () {
+    const result = this.rewriteService.generateRewrites(this.formGroup.value);
+    this.result.set(result);
+  }
+
+  async copyRewrites () {
+    try {
+      await navigator.clipboard.writeText(this.result());
+      this.toast.success('Die Rewrites wurden erfolgreich kopiert');
+    } catch (e: unknown) {
+      this.toast.success('Es gab ein Fehler beim kopieren');
+    }
+  }
 }

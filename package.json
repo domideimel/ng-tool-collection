@@ -23,6 +23,7 @@
     "ngx-webstorage": "^13.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "validator": "^13.11.0",
     "zone.js": "~0.14.3"
   },
   "devDependencies": {
@@ -47,6 +48,7 @@
     "@types/jest": "^29.4.0",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "18.16.9",
+    "@types/validator": "^13.11.9",
     "@typescript-eslint/eslint-plugin": "^7.3.0",
     "@typescript-eslint/parser": "^7.3.0",
     "autoprefixer": "^10.4.0",
