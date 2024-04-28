@@ -39,15 +39,6 @@ export class FormComponent implements OnInit {
       });
     }
 
-    if (this.model?.rows) {
-      this.model?.rows.forEach(control => {
-        control?.forEach(control => {
-          group[control.controlName] = [control.value || '', control.validators || []];
-        });
-      });
-
-    }
-
     return this.fb.group(group);
   }
 }
