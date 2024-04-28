@@ -17,6 +17,7 @@
     "@angular/platform-browser": "~17.3.0",
     "@angular/platform-browser-dynamic": "~17.3.0",
     "@angular/router": "~17.3.0",
+    "@ngneat/hot-toast": "^7.0.0",
     "@nx/angular": "18.3.4",
     "lodash-es": "^4.17.21",
     "ngx-webstorage": "^13.0.1",
@@ -67,4 +68,3 @@
     "includedScripts": []
   }
 }
-

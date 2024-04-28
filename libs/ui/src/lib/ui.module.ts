@@ -6,7 +6,6 @@ import { DrawerComponent } from './components/drawer/drawer.component';
 import { CardComponent } from './components/card/card.component';
 import { FormComponent } from './components/form/form.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ToastsComponent } from './components/toasts/toasts.component';
 
 @NgModule({
   imports: [CommonModule, RouterLink, RouterLinkActive, ReactiveFormsModule],
@@ -14,9 +13,8 @@ import { ToastsComponent } from './components/toasts/toasts.component';
     NavbarComponent,
     DrawerComponent,
     CardComponent,
-    FormComponent,
-    ToastsComponent
+    FormComponent
   ],
-  exports: [NavbarComponent, DrawerComponent, CardComponent, FormComponent, ToastsComponent]
+  exports: [NavbarComponent, DrawerComponent, CardComponent, FormComponent]
 })
 export class UiModule {}

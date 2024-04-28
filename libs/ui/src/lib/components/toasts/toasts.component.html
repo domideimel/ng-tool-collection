@@ -1,7 +1,0 @@
-<div [ngClass]="[horizontalAlignment, verticalAlignment]" class="toast">
-  @for (toast of toasts(); track toast.index) {
-    <div class="alert" [ngClass]="toast.alertType">
-      <span>{{ toast.message }}</span>
-    </div>
-  }
-</div>
