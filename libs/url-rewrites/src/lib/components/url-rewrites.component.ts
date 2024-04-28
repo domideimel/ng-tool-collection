@@ -41,10 +41,7 @@ export class UrlRewritesComponent implements OnInit {
   }
 
   removeUrlRow (index: number) {
-    if (this.hasOnlyOneRow) {
-      return;
-    }
-    (this.formGroup.get('urlRows') as FormArray).removeAt(index);
+    this.urlRowsFormArray.removeAt(index);
   }
 
   onSubmit () {

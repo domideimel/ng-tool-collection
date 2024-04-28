@@ -1,7 +1,7 @@
 <div class="space-y-8">
   <form (ngSubmit)="onSubmit()" [formGroup]="formGroup" class="grid grid-cols-1 gap-4">
     <div formArrayName="urlRows">
-      @for (row of urlRowsFormArray.controls; track $index) {
+      @for (row of urlRowsFormArray.controls; track row) {
         <div class="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_1fr_auto] lg:gap-12" [formGroupName]="$index">
           <label class="form-control ">
             <div class="label">
