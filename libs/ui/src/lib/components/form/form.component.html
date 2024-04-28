@@ -11,6 +11,7 @@
             class="input input-bordered "
             [placeholder]="item?.placeholder"
             [formControlName]="item.controlName"
+            [attr.id]="item.controlName"
           />
         </label>
       }
@@ -22,6 +23,7 @@
               class="checkbox"
               [formControlName]="item.controlName"
               [ngClass]="[hasErrors(item.controlName) ? 'checkbox-error' : '']"
+              [attr.id]="item.controlName"
             />
             <span class="label-text">{{ item.label }}</span>
           </label>
@@ -36,6 +38,7 @@
                 class="radio"
                 [formControlName]="item.controlName"
                 [ngClass]="[hasErrors(item.controlName) ? 'radio-error' : '']"
+                [attr.id]="item.controlName"
               />
               <span class="label-text">{{ option.label }}</span>
             </label>
@@ -51,6 +54,7 @@
             class="select select-bordered"
             [formControlName]="item.controlName"
             [ngClass]="[hasErrors(item.controlName) ? 'select-error' : '']"
+            [attr.id]="item.controlName"
           >
             @for (option of item.options; track option.value) {
               <option [value]="option?.value">
@@ -69,6 +73,7 @@
             class="textarea textarea-bordered h-24"
             [formControlName]="item.controlName"
             [ngClass]="[hasErrors(item.controlName) ? 'textarea-error' : '']"
+            [attr.id]="item.controlName"
           ></textarea>
         </label>
       }
@@ -82,6 +87,7 @@
             class="input input-bordered "
             [formControlName]="item.controlName"
             [ngClass]="[hasErrors(item.controlName) ? 'input-error' : '']"
+            [attr.id]="item.controlName"
           />
         </label>
       }
@@ -96,6 +102,7 @@
               class="range w-full lg:max-w-xs"
               [formControlName]="item.controlName"
               [ngClass]="[hasErrors(item.controlName) ? 'range-error' : '']"
+              [attr.id]="item.controlName"
             />
             <div class="range-value">{{ formGroup.get(item.controlName)?.value }}</div>
           </div>
@@ -103,7 +110,8 @@
       }
     }
   }
-  <button [disabled]="!formGroup.valid" [ngClass]="!formGroup.valid ? 'cursor-not-allowed' : ''" class="btn">
+  <button [disabled]="!formGroup.valid" [ngClass]="!formGroup.valid ? 'cursor-not-allowed' : ''"
+          class="btn">
     {{ model.submitButtonLabel }}
   </button>
 </form>

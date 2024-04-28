@@ -1,6 +1,10 @@
 <div class="drawer drawer-end">
-  <input class="drawer-toggle" id="nav-toggle"
-         type="checkbox" />
+  <input
+    [attr.checked]="isOpen() ? true : null"
+    class="drawer-toggle"
+    id="nav-toggle"
+    type="checkbox"
+  />
   <div class="drawer-content">
     <lib-navbar [links]="navItems" />
     <div class="container">

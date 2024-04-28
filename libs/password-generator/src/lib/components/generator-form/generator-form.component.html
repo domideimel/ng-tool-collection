@@ -1,6 +1,6 @@
 <lib-card [showLink]='false' title="Password Generator">
   <label class="input input-bordered flex items-center gap-2">
-    <input [value]="password()" class="grow" placeholder="Passwort" readonly type="text" />
+    <input [value]="password()" class="grow" id="password" placeholder="Passwort" readonly type="text" />
     <button (click)="copyToClipboard()" [disabled]="hasCopied()" class="btn btn-circle btn-sm">
       <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
            xmlns="http://www.w3.org/2000/svg">
