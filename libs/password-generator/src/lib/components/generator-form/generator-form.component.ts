@@ -3,7 +3,8 @@ import { FormModel, GenerationProperties } from '@ng-tool-collection/models';
 import { Validators } from '@angular/forms';
 import { PasswordGeneratorService } from '../../services/password-generator.service';
 import { atLeastOneCheckedValidator } from '@ng-tool-collection/ui';
-import { LocalStorageService, SessionStorageService } from 'ngx-webstorage';
+import { LocalStorageService } from 'ngx-webstorage';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -49,7 +50,7 @@ export class GeneratorFormComponent {
   constructor (
     private passwordGeneratorService: PasswordGeneratorService,
     private storageService: LocalStorageService,
-    private sessionStorageService: SessionStorageService
+    private toast: HotToastService
   ) {}
 
   onSubmit (value: GenerationProperties) {
@@ -63,17 +64,9 @@ export class GeneratorFormComponent {
       const oldPasswords = this.storageService.retrieve('passwords') ?? [];
       this.storageService.store('passwords', [this.password(), ...oldPasswords]);
       this.hasCopied.set(true);
-      this.sessionStorageService.store('toasts', [{
-        alertType: 'alert-success',
-        message: 'Passwort wurde erfolgreich kopiert',
-        index: crypto.randomUUID()
-      }]);
+      this.toast.success('Passwort wurde erfolgreich kopiert');
     } catch (e: unknown) {
-      this.sessionStorageService.store('toasts', [{
-        alertType: 'alert-error',
-        message: 'Beim kopieren ist etwas schief gelaufen',
-        index: crypto.randomUUID()
-      }]);
+      this.toast.error('Beim kopieren ist etwas schief gelaufen');
     }
   }
 
