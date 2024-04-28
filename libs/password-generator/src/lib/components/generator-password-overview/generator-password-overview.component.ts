@@ -7,7 +7,7 @@ import { LocalStorageService, SessionStorageService } from 'ngx-webstorage';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GeneratorPasswordOverviewComponent implements OnInit {
-  passwords = signal<string[]>([]);
+  passwords = signal<string[] | null>([]);
 
   constructor (private storageService: LocalStorageService, private sessionStorageService: SessionStorageService) {}
 

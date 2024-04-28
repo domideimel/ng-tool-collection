@@ -33,9 +33,20 @@ export class FormComponent implements OnInit {
   private createForm (): FormGroup {
     const group: any = {};
 
-    this.model.items.forEach(control => {
-      group[control.controlName] = [control.value || '', control.validators || []];
-    });
+    if (this.model?.items) {
+      this.model?.items?.forEach(control => {
+        group[control.controlName] = [control.value || '', control.validators || []];
+      });
+    }
+
+    if (this.model?.rows) {
+      this.model?.rows.forEach(control => {
+        control?.forEach(control => {
+          group[control.controlName] = [control.value || '', control.validators || []];
+        });
+      });
+
+    }
 
     return this.fb.group(group);
   }

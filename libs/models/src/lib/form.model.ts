@@ -1,7 +1,8 @@
 import { ValidatorFn, Validators } from '@angular/forms';
 
 export interface FormModel {
-  items: FormControlModel[];
+  items?: FormControlModel[];
+  rows?: FormControlModel[][];
   submitButtonLabel: string;
   customValidators?: ValidatorFn | ValidatorFn[];
 }
