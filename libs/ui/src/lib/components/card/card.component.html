@@ -1,4 +1,4 @@
-<div class="card bg-base-100 shadow-xl flex flex-col h-full p-4 md:p-8">
+<div class="card shadow-2xl dark:shadow-none dark:bg-neutral dark:text-neutral-content flex flex-col h-full p-0">
   <div class="card-body gap-4">
     <h2 class="card-title">{{ title }}</h2>
     @if (description.length) {
@@ -8,7 +8,7 @@
     }
     @if (showLink) {
       <div class="card-actions justify-end">
-        <button [routerLink]="link" class="btn btn-primary">{{ linkText }}</button>
+        <button [routerLink]="link" class="btn btn-outline">{{ linkText }}</button>
       </div>
     }
   </div>
