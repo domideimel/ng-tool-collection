@@ -61,7 +61,7 @@
         }
       </div>
       <div>
-        <button [disabled]="!formGroup.valid" class="btn btn-outline" type="submit">Generieren</button>
+        <button [disabled]="!formGroup.valid" class="btn btn-outline w-full lg:w-auto" type="submit">Generieren</button>
       </div>
     </form>
     @if (result().length) {
@@ -71,7 +71,7 @@
         </div>
         <textarea [value]="result()" class="textarea textarea-bordered h-48" placeholder="Rewrites" readonly></textarea>
       </label>
-      <button (click)="copyRewrites()" class="btn btn-outline" type="button">Rewrites kopieren</button>
+      <button (click)="copyRewrites()" class="btn btn-outline w-full lg:w-auto" type="button">Rewrites kopieren</button>
     }
   </div>
 </lib-card>

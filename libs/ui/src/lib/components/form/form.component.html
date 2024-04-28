@@ -110,8 +110,11 @@
       }
     }
   }
-  <button [disabled]="!formGroup.valid" [ngClass]="!formGroup.valid ? 'cursor-not-allowed' : ''"
-          class="btn">
+  <button
+    [disabled]="!formGroup.valid"
+    [ngClass]="!formGroup.valid ? 'cursor-not-allowed' : ''"
+    class="btn btn-outline"
+  >
     {{ model.submitButtonLabel }}
   </button>
 </form>

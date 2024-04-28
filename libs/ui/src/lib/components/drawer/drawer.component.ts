@@ -1,7 +1,6 @@
-import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Link } from '@ng-tool-collection/models';
 import { NAVIGATION } from '@ng-tool-collection/constants';
-import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -10,17 +9,12 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class DrawerComponent implements OnInit {
   navItems: Link[] = [];
-  isOpen = signal<boolean>(false);
 
-  constructor (private router: Router) {}
+  get currentYear () {
+    return new Date().getFullYear();
+  }
 
   ngOnInit (): void {
     this.navItems = NAVIGATION;
-
-    this.router.events.subscribe(ev => {
-      if (ev instanceof NavigationEnd) {
-        this.isOpen.set(false);
-      }
-    });
   }
 }

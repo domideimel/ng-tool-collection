@@ -1,22 +1,27 @@
-<div class="drawer drawer-end">
+<div class="drawer drawer-end min-h-screen">
   <input
-    [attr.checked]="isOpen() ? true : null"
     class="drawer-toggle"
     id="nav-toggle"
     type="checkbox"
   />
-  <div class="drawer-content">
+  <div class="drawer-content flex flex-col">
     <lib-navbar [links]="navItems" />
-    <div class="container">
+    <main class="container py-8 flex-1">
       <ng-content />
-    </div>
+    </main>
+    <footer class="footer footer-center p-4 bg-base-300 text-base-content">
+      <aside>
+        <p>Copyright © {{ currentYear }}</p>
+      </aside>
+    </footer>
   </div>
   <div class="drawer-side z-40 lg:hidden">
     <label aria-label="close sidebar" class="drawer-overlay" for="nav-toggle"></label>
 
     <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
       <li>
-        <label aria-label="close sidebar" class="btn btn-ghost btn-circle self-end" for="nav-toggle">
+        <label aria-label="close sidebar" class="btn btn-ghost btn-circle self-end"
+               for="nav-toggle">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
                xmlns="http://www.w3.org/2000/svg">
             <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
