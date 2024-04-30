@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { LocalStorageService } from 'ngx-webstorage';
 import { HotToastService } from '@ngneat/hot-toast';
 import { toSignal } from '@angular/core/rxjs-interop';
@@ -10,9 +10,10 @@ import { toSignal } from '@angular/core/rxjs-interop';
 })
 export class GeneratorPasswordOverviewComponent {
   newPasswords = toSignal<string[]>(this.storageService.observe('passwords'));
+  initialPasswords = signal<string[]>(this.storageService.retrieve('passwords'));
   passwords = computed<string[]>(() => {
-    const initialPasswords = (this.storageService.retrieve('passwords')) as string[];
-    return [...this.newPasswords() ?? [], ...initialPasswords];
+    if (!this.newPasswords()) return this.initialPasswords();
+    return this.newPasswords() as string[];
   });
 
   constructor (private storageService: LocalStorageService, private toast: HotToastService) {}
