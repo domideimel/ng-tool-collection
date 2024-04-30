@@ -12,8 +12,8 @@ export class GeneratorPasswordOverviewComponent {
   newPasswords = toSignal<string[]>(this.storageService.observe('passwords'));
   initialPasswords = signal<string[]>(this.storageService.retrieve('passwords'));
   passwords = computed<string[]>(() => {
-    if (!this.newPasswords()) return this.initialPasswords();
-    return this.newPasswords() as string[];
+    if (!this.newPasswords()) return this.initialPasswords() ?? [];
+    return this.newPasswords() ?? [];
   });
 
   constructor (private storageService: LocalStorageService, private toast: HotToastService) {}
