@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, ValidationErrors } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, input, OnInit, output } from '@angular/core';
+import { FormBuilder, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { FormModel } from '@ng-tool-collection/models';
 
 @Component({
@@ -7,9 +7,9 @@ import { FormModel } from '@ng-tool-collection/models';
   selector: 'lib-form',
   templateUrl: './form.component.html'
 })
-export class FormComponent implements OnInit {
-  @Input() model: FormModel = {} as FormModel;
-  @Output() submitEvent = new EventEmitter();
+export class FormComponent<T> implements OnInit {
+  model = input.required<FormModel>();
+  submitEvent = output<T>();
   formGroup!: FormGroup;
 
   constructor (private fb: FormBuilder) {}
@@ -21,8 +21,8 @@ export class FormComponent implements OnInit {
   ngOnInit () {
     this.formGroup = this.createForm();
 
-    if (this.model.customValidators) {
-      this.formGroup.setValidators(this.model.customValidators);
+    if (this.model()?.customValidators) {
+      this.formGroup.setValidators(this.model().customValidators as ValidatorFn | ValidatorFn[]);
     }
   }
 
@@ -33,8 +33,8 @@ export class FormComponent implements OnInit {
   private createForm (): FormGroup {
     const group: any = {};
 
-    if (this.model?.items) {
-      this.model?.items?.forEach(control => {
+    if (this.model()?.items) {
+      this.model()?.items?.forEach(control => {
         group[control.controlName] = [control.value || '', control.validators || []];
       });
     }

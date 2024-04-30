@@ -1,5 +1,5 @@
 <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-  @for (item of cards; track item.label) {
+  @for (item of cards(); track item.label) {
     <lib-card
       [title]="item.label"
       [description]="item?.description ?? ''"
