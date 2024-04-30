@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { Link } from '@ng-tool-collection/models';
 
 @Component({
@@ -7,6 +7,6 @@ import { Link } from '@ng-tool-collection/models';
   templateUrl: './navbar.component.html'
 })
 export class NavbarComponent {
-  @Input() title = 'Tool Collection';
-  @Input() links: Link[] = [];
+  title = input('Tool Collection');
+  links = input.required<Link[]>();
 }

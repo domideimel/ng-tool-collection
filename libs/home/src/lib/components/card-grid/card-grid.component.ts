@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { Link } from '@ng-tool-collection/models';
 import { NAVIGATION } from '@ng-tool-collection/constants';
 
@@ -7,10 +7,6 @@ import { NAVIGATION } from '@ng-tool-collection/constants';
   selector: 'lib-card-grid',
   templateUrl: './card-grid.component.html'
 })
-export class CardGridComponent implements OnInit {
-  cards: Link[] = [];
-
-  ngOnInit (): void {
-    this.cards = NAVIGATION;
-  }
+export class CardGridComponent {
+  cards = signal<Link[]>(NAVIGATION);
 }

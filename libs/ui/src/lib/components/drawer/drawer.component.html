@@ -5,7 +5,7 @@
     type="checkbox"
   />
   <div class="drawer-content flex flex-col">
-    <lib-navbar [links]="navItems" />
+    <lib-navbar [links]="navItems()" />
     <main class="container py-8 flex-1">
       <ng-content />
     </main>
@@ -28,7 +28,7 @@
           </svg>
         </label>
       </li>
-      @for (item of navItems; track item.label) {
+      @for (item of navItems(); track item.label) {
         <li>
           @if (!item?.children) {
             <a routerLinkActive="btn-active" [routerLink]="item.path">{{ item.label }}</a>

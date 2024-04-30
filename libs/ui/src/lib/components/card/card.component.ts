@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'lib-card',
@@ -6,9 +6,9 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardComponent {
-  @Input() title = '';
-  @Input() description = '';
-  @Input() link = '';
-  @Input() linkText = 'Zum Tool';
-  @Input() showLink = true;
+  title = input.required<string>();
+  description = input('');
+  link = input('');
+  linkText = input('Zum Tool');
+  showLink = input(true);
 }

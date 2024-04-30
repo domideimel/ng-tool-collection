@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HotToastService } from '@ngneat/hot-toast';
 import { urlValidator } from '@ng-tool-collection/ui';
@@ -9,8 +9,14 @@ import { UrlRewritesService } from '../services/url-rewrites.service';
   selector: 'lib-url-rewrites',
   templateUrl: './url-rewrites.component.html'
 })
-export class UrlRewritesComponent implements OnInit {
-  formGroup!: FormGroup;
+export class UrlRewritesComponent {
+  formGroup: FormGroup = this.fb.group({
+    urlRows: this.fb.array([this.fb.group({
+      oldUrl: ['', [urlValidator, Validators.required]],
+      newUrl: ['', [urlValidator, Validators.required]]
+    })])
+  });
+
   result = signal<string>('');
 
   constructor (private fb: FormBuilder, private toast: HotToastService, private rewriteService: UrlRewritesService) {}
@@ -21,15 +27,6 @@ export class UrlRewritesComponent implements OnInit {
 
   get hasOnlyOneRow (): boolean {
     return this.urlRowsFormArray.length === 1;
-  }
-
-  ngOnInit (): void {
-    this.formGroup = this.fb.group({
-      urlRows: this.fb.array([this.fb.group({
-        oldUrl: ['', [urlValidator, Validators.required]],
-        newUrl: ['', [urlValidator, Validators.required]]
-      })])
-    });
   }
 
   addUrlRow () {

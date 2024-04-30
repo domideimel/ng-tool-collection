@@ -1,21 +1,21 @@
-import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed } from '@angular/core';
 import { LocalStorageService } from 'ngx-webstorage';
 import { HotToastService } from '@ngneat/hot-toast';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'lib-generator-password-overview',
   templateUrl: './generator-password-overview.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GeneratorPasswordOverviewComponent implements OnInit {
-  passwords = signal<string[] | null>([]);
+export class GeneratorPasswordOverviewComponent {
+  newPasswords = toSignal<string[]>(this.storageService.observe('passwords'));
+  passwords = computed<string[]>(() => {
+    const initialPasswords = (this.storageService.retrieve('passwords')) as string[];
+    return [...this.newPasswords() ?? [], ...initialPasswords];
+  });
 
   constructor (private storageService: LocalStorageService, private toast: HotToastService) {}
-
-  ngOnInit () {
-    this.passwords.set(this.storageService.retrieve('passwords'));
-    this.storageService.observe('passwords').subscribe(password => this.passwords.set(password));
-  }
 
   async copy (password: string) {
     try {

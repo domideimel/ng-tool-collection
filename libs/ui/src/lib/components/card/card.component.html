@@ -1,14 +1,14 @@
 <div class="card shadow-2xl dark:shadow-none dark:bg-neutral dark:text-neutral-content flex flex-col h-full p-0">
   <div class="card-body gap-6 lg:gap-4">
-    <h2 class="card-title">{{ title }}</h2>
-    @if (description.length) {
-      <p>{{ description }}</p>
+    <h2 class="card-title">{{ title() }}</h2>
+    @if (description().length) {
+      <p>{{ description() }}</p>
     } @else {
       <ng-content />
     }
-    @if (showLink) {
+    @if (showLink()) {
       <div class="card-actions justify-end">
-        <button [routerLink]="link" class="btn btn-outline w-full lg:w-auto">{{ linkText }}</button>
+        <button [routerLink]="link()" class="btn btn-outline w-full lg:w-auto">{{ linkText() }}</button>
       </div>
     }
   </div>
