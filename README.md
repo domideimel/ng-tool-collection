@@ -16,7 +16,8 @@ Run `npx nx serve ng-tool-collection` to start the development server. Happy cod
 
 ## Build for production
 
-Run `npx nx build ng-tool-collection` to build the application. The build artifacts are stored in the output directory (e.g. `dist/` or `build/`), ready to be deployed.
+Run `npx nx build ng-tool-collection` to build the application. The build artifacts are stored in the output directory (
+e.g. `dist/` or `build/`), ready to be deployed.
 
 ## Running tasks
 
@@ -38,7 +39,8 @@ npx nx run-many -t <target1> <target2>
 npx nx run-many -t <target1> <target2> -p <proj1> <proj2>
 ```
 
-Targets can be defined in the `package.json` or `projects.json`. Learn more [in the docs](https://nx.dev/features/run-tasks).
+Targets can be defined in the `package.json` or `projects.json`. Learn
+more [in the docs](https://nx.dev/features/run-tasks).
 
 ## Set up CI!
 
