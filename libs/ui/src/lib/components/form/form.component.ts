@@ -5,20 +5,20 @@ import { FormModel } from '@ng-tool-collection/models';
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'lib-form',
-  templateUrl: './form.component.html',
+  templateUrl: './form.component.html'
 })
 export class FormComponent<T> implements OnInit {
   model = input.required<FormModel>();
   submitEvent = output<T>();
   formGroup!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor (private fb: FormBuilder) {}
 
-  hasErrors(controlName: string): ValidationErrors | undefined | null {
+  hasErrors (controlName: string): ValidationErrors | undefined | null {
     return this.formGroup.get(controlName)?.errors;
   }
 
-  ngOnInit() {
+  ngOnInit () {
     this.formGroup = this.createForm();
 
     if (this.model()?.customValidators) {
@@ -26,11 +26,11 @@ export class FormComponent<T> implements OnInit {
     }
   }
 
-  onSubmit() {
+  onSubmit () {
     this.submitEvent.emit(this.formGroup?.value);
   }
 
-  private createForm(): FormGroup {
+  private createForm (): FormGroup {
     const group: any = {};
 
     if (this.model()?.items) {

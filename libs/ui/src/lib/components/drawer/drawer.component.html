@@ -1,11 +1,15 @@
 <div class="drawer drawer-end min-h-screen">
-  <input class="drawer-toggle" id="nav-toggle" type="checkbox" />
+  <input
+    class="drawer-toggle"
+    id="nav-toggle"
+    type="checkbox"
+  />
   <div class="drawer-content flex flex-col">
     <lib-navbar [links]="navItems()" />
-    <main class="container flex-1 py-8">
+    <main class="container py-8 flex-1">
       <ng-content />
     </main>
-    <footer class="footer footer-center bg-base-300 p-4 text-base-content">
+    <footer class="footer footer-center p-4 bg-base-300 text-base-content">
       <aside>
         <p>Copyright © {{ currentYear }}</p>
       </aside>
@@ -14,17 +18,12 @@
   <div class="drawer-side z-40 lg:hidden">
     <label aria-label="close sidebar" class="drawer-overlay" for="nav-toggle"></label>
 
-    <ul class="menu min-h-full w-80 bg-base-200 p-4 text-base-content">
+    <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
       <li>
-        <label aria-label="close sidebar" class="btn btn-circle btn-ghost self-end" for="nav-toggle">
-          <svg
-            class="h-6 w-6"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+        <label aria-label="close sidebar" class="btn btn-ghost btn-circle self-end"
+               for="nav-toggle">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+               xmlns="http://www.w3.org/2000/svg">
             <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </label>
@@ -40,11 +39,9 @@
               <summary>
                 {{ item.label }}
               </summary>
-              <ul class="rounded-t-none bg-base-100 p-2">
+              <ul class="p-2 bg-base-100 rounded-t-none">
                 @for (child of item.children; track child.label) {
-                  <li>
-                    <a [routerLink]="child.path">{{ child.label }}</a>
-                  </li>
+                  <li><a [routerLink]="child.path">{{ child.label }}</a></li>
                 }
               </ul>
             </details>

@@ -6,7 +6,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 @Component({
   selector: 'lib-generator-password-overview',
   templateUrl: './generator-password-overview.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GeneratorPasswordOverviewComponent {
   newPasswords = toSignal<string[]>(this.storageService.observe('passwords'));
@@ -16,12 +16,9 @@ export class GeneratorPasswordOverviewComponent {
     return this.newPasswords() ?? [];
   });
 
-  constructor(
-    private storageService: LocalStorageService,
-    private toast: HotToastService,
-  ) {}
+  constructor (private storageService: LocalStorageService, private toast: HotToastService) {}
 
-  async copy(password: string) {
+  async copy (password: string) {
     try {
       await navigator.clipboard.writeText(password);
       this.toast.success('Passwort wurde erfolgreich kopiert');
@@ -30,12 +27,9 @@ export class GeneratorPasswordOverviewComponent {
     }
   }
 
-  delete(password: string) {
+  delete (password: string) {
     const currentPasswords = this.storageService.retrieve('passwords') as string[];
-    this.storageService.store(
-      'passwords',
-      currentPasswords.filter(p => p !== password),
-    );
+    this.storageService.store('passwords', currentPasswords.filter(p => p !== password));
     this.toast.success('Passwort wurde erfolgreich gelöscht');
   }
 }

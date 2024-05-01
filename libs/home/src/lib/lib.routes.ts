@@ -5,11 +5,9 @@ export const homeRoutes: Route[] = [
   {
     path: '',
     pathMatch: 'full',
-    children: [
-      {
-        path: '',
-        component: CardGridComponent,
-      },
-    ],
-  },
+    children: [{
+      path: '',
+      component: CardGridComponent
+    }]
+  }
 ];
