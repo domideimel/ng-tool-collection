@@ -8,7 +8,6 @@ import { UiModule } from '@ng-tool-collection/ui';
   providers: [],
   selector: 'app-root',
   templateUrl: './app.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {
-}
+export class AppComponent {}

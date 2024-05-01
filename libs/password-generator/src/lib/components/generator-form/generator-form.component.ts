@@ -9,37 +9,43 @@ import { HotToastService } from '@ngneat/hot-toast';
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'lib-generator-form',
-  templateUrl: './generator-form.component.html'
+  templateUrl: './generator-form.component.html',
 })
 export class GeneratorFormComponent {
   formModel: FormModel = {
-    items: [{
-      label: 'Passwort Länge',
-      controlName: 'length',
-      type: 'range',
-      value: 6,
-      validators: [Validators.required, Validators.min(6), Validators.max(100)]
-    }, {
-      label: 'Großbuchstaben verwenden',
-      controlName: 'upper',
-      type: 'checkbox',
-      value: true
-    }, {
-      label: 'Kleinbuchstaben verwenden',
-      controlName: 'lower',
-      type: 'checkbox',
-      value: true
-    }, {
-      label: 'Sonderzeichen verwenden',
-      controlName: 'symbol',
-      type: 'checkbox',
-      value: true
-    }, {
-      label: 'Zahlen verwenden',
-      controlName: 'number',
-      type: 'checkbox',
-      value: true
-    }],
+    items: [
+      {
+        label: 'Passwort Länge',
+        controlName: 'length',
+        type: 'range',
+        value: 6,
+        validators: [Validators.required, Validators.min(6), Validators.max(100),
+      },
+      {
+        label: 'Großbuchstaben verwenden',
+        controlName: 'upper',
+        type: 'checkbox',
+        value: tru,
+      },
+      {
+        label: 'Kleinbuchstaben verwenden',
+        controlName: 'lower',
+        type: 'checkbox',
+        value: tru,
+      },
+      {
+        label: 'Sonderzeichen verwenden',
+        controlName: 'symbol',
+        type: 'checkbox',
+        value: tru,
+      },
+      {
+        label: 'Zahlen verwenden',
+        controlName: 'number',
+        type: 'checkbox',
+        value: tru,
+      ,
+    ],
     submitButtonLabel: 'Passwort generieren',
     customValidators: atLeastOneCheckedValidator(['upper', 'lower', 'symbol', 'number'])
   };
@@ -47,18 +53,18 @@ export class GeneratorFormComponent {
   password = signal<string>('');
   hasCopied = signal<boolean>(false);
 
-  constructor (
+  constructor(
     private passwordGeneratorService: PasswordGeneratorService,
     private storageService: LocalStorageService,
     private toast: HotToastService
   ) {}
 
-  onSubmit (value: GenerationProperties) {
+  onSubmit(value: GenerationProperties) {
     this.password.set(this.passwordGeneratorService.generatePassword(value));
     this.hasCopied.set(false);
   }
 
-  async copyToClipboard () {
+  async copyToClipboard() {
     try {
       await navigator.clipboard.writeText(this.password());
       const oldPasswords = this.storageService.retrieve('passwords') ?? [];
@@ -69,5 +75,4 @@ export class GeneratorFormComponent {
       this.toast.error('Beim kopieren ist etwas schief gelaufen');
     }
   }
-
 }

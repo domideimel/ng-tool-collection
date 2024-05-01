@@ -13,7 +13,5 @@ export interface FormControlModel {
   value?: unknown;
   type: string;
   validators?: ValidatorFn[] | ValidatorFn | Validators[] | Validators;
-  options?: { label: string, value: any }[];
+  options?: { label: string; value: any }[];
 }
-
-

@@ -1,9 +1,9 @@
-<header class="bg-base-300 sticky top-0 z-20">
+<header class="sticky top-0 z-20 bg-base-300">
   <div class="container navbar">
     <div class="flex-1">
       <a [routerLink]="'/'" class="btn btn-ghost text-xl">{{ title() }}</a>
     </div>
-    <nav class="flex-none hidden lg:block">
+    <nav class="hidden flex-none lg:block">
       <ul class="menu menu-horizontal px-1">
         @for (item of links(); track item.label) {
           <li>
@@ -16,9 +16,11 @@
                 <summary>
                   {{ item.label }}
                 </summary>
-                <ul class="p-2 bg-base-100 rounded-t-none">
+                <ul class="rounded-t-none bg-base-100 p-2">
                   @for (child of item.children; track child.label) {
-                    <li><a [routerLink]="child.path">{{ child.label }}</a></li>
+                    <li>
+                      <a [routerLink]="child.path">{{ child.label }}</a>
+                    </li>
                   }
                 </ul>
               </details>
