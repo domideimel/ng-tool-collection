@@ -4,15 +4,15 @@ import { Meta } from '@angular/platform-browser';
 @Component({
   selector: 'lib-generator-wrapper',
   templateUrl: './generator-wrapper.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GeneratorWrapperComponent implements OnInit {
-  constructor (private meta: Meta) {}
+  constructor(private meta: Meta) {}
 
-  ngOnInit () {
+  ngOnInit() {
     this.meta.updateTag({
       name: 'description',
-      content: 'Erstelle hier benutzerdefinierte Passwörter jeder beliebigen Länge - sicher und bequem!'
+      content: 'Erstelle hier benutzerdefinierte Passwörter jeder beliebigen Länge - sicher und bequem!',
     });
   }
 }

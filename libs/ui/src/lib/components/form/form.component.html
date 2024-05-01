@@ -1,21 +1,21 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="formGroup" class="flex flex-col gap-4">
   @for (item of model().items; track item.label) {
     @switch (item.type) {
-      @case ("text") {
-        <label class="form-control ">
+      @case ('text') {
+        <label class="form-control">
           <div class="label">
             <span class="label-text">{{ item.label }}</span>
           </div>
           <input
             type="text"
-            class="input input-bordered "
+            class="input input-bordered"
             [placeholder]="item?.placeholder"
             [formControlName]="item.controlName"
             [attr.id]="item.controlName"
           />
         </label>
       }
-      @case ("checkbox") {
+      @case ('checkbox') {
         <div class="form-control">
           <label class="label cursor-pointer justify-normal gap-4">
             <input
@@ -29,7 +29,7 @@
           </label>
         </div>
       }
-      @case ("radio") {
+      @case ('radio') {
         @for (option of item.options; track option.value) {
           <div class="form-control">
             <label class="label cursor-pointer justify-normal gap-4">
@@ -45,8 +45,8 @@
           </div>
         }
       }
-      @case ("select") {
-        <label class="form-control ">
+      @case ('select') {
+        <label class="form-control">
           <div class="label">
             <span class="label-text">{{ item.label }}</span>
           </div>
@@ -64,7 +64,7 @@
           </select>
         </label>
       }
-      @case ("textarea") {
+      @case ('textarea') {
         <label class="form-control">
           <div class="label">
             <span class="label-text">{{ item.label }}</span>
@@ -77,26 +77,26 @@
           ></textarea>
         </label>
       }
-      @case ("date") {
+      @case ('date') {
         <label class="form-control w-full lg:max-w-xs">
           <div class="label">
             <span class="label-text">{{ item.label }}</span>
           </div>
           <input
             type="date"
-            class="input input-bordered "
+            class="input input-bordered"
             [formControlName]="item.controlName"
             [ngClass]="[hasErrors(item.controlName) ? 'input-error' : '']"
             [attr.id]="item.controlName"
           />
         </label>
       }
-      @case ("range") {
+      @case ('range') {
         <label class="form-control w-full">
           <div class="label">
             <span class="label-text">{{ item.label }}</span>
           </div>
-          <div class="flex gap-4 flex-wrap">
+          <div class="flex flex-wrap gap-4">
             <input
               type="range"
               class="range w-full lg:max-w-xs"

@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UrlRewritesService {
-  generateRewrites (urlRows: { urlRows: { oldUrl: string; newUrl: string }[] }): string {
+  generateRewrites(urlRows: { urlRows: { oldUrl: string; newUrl: string }[] }): string {
     let rewrites = '';
     for (const urlRow of urlRows.urlRows) {
       try {

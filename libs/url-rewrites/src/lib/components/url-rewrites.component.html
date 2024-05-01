@@ -1,16 +1,16 @@
-<lib-card [showLink]='false' title="URL Rewrites">
+<lib-card [showLink]="false" title="URL Rewrites">
   <div class="space-y-8">
     <form (ngSubmit)="onSubmit()" [formGroup]="formGroup" class="grid grid-cols-1 gap-4">
       <div formArrayName="urlRows">
         @for (row of urlRowsFormArray.controls; track row) {
           <div class="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_1fr_auto] lg:gap-12" [formGroupName]="$index">
-            <label class="form-control ">
+            <label class="form-control">
               <div class="label">
                 <span class="label-text">Alte URL</span>
               </div>
               <input
                 type="url"
-                class="input input-bordered "
+                class="input input-bordered"
                 placeholder="https://old-url.com"
                 formControlName="oldUrl"
                 [attr.id]="'oldUrl_' + $index"
@@ -23,19 +23,15 @@
               </div>
               <input
                 type="url"
-                class="input input-bordered "
+                class="input input-bordered"
                 placeholder="https://new-url.com"
                 formControlName="newUrl"
                 [attr.id]="'newUrl_' + $index"
                 [ngClass]="[row.get('newUrl')?.errors ? 'input-error' : '']"
               />
             </label>
-            <div class="flex justify-end gap-2 items-end">
-              <button
-                type="button"
-                class="btn btn-circle btn-outline"
-                (click)="addUrlRow()"
-              >
+            <div class="flex items-end justify-end gap-2">
+              <button type="button" class="btn btn-circle btn-outline" (click)="addUrlRow()">
                 <svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                   <path
                     fill="currentColor"
