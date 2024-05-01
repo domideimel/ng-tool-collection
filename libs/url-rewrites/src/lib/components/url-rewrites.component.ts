@@ -1,15 +1,16 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HotToastService } from '@ngneat/hot-toast';
 import { urlValidator } from '@ng-tool-collection/ui';
 import { UrlRewritesService } from '../services/url-rewrites.service';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'lib-url-rewrites',
   templateUrl: './url-rewrites.component.html'
 })
-export class UrlRewritesComponent {
+export class UrlRewritesComponent implements OnInit {
   formGroup: FormGroup = this.fb.group({
     urlRows: this.fb.array([this.fb.group({
       oldUrl: ['', [urlValidator, Validators.required]],
@@ -19,7 +20,7 @@ export class UrlRewritesComponent {
 
   result = signal<string>('');
 
-  constructor (private fb: FormBuilder, private toast: HotToastService, private rewriteService: UrlRewritesService) {}
+  constructor (private fb: FormBuilder, private toast: HotToastService, private rewriteService: UrlRewritesService, private meta: Meta) {}
 
   get urlRowsFormArray () {
     return this.formGroup.get('urlRows') as FormArray;
@@ -27,6 +28,13 @@ export class UrlRewritesComponent {
 
   get hasOnlyOneRow (): boolean {
     return this.urlRowsFormArray.length === 1;
+  }
+
+  ngOnInit () {
+    this.meta.updateTag({
+      name: 'description',
+      content: 'Erstellen Sie benutzerdefinierte Weiterleitungen für Ihre URLs und Links - schnell und einfach!'
+    });
   }
 
   addUrlRow () {

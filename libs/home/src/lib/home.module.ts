@@ -9,4 +9,5 @@ import { UiModule } from '@ng-tool-collection/ui';
   imports: [CommonModule, RouterModule.forChild(homeRoutes), UiModule],
   declarations: [CardGridComponent]
 })
-export class HomeModule {}
+export class HomeModule {
+}
