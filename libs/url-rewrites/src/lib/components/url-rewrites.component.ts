@@ -8,43 +8,36 @@ import { Meta } from '@angular/platform-browser';
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'lib-url-rewrites',
-  templateUrl: './url-rewrites.component.html',
+  templateUrl: './url-rewrites.component.html'
 })
 export class UrlRewritesComponent implements OnInit {
   formGroup: FormGroup = this.fb.group({
-    urlRows: this.fb.array([
-      this.fb.group({
-        oldUrl: ['', [urlValidator, Validators.required]],
-        newUrl: ['', [urlValidator, Validators.required],
-      },
-    ],
+    urlRows: this.fb.array([this.fb.group({
+      oldUrl: ['', [urlValidator, Validators.required]],
+      newUrl: ['', [urlValidator, Validators.required]]
+    })])
   });
 
   result = signal<string>('');
 
-  constructor(
-    private fb: FormBuilder,
-    private toast: HotToastService,
-    private rewriteService: UrlRewritesService,
-    private meta: Meta
-  ) {}
+  constructor (private fb: FormBuilder, private toast: HotToastService, private rewriteService: UrlRewritesService, private meta: Meta) {}
 
-  get urlRowsFormArray() {
+  get urlRowsFormArray () {
     return this.formGroup.get('urlRows') as FormArray;
   }
 
-  get hasOnlyOneRow(): boolean {
+  get hasOnlyOneRow (): boolean {
     return this.urlRowsFormArray.length === 1;
   }
 
-  ngOnInit() {
+  ngOnInit () {
     this.meta.updateTag({
       name: 'description',
       content: 'Erstellen Sie benutzerdefinierte Weiterleitungen für Ihre URLs und Links - schnell und einfach!'
     });
   }
 
-  addUrlRow() {
+  addUrlRow () {
     const urlRow = this.fb.group({
       oldUrl: ['', [urlValidator, Validators.required]],
       newUrl: ['', [urlValidator, Validators.required]]
@@ -52,16 +45,16 @@ export class UrlRewritesComponent implements OnInit {
     this.urlRowsFormArray.push(urlRow);
   }
 
-  removeUrlRow(index: number) {
+  removeUrlRow (index: number) {
     this.urlRowsFormArray.removeAt(index);
   }
 
-  onSubmit() {
+  onSubmit () {
     const result = this.rewriteService.generateRewrites(this.formGroup.value);
     this.result.set(result);
   }
 
-  async copyRewrites() {
+  async copyRewrites () {
     try {
       await navigator.clipboard.writeText(this.result());
       this.toast.success('Die Rewrites wurden erfolgreich kopiert');

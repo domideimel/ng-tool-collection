@@ -8,8 +8,12 @@ import { GeneratorPasswordOverviewComponent } from './components/generator-passw
 import { GeneratorWrapperComponent } from './components/generator-wrapper/generator-wrapper.component';
 
 @NgModule({
-  imports: [CommonModule, UiModule, RouterModule.forChild(passwordGeneratorRoutes)],
+  imports: [
+    CommonModule,
+    UiModule,
+    RouterModule.forChild(passwordGeneratorRoutes)
+  ],
   declarations: [GeneratorFormComponent, GeneratorPasswordOverviewComponent, GeneratorWrapperComponent],
-  exports: [GeneratorFormComponent, GeneratorPasswordOverviewComponent, GeneratorWrapperComponent],
+  exports: [GeneratorFormComponent, GeneratorPasswordOverviewComponent, GeneratorWrapperComponent]
 })
 export class PasswordGeneratorModule {}

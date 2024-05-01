@@ -8,6 +8,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [CommonModule, RouterModule.forChild(urlRewritesRoutes), UiModule, ReactiveFormsModule],
-  declarations: [UrlRewritesComponent],
+  declarations: [UrlRewritesComponent]
 })
 export class UrlRewritesModule {}

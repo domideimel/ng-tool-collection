@@ -9,7 +9,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [CommonModule, RouterLink, RouterLinkActive, ReactiveFormsModule],
-  declarations: [NavbarComponent, DrawerComponent, CardComponent, FormComponent],
-  exports: [NavbarComponent, DrawerComponent, CardComponent, FormComponent],
+  declarations: [
+    NavbarComponent,
+    DrawerComponent,
+    CardComponent,
+    FormComponent
+  ],
+  exports: [NavbarComponent, DrawerComponent, CardComponent, FormComponent]
 })
 export class UiModule {}

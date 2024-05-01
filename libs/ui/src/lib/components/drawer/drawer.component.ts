@@ -5,12 +5,12 @@ import { NAVIGATION } from '@ng-tool-collection/constants';
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'lib-drawer',
-  templateUrl: './drawer.component.html',
+  templateUrl: './drawer.component.html'
 })
 export class DrawerComponent {
   navItems = signal<Link[]>(NAVIGATION);
 
-  get currentYear() {
+  get currentYear () {
     return new Date().getFullYear();
   }
 }
