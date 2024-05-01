@@ -24,7 +24,7 @@
           "./src/favicon.ico",
           "./src/icon-192x192.png",
           "./src/icon-256x256.png",
-          "./src/384x384.png",
+          "./src/icon-384x384.png",
           "./src/icon-512x512.png",
           "./src/manifest.json",
           "./src/assets"
