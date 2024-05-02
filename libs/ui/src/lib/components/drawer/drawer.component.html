@@ -2,6 +2,7 @@
   <input
     (change)="toggleOpen($event.target)"
     [checked]="isOpen | async"
+    aria-label="drawer-toggle"
     class="drawer-toggle"
     id="nav-toggle"
     type="checkbox"
