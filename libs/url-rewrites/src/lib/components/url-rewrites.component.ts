@@ -7,20 +7,22 @@ import { Meta } from '@angular/platform-browser';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'lib-url-rewrites',
-  templateUrl: './url-rewrites.component.html'
+  selector:'lib-url-rewrites'",
+  templateUrl:'./url-rewrites.component.html',
 })
 export class UrlRewritesComponent implements OnInit {
   formGroup: FormGroup = this.fb.group({
-    urlRows: this.fb.array([this.fb.group({
-      oldUrl: ['', [urlValidator, Validators.required]],
-      newUrl: ['', [urlValidator, Validators.required]]
-    })])
+    urlRows: this.fb.array([this.createUrlRow()])
   });
 
   result = signal<string>('');
 
-  constructor (private fb: FormBuilder, private toast: HotToastService, private rewriteService: UrlRewritesService, private meta: Meta) {}
+  constructor (
+    private fb: FormBuilder,
+    private toast: HotToastService,
+    private rewriteService: UrlRewritesService,
+    private meta: Meta
+  ) {}
 
   get urlRowsFormArray () {
     return this.formGroup.get('urlRows') as FormArray;
@@ -33,16 +35,13 @@ export class UrlRewritesComponent implements OnInit {
   ngOnInit () {
     this.meta.updateTag({
       name: 'description',
-      content: 'Erstellen Sie benutzerdefinierte Weiterleitungen für Ihre URLs und Links - schnell und einfach!'
+      content:
+        'Erstellen Sie benutzerdefinierte Weiterleitungen für Ihre URLs und Links - schnell und einfach!'
     });
   }
 
   addUrlRow () {
-    const urlRow = this.fb.group({
-      oldUrl: ['', [urlValidator, Validators.required]],
-      newUrl: ['', [urlValidator, Validators.required]]
-    });
-    this.urlRowsFormArray.push(urlRow);
+    this.urlRowsFormArray.push(this.createUrlRow());
   }
 
   removeUrlRow (index: number) {
@@ -61,5 +60,12 @@ export class UrlRewritesComponent implements OnInit {
     } catch (e: unknown) {
       this.toast.success('Es gab ein Fehler beim kopieren');
     }
+  }
+
+  private createUrlRow (): FormGroup {
+    return this.fb.group({
+      oldUrl: ['', [urlValidator, Validators.required]],
+      newUrl: ['', [urlValidator, Validators.required]]
+    });
   }
 }
