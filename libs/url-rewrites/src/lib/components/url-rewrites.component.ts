@@ -69,8 +69,8 @@ export class UrlRewritesComponent implements OnInit {
 
   private createUrlRow(): FormGroup {
     return this.fb.group({
-      oldUrl: ["", [urlValidator, Validators.required]],
-      newUrl: ["", [urlValidator, Validators.required]],
+      oldUrl: ["", [Validators.required, urlValidator]],
+      newUrl: ["", [Validators.required, urlValidator]],
     });
   }
 }
