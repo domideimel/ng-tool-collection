@@ -27,8 +27,8 @@
           "./src/icon-384x384.png",
           "./src/icon-512x512.png",
           "./src/manifest.json",
-          "robots.txt",
-          "./src/assets"
+          "./src/assets",
+          "./src/robots.txt"
         ],
         "styles": [
           "./src/styles.scss"
