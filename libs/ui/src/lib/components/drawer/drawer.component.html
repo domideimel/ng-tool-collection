@@ -1,5 +1,7 @@
 <div class="drawer drawer-end min-h-screen">
   <input
+    (change)="toggleOpen($event.target)"
+    [checked]="isOpen | async"
     class="drawer-toggle"
     id="nav-toggle"
     type="checkbox"
