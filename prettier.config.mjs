@@ -6,6 +6,5 @@ export default {
   useTabs: false,
   arrowParens: 'avoid',
   bracketSameLine: false,
-  endOfLine: 'lf',
-  plugins: ['prettier-plugin-tailwindcss']
+  endOfLine: 'lf'
 };

@@ -14,7 +14,7 @@
                 placeholder="https://old-url.com"
                 formControlName="oldUrl"
                 [attr.id]="'oldUrl_' + $index"
-                [ngClass]="[row.get('oldUrl')?.errors ? 'input-error' : '']"
+                [ngClass]="[(row.get('oldUrl')?.errors && !row.get('oldUrl')?.pristine) ? 'input-error' : '']"
               />
             </label>
             <label class="form-control">
@@ -27,7 +27,7 @@
                 placeholder="https://new-url.com"
                 formControlName="newUrl"
                 [attr.id]="'newUrl_' + $index"
-                [ngClass]="[row.get('newUrl')?.errors ? 'input-error' : '']"
+                [ngClass]="[(row.get('newUrl')?.errors && !row.get('newUrl')?.pristine)? 'input-error' : '']"
               />
             </label>
             <div class="flex justify-end gap-2 items-end">
