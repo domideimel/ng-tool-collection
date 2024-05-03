@@ -1,7 +1,7 @@
-<div class="drawer drawer-end min-h-screen">
+<div [attr.aria-expanded]="isOpen$| async" class="drawer drawer-end min-h-screen">
   <input
     (change)="toggleOpen($event.target)"
-    [checked]="isOpen | async"
+    [checked]="isOpen$ | async"
     aria-label="drawer-toggle"
     class="drawer-toggle"
     id="nav-toggle"
