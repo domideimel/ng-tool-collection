@@ -17,7 +17,7 @@ import { NavigationEnd, Router } from "@angular/router";
 })
 export class DrawerComponent implements OnInit, OnDestroy {
   navItems = signal<Link[]>(NAVIGATION);
-  isOpen: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  isOpen$: BehaviorSubject<boolean> = new BehaviorSubject(false);
   routerSubscription!: Subscription;
 
   constructor(private router: Router) {}
@@ -30,7 +30,7 @@ export class DrawerComponent implements OnInit, OnDestroy {
     this.routerSubscription = this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() => {
-        this.isOpen.next(false);
+        this.isOpen$.next(false);
       });
   }
 
@@ -40,6 +40,6 @@ export class DrawerComponent implements OnInit, OnDestroy {
 
   toggleOpen(event: EventTarget | null): void {
     if (!event) return;
-    this.isOpen.next((event as HTMLInputElement).checked);
+    this.isOpen$.next((event as HTMLInputElement).checked);
   }
 }
