@@ -96,10 +96,10 @@
           <div class="label">
             <span class="label-text">{{ item.label }}</span>
           </div>
-          <div class="flex gap-4 flex-wrap">
+          <div class="flex gap-4">
             <input
               type="range"
-              class="range w-full lg:max-w-xs"
+              class="range"
               [formControlName]="item.controlName"
               [ngClass]="[hasErrors(item.controlName) ? 'range-error' : '']"
               [attr.id]="item.controlName"
