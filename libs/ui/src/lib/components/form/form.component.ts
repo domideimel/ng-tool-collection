@@ -1,43 +1,57 @@
-import { ChangeDetectionStrategy, Component, input, OnInit, output } from '@angular/core';
-import { FormBuilder, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
-import { FormModel } from '@ng-tool-collection/models';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  OnInit,
+  output,
+} from "@angular/core";
+import {
+  FormBuilder,
+  FormGroup,
+  ValidationErrors,
+  ValidatorFn,
+} from "@angular/forms";
+import { FormModel } from "@ng-tool-collection/models";
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'lib-form',
-  templateUrl: './form.component.html'
+  selector: "lib-form",
+  templateUrl: "./form.component.html",
 })
 export class FormComponent<T> implements OnInit {
   model = input.required<FormModel>();
   submitEvent = output<T>();
   formGroup!: FormGroup;
 
-  constructor (private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) {}
 
-  hasErrors (controlName: string): ValidationErrors | undefined | null {
+  hasErrors(controlName: string): ValidationErrors | undefined | null {
     return this.formGroup.get(controlName)?.errors;
   }
 
-  ngOnInit () {
+  ngOnInit() {
     this.formGroup = this.createForm();
 
     if (this.model()?.customValidators) {
-      this.formGroup.setValidators(this.model().customValidators as ValidatorFn | ValidatorFn[]);
+      this.formGroup.setValidators(
+        this.model().customValidators as ValidatorFn | ValidatorFn[]
+      );
     }
   }
 
-  onSubmit () {
+  onSubmit() {
     this.submitEvent.emit(this.formGroup?.value);
   }
 
-  private createForm (): FormGroup {
+  private createForm(): FormGroup {
     const group: any = {};
 
-    if (this.model()?.items) {
-      this.model()?.items?.forEach(control => {
-        group[control.controlName] = [control.value || '', control.validators || []];
-      });
-    }
+    this.model()?.items?.forEach((control) => {
+      group[control.controlName] = [
+        control.value || "",
+        control.validators || [],
+      ];
+    });
 
     return this.fb.group(group);
   }
