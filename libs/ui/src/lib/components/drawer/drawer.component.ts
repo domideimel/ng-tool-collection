@@ -38,6 +38,11 @@ export class DrawerComponent implements OnInit, OnDestroy {
     this.routerSubscription.unsubscribe();
   }
 
+  onNavbarOpenChange(input: boolean | null | undefined) {
+    if (!input) return;
+    this.isOpen$.next(input);
+  }
+
   toggleOpen(event: EventTarget | null): void {
     if (!event) return;
     this.isOpen$.next((event as HTMLInputElement).checked);

@@ -8,7 +8,7 @@
     type="checkbox"
   />
   <div class="drawer-content flex flex-col">
-    <lib-navbar [links]="navItems()" />
+    <lib-navbar (openNavbarChange)="onNavbarOpenChange($event)" [links]="navItems()" [openNavbar]="isOpen$ | async" />
     <main class="container py-8 flex-1">
       <ng-content />
     </main>
