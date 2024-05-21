@@ -70,5 +70,6 @@
       "style": "none"
     }
   },
-  "defaultProject": "ng-tool-collection"
+  "defaultProject": "ng-tool-collection",
+  "nxCloudAccessToken": "YTk3ZmE2ZTYtNzM3Ni00YTlmLWI5OTAtNTI5NmMxOWViNmI0fHJlYWQtd3JpdGU="
 }
