@@ -1,50 +1,53 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnDestroy,
-  OnInit,
-  signal,
-} from "@angular/core";
-import { Link } from "@ng-tool-collection/models";
-import { NAVIGATION } from "@ng-tool-collection/constants";
-import { BehaviorSubject, filter, Subscription } from "rxjs";
-import { NavigationEnd, Router } from "@angular/router";
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, signal, } from '@angular/core'
+import { Link } from '@ng-tool-collection/models'
+import { NAVIGATION } from '@ng-tool-collection/constants'
+import { BehaviorSubject, filter, Subscription } from 'rxjs'
+import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router'
+import { AsyncPipe } from '@angular/common'
+import { NavbarComponent } from '../navbar/navbar.component'
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: "lib-drawer",
-  templateUrl: "./drawer.component.html",
+  selector: 'lib-drawer',
+  templateUrl: './drawer.component.html',
+  standalone: true,
+  imports: [
+    NavbarComponent,
+    RouterLinkActive,
+    RouterLink,
+    AsyncPipe,
+  ],
 })
 export class DrawerComponent implements OnInit, OnDestroy {
-  navItems = signal<Link[]>(NAVIGATION);
-  isOpen$: BehaviorSubject<boolean> = new BehaviorSubject(false);
-  routerSubscription!: Subscription;
+  navItems = signal<Link[]>(NAVIGATION)
+  isOpen$: BehaviorSubject<boolean> = new BehaviorSubject(false)
+  routerSubscription!: Subscription
 
-  constructor(private router: Router) {}
+  constructor (private router: Router) {}
 
-  get currentYear() {
-    return new Date().getFullYear();
+  get currentYear () {
+    return new Date().getFullYear()
   }
 
-  ngOnInit() {
+  ngOnInit () {
     this.routerSubscription = this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() => {
-        this.isOpen$.next(false);
-      });
+        this.isOpen$.next(false)
+      })
   }
 
-  ngOnDestroy() {
-    this.routerSubscription.unsubscribe();
+  ngOnDestroy () {
+    this.routerSubscription.unsubscribe()
   }
 
-  onNavbarOpenChange(input: boolean | null | undefined) {
-    if (!input) return;
-    this.isOpen$.next(input);
+  onNavbarOpenChange (input: boolean | null | undefined) {
+    if (!input) return
+    this.isOpen$.next(input)
   }
 
-  toggleOpen(event: EventTarget | null): void {
-    if (!event) return;
-    this.isOpen$.next((event as HTMLInputElement).checked);
+  toggleOpen (event: EventTarget | null): void {
+    if (!event) return
+    this.isOpen$.next((event as HTMLInputElement).checked)
   }
 }
