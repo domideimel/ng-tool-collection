@@ -8,4 +8,9 @@ export const NAVIGATION: Link[] = [{
   label: 'Url Rewrites',
   path: 'url-rewrites',
   description: 'Erstellen Sie Weiterleitungen für Ihre URLs und Links. Generieren Sie kurze, benutzerdefinierte URLs, die sich leicht merken und teilen lassen. Mit unserem Weiterleitungs-Generator können Sie lange, komplexe URLs in kurze, benutzerfreundliche Links umwandeln.'
+}, {
+  label: 'Builder',
+  path: 'builder',
+  description: 'Ein unglaublich vielseitiges Werkzeug für jeden, der eine benutzerdefinierte Inhalte erstellen' +
+    ' möchte, unabhängig von den technischen Fähigkeiten oder dem Kenntnisstand.'
 }];

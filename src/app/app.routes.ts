@@ -13,4 +13,8 @@ export const appRoutes: Route[] = [{
   path: 'url-rewrites',
   loadChildren: () => import('@ng-tool-collection/url-rewrites').then(m => m.urlRewritesRoutes),
   title: 'Weiterleitungs-Generator'
+}, {
+  path: 'builder',
+  loadChildren: () => import('@ng-tool-collection/builder').then(m => m.builderRoutes),
+  title: 'Builder'
 }];
