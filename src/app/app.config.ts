@@ -1,9 +1,9 @@
-import { ApplicationConfig, importProvidersFrom, isDevMode, provideExperimentalZonelessChangeDetection } from '@angular/core'
-import { provideRouter } from '@angular/router'
-import { appRoutes } from './app.routes'
-import { NgxWebstorageModule } from 'ngx-webstorage'
-import { provideHotToastConfig } from '@ngneat/hot-toast'
-import { provideServiceWorker } from '@angular/service-worker'
+import { ApplicationConfig, importProvidersFrom, isDevMode, provideExperimentalZonelessChangeDetection } from '@angular/core';
+import { provideRouter } from '@angular/router';
+import { appRoutes } from './app.routes';
+import { NgxWebstorageModule } from 'ngx-webstorage';
+import { provideServiceWorker } from '@angular/service-worker';
+import { provideHotToastConfig } from '@ngxpert/hot-toast';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,4 +16,4 @@ export const appConfig: ApplicationConfig = {
     }),
     provideExperimentalZonelessChangeDetection()
   ]
-}
+};
