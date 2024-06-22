@@ -35,9 +35,9 @@ importers:
       '@angular/service-worker':
         specifier: 18.0.3
         version: 18.0.3(@angular/common@18.0.3(@angular/core@18.0.3(rxjs@7.8.1)(zone.js@0.14.7))(rxjs@7.8.1))(@angular/core@18.0.3(rxjs@7.8.1)(zone.js@0.14.7))
-      '@ngneat/hot-toast':
-        specifier: ^7.0.0
-        version: 7.0.0(@angular/core@18.0.3(rxjs@7.8.1)(zone.js@0.14.7))(@ngneat/overview@6.0.0(@angular/core@18.0.3(rxjs@7.8.1)(zone.js@0.14.7)))
+      '@ngxpert/hot-toast':
+        specifier: ^3.0.0
+        version: 3.0.0(@angular/core@18.0.3(rxjs@7.8.1)(zone.js@0.14.7))(@ngneat/overview@6.0.0(@angular/core@18.0.3(rxjs@7.8.1)(zone.js@0.14.7)))
       '@nx/angular':
         specifier: 19.3.0
         version: 19.3.0(potlevqytbb4xpwg44ztdsjl6a)
@@ -1737,12 +1737,6 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@ngneat/hot-toast@7.0.0':
-    resolution: {integrity: sha512-t/7msPgtZT534HBxAPjvr6dovP0jyf/intibceUq6i+woa4gnt44jSMsAmI3WVz8UoOmwG1wBwJOKu0zdLmCOA==}
-    peerDependencies:
-      '@angular/core': '>= 17.0.0 < 18.0.0'
-      '@ngneat/overview': 6.0.0
-
   '@ngneat/overview@6.0.0':
     resolution: {integrity: sha512-pm4bAEYtnUl8q82dwjh5NN9HF0WTFEI58VtR12izp9Oaa2dtseX82VUArfb4fadmlbHpPMUwXHrsm0ORyWii2A==}
     peerDependencies:
@@ -1755,6 +1749,12 @@ packages:
       '@angular/compiler-cli': ^18.0.0
       typescript: '>=5.4 <5.5'
       webpack: ^5.54.0
+
+  '@ngxpert/hot-toast@3.0.0':
+    resolution: {integrity: sha512-iMTGGPzNKJWW5c9j3NJvDYmSDld7oWqaRksUoGg0rFKTc92PN1ldwfyL+HEH3ETiomq7aVlNWBye6fn4m+HISw==}
+    peerDependencies:
+      '@angular/core': '>= 18.0.0'
+      '@ngneat/overview': 6.0.0
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -8814,12 +8814,6 @@ snapshots:
   '@msgpackr-extract/msgpackr-extract-win32-x64@3.0.3':
     optional: true
 
-  '@ngneat/hot-toast@7.0.0(@angular/core@18.0.3(rxjs@7.8.1)(zone.js@0.14.7))(@ngneat/overview@6.0.0(@angular/core@18.0.3(rxjs@7.8.1)(zone.js@0.14.7)))':
-    dependencies:
-      '@angular/core': 18.0.3(rxjs@7.8.1)(zone.js@0.14.7)
-      '@ngneat/overview': 6.0.0(@angular/core@18.0.3(rxjs@7.8.1)(zone.js@0.14.7))
-      tslib: 2.6.3
-
   '@ngneat/overview@6.0.0(@angular/core@18.0.3(rxjs@7.8.1)(zone.js@0.14.7))':
     dependencies:
       '@angular/core': 18.0.3(rxjs@7.8.1)(zone.js@0.14.7)
@@ -8830,6 +8824,12 @@ snapshots:
       '@angular/compiler-cli': 18.0.3(@angular/compiler@18.0.3(@angular/core@18.0.3(rxjs@7.8.1)(zone.js@0.14.7)))(typescript@5.4.5)
       typescript: 5.4.5
       webpack: 5.91.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.21.3)
+
+  '@ngxpert/hot-toast@3.0.0(@angular/core@18.0.3(rxjs@7.8.1)(zone.js@0.14.7))(@ngneat/overview@6.0.0(@angular/core@18.0.3(rxjs@7.8.1)(zone.js@0.14.7)))':
+    dependencies:
+      '@angular/core': 18.0.3(rxjs@7.8.1)(zone.js@0.14.7)
+      '@ngneat/overview': 6.0.0(@angular/core@18.0.3(rxjs@7.8.1)(zone.js@0.14.7))
+      tslib: 2.6.3
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
