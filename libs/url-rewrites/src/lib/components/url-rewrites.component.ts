@@ -1,10 +1,10 @@
-import { ChangeDetectionStrategy, Component, OnInit, signal, } from '@angular/core'
-import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
-import { HotToastService } from '@ngneat/hot-toast'
-import { CardComponent, urlValidator } from '@ng-tool-collection/ui'
-import { UrlRewritesService } from '../services/url-rewrites.service'
-import { Meta } from '@angular/platform-browser'
-import { NgClass } from '@angular/common'
+import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { HotToastService } from '@ngxpert/hot-toast';
+import { CardComponent, urlValidator } from '@ng-tool-collection/ui';
+import { UrlRewritesService } from '../services/url-rewrites.service';
+import { Meta } from '@angular/platform-browser';
+import { NgClass } from '@angular/common';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -14,15 +14,15 @@ import { NgClass } from '@angular/common'
   imports: [
     CardComponent,
     ReactiveFormsModule,
-    NgClass,
-  ],
+    NgClass
+  ]
 })
 export class UrlRewritesComponent implements OnInit {
   formGroup: FormGroup = this.fb.group({
-    urlRows: this.fb.array([this.createUrlRow()]),
-  })
+    urlRows: this.fb.array([this.createUrlRow()])
+  });
 
-  result = signal<string>('')
+  result = signal<string>('');
 
   constructor (
     private fb: FormBuilder,
@@ -32,47 +32,47 @@ export class UrlRewritesComponent implements OnInit {
   ) {}
 
   get urlRowsFormArray () {
-    return this.formGroup.get('urlRows') as FormArray
+    return this.formGroup.get('urlRows') as FormArray;
   }
 
   get hasOnlyOneRow (): boolean {
-    return this.urlRowsFormArray.length === 1
+    return this.urlRowsFormArray.length === 1;
   }
 
   ngOnInit () {
     this.meta.updateTag({
       name: 'description',
       content:
-        'Erstellen Sie benutzerdefinierte Weiterleitungen für Ihre URLs und Links - schnell und einfach!',
-    })
+        'Erstellen Sie benutzerdefinierte Weiterleitungen für Ihre URLs und Links - schnell und einfach!'
+    });
   }
 
   addUrlRow () {
-    this.urlRowsFormArray.push(this.createUrlRow())
+    this.urlRowsFormArray.push(this.createUrlRow());
   }
 
   removeUrlRow (index: number) {
-    this.urlRowsFormArray.removeAt(index)
+    this.urlRowsFormArray.removeAt(index);
   }
 
   onSubmit () {
-    const result = this.rewriteService.generateRewrites(this.formGroup.value)
-    this.result.set(result)
+    const result = this.rewriteService.generateRewrites(this.formGroup.value);
+    this.result.set(result);
   }
 
   async copyRewrites () {
     try {
-      await navigator.clipboard.writeText(this.result())
-      this.toast.success('Die Rewrites wurden erfolgreich kopiert')
+      await navigator.clipboard.writeText(this.result());
+      this.toast.success('Die Rewrites wurden erfolgreich kopiert');
     } catch (e: unknown) {
-      this.toast.success('Es gab ein Fehler beim kopieren')
+      this.toast.success('Es gab ein Fehler beim kopieren');
     }
   }
 
   private createUrlRow (): FormGroup {
     return this.fb.group({
       oldUrl: ['', [Validators.required, urlValidator]],
-      newUrl: ['', [Validators.required, urlValidator]],
-    })
+      newUrl: ['', [Validators.required, urlValidator]]
+    });
   }
 }

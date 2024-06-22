@@ -1,17 +1,17 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core'
-import { FormModel, GenerationProperties } from '@ng-tool-collection/models'
-import { Validators } from '@angular/forms'
-import { PasswordGeneratorService } from '../../services/password-generator.service'
-import { atLeastOneCheckedValidator, CardComponent, FormComponent } from '@ng-tool-collection/ui'
-import { LocalStorageService } from 'ngx-webstorage'
-import { HotToastService } from '@ngneat/hot-toast'
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { FormModel, GenerationProperties } from '@ng-tool-collection/models';
+import { Validators } from '@angular/forms';
+import { PasswordGeneratorService } from '../../services/password-generator.service';
+import { atLeastOneCheckedValidator, CardComponent, FormComponent } from '@ng-tool-collection/ui';
+import { LocalStorageService } from 'ngx-webstorage';
+import { HotToastService } from '@ngxpert/hot-toast';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'lib-generator-form',
   templateUrl: './generator-form.component.html',
   standalone: true,
-  imports: [CardComponent, FormComponent],
+  imports: [CardComponent, FormComponent]
 })
 export class GeneratorFormComponent {
   formModel: FormModel = {
@@ -24,45 +24,45 @@ export class GeneratorFormComponent {
         validators: [
           Validators.required,
           Validators.min(6),
-          Validators.max(100),
-        ],
+          Validators.max(100)
+        ]
       },
       {
         label: 'Großbuchstaben verwenden',
         controlName: 'upper',
         type: 'checkbox',
-        value: true,
+        value: true
       },
       {
         label: 'Kleinbuchstaben verwenden',
         controlName: 'lower',
         type: 'checkbox',
-        value: true,
+        value: true
       },
       {
         label: 'Sonderzeichen verwenden',
         controlName: 'symbol',
         type: 'checkbox',
-        value: true,
+        value: true
       },
       {
         label: 'Zahlen verwenden',
         controlName: 'number',
         type: 'checkbox',
-        value: true,
-      },
+        value: true
+      }
     ],
     submitButtonLabel: 'Passwort generieren',
     customValidators: atLeastOneCheckedValidator([
       'upper',
       'lower',
       'symbol',
-      'number',
-    ]),
-  }
+      'number'
+    ])
+  };
 
-  password = signal<string>('')
-  hasCopied = signal<boolean>(false)
+  password = signal<string>('');
+  hasCopied = signal<boolean>(false);
 
   constructor (
     private passwordGeneratorService: PasswordGeneratorService,
@@ -71,22 +71,22 @@ export class GeneratorFormComponent {
   ) {}
 
   onSubmit (value: GenerationProperties) {
-    this.password.set(this.passwordGeneratorService.generatePassword(value))
-    this.hasCopied.set(false)
+    this.password.set(this.passwordGeneratorService.generatePassword(value));
+    this.hasCopied.set(false);
   }
 
   async copyToClipboard () {
     try {
-      await navigator.clipboard.writeText(this.password())
-      const oldPasswords = this.storageService.retrieve('passwords') ?? []
+      await navigator.clipboard.writeText(this.password());
+      const oldPasswords = this.storageService.retrieve('passwords') ?? [];
       this.storageService.store('passwords', [
         this.password(),
-        ...oldPasswords,
-      ])
-      this.hasCopied.set(true)
-      this.toast.success('Passwort wurde erfolgreich kopiert')
+        ...oldPasswords
+      ]);
+      this.hasCopied.set(true);
+      this.toast.success('Passwort wurde erfolgreich kopiert');
     } catch (e: unknown) {
-      this.toast.error('Beim kopieren ist etwas schief gelaufen')
+      this.toast.error('Beim kopieren ist etwas schief gelaufen');
     }
   }
 }

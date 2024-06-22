@@ -1,8 +1,8 @@
-import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core'
-import { LocalStorageService } from 'ngx-webstorage'
-import { HotToastService } from '@ngneat/hot-toast'
-import { toSignal } from '@angular/core/rxjs-interop'
-import { CardComponent } from '@ng-tool-collection/ui'
+import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
+import { LocalStorageService } from 'ngx-webstorage';
+import { HotToastService } from '@ngxpert/hot-toast';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { CardComponent } from '@ng-tool-collection/ui';
 
 @Component({
   selector: 'lib-generator-password-overview',
@@ -12,27 +12,27 @@ import { CardComponent } from '@ng-tool-collection/ui'
   imports: [CardComponent]
 })
 export class GeneratorPasswordOverviewComponent {
-  newPasswords = toSignal<string[]>(this.storageService.observe('passwords'))
-  initialPasswords = signal<string[]>(this.storageService.retrieve('passwords'))
+  newPasswords = toSignal<string[]>(this.storageService.observe('passwords'));
+  initialPasswords = signal<string[]>(this.storageService.retrieve('passwords'));
   passwords = computed<string[]>(() => {
-    if (!this.newPasswords()) return this.initialPasswords() ?? []
-    return this.newPasswords() ?? []
-  })
+    if (!this.newPasswords()) return this.initialPasswords() ?? [];
+    return this.newPasswords() ?? [];
+  });
 
   constructor (private storageService: LocalStorageService, private toast: HotToastService) {}
 
   async copy (password: string) {
     try {
-      await navigator.clipboard.writeText(password)
-      this.toast.success('Passwort wurde erfolgreich kopiert')
+      await navigator.clipboard.writeText(password);
+      this.toast.success('Passwort wurde erfolgreich kopiert');
     } catch (e: unknown) {
-      this.toast.error('Beim kopieren ist etwas schief gelaufen')
+      this.toast.error('Beim kopieren ist etwas schief gelaufen');
     }
   }
 
   delete (password: string) {
-    const currentPasswords = this.storageService.retrieve('passwords') as string[]
-    this.storageService.store('passwords', currentPasswords.filter(p => p !== password))
-    this.toast.success('Passwort wurde erfolgreich gelöscht')
+    const currentPasswords = this.storageService.retrieve('passwords') as string[];
+    this.storageService.store('passwords', currentPasswords.filter(p => p !== password));
+    this.toast.success('Passwort wurde erfolgreich gelöscht');
   }
 }
