@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { HotToastService } from '@ngxpert/hot-toast';
+import { HotToastService } from '@ngneat/hot-toast';
 import { CardComponent, urlValidator } from '@ng-tool-collection/ui';
 import { UrlRewritesService } from '../services/url-rewrites.service';
 import { Meta } from '@angular/platform-browser';
@@ -11,56 +11,51 @@ import { NgClass } from '@angular/common';
   selector: 'lib-url-rewrites',
   templateUrl: './url-rewrites.component.html',
   standalone: true,
-  imports: [
-    CardComponent,
-    ReactiveFormsModule,
-    NgClass
-  ]
+  imports: [CardComponent, ReactiveFormsModule, NgClass],
 })
 export class UrlRewritesComponent implements OnInit {
   formGroup: FormGroup = this.fb.group({
-    urlRows: this.fb.array([this.createUrlRow()])
+    urlRows: this.fb.array([this.createUrlRow()]),
   });
 
   result = signal<string>('');
 
-  constructor (
+  constructor(
     private fb: FormBuilder,
     private toast: HotToastService,
     private rewriteService: UrlRewritesService,
-    private meta: Meta
+    private meta: Meta,
   ) {}
 
-  get urlRowsFormArray () {
+  get urlRowsFormArray() {
     return this.formGroup.get('urlRows') as FormArray;
   }
 
-  get hasOnlyOneRow (): boolean {
+  get hasOnlyOneRow(): boolean {
     return this.urlRowsFormArray.length === 1;
   }
 
-  ngOnInit () {
+  ngOnInit() {
     this.meta.updateTag({
       name: 'description',
-      content:
-        'Erstellen Sie benutzerdefinierte Weiterleitungen für Ihre URLs und Links - schnell und einfach!'
+      content: 'Erstellen Sie benutzerdefinierte Weiterleitungen für Ihre URLs und Links - schnell und einfach!',
     });
   }
 
-  addUrlRow () {
+  addUrlRow() {
     this.urlRowsFormArray.push(this.createUrlRow());
   }
 
-  removeUrlRow (index: number) {
+  removeUrlRow(index: number) {
     this.urlRowsFormArray.removeAt(index);
   }
 
-  onSubmit () {
+  onSubmit() {
     const result = this.rewriteService.generateRewrites(this.formGroup.value);
     this.result.set(result);
   }
 
-  async copyRewrites () {
+  async copyRewrites() {
     try {
       await navigator.clipboard.writeText(this.result());
       this.toast.success('Die Rewrites wurden erfolgreich kopiert');
@@ -69,10 +64,10 @@ export class UrlRewritesComponent implements OnInit {
     }
   }
 
-  private createUrlRow (): FormGroup {
+  private createUrlRow(): FormGroup {
     return this.fb.group({
       oldUrl: ['', [Validators.required, urlValidator]],
-      newUrl: ['', [Validators.required, urlValidator]]
+      newUrl: ['', [Validators.required, urlValidator]],
     });
   }
 }

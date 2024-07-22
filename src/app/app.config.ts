@@ -2,7 +2,7 @@ import { ApplicationConfig, isDevMode, provideExperimentalZonelessChangeDetectio
 import { provideRouter } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { provideServiceWorker } from '@angular/service-worker';
-import { provideHotToastConfig } from '@ngxpert/hot-toast';
+import { provideHotToastConfig } from '@ngneat/hot-toast';
 import { provideNgxWebstorage, withLocalStorage, withSessionStorage } from 'ngx-webstorage';
 
 export const appConfig: ApplicationConfig = {
