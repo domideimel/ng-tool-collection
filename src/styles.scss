@@ -1,7 +1,67 @@
-@use '@ngneat/hot-toast/src/styles/styles.scss';
+// @use '@ngneat/hot-toast/src/styles/styles.scss';
+@use '@angular/material' as mat;
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@font-face {
+  font-display: swap;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: url('assets/fonts/roboto-v30-latin-300.woff2') format('woff2');
+}
 
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-display: swap;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('assets/fonts/roboto-v30-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: url('assets/fonts/roboto-v30-latin-500.woff2') format('woff2');
+}
+
+@include mat.core();
+
+$dark-theme: mat.define-theme((
+    color: (
+        theme-type: dark,
+        primary: mat.$magenta-palette,
+        tertiary: mat.$violet-palette,
+    ),
+    density: (
+        scale: 0,
+    )
+));
+
+$light-theme: mat.define-theme((
+    color: (
+        theme-type: light,
+        primary: mat.$rose-palette,
+        tertiary: mat.$red-palette,
+    ),
+    density: (
+        scale: 0,
+    )
+));
+
+html {
+  @include mat.all-component-themes($dark-theme);
+
+  @media (prefers-color-scheme: light) {
+    @include mat.all-component-colors($light-theme);
+  }
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
