@@ -1,15 +1,17 @@
-<div class="card card-bordered flex flex-col h-full p-0">
-  <div class="card-body gap-6 lg:gap-4 p-0 md:p-6">
-    <h2 class="card-title">{{ title() }}</h2>
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>{{ title() }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
     @if (description().length) {
       <p>{{ description() }}</p>
     } @else {
       <ng-content />
     }
-    @if (showLink()) {
-      <div class="card-actions justify-end">
-        <button [routerLink]="link()" class="btn btn-outline w-full lg:w-auto">{{ linkText() }}</button>
-      </div>
-    }
-  </div>
-</div>
+  </mat-card-content>
+  @if (showLink()) {
+    <mat-card-footer>
+      <a [routerLink]="link()" mat-button>{{ linkText() }}</a>
+    </mat-card-footer>
+  }
+</mat-card>

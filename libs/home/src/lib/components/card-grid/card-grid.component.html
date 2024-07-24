@@ -1,9 +1,13 @@
 <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-  @for (item of cards(); track item.label) {
-    <lib-card
-      [title]="item.label"
-      [description]="item?.description ?? ''"
-      [link]="item?.path ?? ''"
-    />
-  }
+  <mat-grid-list cols="2" gutterSize="16">
+    @for (item of cards(); track item.label) {
+      <mat-grid-tile>
+        <lib-card
+          [title]="item.label"
+          [description]="item?.description ?? ''"
+          [link]="item?.path ?? ''"
+        />
+      </mat-grid-tile>
+    }
+  </mat-grid-list>
 </div>
