@@ -4,6 +4,7 @@ import { appRoutes } from './app.routes';
 import { provideServiceWorker } from '@angular/service-worker';
 import { provideHotToastConfig } from '@ngneat/hot-toast';
 import { provideNgxWebstorage, withLocalStorage, withSessionStorage } from 'ngx-webstorage';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,5 +16,6 @@ export const appConfig: ApplicationConfig = {
       registrationStrategy: 'registerWhenStable:30000',
     }),
     provideExperimentalZonelessChangeDetection(),
+    provideAnimationsAsync(),
   ],
 };

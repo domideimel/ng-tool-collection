@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/cor
 import { Link } from '@ng-tool-collection/models';
 import { NAVIGATION } from '@ng-tool-collection/constants';
 import { Meta } from '@angular/platform-browser';
-import { CardComponent } from '@ng-tool-collection/ui';
+import { CardComponent, NgDashboardComponent } from '@ng-tool-collection/ui';
 import { MatGridList, MatGridTile } from '@angular/material/grid-list';
 
 @Component({
@@ -10,7 +10,7 @@ import { MatGridList, MatGridTile } from '@angular/material/grid-list';
   selector: 'lib-card-grid',
   templateUrl: './card-grid.component.html',
   standalone: true,
-  imports: [CardComponent, MatGridList, MatGridTile],
+  imports: [CardComponent, MatGridList, MatGridTile, NgDashboardComponent],
 })
 export class CardGridComponent implements OnInit {
   cards = signal<Link[]>(NAVIGATION);

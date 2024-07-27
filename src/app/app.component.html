@@ -1,3 +1,8 @@
-<lib-drawer>
+<lib-ng-navbar [links]="navItems()">
   <router-outlet></router-outlet>
-</lib-drawer>
+</lib-ng-navbar>
+<footer class="footer footer-center p-4 bg-base-300 text-base-content">
+  <aside>
+    <p>Copyright © {{ currentYear }}</p>
+  </aside>
+</footer>
