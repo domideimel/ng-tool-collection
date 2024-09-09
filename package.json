@@ -37,7 +37,7 @@
     "@angular-eslint/template-parser": "18.1.0",
     "@angular/cli": "~18.1.1",
     "@angular/compiler-cli": "18.1.1",
-    "@angular/language-service": "18.1.1",
+    "@angular/language-service": "18.2.3",
     "@nx/eslint": "19.6.4",
     "@nx/eslint-plugin": "19.5.1",
     "@nx/jest": "19.6.5",
