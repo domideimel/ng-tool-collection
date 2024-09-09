@@ -20,7 +20,7 @@
     "@angular/router": "18.1.1",
     "@angular/service-worker": "18.1.1",
     "@ngneat/hot-toast": "^7.0.0",
-    "@nx/angular": "19.5.1",
+    "@nx/angular": "19.6.5",
     "lodash-es": "^4.17.21",
     "ngx-webstorage": "^18.0.0",
     "rxjs": "~7.8.1",
