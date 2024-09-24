@@ -51,8 +51,8 @@ importers:
         specifier: ~7.8.1
         version: 7.8.1
       tslib:
-        specifier: ^2.6.3
-        version: 2.6.3
+        specifier: ^2.7.0
+        version: 2.7.0
       validator:
         specifier: ^13.12.0
         version: 13.12.0
@@ -7288,7 +7288,7 @@ snapshots:
   '@angular/animations@18.2.5(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0))':
     dependencies:
       '@angular/core': 18.2.5(rxjs@7.8.1)(zone.js@0.15.0)
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   '@angular/build@18.2.5(@angular/compiler-cli@18.2.5(@angular/compiler@18.2.5(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0)))(typescript@5.5.4))(@angular/service-worker@18.2.5(@angular/common@18.2.5(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0)))(@types/node@22.5.5)(chokidar@3.6.0)(less@4.2.0)(postcss@8.4.41)(stylus@0.59.0)(tailwindcss@3.4.12(ts-node@10.9.2(@swc/core@1.7.26(@swc/helpers@0.5.13))(@types/node@22.5.5)(typescript@5.5.4)))(terser@5.31.6)(typescript@5.5.4)':
     dependencies:
@@ -7362,7 +7362,7 @@ snapshots:
     dependencies:
       '@angular/core': 18.2.5(rxjs@7.8.1)(zone.js@0.15.0)
       rxjs: 7.8.1
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   '@angular/compiler-cli@18.2.5(@angular/compiler@18.2.5(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0)))(typescript@5.5.4)':
     dependencies:
@@ -7373,7 +7373,7 @@ snapshots:
       convert-source-map: 1.9.0
       reflect-metadata: 0.2.2
       semver: 7.6.3
-      tslib: 2.6.3
+      tslib: 2.7.0
       typescript: 5.5.4
       yargs: 17.7.2
     transitivePeerDependencies:
@@ -7381,14 +7381,14 @@ snapshots:
 
   '@angular/compiler@18.2.5(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0))':
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.7.0
     optionalDependencies:
       '@angular/core': 18.2.5(rxjs@7.8.1)(zone.js@0.15.0)
 
   '@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0)':
     dependencies:
       rxjs: 7.8.1
-      tslib: 2.6.3
+      tslib: 2.7.0
       zone.js: 0.15.0
 
   '@angular/forms@18.2.5(@angular/common@18.2.5(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0))(@angular/platform-browser@18.2.5(@angular/animations@18.2.5(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@18.2.5(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0)))(rxjs@7.8.1)':
@@ -7397,7 +7397,7 @@ snapshots:
       '@angular/core': 18.2.5(rxjs@7.8.1)(zone.js@0.15.0)
       '@angular/platform-browser': 18.2.5(@angular/animations@18.2.5(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@18.2.5(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0))
       rxjs: 7.8.1
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   '@angular/language-service@18.2.5': {}
 
@@ -7407,13 +7407,13 @@ snapshots:
       '@angular/compiler': 18.2.5(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0))
       '@angular/core': 18.2.5(rxjs@7.8.1)(zone.js@0.15.0)
       '@angular/platform-browser': 18.2.5(@angular/animations@18.2.5(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@18.2.5(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0))
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   '@angular/platform-browser@18.2.5(@angular/animations@18.2.5(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@18.2.5(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0))':
     dependencies:
       '@angular/common': 18.2.5(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1)
       '@angular/core': 18.2.5(rxjs@7.8.1)(zone.js@0.15.0)
-      tslib: 2.6.3
+      tslib: 2.7.0
     optionalDependencies:
       '@angular/animations': 18.2.5(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0))
 
@@ -7423,13 +7423,13 @@ snapshots:
       '@angular/core': 18.2.5(rxjs@7.8.1)(zone.js@0.15.0)
       '@angular/platform-browser': 18.2.5(@angular/animations@18.2.5(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@18.2.5(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0))
       rxjs: 7.8.1
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   '@angular/service-worker@18.2.5(@angular/common@18.2.5(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0))':
     dependencies:
       '@angular/common': 18.2.5(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1)
       '@angular/core': 18.2.5(rxjs@7.8.1)(zone.js@0.15.0)
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   '@babel/code-frame@7.24.7':
     dependencies:
@@ -9025,15 +9025,15 @@ snapshots:
   '@emnapi/core@1.2.0':
     dependencies:
       '@emnapi/wasi-threads': 1.0.1
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   '@emnapi/runtime@1.2.0':
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   '@emnapi/wasi-threads@1.0.1':
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   '@esbuild/aix-ppc64@0.21.5':
     optional: true
@@ -9599,21 +9599,21 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@jsonjoy.com/base64@1.1.2(tslib@2.6.3)':
+  '@jsonjoy.com/base64@1.1.2(tslib@2.7.0)':
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.7.0
 
-  '@jsonjoy.com/json-pack@1.0.4(tslib@2.6.3)':
+  '@jsonjoy.com/json-pack@1.0.4(tslib@2.7.0)':
     dependencies:
-      '@jsonjoy.com/base64': 1.1.2(tslib@2.6.3)
-      '@jsonjoy.com/util': 1.2.0(tslib@2.6.3)
+      '@jsonjoy.com/base64': 1.1.2(tslib@2.7.0)
+      '@jsonjoy.com/util': 1.2.0(tslib@2.7.0)
       hyperdyperid: 1.2.0
-      thingies: 1.21.0(tslib@2.6.3)
-      tslib: 2.6.3
+      thingies: 1.21.0(tslib@2.7.0)
+      tslib: 2.7.0
 
-  '@jsonjoy.com/util@1.2.0(tslib@2.6.3)':
+  '@jsonjoy.com/util@1.2.0(tslib@2.7.0)':
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   '@leichtgewicht/ip-codec@2.0.5': {}
 
@@ -9788,7 +9788,7 @@ snapshots:
     dependencies:
       '@angular/core': 18.2.5(rxjs@7.8.1)(zone.js@0.15.0)
       '@ngneat/overview': 6.1.1(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0))
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   '@ngneat/overview@6.1.1(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0))':
     dependencies:
@@ -9881,7 +9881,7 @@ snapshots:
   '@nrwl/angular@19.8.0(rwsma656s727f6zujd7hfr2kxi)':
     dependencies:
       '@nx/angular': 19.8.0(rwsma656s727f6zujd7hfr2kxi)
-      tslib: 2.6.3
+      tslib: 2.7.0
     transitivePeerDependencies:
       - '@angular-devkit/build-angular'
       - '@angular-devkit/core'
@@ -9995,7 +9995,7 @@ snapshots:
   '@nrwl/tao@19.8.0(@swc-node/register@1.10.9(@swc/core@1.7.26(@swc/helpers@0.5.13))(@swc/types@0.1.12)(typescript@5.5.4))(@swc/core@1.7.26(@swc/helpers@0.5.13))':
     dependencies:
       nx: 19.8.0(@swc-node/register@1.10.9(@swc/core@1.7.26(@swc/helpers@0.5.13))(@swc/types@0.1.12)(typescript@5.5.4))(@swc/core@1.7.26(@swc/helpers@0.5.13))
-      tslib: 2.6.3
+      tslib: 2.7.0
     transitivePeerDependencies:
       - '@swc-node/register'
       - '@swc/core'
@@ -10081,7 +10081,7 @@ snapshots:
       piscina: 4.6.1
       rxjs: 7.8.1
       semver: 7.6.3
-      tslib: 2.6.3
+      tslib: 2.7.0
       webpack: 5.93.0(@swc/core@1.7.26(@swc/helpers@0.5.13))
       webpack-merge: 5.10.0
     transitivePeerDependencies:
@@ -10127,7 +10127,7 @@ snapshots:
       nx: 19.8.0(@swc-node/register@1.10.9(@swc/core@1.7.26(@swc/helpers@0.5.13))(@swc/types@0.1.12)(typescript@5.5.4))(@swc/core@1.7.26(@swc/helpers@0.5.13))
       semver: 7.6.3
       tmp: 0.2.3
-      tslib: 2.6.3
+      tslib: 2.7.0
       yargs-parser: 21.1.1
 
   '@nx/eslint-plugin@19.8.0(@babel/traverse@7.25.6)(@swc-node/register@1.10.9(@swc/core@1.7.26(@swc/helpers@0.5.13))(@swc/types@0.1.12)(typescript@5.5.4))(@swc/core@1.7.26(@swc/helpers@0.5.13))(@types/node@22.5.5)(@typescript-eslint/parser@8.6.0(eslint@9.11.0(jiti@1.21.6))(typescript@5.5.4))(eslint-config-prettier@9.1.0(eslint@9.11.0(jiti@1.21.6)))(eslint@9.11.0(jiti@1.21.6))(nx@19.8.0(@swc-node/register@1.10.9(@swc/core@1.7.26(@swc/helpers@0.5.13))(@swc/types@0.1.12)(typescript@5.5.4))(@swc/core@1.7.26(@swc/helpers@0.5.13)))(typescript@5.5.4)':
@@ -10144,7 +10144,7 @@ snapshots:
       globals: 15.9.0
       jsonc-eslint-parser: 2.4.0
       semver: 7.6.3
-      tslib: 2.6.3
+      tslib: 2.7.0
     optionalDependencies:
       eslint-config-prettier: 9.1.0(eslint@9.11.0(jiti@1.21.6))
     transitivePeerDependencies:
@@ -10167,7 +10167,7 @@ snapshots:
       '@nx/linter': 19.8.0(@babel/traverse@7.25.6)(@swc-node/register@1.10.9(@swc/core@1.7.26(@swc/helpers@0.5.13))(@swc/types@0.1.12)(typescript@5.5.4))(@swc/core@1.7.26(@swc/helpers@0.5.13))(@types/node@22.5.5)(@zkochan/js-yaml@0.0.7)(eslint@9.11.0(jiti@1.21.6))(nx@19.8.0(@swc-node/register@1.10.9(@swc/core@1.7.26(@swc/helpers@0.5.13))(@swc/types@0.1.12)(typescript@5.5.4))(@swc/core@1.7.26(@swc/helpers@0.5.13)))
       eslint: 9.11.0(jiti@1.21.6)
       semver: 7.6.3
-      tslib: 2.6.3
+      tslib: 2.7.0
       typescript: 5.4.5
     optionalDependencies:
       '@zkochan/js-yaml': 0.0.7
@@ -10198,7 +10198,7 @@ snapshots:
       minimatch: 9.0.3
       resolve.exports: 1.1.0
       semver: 7.6.3
-      tslib: 2.6.3
+      tslib: 2.7.0
       yargs-parser: 21.1.1
     transitivePeerDependencies:
       - '@babel/traverse'
@@ -10245,7 +10245,7 @@ snapshots:
       source-map-support: 0.5.19
       ts-node: 10.9.1(@swc/core@1.7.26(@swc/helpers@0.5.13))(@types/node@22.5.5)(typescript@5.4.5)
       tsconfig-paths: 4.2.0
-      tslib: 2.6.3
+      tslib: 2.7.0
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -10287,7 +10287,7 @@ snapshots:
       source-map-support: 0.5.19
       ts-node: 10.9.1(@swc/core@1.7.26(@swc/helpers@0.5.13))(@types/node@22.5.5)(typescript@5.5.4)
       tsconfig-paths: 4.2.0
-      tslib: 2.6.3
+      tslib: 2.7.0
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -10353,7 +10353,7 @@ snapshots:
       chalk: 4.1.2
       detect-port: 1.6.1
       http-server: 14.1.1
-      tslib: 2.6.3
+      tslib: 2.7.0
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -10405,7 +10405,7 @@ snapshots:
       terser-webpack-plugin: 5.3.10(@swc/core@1.7.26(@swc/helpers@0.5.13))(webpack@5.93.0(@swc/core@1.7.26(@swc/helpers@0.5.13)))
       ts-loader: 9.5.1(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.26(@swc/helpers@0.5.13)))
       tsconfig-paths-webpack-plugin: 4.0.0
-      tslib: 2.6.3
+      tslib: 2.7.0
       webpack: 5.93.0(@swc/core@1.7.26(@swc/helpers@0.5.13))
       webpack-dev-server: 5.0.4(webpack@5.93.0(@swc/core@1.7.26(@swc/helpers@0.5.13)))
       webpack-node-externals: 3.0.0
@@ -10448,7 +10448,7 @@ snapshots:
       chalk: 4.1.2
       enquirer: 2.3.6
       nx: 19.8.0(@swc-node/register@1.10.9(@swc/core@1.7.26(@swc/helpers@0.5.13))(@swc/types@0.1.12)(typescript@5.5.4))(@swc/core@1.7.26(@swc/helpers@0.5.13))
-      tslib: 2.6.3
+      tslib: 2.7.0
       yargs-parser: 21.1.1
     transitivePeerDependencies:
       - '@swc-node/register'
@@ -10660,7 +10660,7 @@ snapshots:
       debug: 4.3.5
       oxc-resolver: 1.10.2
       pirates: 4.0.6
-      tslib: 2.6.3
+      tslib: 2.7.0
       typescript: 5.5.4
     transitivePeerDependencies:
       - '@swc/types'
@@ -10669,7 +10669,7 @@ snapshots:
   '@swc-node/sourcemap-support@0.5.1':
     dependencies:
       source-map-support: 0.5.21
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   '@swc/core-darwin-arm64@1.7.26':
     optional: true
@@ -10722,7 +10722,7 @@ snapshots:
 
   '@swc/helpers@0.5.13':
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   '@swc/types@0.1.12':
     dependencies:
@@ -10751,7 +10751,7 @@ snapshots:
 
   '@tybys/wasm-util@0.9.0':
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   '@types/babel__core@7.20.5':
     dependencies:
@@ -11088,7 +11088,7 @@ snapshots:
   '@yarnpkg/parsers@3.0.0-rc.46':
     dependencies:
       js-yaml: 3.14.1
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   '@zkochan/js-yaml@0.0.7':
     dependencies:
@@ -13586,7 +13586,7 @@ snapshots:
     dependencies:
       copy-anything: 2.0.6
       parse-node-version: 1.0.1
-      tslib: 2.6.3
+      tslib: 2.7.0
     optionalDependencies:
       errno: 0.1.8
       graceful-fs: 4.2.11
@@ -13600,7 +13600,7 @@ snapshots:
     dependencies:
       copy-anything: 2.0.6
       parse-node-version: 1.0.1
-      tslib: 2.6.3
+      tslib: 2.7.0
     optionalDependencies:
       errno: 0.1.8
       graceful-fs: 4.2.11
@@ -13791,10 +13791,10 @@ snapshots:
 
   memfs@4.9.3:
     dependencies:
-      '@jsonjoy.com/json-pack': 1.0.4(tslib@2.6.3)
-      '@jsonjoy.com/util': 1.2.0(tslib@2.6.3)
-      tree-dump: 1.0.2(tslib@2.6.3)
-      tslib: 2.6.3
+      '@jsonjoy.com/json-pack': 1.0.4(tslib@2.7.0)
+      '@jsonjoy.com/util': 1.2.0(tslib@2.7.0)
+      tree-dump: 1.0.2(tslib@2.7.0)
+      tslib: 2.7.0
 
   merge-descriptors@1.0.1: {}
 
@@ -13957,7 +13957,7 @@ snapshots:
     dependencies:
       '@angular/common': 18.2.5(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1)
       '@angular/core': 18.2.5(rxjs@7.8.1)(zone.js@0.15.0)
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   nice-napi@1.0.2:
     dependencies:
@@ -14114,7 +14114,7 @@ snapshots:
       tar-stream: 2.2.0
       tmp: 0.2.3
       tsconfig-paths: 4.2.0
-      tslib: 2.6.3
+      tslib: 2.7.0
       yargs: 17.7.2
       yargs-parser: 21.1.1
     optionalDependencies:
@@ -14867,7 +14867,7 @@ snapshots:
 
   rxjs@7.8.1:
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   safe-buffer@5.1.2: {}
 
@@ -15377,9 +15377,9 @@ snapshots:
     dependencies:
       any-promise: 1.3.0
 
-  thingies@1.21.0(tslib@2.6.3):
+  thingies@1.21.0(tslib@2.7.0):
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   through@2.3.8: {}
 
@@ -15412,9 +15412,9 @@ snapshots:
     dependencies:
       punycode: 2.3.1
 
-  tree-dump@1.0.2(tslib@2.6.3):
+  tree-dump@1.0.2(tslib@2.7.0):
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   tree-kill@1.2.2: {}
 
