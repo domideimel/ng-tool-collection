@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { DrawerComponent } from '@ng-tool-collection/ui';
+import { DrawerComponent, ToastsComponent } from '@ng-tool-collection/ui';
 
 @Component({
   standalone: true,
-  imports: [RouterModule, DrawerComponent],
+  imports: [RouterModule, DrawerComponent, ToastsComponent],
   providers: [],
   selector: 'app-root',
   templateUrl: './app.component.html',

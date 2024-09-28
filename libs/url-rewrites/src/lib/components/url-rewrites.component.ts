@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { HotToastService } from '@ngneat/hot-toast';
-import { CardComponent, urlValidator } from '@ng-tool-collection/ui';
+import { CardComponent, ToastService, urlValidator } from '@ng-tool-collection/ui';
 import { UrlRewritesService } from '../services/url-rewrites.service';
 import { Meta } from '@angular/platform-browser';
 import { NgClass } from '@angular/common';
@@ -21,7 +20,7 @@ export class UrlRewritesComponent implements OnInit {
   formGroup: FormGroup = this.fb.group({
     urlRows: this.fb.array([this.createUrlRow()]),
   });
-  private toast = inject(HotToastService);
+  private toast = inject(ToastService);
   private rewriteService = inject(UrlRewritesService);
   private meta = inject(Meta);
 
