@@ -3,6 +3,8 @@ import { LocalStorageService } from 'ngx-webstorage';
 import { HotToastService } from '@ngneat/hot-toast';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { CardComponent } from '@ng-tool-collection/ui';
+import { fromPromise } from 'rxjs/internal/observable/innerFrom';
+import { catchError, tap } from 'rxjs';
 
 @Component({
   selector: 'lib-generator-password-overview',
@@ -21,13 +23,16 @@ export class GeneratorPasswordOverviewComponent {
   initialPasswords = signal<string[]>(this.storageService.retrieve('passwords'));
   private toast = inject(HotToastService);
 
-  async copy(password: string) {
-    try {
-      await navigator.clipboard.writeText(password);
-      this.toast.success('Passwort wurde erfolgreich kopiert');
-    } catch (e: unknown) {
-      this.toast.error('Beim kopieren ist etwas schief gelaufen');
-    }
+  copy(password: string) {
+    fromPromise(navigator.clipboard.writeText(password))
+      .pipe(
+        tap(() => this.toast.success('Passwort wurde erfolgreich kopiert')),
+        catchError(err => {
+          this.toast.error('Beim kopieren ist etwas schief gelaufen');
+          return err;
+        }),
+      )
+      .subscribe();
   }
 
   delete(password: string) {
