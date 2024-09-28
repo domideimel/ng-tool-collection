@@ -3,6 +3,7 @@ import { Link } from '@ng-tool-collection/models';
 import { NAVIGATION } from '@ng-tool-collection/constants';
 import { Meta } from '@angular/platform-browser';
 import { CardComponent } from '@ng-tool-collection/ui';
+import { $localize } from '@angular/localize/init';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -18,8 +19,7 @@ export class CardGridComponent implements OnInit {
   ngOnInit() {
     this.meta.updateTag({
       name: 'description',
-      content:
-        'Entdecke unsere umfangreiche Sammlung an Tools, die entwickelt wurden, um deinen Alltag zu erleichtern. Von Produktivitätssteigerung bis hin zur Organisation – finde genau das, was du brauchst, um effizienter zu arbeiten und mehr zu erreichen.',
+      content: $localize`Entdecke unsere umfangreiche Sammlung an Tools, die entwickelt wurden, um deinen Alltag zu erleichtern. Von Produktivitätssteigerung bis hin zur Organisation – finde genau das, was du brauchst, um effizienter zu arbeiten und mehr zu erreichen.`,
     });
   }
 }

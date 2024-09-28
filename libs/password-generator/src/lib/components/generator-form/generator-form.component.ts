@@ -6,6 +6,7 @@ import { atLeastOneCheckedValidator, CardComponent, FormComponent, ToastService 
 import { LocalStorageService } from 'ngx-webstorage';
 import { fromPromise } from 'rxjs/internal/observable/innerFrom';
 import { catchError, tap } from 'rxjs';
+import { $localize } from '@angular/localize/init';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -18,38 +19,38 @@ export class GeneratorFormComponent {
   formModel: FormModel = {
     items: [
       {
-        label: 'Passwort Länge',
+        label: $localize`Passwort Länge`,
         controlName: 'length',
         type: 'range',
         value: 10,
         validators: [Validators.required, Validators.min(6), Validators.max(100)],
       },
       {
-        label: 'Großbuchstaben verwenden',
+        label: $localize`Großbuchstaben verwenden`,
         controlName: 'upper',
         type: 'checkbox',
         value: true,
       },
       {
-        label: 'Kleinbuchstaben verwenden',
+        label: $localize`Kleinbuchstaben verwenden`,
         controlName: 'lower',
         type: 'checkbox',
         value: true,
       },
       {
-        label: 'Sonderzeichen verwenden',
+        label: $localize`Sonderzeichen verwenden`,
         controlName: 'symbol',
         type: 'checkbox',
         value: true,
       },
       {
-        label: 'Zahlen verwenden',
+        label: $localize`Zahlen verwenden`,
         controlName: 'number',
         type: 'checkbox',
         value: true,
       },
     ],
-    submitButtonLabel: 'Passwort generieren',
+    submitButtonLabel: $localize`Passwort generieren`,
     customValidators: atLeastOneCheckedValidator(['upper', 'lower', 'symbol', 'number']),
   };
 
@@ -74,10 +75,10 @@ export class GeneratorFormComponent {
           const oldPasswords = this.storageService.retrieve('passwords') ?? [];
           this.storageService.store('passwords', [this.password(), ...oldPasswords]);
           this.hasCopied.set(true);
-          this.toast.success('Passwort wurde erfolgreich kopiert');
+          this.toast.success($localize`Passwort wurde erfolgreich kopiert`);
         }),
         catchError(err => {
-          this.toast.error('Beim kopieren ist etwas schief gelaufen');
+          this.toast.error($localize`Beim kopieren ist etwas schief gelaufen`);
           return err;
         }),
       )
