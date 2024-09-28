@@ -49,8 +49,7 @@ export class UrlRewritesComponent implements OnInit {
   }
 
   onSubmit() {
-    const result = this.rewriteService.generateRewrites(this.formGroup.value);
-    this.result.set(result);
+    this.rewriteService.generateRewrites(this.formGroup.value).subscribe(result => this.result.set(result));
   }
 
   copyRewrites() {
