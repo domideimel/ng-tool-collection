@@ -2,9 +2,8 @@ import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/cor
 import { FormModel, GenerationProperties } from '@ng-tool-collection/models';
 import { Validators } from '@angular/forms';
 import { PasswordGeneratorService } from '../../services/password-generator.service';
-import { atLeastOneCheckedValidator, CardComponent, FormComponent } from '@ng-tool-collection/ui';
+import { atLeastOneCheckedValidator, CardComponent, FormComponent, ToastService } from '@ng-tool-collection/ui';
 import { LocalStorageService } from 'ngx-webstorage';
-import { HotToastService } from '@ngneat/hot-toast';
 import { fromPromise } from 'rxjs/internal/observable/innerFrom';
 import { catchError, tap } from 'rxjs';
 
@@ -59,7 +58,7 @@ export class GeneratorFormComponent {
 
   private passwordGeneratorService = inject(PasswordGeneratorService);
   private storageService = inject(LocalStorageService);
-  private toast = inject(HotToastService);
+  private toast = inject(ToastService);
 
   onSubmit(value: GenerationProperties) {
     this.passwordGeneratorService.generatePassword(value).subscribe(password => {

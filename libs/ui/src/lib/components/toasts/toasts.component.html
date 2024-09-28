@@ -1,0 +1,31 @@
+<div class="toast toast-center md:toast-end absolute">
+  @for (toast of toasts(); track toast.id) {
+    @switch (toast.type) {
+      @case ('success') {
+        <div role="alert" class="alert alert-success">
+          {{ toast.message }}
+        </div>
+      }
+      @case ('error') {
+        <div role="alert" class="alert alert-error">
+          {{ toast.message }}
+        </div>
+      }
+      @case ('info') {
+        <div role="alert" class="alert alert-info">
+          {{ toast.message }}
+        </div>
+      }
+      @case ('warning') {
+        <div role="alert" class="alert alert-warning">
+          {{ toast.message }}
+        </div>
+      }
+      @default {
+        <div role="alert" class="alert">
+          {{ toast.message }}
+        </div>
+      }
+    }
+  }
+</div>

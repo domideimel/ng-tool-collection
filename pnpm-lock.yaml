@@ -35,9 +35,6 @@ importers:
       '@angular/service-worker':
         specifier: 18.2.5
         version: 18.2.5(@angular/common@18.2.5(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.14.10))
-      '@ngneat/hot-toast':
-        specifier: ^7.0.0
-        version: 7.0.0(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.14.10))(@ngneat/overview@6.1.1(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.14.10)))
       '@nx/angular':
         specifier: 19.8.2
         version: 19.8.2(trh7sbw45eulef4bvkzd3xewoq)
@@ -1932,17 +1929,6 @@ packages:
 
   '@napi-rs/wasm-runtime@0.2.4':
     resolution: {integrity: sha512-9zESzOO5aDByvhIAsOy9TbpZ0Ur2AJbUI7UT73kcUTS2mxAMHOBaa1st/jAymNoCtvrit99kkzT1FZuXVcgfIQ==}
-
-  '@ngneat/hot-toast@7.0.0':
-    resolution: {integrity: sha512-t/7msPgtZT534HBxAPjvr6dovP0jyf/intibceUq6i+woa4gnt44jSMsAmI3WVz8UoOmwG1wBwJOKu0zdLmCOA==}
-    peerDependencies:
-      '@angular/core': '>= 17.0.0 < 18.0.0'
-      '@ngneat/overview': 6.0.0
-
-  '@ngneat/overview@6.1.1':
-    resolution: {integrity: sha512-31gsEbSbLWTD/LD8KtUS2Qv+GVQS2pK00S9ZBP+pv2ZF1NIfwHjXs8fey8TQN1QuKPLa510YYN3rEwyP57UCfw==}
-    peerDependencies:
-      '@angular/core': '>=17'
 
   '@ngtools/webpack@18.2.5':
     resolution: {integrity: sha512-L0n4eHObeqEOYRfSP+e4SeF/dmwxOIFy9xYvYCOUwOLrW4b3+a1+kkT30pqyfL72LFtpf0cmUwaWEFIcWl5PCg==}
@@ -9233,17 +9219,6 @@ snapshots:
       '@emnapi/core': 1.2.0
       '@emnapi/runtime': 1.2.0
       '@tybys/wasm-util': 0.9.0
-
-  '@ngneat/hot-toast@7.0.0(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.14.10))(@ngneat/overview@6.1.1(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.14.10)))':
-    dependencies:
-      '@angular/core': 18.2.5(rxjs@7.8.1)(zone.js@0.14.10)
-      '@ngneat/overview': 6.1.1(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.14.10))
-      tslib: 2.7.0
-
-  '@ngneat/overview@6.1.1(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.14.10))':
-    dependencies:
-      '@angular/core': 18.2.5(rxjs@7.8.1)(zone.js@0.14.10)
-      tslib: 2.7.0
 
   '@ngtools/webpack@18.2.5(@angular/compiler-cli@18.2.5(@angular/compiler@18.2.5(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.5.4))(typescript@5.5.4)(webpack@5.94.0(@swc/core@1.7.26(@swc/helpers@0.5.13)))':
     dependencies:
