@@ -5,6 +5,8 @@ import { CardComponent, urlValidator } from '@ng-tool-collection/ui';
 import { UrlRewritesService } from '../services/url-rewrites.service';
 import { Meta } from '@angular/platform-browser';
 import { NgClass } from '@angular/common';
+import { fromPromise } from 'rxjs/internal/observable/innerFrom';
+import { catchError, tap } from 'rxjs';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -51,13 +53,16 @@ export class UrlRewritesComponent implements OnInit {
     this.result.set(result);
   }
 
-  async copyRewrites() {
-    try {
-      await navigator.clipboard.writeText(this.result());
-      this.toast.success('Die Rewrites wurden erfolgreich kopiert');
-    } catch (e: unknown) {
-      this.toast.success('Es gab ein Fehler beim kopieren');
-    }
+  copyRewrites() {
+    fromPromise(navigator.clipboard.writeText(this.result()))
+      .pipe(
+        tap(() => this.toast.success('Die Rewrites wurden erfolgreich kopiert')),
+        catchError(err => {
+          this.toast.success('Es gab ein Fehler beim kopieren');
+          return err;
+        }),
+      )
+      .subscribe();
   }
 
   private createUrlRow(): FormGroup {

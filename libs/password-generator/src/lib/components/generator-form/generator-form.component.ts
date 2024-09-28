@@ -5,6 +5,8 @@ import { PasswordGeneratorService } from '../../services/password-generator.serv
 import { atLeastOneCheckedValidator, CardComponent, FormComponent } from '@ng-tool-collection/ui';
 import { LocalStorageService } from 'ngx-webstorage';
 import { HotToastService } from '@ngneat/hot-toast';
+import { fromPromise } from 'rxjs/internal/observable/innerFrom';
+import { catchError, tap } from 'rxjs';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -64,15 +66,20 @@ export class GeneratorFormComponent {
     this.hasCopied.set(false);
   }
 
-  async copyToClipboard() {
-    try {
-      await navigator.clipboard.writeText(this.password());
-      const oldPasswords = this.storageService.retrieve('passwords') ?? [];
-      this.storageService.store('passwords', [this.password(), ...oldPasswords]);
-      this.hasCopied.set(true);
-      this.toast.success('Passwort wurde erfolgreich kopiert');
-    } catch (e: unknown) {
-      this.toast.error('Beim kopieren ist etwas schief gelaufen');
-    }
+  copyToClipboard() {
+    fromPromise(navigator.clipboard.writeText(this.password()))
+      .pipe(
+        tap(() => {
+          const oldPasswords = this.storageService.retrieve('passwords') ?? [];
+          this.storageService.store('passwords', [this.password(), ...oldPasswords]);
+          this.hasCopied.set(true);
+          this.toast.success('Passwort wurde erfolgreich kopiert');
+        }),
+        catchError(err => {
+          this.toast.error('Beim kopieren ist etwas schief gelaufen');
+          return err;
+        }),
+      )
+      .subscribe();
   }
 }
