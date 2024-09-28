@@ -62,7 +62,9 @@ export class GeneratorFormComponent {
   private toast = inject(HotToastService);
 
   onSubmit(value: GenerationProperties) {
-    this.password.set(this.passwordGeneratorService.generatePassword(value));
+    this.passwordGeneratorService.generatePassword(value).subscribe(password => {
+      this.password.set(password);
+    });
     this.hasCopied.set(false);
   }
 
