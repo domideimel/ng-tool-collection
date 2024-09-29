@@ -16,7 +16,7 @@ import { $localize } from '@angular/localize/init';
   imports: [CardComponent, FormComponent],
 })
 export class GeneratorFormComponent {
-  formModel: FormModel = {
+  formModel = {
     items: [
       {
         label: $localize`Passwort Länge`,
@@ -52,11 +52,10 @@ export class GeneratorFormComponent {
     ],
     submitButtonLabel: $localize`Passwort generieren`,
     customValidators: atLeastOneCheckedValidator(['upper', 'lower', 'symbol', 'number']),
-  };
+  } as const satisfies FormModel;
 
   password = signal<string>('');
   hasCopied = signal<boolean>(false);
-
   private passwordGeneratorService = inject(PasswordGeneratorService);
   private storageService = inject(LocalStorageService);
   private toast = inject(ToastService);
