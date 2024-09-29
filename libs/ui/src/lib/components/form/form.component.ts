@@ -1,5 +1,12 @@
-import { ChangeDetectionStrategy, Component, inject, input, OnInit, output } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  ValidationErrors,
+  ValidatorFn,
+} from '@angular/forms';
 import { FormModel } from '@ng-tool-collection/models';
 import { NgClass } from '@angular/common';
 
@@ -10,36 +17,34 @@ import { NgClass } from '@angular/common';
   standalone: true,
   imports: [ReactiveFormsModule, NgClass],
 })
-export class FormComponent<T> implements OnInit {
+export class FormComponent<T extends FormModel> {
   model = input.required<FormModel>();
-  submitEvent = output<T>();
-  formGroup!: FormGroup;
-
+  submitEvent = output<any>();
   private fb = inject(FormBuilder);
+  formGroup = computed<FormGroup<{ [K in T['items'][number]['controlName']]: AbstractControl }>>(() => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    const formGroup: FormGroup<{ [K in T['items'][number]['controlName']]: AbstractControl }> = this.fb.group(
+      this.model().items.reduce(
+        (controls, item) => ({
+          ...controls,
+          [item.controlName]: this.fb.control(item.value, item.validators ? item.validators : []),
+        }),
+        {},
+      ),
+    );
+    if (this.model()?.customValidators) {
+      formGroup.setValidators(this.model().customValidators as ValidatorFn | ValidatorFn[]);
+    }
+
+    return formGroup;
+  });
 
   hasErrors(controlName: string): ValidationErrors | undefined | null {
-    return this.formGroup.get(controlName)?.errors;
-  }
-
-  ngOnInit() {
-    this.formGroup = this.createForm();
-
-    if (this.model()?.customValidators) {
-      this.formGroup.setValidators(this.model().customValidators as ValidatorFn | ValidatorFn[]);
-    }
+    return this.formGroup().get(controlName)?.errors;
   }
 
   onSubmit() {
-    this.submitEvent.emit(this.formGroup?.value);
-  }
-
-  private createForm(): FormGroup {
-    const group: any = {};
-
-    this.model()?.items?.forEach(control => {
-      group[control.controlName] = [control.value || '', control.validators || []];
-    });
-
-    return this.fb.group(group);
+    this.submitEvent.emit(this.formGroup()?.value);
   }
 }

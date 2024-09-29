@@ -1,120 +1,120 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="formGroup" class="flex flex-col gap-4">
-    @for (item of model().items; track item.label) {
-        @switch (item.type) {
-            @case ("text") {
-                <label class="form-control ">
-                    <div class="label">
-                        <span class="label-text">{{ item.label }}</span>
-                    </div>
-                    <input
-                            type="text"
-                            class="input input-bordered "
-                            [placeholder]="item?.placeholder"
-                            [formControlName]="item.controlName"
-                            [attr.id]="item.controlName"
-                    />
-                </label>
-            }
-            @case ("checkbox") {
-                <div class="form-control">
-                    <label class="label cursor-pointer justify-normal gap-4">
-                        <input
-                                type="checkbox"
-                                class="checkbox"
-                                [formControlName]="item.controlName"
-                                [ngClass]="[hasErrors(item.controlName) ? 'checkbox-error' : '']"
-                                [attr.id]="item.controlName"
-                        />
-                        <span class="label-text">{{ item.label }}</span>
-                    </label>
-                </div>
-            }
-            @case ("radio") {
-                @for (option of item.options; track option.value) {
-                    <div class="form-control">
-                        <label class="label cursor-pointer justify-normal gap-4">
-                            <input
-                                    type="radio"
-                                    class="radio"
-                                    [formControlName]="item.controlName"
-                                    [ngClass]="[hasErrors(item.controlName) ? 'radio-error' : '']"
-                                    [attr.id]="item.controlName"
-                            />
-                            <span class="label-text">{{ option.label }}</span>
-                        </label>
-                    </div>
-                }
-            }
-            @case ("select") {
-                <label class="form-control ">
-                    <div class="label">
-                        <span class="label-text">{{ item.label }}</span>
-                    </div>
-                    <select
-                            class="select select-bordered"
-                            [formControlName]="item.controlName"
-                            [ngClass]="[hasErrors(item.controlName) ? 'select-error' : '']"
-                            [attr.id]="item.controlName"
-                    >
-                        @for (option of item.options; track option.value) {
-                            <option [value]="option?.value">
-                                {{ option.label }}
-                            </option>
-                        }
-                    </select>
-                </label>
-            }
-            @case ("textarea") {
-                <label class="form-control">
-                    <div class="label">
-                        <span class="label-text">{{ item.label }}</span>
-                    </div>
-                    <textarea
-                            class="textarea textarea-bordered h-24"
-                            [formControlName]="item.controlName"
-                            [ngClass]="[hasErrors(item.controlName) ? 'textarea-error' : '']"
-                            [attr.id]="item.controlName"
-                    ></textarea>
-                </label>
-            }
-            @case ("date") {
-                <label class="form-control w-full lg:max-w-xs">
-                    <div class="label">
-                        <span class="label-text">{{ item.label }}</span>
-                    </div>
-                    <input
-                            type="date"
-                            class="input input-bordered "
-                            [formControlName]="item.controlName"
-                            [ngClass]="[hasErrors(item.controlName) ? 'input-error' : '']"
-                            [attr.id]="item.controlName"
-                    />
-                </label>
-            }
-            @case ("range") {
-                <label class="form-control w-full">
-                    <div class="label">
-                        <span class="label-text">{{ item.label }}</span>
-                    </div>
-                    <div class="flex gap-4">
-                        <input
-                                type="range"
-                                class="range"
-                                [formControlName]="item.controlName"
-                                [ngClass]="[hasErrors(item.controlName) ? 'range-error' : '']"
-                                [attr.id]="item.controlName"
-                        />
-                        <div class="range-value">{{ formGroup.get(item.controlName)?.value }}</div>
-                    </div>
-                </label>
-            }
+<form (ngSubmit)="onSubmit()" [formGroup]="formGroup()" class="flex flex-col gap-4">
+  @for (item of model().items; track item.label) {
+    @switch (item.type) {
+      @case ("text") {
+        <label class="form-control ">
+          <div class="label">
+            <span class="label-text">{{ item.label }}</span>
+          </div>
+          <input
+            type="text"
+            class="input input-bordered "
+            [placeholder]="item?.placeholder"
+            [formControlName]="item.controlName"
+            [attr.id]="item.controlName"
+          />
+        </label>
+      }
+      @case ("checkbox") {
+        <div class="form-control">
+          <label class="label cursor-pointer justify-normal gap-4">
+            <input
+              type="checkbox"
+              class="checkbox"
+              [formControlName]="item.controlName"
+              [ngClass]="[hasErrors(item.controlName) ? 'checkbox-error' : '']"
+              [attr.id]="item.controlName"
+            />
+            <span class="label-text">{{ item.label }}</span>
+          </label>
+        </div>
+      }
+      @case ("radio") {
+        @for (option of item.options; track option.value) {
+          <div class="form-control">
+            <label class="label cursor-pointer justify-normal gap-4">
+              <input
+                type="radio"
+                class="radio"
+                [formControlName]="item.controlName"
+                [ngClass]="[hasErrors(item.controlName) ? 'radio-error' : '']"
+                [attr.id]="item.controlName"
+              />
+              <span class="label-text">{{ option.label }}</span>
+            </label>
+          </div>
         }
+      }
+      @case ("select") {
+        <label class="form-control ">
+          <div class="label">
+            <span class="label-text">{{ item.label }}</span>
+          </div>
+          <select
+            class="select select-bordered"
+            [formControlName]="item.controlName"
+            [ngClass]="[hasErrors(item.controlName) ? 'select-error' : '']"
+            [attr.id]="item.controlName"
+          >
+            @for (option of item.options; track option.value) {
+              <option [value]="option?.value">
+                {{ option.label }}
+              </option>
+            }
+          </select>
+        </label>
+      }
+      @case ("textarea") {
+        <label class="form-control">
+          <div class="label">
+            <span class="label-text">{{ item.label }}</span>
+          </div>
+          <textarea
+            class="textarea textarea-bordered h-24"
+            [formControlName]="item.controlName"
+            [ngClass]="[hasErrors(item.controlName) ? 'textarea-error' : '']"
+            [attr.id]="item.controlName"
+          ></textarea>
+        </label>
+      }
+      @case ("date") {
+        <label class="form-control w-full lg:max-w-xs">
+          <div class="label">
+            <span class="label-text">{{ item.label }}</span>
+          </div>
+          <input
+            type="date"
+            class="input input-bordered "
+            [formControlName]="item.controlName"
+            [ngClass]="[hasErrors(item.controlName) ? 'input-error' : '']"
+            [attr.id]="item.controlName"
+          />
+        </label>
+      }
+      @case ("range") {
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text">{{ item.label }}</span>
+          </div>
+          <div class="flex gap-4">
+            <input
+              type="range"
+              class="range"
+              [formControlName]="item.controlName"
+              [ngClass]="[hasErrors(item.controlName) ? 'range-error' : '']"
+              [attr.id]="item.controlName"
+            />
+            <div class="range-value">{{ formGroup().get(item.controlName)?.value }}</div>
+          </div>
+        </label>
+      }
     }
-    <button
-            [disabled]="!formGroup.valid"
-            [ngClass]="!formGroup.valid ? 'cursor-not-allowed' : ''"
-            class="btn btn-outline"
-    >
-        {{ model().submitButtonLabel }}
-    </button>
+  }
+  <button
+    [disabled]="!formGroup().valid"
+    [ngClass]="!formGroup().valid ? 'cursor-not-allowed' : ''"
+    class="btn btn-outline"
+  >
+    {{ model().submitButtonLabel }}
+  </button>
 </form>
