@@ -13,9 +13,9 @@ export default {
       center: true,
       padding: '1rem',
       screens: {
-        '2xl': '1400px,
+        '2xl': '1400px',
       },
     },
   },
-  plugins: [require('daisyui'),
+  plugins: [require('daisyui')],
 };
