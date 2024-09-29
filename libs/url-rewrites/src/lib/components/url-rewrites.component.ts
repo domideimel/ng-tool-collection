@@ -18,7 +18,7 @@ import { $localize } from '@angular/localize/init';
 export class UrlRewritesComponent implements OnInit {
   result = signal<string>('');
   private fb = inject(FormBuilder);
-  formGroup: FormGroup = this.fb.group({
+  formGroup = this.fb.group({
     urlRows: this.fb.array([this.createUrlRow()]),
   });
   private toast = inject(ToastService);
@@ -49,7 +49,9 @@ export class UrlRewritesComponent implements OnInit {
   }
 
   onSubmit() {
-    this.rewriteService.generateRewrites(this.formGroup.value).subscribe(result => this.result.set(result));
+    this.rewriteService
+      .generateRewrites((this.formGroup as FormGroup).value)
+      .subscribe(result => this.result.set(result));
   }
 
   copyRewrites() {
