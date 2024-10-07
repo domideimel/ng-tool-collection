@@ -39,7 +39,7 @@
     "@angular/localize": "^18.2.6",
     "@nx/eslint": "19.8.2",
     "@nx/eslint-plugin": "19.8.2",
-    "@nx/jest": "19.8.2",
+    "@nx/jest": "20.0.0",
     "@nx/js": "19.8.2",
     "@nx/workspace": "19.8.2",
     "@schematics/angular": "18.2.6",
