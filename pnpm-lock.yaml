@@ -4,6 +4,15 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  micromatch@<4.0.8: '>=4.0.8'
+  body-parser@<1.20.3: '>=1.20.3'
+  send@<0.19.0: '>=0.19.0'
+  serve-static@<1.16.0: '>=1.16.0'
+  express@<4.20.0: '>=4.20.0'
+  path-to-regexp@<0.1.10: '>=0.1.10'
+  cookie@<0.7.0: '>=0.7.0'
+
 importers:
 
   .:
@@ -3074,10 +3083,6 @@ packages:
   bl@4.1.0:
     resolution: {integrity: sha512-1W07cM9gS6DcLperZfFSj+bWLtaPGSOHWhPiGzXmvVJbRLdG82sH/Kn8EtW1VqWVA54AKf2h5k5BbnIbwF3h6w==}
 
-  body-parser@1.20.2:
-    resolution: {integrity: sha512-ml9pReCu3M61kGlqoTm2umSXTlRTuGTx0bfYj+uIUKKYycG5NtSbeetV3faSU6R7ajOPw0g/J1PvK4qNy7s5bA==}
-    engines: {node: '>= 0.8', npm: 1.2.8000 || >= 1.4.16}
-
   body-parser@1.20.3:
     resolution: {integrity: sha512-7rAxByjUMqQ3/bHJy7D6OGXvx/MMc4IqBn/X0fcM1QUcAItpZrBEYhWGem+tzXH90c+G01ypMcYJBO9Y30203g==}
     engines: {node: '>= 0.8', npm: 1.2.8000 || >= 1.4.16}
@@ -3338,10 +3343,6 @@ packages:
 
   cookie-signature@1.0.6:
     resolution: {integrity: sha512-QADzlaHc8icV8I7vbaJXJwod9HWYp8uCqf1xa4OfNu1T7JVxQIrUgOWtHdNDtPiywmFbiS12VjotIXLrKM3orQ==}
-
-  cookie@0.6.0:
-    resolution: {integrity: sha512-U71cyTamuh1CRNCfpGY6to28lxvNwPG4Guz/EVjgf3Jmzv0vlDp1atT9eS5dDjMYHucpHbWns6Lwf3BKz6svdw==}
-    engines: {node: '>= 0.6'}
 
   cookie@0.7.1:
     resolution: {integrity: sha512-6DnInpx7SJ2AK3+CTUE/ZM0vWTUboZCegxhC2xiIydHR9jNuTAASBrfEpHhiGOZw/nX51bHt6YQl8jsGo4y/0w==}
@@ -3951,10 +3952,6 @@ packages:
   exponential-backoff@3.1.1:
     resolution: {integrity: sha512-dX7e/LHVJ6W3DE1MHWi9S1EYzDESENfLrYohG2G++ovZrYOkm4Knwa0mc1cn84xJOR4KEU0WSchhLbd0UklbHw==}
 
-  express@4.19.2:
-    resolution: {integrity: sha512-5T6nhjsT+EOMzuck8JjBHARTHfMht0POzlA60WV2pMD3gyXw2LZnZ+ueGdNxG+0calOJcWKbpFcuzLZ91YWq9Q==}
-    engines: {node: '>= 0.10.0'}
-
   express@4.21.1:
     resolution: {integrity: sha512-YSFlK1Ee0/GC8QaO91tHcDxJiE/X4FbpAyQWkxAvG6AXCuR65YzK8ua6D9hvi/TzUfZMpc+BwuM1IPw8fmQBiQ==}
     engines: {node: '>= 0.10.0'}
@@ -4010,10 +4007,6 @@ packages:
   fill-range@7.1.1:
     resolution: {integrity: sha512-YsGpe3WHLK8ZYi4tWDg2Jy3ebRz2rXowDxnld4bkQB00cc/1Zw9AWnC0i9ztDJitivtQvaI9KaLyKrc+hBW0yg==}
     engines: {node: '>=8'}
-
-  finalhandler@1.2.0:
-    resolution: {integrity: sha512-5uXcUVftlQMFnWC9qu/svkWv3GTd2PfUhK/3PLkYNAe7FbqJMt3515HaxE6eRL74GdsriiwujiawdaB1BpEISg==}
-    engines: {node: '>= 0.8'}
 
   finalhandler@1.3.1:
     resolution: {integrity: sha512-6BN9trH7bp3qvnrRyzsBz+g3lZxTNZTbVO2EV1CS0WIcDbawYVdYvGflME/9QP0h0pYlCDBCTjYa9nZzMDpyxQ==}
@@ -5043,9 +5036,6 @@ packages:
     resolution: {integrity: sha512-dIs5KGy24fbdDhIAg0RxXpFqQp3RwL6wgSMRF9OSuphL/Uc9a4u2/SDJKPLj/zUgtOGKuHrRMrj563+IErj4Cg==}
     engines: {node: '>= 4.0.0'}
 
-  merge-descriptors@1.0.1:
-    resolution: {integrity: sha512-cCi6g3/Zr1iqQi6ySbseM1Xvooa98N0w31jzUYrXPX2xqObmFGHJ0tQ5u74H3mVh7wLouTseZyYIq39g8cNp1w==}
-
   merge-descriptors@1.0.3:
     resolution: {integrity: sha512-gaNvAS7TZ897/rVaZ0nMtAyxNyi/pdbjbAwUpFQpN70GqnVfOiXpeUUMKRBmzXaSQ8DdTX4/0ms62r2K+hE6mQ==}
 
@@ -5059,10 +5049,6 @@ packages:
   methods@1.1.2:
     resolution: {integrity: sha512-iclAHeNqNm68zFtnZ0e+1L2yUIdvzNoauKU4WBA3VvH/vPFieF7qfRlwUZU+DA9P9bPXIS90ulxoUoCH23sV2w==}
     engines: {node: '>= 0.6'}
-
-  micromatch@4.0.7:
-    resolution: {integrity: sha512-LPP/3KorzCwBxfeUuZmaR6bG2kdeHSbe0P2tY3FLRU4vYrjYz5hI4QZwV0njUx3jeuKe67YukQ1LSPZBKDqO/Q==}
-    engines: {node: '>=8.6'}
 
   micromatch@4.0.8:
     resolution: {integrity: sha512-PXwfBhYu0hBCPw8Dn0E+WDYb7af3dSLVWKi3HGv84IdF4TyFoC0ysxFd0Goxw7nSv4T/PzEJQxsYsEiFCKo2BA==}
@@ -5515,9 +5501,6 @@ packages:
   path-to-regexp@0.1.10:
     resolution: {integrity: sha512-7lf7qcQidTku0Gu3YDPc8DJ1q7OOucfa/BSsIwjuh56VU7katFvuM8hULfkwB3Fns/rsVF7PwPKVw1sl5KQS9w==}
 
-  path-to-regexp@0.1.7:
-    resolution: {integrity: sha512-5DFkuoqlv1uYQKxy8omFBeJPQcdoE07Kv2sferDCrAq1ohOU+MSDswDIbnx3YAM60qIOnYa53wBhXW0EbMonrQ==}
-
   path-type@4.0.0:
     resolution: {integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==}
     engines: {node: '>=8'}
@@ -5942,10 +5925,6 @@ packages:
   pure-rand@6.1.0:
     resolution: {integrity: sha512-bVWawvoZoBYpp6yIoQtQXHZjmz35RSVHnUOTefl8Vcjr8snTPY1wnpSPMWekcFwbxI6gtmT7rSYPFvz71ldiOA==}
 
-  qs@6.11.0:
-    resolution: {integrity: sha512-MvjoMCJwEarSbUYk5O+nmoSzSutSsTwF85zcHPQ9OrlFoZOYIjaqBAJIqIXjptyD5vThxGq52Xu/MaJzRkIk4Q==}
-    engines: {node: '>=0.6'}
-
   qs@6.12.3:
     resolution: {integrity: sha512-AWJm14H1vVaO/iNZ4/hO+HyaTehuy9nRqVdkTqlJt0HWvBiBIEXFmb4C0DGeYo3Xes9rrEW+TxHsaigCbN5ICQ==}
     engines: {node: '>=0.6'}
@@ -6220,10 +6199,6 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
-  send@0.18.0:
-    resolution: {integrity: sha512-qqWzuOjSFOuqPjFe4NOsMLafToQQwBSOEpS+FwEt3A2V3vKubTquT3vmLTQpFgMXp8AlFWFuP1qKaJZOtPpVXg==}
-    engines: {node: '>= 0.8.0'}
-
   send@0.19.0:
     resolution: {integrity: sha512-dW41u5VfLXu8SJh5bwRmyYUbAoSB3c9uQh6L8h/KtsFREPWpbX1lrljJo186Jc4nmci/sGUZ9a0a0J2zgfq2hw==}
     engines: {node: '>= 0.8.0'}
@@ -6233,10 +6208,6 @@ packages:
 
   serve-index@1.9.1:
     resolution: {integrity: sha512-pXHfKNP4qujrtteMrSBb0rc8HJ9Ms/GrXwcUtUtD5s4ewDJI8bT3Cz2zTVRMKtri49pLx2e0Ya8ziP5Ya2pZZw==}
-    engines: {node: '>= 0.8.0'}
-
-  serve-static@1.15.0:
-    resolution: {integrity: sha512-XGuRDNjXUijsUL0vl6nSD7cwURuzEgglbOaFuZM9g3kwDXOWVTck0jLzjPzGD+TazWbboZYu52/9/XPdUgne9g==}
     engines: {node: '>= 0.8.0'}
 
   serve-static@1.16.2:
@@ -8828,7 +8799,7 @@ snapshots:
       jest-util: 29.7.0
       jest-validate: 29.7.0
       jest-watcher: 29.7.0
-      micromatch: 4.0.7
+      micromatch: 4.0.8
       pretty-format: 29.7.0
       slash: 3.0.0
       strip-ansi: 6.0.1
@@ -8939,7 +8910,7 @@ snapshots:
       jest-haste-map: 29.7.0
       jest-regex-util: 29.6.3
       jest-util: 29.7.0
-      micromatch: 4.0.7
+      micromatch: 4.0.8
       pirates: 4.0.6
       slash: 3.0.0
       write-file-atomic: 4.0.2
@@ -9554,7 +9525,7 @@ snapshots:
       copy-webpack-plugin: 10.2.4(webpack@5.94.0(@swc/core@1.7.26(@swc/helpers@0.5.13)))
       css-loader: 6.11.0(webpack@5.94.0(@swc/core@1.7.26(@swc/helpers@0.5.13)))
       css-minimizer-webpack-plugin: 5.0.1(webpack@5.94.0(@swc/core@1.7.26(@swc/helpers@0.5.13)))
-      express: 4.19.2
+      express: 4.21.1
       fork-ts-checker-webpack-plugin: 7.2.13(typescript@5.5.4)(webpack@5.94.0(@swc/core@1.7.26(@swc/helpers@0.5.13)))
       http-proxy-middleware: 3.0.0
       less: 4.1.3
@@ -10610,23 +10581,6 @@ snapshots:
       inherits: 2.0.4
       readable-stream: 3.6.2
 
-  body-parser@1.20.2:
-    dependencies:
-      bytes: 3.1.2
-      content-type: 1.0.5
-      debug: 2.6.9
-      depd: 2.0.0
-      destroy: 1.2.0
-      http-errors: 2.0.0
-      iconv-lite: 0.4.24
-      on-finished: 2.4.1
-      qs: 6.11.0
-      raw-body: 2.5.2
-      type-is: 1.6.18
-      unpipe: 1.0.0
-    transitivePeerDependencies:
-      - supports-color
-
   body-parser@1.20.3:
     dependencies:
       bytes: 3.1.2
@@ -10897,8 +10851,6 @@ snapshots:
   convert-source-map@2.0.0: {}
 
   cookie-signature@1.0.6: {}
-
-  cookie@0.6.0: {}
 
   cookie@0.7.1: {}
 
@@ -11566,42 +11518,6 @@ snapshots:
 
   exponential-backoff@3.1.1: {}
 
-  express@4.19.2:
-    dependencies:
-      accepts: 1.3.8
-      array-flatten: 1.1.1
-      body-parser: 1.20.2
-      content-disposition: 0.5.4
-      content-type: 1.0.5
-      cookie: 0.6.0
-      cookie-signature: 1.0.6
-      debug: 2.6.9
-      depd: 2.0.0
-      encodeurl: 1.0.2
-      escape-html: 1.0.3
-      etag: 1.8.1
-      finalhandler: 1.2.0
-      fresh: 0.5.2
-      http-errors: 2.0.0
-      merge-descriptors: 1.0.1
-      methods: 1.1.2
-      on-finished: 2.4.1
-      parseurl: 1.3.3
-      path-to-regexp: 0.1.7
-      proxy-addr: 2.0.7
-      qs: 6.11.0
-      range-parser: 1.2.1
-      safe-buffer: 5.2.1
-      send: 0.18.0
-      serve-static: 1.15.0
-      setprototypeof: 1.2.0
-      statuses: 2.0.1
-      type-is: 1.6.18
-      utils-merge: 1.0.1
-      vary: 1.1.2
-    transitivePeerDependencies:
-      - supports-color
-
   express@4.21.1:
     dependencies:
       accepts: 1.3.8
@@ -11697,18 +11613,6 @@ snapshots:
   fill-range@7.1.1:
     dependencies:
       to-regex-range: 5.0.1
-
-  finalhandler@1.2.0:
-    dependencies:
-      debug: 2.6.9
-      encodeurl: 1.0.2
-      escape-html: 1.0.3
-      on-finished: 2.4.1
-      parseurl: 1.3.3
-      statuses: 2.0.1
-      unpipe: 1.0.0
-    transitivePeerDependencies:
-      - supports-color
 
   finalhandler@1.3.1:
     dependencies:
@@ -12449,7 +12353,7 @@ snapshots:
       jest-regex-util: 29.6.3
       jest-util: 29.7.0
       jest-worker: 29.7.0
-      micromatch: 4.0.7
+      micromatch: 4.0.8
       walker: 1.0.8
     optionalDependencies:
       fsevents: 2.3.3
@@ -12473,7 +12377,7 @@ snapshots:
       '@types/stack-utils': 2.0.3
       chalk: 4.1.2
       graceful-fs: 4.2.11
-      micromatch: 4.0.7
+      micromatch: 4.0.8
       pretty-format: 29.7.0
       slash: 3.0.0
       stack-utils: 2.0.6
@@ -13030,8 +12934,6 @@ snapshots:
       tree-dump: 1.0.2(tslib@2.7.0)
       tslib: 2.7.0
 
-  merge-descriptors@1.0.1: {}
-
   merge-descriptors@1.0.3: {}
 
   merge-stream@2.0.0: {}
@@ -13039,11 +12941,6 @@ snapshots:
   merge2@1.4.1: {}
 
   methods@1.1.2: {}
-
-  micromatch@4.0.7:
-    dependencies:
-      braces: 3.0.3
-      picomatch: 2.3.1
 
   micromatch@4.0.8:
     dependencies:
@@ -13570,8 +13467,6 @@ snapshots:
 
   path-to-regexp@0.1.10: {}
 
-  path-to-regexp@0.1.7: {}
-
   path-type@4.0.0: {}
 
   path-type@5.0.0: {}
@@ -13899,10 +13794,6 @@ snapshots:
 
   pure-rand@6.1.0: {}
 
-  qs@6.11.0:
-    dependencies:
-      side-channel: 1.0.6
-
   qs@6.12.3:
     dependencies:
       side-channel: 1.0.6
@@ -14183,24 +14074,6 @@ snapshots:
 
   semver@7.6.3: {}
 
-  send@0.18.0:
-    dependencies:
-      debug: 2.6.9
-      depd: 2.0.0
-      destroy: 1.2.0
-      encodeurl: 1.0.2
-      escape-html: 1.0.3
-      etag: 1.8.1
-      fresh: 0.5.2
-      http-errors: 2.0.0
-      mime: 1.6.0
-      ms: 2.1.3
-      on-finished: 2.4.1
-      range-parser: 1.2.1
-      statuses: 2.0.1
-    transitivePeerDependencies:
-      - supports-color
-
   send@0.19.0:
     dependencies:
       debug: 2.6.9
@@ -14232,15 +14105,6 @@ snapshots:
       http-errors: 1.6.3
       mime-types: 2.1.35
       parseurl: 1.3.3
-    transitivePeerDependencies:
-      - supports-color
-
-  serve-static@1.15.0:
-    dependencies:
-      encodeurl: 1.0.2
-      escape-html: 1.0.3
-      parseurl: 1.3.3
-      send: 0.18.0
     transitivePeerDependencies:
       - supports-color
 
