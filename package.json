@@ -38,7 +38,7 @@
     "@angular/language-service": "18.2.8",
     "@angular/localize": "^18.2.8",
     "@nx/eslint": "20.0.1",
-    "@nx/eslint-plugin": "20.0.1",
+    "@nx/eslint-plugin": "20.0.3",
     "@nx/jest": "20.0.1",
     "@nx/js": "20.0.1",
     "@nx/workspace": "20.0.1",
