@@ -106,8 +106,8 @@ importers:
         specifier: 20.0.6
         version: 20.0.6(@babel/traverse@7.25.7)(@swc-node/register@1.10.9(@swc/core@1.7.40(@swc/helpers@0.5.13))(@swc/types@0.1.13)(typescript@5.5.4))(@swc/core@1.7.40(@swc/helpers@0.5.13))(@types/node@22.8.1)(nx@20.0.6(@swc-node/register@1.10.9(@swc/core@1.7.40(@swc/helpers@0.5.13))(@swc/types@0.1.13)(typescript@5.5.4))(@swc/core@1.7.40(@swc/helpers@0.5.13)))(typescript@5.5.4)
       '@nx/workspace':
-        specifier: 20.0.6
-        version: 20.0.6(@swc-node/register@1.10.9(@swc/core@1.7.40(@swc/helpers@0.5.13))(@swc/types@0.1.13)(typescript@5.5.4))(@swc/core@1.7.40(@swc/helpers@0.5.13))
+        specifier: 20.0.8
+        version: 20.0.8(@swc-node/register@1.10.9(@swc/core@1.7.40(@swc/helpers@0.5.13))(@swc/types@0.1.13)(typescript@5.5.4))(@swc/core@1.7.40(@swc/helpers@0.5.13))
       '@schematics/angular':
         specifier: 18.2.10
         version: 18.2.10(chokidar@3.6.0)
@@ -2041,6 +2041,11 @@ packages:
     peerDependencies:
       nx: '>= 19 <= 21'
 
+  '@nx/devkit@20.0.8':
+    resolution: {integrity: sha512-MRUGgWSMzYtdwtolvWL5EZlX+7xYgu7JIXf1+3rmZU5adMmlqWKrIbyvDf53XocQlT8oxx/xXTEFHhIymGTQCg==}
+    peerDependencies:
+      nx: '>= 19 <= 21'
+
   '@nx/eslint-plugin@20.0.6':
     resolution: {integrity: sha512-wFWg9X4dhRVY5pIAuqXLKTQSL3FzWHbV5kpg7S+y2X3jFg3pezqa8EDBkAcerSk7rour1G2hlXAfHX/W3HCrBQ==}
     peerDependencies:
@@ -2076,8 +2081,20 @@ packages:
     cpu: [arm64]
     os: [darwin]
 
+  '@nx/nx-darwin-arm64@20.0.8':
+    resolution: {integrity: sha512-tDoafq5YUyOwxR1Y796WXA6j49OLJRO7TA/Fym52SSuD3AULbgo3/X5XeY6oL2PWM044CuUVrp3V4cIDUtyJpA==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [darwin]
+
   '@nx/nx-darwin-x64@20.0.6':
     resolution: {integrity: sha512-JI0kcJGBeIj3sb+kC0nZMOSXFnvCOtGbAVK3HHJ9DSRxckLq5bImwqdfYSNJL9ocU8YU+Qds/SercEV02gQOkQ==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [darwin]
+
+  '@nx/nx-darwin-x64@20.0.8':
+    resolution: {integrity: sha512-bvfZ6VhSvOpPV00veaJDO1a4X+f0dn8S1A73/2ThbGZrZLAQIFrA8v+ysax+bfCGRHNdtlAL+f7TG2buh/4BRg==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [darwin]
@@ -2088,8 +2105,20 @@ packages:
     cpu: [x64]
     os: [freebsd]
 
+  '@nx/nx-freebsd-x64@20.0.8':
+    resolution: {integrity: sha512-AdOme0o/pTFy+TutIOAamuGTqbh6nOLrkNEX8f4ogfDRH+k/WvjRQ4z4ne58wf/2EVXua4jKTIEipIZAP/Ad1w==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [freebsd]
+
   '@nx/nx-linux-arm-gnueabihf@20.0.6':
     resolution: {integrity: sha512-XIomXUqnH3w1aqRu0T+Wcn9roXT1bG1PjuX+bmGLkSiZ+ZyY/zYfhg6WKbox3TqQcdC1jNUkzEQlLGcfWaGc6w==}
+    engines: {node: '>= 10'}
+    cpu: [arm]
+    os: [linux]
+
+  '@nx/nx-linux-arm-gnueabihf@20.0.8':
+    resolution: {integrity: sha512-PYf7Z30A1TCZq9HVUP6JjT3ghTLYkaBpR6vDwiGWUV/exuNmhUgfYW6TiTpiSArXwnAgSIbaoGe537iEvYzA7A==}
     engines: {node: '>= 10'}
     cpu: [arm]
     os: [linux]
@@ -2100,8 +2129,20 @@ packages:
     cpu: [arm64]
     os: [linux]
 
+  '@nx/nx-linux-arm64-gnu@20.0.8':
+    resolution: {integrity: sha512-3VpvhjmNR78HVxGzpWiwqZsG5sNvLUv2Qfohtxyc3561o8VU41R9Onf/LJmbbZvmdDaPvvXQp3rs0OXT4i7T1g==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [linux]
+
   '@nx/nx-linux-arm64-musl@20.0.6':
     resolution: {integrity: sha512-4lyBaLWSv7VNMOXWxtuDNiSOE4M5QGiVHimSvQ9PBwgnrvEuc6fCv/Nc8ecU0rINHRQJruYMTD/kKBCsahwJUQ==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [linux]
+
+  '@nx/nx-linux-arm64-musl@20.0.8':
+    resolution: {integrity: sha512-3Z7fTJGG8h4VCHhD8Ix0zr6eFMfa1y3YDlzm8Clxu4Enzz0pEsUrT+ph6qrsArnIyUgiCowSi8+xgHFg7V/F1Q==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
@@ -2112,8 +2153,20 @@ packages:
     cpu: [x64]
     os: [linux]
 
+  '@nx/nx-linux-x64-gnu@20.0.8':
+    resolution: {integrity: sha512-Uttl1RHzWpjZgdzowCUNjC6/b3YhZR31wyXWgVF4PDWpDVgy4EigGc19tdrvv8pUVKQFuj0uaSTPUklguN7c3A==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [linux]
+
   '@nx/nx-linux-x64-musl@20.0.6':
     resolution: {integrity: sha512-OwMq+ozzCOCtAViOouHbe/MXqep/q4EKg44YelUqVNIe/2XimcIfMlBQFk1DOcmibesxa3yWMKAdg2IGUnG+pQ==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [linux]
+
+  '@nx/nx-linux-x64-musl@20.0.8':
+    resolution: {integrity: sha512-llc6ywSPaOWQzEzD73USyAXd/y3Slu+GHS02IsQqZeA23EIOEzhvEeeeKgs4F8LKuFW/TpV6T5IhvSHw9/mvBg==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
@@ -2124,8 +2177,20 @@ packages:
     cpu: [arm64]
     os: [win32]
 
+  '@nx/nx-win32-arm64-msvc@20.0.8':
+    resolution: {integrity: sha512-GhPVVNrL0QcQ3B6r0P0Dta3TIesJz7uso7iI5rCZ/oOGa02UsT4NkQBpIhxYQZ4TnHYNy84g4rHtYHrSlpDlEw==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [win32]
+
   '@nx/nx-win32-x64-msvc@20.0.6':
     resolution: {integrity: sha512-B83kpN1+KdJ97P0Rw/KRyZ5fZPtKimvwg/TAJdWR1D8oqdrpaZwgTd9dcsTNavvynUsPqM3GdjmFKzTYTZ4MFQ==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [win32]
+
+  '@nx/nx-win32-x64-msvc@20.0.8':
+    resolution: {integrity: sha512-yLlcgM0zFdmsExdLv8O2g5FWQ6d2vyN5OynKV+F5BrWHC4LvrqyYJ99y++5bLFoEi19RYIK6sLnzGIRSF6dHGg==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [win32]
@@ -2138,6 +2203,9 @@ packages:
 
   '@nx/workspace@20.0.6':
     resolution: {integrity: sha512-A7lle47I4JggbhXoUVvkuvULqF0Xejy4LpE0txz9OIM5a9HxW1aIHYYQFuROBuVlMFxAJusPeYFJCCvb+qBxKw==}
+
+  '@nx/workspace@20.0.8':
+    resolution: {integrity: sha512-G7nON6s3KDWNAH9P8IBvvAmTGgTsFZPuWH7We9px0ZwsRcURDDP1OqZsYmfr0zTHTS58wu4Uax/uQLwnTVC1xQ==}
 
   '@oxc-resolver/binding-darwin-arm64@1.10.2':
     resolution: {integrity: sha512-aOCZYXqmFL+2sXlaVkYbAOtICGGeTFtmdul8OimQfOXHJods6YHJ2nR6+rEeBcJzaXyXPP18ne1IsEc4AYL1IA==}
@@ -5379,6 +5447,18 @@ packages:
       '@swc/core':
         optional: true
 
+  nx@20.0.8:
+    resolution: {integrity: sha512-cMtb+u5Eji7Xm9xMHZkRXMcO8GH6FFqS2+nMgtLUZ/+ZmquEgoV8mbsKVw1u1sJ6osOpWAu9OwXcilwtvSOoBw==}
+    hasBin: true
+    peerDependencies:
+      '@swc-node/register': ^1.8.0
+      '@swc/core': ^1.3.85
+    peerDependenciesMeta:
+      '@swc-node/register':
+        optional: true
+      '@swc/core':
+        optional: true
+
   object-assign@4.1.1:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}
     engines: {node: '>=0.10.0'}
@@ -7136,7 +7216,7 @@ snapshots:
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.1802.10(chokidar@3.6.0)
-      '@angular-devkit/build-webpack': 0.1802.10(chokidar@3.6.0)(webpack-dev-server@5.0.4(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))))(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13)))
+      '@angular-devkit/build-webpack': 0.1802.10(chokidar@3.6.0)(webpack-dev-server@5.0.4(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)))(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0))
       '@angular-devkit/core': 18.2.10(chokidar@3.6.0)
       '@angular/build': 18.2.10(@angular/compiler-cli@18.2.9(@angular/compiler@18.2.9(@angular/core@18.2.9(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.5.4))(@angular/localize@18.2.9(@angular/compiler-cli@18.2.9(@angular/compiler@18.2.9(@angular/core@18.2.9(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.5.4))(@angular/compiler@18.2.9(@angular/core@18.2.9(rxjs@7.8.1)(zone.js@0.14.10))))(@angular/service-worker@18.2.9(@angular/common@18.2.9(@angular/core@18.2.9(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.9(rxjs@7.8.1)(zone.js@0.14.10)))(@types/node@22.8.1)(chokidar@3.6.0)(less@4.2.0)(postcss@8.4.41)(stylus@0.59.0)(tailwindcss@3.4.14(ts-node@10.9.2(@swc/core@1.7.40(@swc/helpers@0.5.13))(@types/node@22.8.1)(typescript@5.5.4)))(terser@5.31.6)(typescript@5.5.4)
       '@angular/compiler-cli': 18.2.9(@angular/compiler@18.2.9(@angular/core@18.2.9(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.5.4)
@@ -7150,15 +7230,15 @@ snapshots:
       '@babel/preset-env': 7.25.3(@babel/core@7.25.2)
       '@babel/runtime': 7.25.0
       '@discoveryjs/json-ext': 0.6.1
-      '@ngtools/webpack': 18.2.10(@angular/compiler-cli@18.2.9(@angular/compiler@18.2.9(@angular/core@18.2.9(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.5.4))(typescript@5.5.4)(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13)))
+      '@ngtools/webpack': 18.2.10(@angular/compiler-cli@18.2.9(@angular/compiler@18.2.9(@angular/core@18.2.9(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.5.4))(typescript@5.5.4)(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0))
       '@vitejs/plugin-basic-ssl': 1.1.0(vite@5.4.6(@types/node@22.8.1)(less@4.2.0)(sass@1.77.6)(stylus@0.59.0)(terser@5.31.6))
       ansi-colors: 4.1.3
       autoprefixer: 10.4.20(postcss@8.4.41)
-      babel-loader: 9.1.3(@babel/core@7.25.2)(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13)))
+      babel-loader: 9.1.3(@babel/core@7.25.2)(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0))
       browserslist: 4.24.2
-      copy-webpack-plugin: 12.0.2(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13)))
+      copy-webpack-plugin: 12.0.2(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0))
       critters: 0.0.24
-      css-loader: 7.1.2(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13)))
+      css-loader: 7.1.2(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0))
       esbuild-wasm: 0.23.0
       fast-glob: 3.3.2
       http-proxy-middleware: 3.0.3
@@ -7167,11 +7247,11 @@ snapshots:
       jsonc-parser: 3.3.1
       karma-source-map-support: 1.4.0
       less: 4.2.0
-      less-loader: 12.2.0(less@4.2.0)(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13)))
-      license-webpack-plugin: 4.0.2(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13)))
+      less-loader: 12.2.0(less@4.2.0)(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0))
+      license-webpack-plugin: 4.0.2(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0))
       loader-utils: 3.3.1
       magic-string: 0.30.11
-      mini-css-extract-plugin: 2.9.0(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13)))
+      mini-css-extract-plugin: 2.9.0(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0))
       mrmime: 2.0.0
       open: 10.1.0
       ora: 5.4.1
@@ -7179,13 +7259,13 @@ snapshots:
       picomatch: 4.0.2
       piscina: 4.6.1
       postcss: 8.4.41
-      postcss-loader: 8.1.1(postcss@8.4.41)(typescript@5.5.4)(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13)))
+      postcss-loader: 8.1.1(postcss@8.4.41)(typescript@5.5.4)(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0))
       resolve-url-loader: 5.0.0
       rxjs: 7.8.1
       sass: 1.77.6
-      sass-loader: 16.0.0(sass@1.77.6)(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13)))
+      sass-loader: 16.0.0(sass@1.77.6)(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0))
       semver: 7.6.3
-      source-map-loader: 5.0.0(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13)))
+      source-map-loader: 5.0.0(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0))
       source-map-support: 0.5.21
       terser: 5.31.6
       tree-kill: 1.2.2
@@ -7194,10 +7274,10 @@ snapshots:
       vite: 5.4.6(@types/node@22.8.1)(less@4.1.3)(sass@1.77.8)(stylus@0.59.0)(terser@5.31.6)
       watchpack: 2.4.1
       webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)
-      webpack-dev-middleware: 7.4.2(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13)))
+      webpack-dev-middleware: 7.4.2(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0))
       webpack-dev-server: 5.0.4(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13)))
       webpack-merge: 6.0.1
-      webpack-subresource-integrity: 5.1.0(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13)))
+      webpack-subresource-integrity: 5.1.0(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0))
     optionalDependencies:
       '@angular/localize': 18.2.9(@angular/compiler-cli@18.2.9(@angular/compiler@18.2.9(@angular/core@18.2.9(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.5.4))(@angular/compiler@18.2.9(@angular/core@18.2.9(rxjs@7.8.1)(zone.js@0.14.10)))
       '@angular/service-worker': 18.2.9(@angular/common@18.2.9(@angular/core@18.2.9(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.9(rxjs@7.8.1)(zone.js@0.14.10))
@@ -7223,7 +7303,7 @@ snapshots:
       - utf-8-validate
       - webpack-cli
 
-  '@angular-devkit/build-webpack@0.1802.10(chokidar@3.6.0)(webpack-dev-server@5.0.4(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))))(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13)))':
+  '@angular-devkit/build-webpack@0.1802.10(chokidar@3.6.0)(webpack-dev-server@5.0.4(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)))(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0))':
     dependencies:
       '@angular-devkit/architect': 0.1802.10(chokidar@3.6.0)
       rxjs: 7.8.1
@@ -9117,7 +9197,7 @@ snapshots:
       upath: 2.0.1
     optionalDependencies:
       typescript: 5.5.4
-      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)
+      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))
     transitivePeerDependencies:
       - bufferutil
       - debug
@@ -9209,7 +9289,7 @@ snapshots:
       '@emnapi/runtime': 1.2.0
       '@tybys/wasm-util': 0.9.0
 
-  '@ngtools/webpack@18.2.10(@angular/compiler-cli@18.2.9(@angular/compiler@18.2.9(@angular/core@18.2.9(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.5.4))(typescript@5.5.4)(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13)))':
+  '@ngtools/webpack@18.2.10(@angular/compiler-cli@18.2.9(@angular/compiler@18.2.9(@angular/core@18.2.9(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.5.4))(typescript@5.5.4)(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0))':
     dependencies:
       '@angular/compiler-cli': 18.2.9(@angular/compiler@18.2.9(@angular/core@18.2.9(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.5.4)
       typescript: 5.5.4
@@ -9315,7 +9395,7 @@ snapshots:
       rxjs: 7.8.1
       semver: 7.6.3
       tslib: 2.8.0
-      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)
+      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))
       webpack-merge: 5.10.0
     transitivePeerDependencies:
       - '@babel/traverse'
@@ -9357,6 +9437,18 @@ snapshots:
       ignore: 5.3.2
       minimatch: 9.0.3
       nx: 20.0.6(@swc-node/register@1.10.9(@swc/core@1.7.40(@swc/helpers@0.5.13))(@swc/types@0.1.13)(typescript@5.5.4))(@swc/core@1.7.40(@swc/helpers@0.5.13))
+      semver: 7.6.3
+      tmp: 0.2.3
+      tslib: 2.8.0
+      yargs-parser: 21.1.1
+
+  '@nx/devkit@20.0.8(nx@20.0.8(@swc-node/register@1.10.9(@swc/core@1.7.40(@swc/helpers@0.5.13))(@swc/types@0.1.13)(typescript@5.5.4))(@swc/core@1.7.40(@swc/helpers@0.5.13)))':
+    dependencies:
+      ejs: 3.1.10
+      enquirer: 2.3.6
+      ignore: 5.3.2
+      minimatch: 9.0.3
+      nx: 20.0.8(@swc-node/register@1.10.9(@swc/core@1.7.40(@swc/helpers@0.5.13))(@swc/types@0.1.13)(typescript@5.5.4))(@swc/core@1.7.40(@swc/helpers@0.5.13))
       semver: 7.6.3
       tmp: 0.2.3
       tslib: 2.8.0
@@ -9532,31 +9624,61 @@ snapshots:
   '@nx/nx-darwin-arm64@20.0.6':
     optional: true
 
+  '@nx/nx-darwin-arm64@20.0.8':
+    optional: true
+
   '@nx/nx-darwin-x64@20.0.6':
+    optional: true
+
+  '@nx/nx-darwin-x64@20.0.8':
     optional: true
 
   '@nx/nx-freebsd-x64@20.0.6':
     optional: true
 
+  '@nx/nx-freebsd-x64@20.0.8':
+    optional: true
+
   '@nx/nx-linux-arm-gnueabihf@20.0.6':
+    optional: true
+
+  '@nx/nx-linux-arm-gnueabihf@20.0.8':
     optional: true
 
   '@nx/nx-linux-arm64-gnu@20.0.6':
     optional: true
 
+  '@nx/nx-linux-arm64-gnu@20.0.8':
+    optional: true
+
   '@nx/nx-linux-arm64-musl@20.0.6':
+    optional: true
+
+  '@nx/nx-linux-arm64-musl@20.0.8':
     optional: true
 
   '@nx/nx-linux-x64-gnu@20.0.6':
     optional: true
 
+  '@nx/nx-linux-x64-gnu@20.0.8':
+    optional: true
+
   '@nx/nx-linux-x64-musl@20.0.6':
+    optional: true
+
+  '@nx/nx-linux-x64-musl@20.0.8':
     optional: true
 
   '@nx/nx-win32-arm64-msvc@20.0.6':
     optional: true
 
+  '@nx/nx-win32-arm64-msvc@20.0.8':
+    optional: true
+
   '@nx/nx-win32-x64-msvc@20.0.6':
+    optional: true
+
+  '@nx/nx-win32-x64-msvc@20.0.8':
     optional: true
 
   '@nx/web@20.0.6(@babel/traverse@7.25.7)(@swc-node/register@1.10.9(@swc/core@1.7.40(@swc/helpers@0.5.13))(@swc/types@0.1.13)(typescript@5.5.4))(@swc/core@1.7.40(@swc/helpers@0.5.13))(@types/node@22.8.1)(nx@20.0.6(@swc-node/register@1.10.9(@swc/core@1.7.40(@swc/helpers@0.5.13))(@swc/types@0.1.13)(typescript@5.5.4))(@swc/core@1.7.40(@swc/helpers@0.5.13)))(typescript@5.5.4)':
@@ -9614,11 +9736,11 @@ snapshots:
       style-loader: 3.3.4(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13)))
       stylus: 0.59.0
       stylus-loader: 7.1.3(stylus@0.59.0)(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13)))
-      terser-webpack-plugin: 5.3.10(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13)))
+      terser-webpack-plugin: 5.3.10(@swc/core@1.7.40(@swc/helpers@0.5.13))(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13)))
       ts-loader: 9.5.1(typescript@5.5.4)(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13)))
       tsconfig-paths-webpack-plugin: 4.0.0
       tslib: 2.8.0
-      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)
+      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))
       webpack-dev-server: 5.0.4(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13)))
       webpack-node-externals: 3.0.0
       webpack-subresource-integrity: 5.1.0(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13)))
@@ -9659,6 +9781,19 @@ snapshots:
       chalk: 4.1.2
       enquirer: 2.3.6
       nx: 20.0.6(@swc-node/register@1.10.9(@swc/core@1.7.40(@swc/helpers@0.5.13))(@swc/types@0.1.13)(typescript@5.5.4))(@swc/core@1.7.40(@swc/helpers@0.5.13))
+      tslib: 2.8.0
+      yargs-parser: 21.1.1
+    transitivePeerDependencies:
+      - '@swc-node/register'
+      - '@swc/core'
+      - debug
+
+  '@nx/workspace@20.0.8(@swc-node/register@1.10.9(@swc/core@1.7.40(@swc/helpers@0.5.13))(@swc/types@0.1.13)(typescript@5.5.4))(@swc/core@1.7.40(@swc/helpers@0.5.13))':
+    dependencies:
+      '@nx/devkit': 20.0.8(nx@20.0.8(@swc-node/register@1.10.9(@swc/core@1.7.40(@swc/helpers@0.5.13))(@swc/types@0.1.13)(typescript@5.5.4))(@swc/core@1.7.40(@swc/helpers@0.5.13)))
+      chalk: 4.1.2
+      enquirer: 2.3.6
+      nx: 20.0.8(@swc-node/register@1.10.9(@swc/core@1.7.40(@swc/helpers@0.5.13))(@swc/types@0.1.13)(typescript@5.5.4))(@swc/core@1.7.40(@swc/helpers@0.5.13))
       tslib: 2.8.0
       yargs-parser: 21.1.1
     transitivePeerDependencies:
@@ -10551,12 +10686,19 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  babel-loader@9.1.3(@babel/core@7.25.2)(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))):
+  babel-loader@9.1.3(@babel/core@7.25.2)(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)):
     dependencies:
       '@babel/core': 7.25.2
       find-cache-dir: 4.0.0
       schema-utils: 4.2.0
       webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)
+
+  babel-loader@9.1.3(@babel/core@7.25.2)(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))):
+    dependencies:
+      '@babel/core': 7.25.2
+      find-cache-dir: 4.0.0
+      schema-utils: 4.2.0
+      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))
 
   babel-plugin-const-enum@1.2.0(@babel/core@7.25.2):
     dependencies:
@@ -10966,9 +11108,9 @@ snapshots:
       normalize-path: 3.0.0
       schema-utils: 4.2.0
       serialize-javascript: 6.0.2
-      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)
+      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))
 
-  copy-webpack-plugin@12.0.2(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))):
+  copy-webpack-plugin@12.0.2(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)):
     dependencies:
       fast-glob: 3.3.2
       glob-parent: 6.0.2
@@ -11063,9 +11205,9 @@ snapshots:
       postcss-value-parser: 4.2.0
       semver: 7.6.3
     optionalDependencies:
-      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)
+      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))
 
-  css-loader@7.1.2(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))):
+  css-loader@7.1.2(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)):
     dependencies:
       icss-utils: 5.1.0(postcss@8.4.47)
       postcss: 8.4.47
@@ -11086,7 +11228,7 @@ snapshots:
       postcss: 8.4.47
       schema-utils: 4.2.0
       serialize-javascript: 6.0.2
-      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)
+      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))
 
   css-select@5.1.0:
     dependencies:
@@ -11783,7 +11925,7 @@ snapshots:
       semver: 7.6.3
       tapable: 2.2.1
       typescript: 5.5.4
-      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)
+      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))
 
   form-data@4.0.0:
     dependencies:
@@ -12827,9 +12969,9 @@ snapshots:
     dependencies:
       klona: 2.0.6
       less: 4.1.3
-      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)
+      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))
 
-  less-loader@12.2.0(less@4.2.0)(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))):
+  less-loader@12.2.0(less@4.2.0)(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)):
     dependencies:
       less: 4.2.0
     optionalDependencies:
@@ -12870,11 +13012,17 @@ snapshots:
       prelude-ls: 1.2.1
       type-check: 0.4.0
 
-  license-webpack-plugin@4.0.2(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))):
+  license-webpack-plugin@4.0.2(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)):
     dependencies:
       webpack-sources: 3.2.3
     optionalDependencies:
       webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)
+
+  license-webpack-plugin@4.0.2(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))):
+    dependencies:
+      webpack-sources: 3.2.3
+    optionalDependencies:
+      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))
 
   lilconfig@2.1.0: {}
 
@@ -13067,9 +13215,9 @@ snapshots:
   mini-css-extract-plugin@2.4.7(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))):
     dependencies:
       schema-utils: 4.2.0
-      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)
+      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))
 
-  mini-css-extract-plugin@2.9.0(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))):
+  mini-css-extract-plugin@2.9.0(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)):
     dependencies:
       schema-utils: 4.2.0
       tapable: 2.2.1
@@ -13363,6 +13511,56 @@ snapshots:
       '@nx/nx-linux-x64-musl': 20.0.6
       '@nx/nx-win32-arm64-msvc': 20.0.6
       '@nx/nx-win32-x64-msvc': 20.0.6
+      '@swc-node/register': 1.10.9(@swc/core@1.7.40(@swc/helpers@0.5.13))(@swc/types@0.1.13)(typescript@5.5.4)
+      '@swc/core': 1.7.40(@swc/helpers@0.5.13)
+    transitivePeerDependencies:
+      - debug
+
+  nx@20.0.8(@swc-node/register@1.10.9(@swc/core@1.7.40(@swc/helpers@0.5.13))(@swc/types@0.1.13)(typescript@5.5.4))(@swc/core@1.7.40(@swc/helpers@0.5.13)):
+    dependencies:
+      '@napi-rs/wasm-runtime': 0.2.4
+      '@yarnpkg/lockfile': 1.1.0
+      '@yarnpkg/parsers': 3.0.0-rc.46
+      '@zkochan/js-yaml': 0.0.7
+      axios: 1.7.7
+      chalk: 4.1.2
+      cli-cursor: 3.1.0
+      cli-spinners: 2.6.1
+      cliui: 8.0.1
+      dotenv: 16.4.5
+      dotenv-expand: 11.0.6
+      enquirer: 2.3.6
+      figures: 3.2.0
+      flat: 5.0.2
+      front-matter: 4.0.2
+      ignore: 5.3.2
+      jest-diff: 29.7.0
+      jsonc-parser: 3.2.0
+      lines-and-columns: 2.0.3
+      minimatch: 9.0.3
+      node-machine-id: 1.1.12
+      npm-run-path: 4.0.1
+      open: 8.4.2
+      ora: 5.3.0
+      semver: 7.6.3
+      string-width: 4.2.3
+      tar-stream: 2.2.0
+      tmp: 0.2.3
+      tsconfig-paths: 4.2.0
+      tslib: 2.8.0
+      yargs: 17.7.2
+      yargs-parser: 21.1.1
+    optionalDependencies:
+      '@nx/nx-darwin-arm64': 20.0.8
+      '@nx/nx-darwin-x64': 20.0.8
+      '@nx/nx-freebsd-x64': 20.0.8
+      '@nx/nx-linux-arm-gnueabihf': 20.0.8
+      '@nx/nx-linux-arm64-gnu': 20.0.8
+      '@nx/nx-linux-arm64-musl': 20.0.8
+      '@nx/nx-linux-x64-gnu': 20.0.8
+      '@nx/nx-linux-x64-musl': 20.0.8
+      '@nx/nx-win32-arm64-msvc': 20.0.8
+      '@nx/nx-win32-x64-msvc': 20.0.8
       '@swc-node/register': 1.10.9(@swc/core@1.7.40(@swc/helpers@0.5.13))(@swc/types@0.1.13)(typescript@5.5.4)
       '@swc/core': 1.7.40(@swc/helpers@0.5.13)
     transitivePeerDependencies:
@@ -13686,9 +13884,9 @@ snapshots:
       klona: 2.0.6
       postcss: 8.4.47
       semver: 7.6.3
-      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)
+      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))
 
-  postcss-loader@8.1.1(postcss@8.4.41)(typescript@5.5.4)(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))):
+  postcss-loader@8.1.1(postcss@8.4.41)(typescript@5.5.4)(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)):
     dependencies:
       cosmiconfig: 9.0.0(typescript@5.5.4)
       jiti: 1.21.6
@@ -14120,11 +14318,11 @@ snapshots:
     dependencies:
       klona: 2.0.6
       neo-async: 2.6.2
-      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)
+      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))
     optionalDependencies:
       sass: 1.77.8
 
-  sass-loader@16.0.0(sass@1.77.6)(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))):
+  sass-loader@16.0.0(sass@1.77.6)(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)):
     dependencies:
       neo-async: 2.6.2
     optionalDependencies:
@@ -14318,11 +14516,17 @@ snapshots:
 
   source-map-js@1.2.1: {}
 
-  source-map-loader@5.0.0(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))):
+  source-map-loader@5.0.0(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)):
     dependencies:
       iconv-lite: 0.6.3
       source-map-js: 1.2.1
       webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)
+
+  source-map-loader@5.0.0(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))):
+    dependencies:
+      iconv-lite: 0.6.3
+      source-map-js: 1.2.1
+      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))
 
   source-map-support@0.5.13:
     dependencies:
@@ -14451,7 +14655,7 @@ snapshots:
 
   style-loader@3.3.4(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))):
     dependencies:
-      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)
+      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))
 
   stylehacks@6.1.1(postcss@8.4.47):
     dependencies:
@@ -14464,7 +14668,7 @@ snapshots:
       fast-glob: 3.3.2
       normalize-path: 3.0.0
       stylus: 0.59.0
-      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)
+      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))
 
   stylus@0.59.0:
     dependencies:
@@ -14560,7 +14764,7 @@ snapshots:
       mkdirp: 1.0.4
       yallist: 4.0.0
 
-  terser-webpack-plugin@5.3.10(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))):
+  terser-webpack-plugin@5.3.10(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       jest-worker: 27.5.1
@@ -14571,6 +14775,17 @@ snapshots:
     optionalDependencies:
       '@swc/core': 1.7.40(@swc/helpers@0.5.13)
       esbuild: 0.23.0
+
+  terser-webpack-plugin@5.3.10(@swc/core@1.7.40(@swc/helpers@0.5.13))(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))):
+    dependencies:
+      '@jridgewell/trace-mapping': 0.3.25
+      jest-worker: 27.5.1
+      schema-utils: 3.3.0
+      serialize-javascript: 6.0.2
+      terser: 5.31.6
+      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))
+    optionalDependencies:
+      '@swc/core': 1.7.40(@swc/helpers@0.5.13)
 
   terser@5.31.6:
     dependencies:
@@ -14668,7 +14883,7 @@ snapshots:
       semver: 7.6.3
       source-map: 0.7.4
       typescript: 5.5.4
-      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)
+      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))
 
   ts-node@10.9.1(@swc/core@1.7.40(@swc/helpers@0.5.13))(@types/node@22.8.1)(typescript@5.4.5):
     dependencies:
@@ -14917,7 +15132,7 @@ snapshots:
 
   webidl-conversions@7.0.0: {}
 
-  webpack-dev-middleware@7.4.2(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))):
+  webpack-dev-middleware@7.4.2(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)):
     dependencies:
       colorette: 2.0.20
       memfs: 4.14.0
@@ -14927,6 +15142,17 @@ snapshots:
       schema-utils: 4.2.0
     optionalDependencies:
       webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)
+
+  webpack-dev-middleware@7.4.2(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))):
+    dependencies:
+      colorette: 2.0.20
+      memfs: 4.14.0
+      mime-types: 2.1.35
+      on-finished: 2.4.1
+      range-parser: 1.2.1
+      schema-utils: 4.2.0
+    optionalDependencies:
+      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))
 
   webpack-dev-server@5.0.4(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))):
     dependencies:
@@ -14961,7 +15187,7 @@ snapshots:
       webpack-dev-middleware: 7.4.2(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13)))
       ws: 8.18.0
     optionalDependencies:
-      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)
+      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))
     transitivePeerDependencies:
       - bufferutil
       - debug
@@ -14984,10 +15210,45 @@ snapshots:
 
   webpack-sources@3.2.3: {}
 
-  webpack-subresource-integrity@5.1.0(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))):
+  webpack-subresource-integrity@5.1.0(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)):
     dependencies:
       typed-assert: 1.0.9
       webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)
+
+  webpack-subresource-integrity@5.1.0(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))):
+    dependencies:
+      typed-assert: 1.0.9
+      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))
+
+  webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13)):
+    dependencies:
+      '@types/estree': 1.0.6
+      '@webassemblyjs/ast': 1.12.1
+      '@webassemblyjs/wasm-edit': 1.12.1
+      '@webassemblyjs/wasm-parser': 1.12.1
+      acorn: 8.14.0
+      acorn-import-attributes: 1.9.5(acorn@8.14.0)
+      browserslist: 4.24.2
+      chrome-trace-event: 1.0.4
+      enhanced-resolve: 5.17.1
+      es-module-lexer: 1.5.4
+      eslint-scope: 5.1.1
+      events: 3.3.0
+      glob-to-regexp: 0.4.1
+      graceful-fs: 4.2.11
+      json-parse-even-better-errors: 2.3.1
+      loader-runner: 4.3.0
+      mime-types: 2.1.35
+      neo-async: 2.6.2
+      schema-utils: 3.3.0
+      tapable: 2.2.1
+      terser-webpack-plugin: 5.3.10(@swc/core@1.7.40(@swc/helpers@0.5.13))(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13)))
+      watchpack: 2.4.1
+      webpack-sources: 3.2.3
+    transitivePeerDependencies:
+      - '@swc/core'
+      - esbuild
+      - uglify-js
 
   webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0):
     dependencies:
@@ -15011,7 +15272,7 @@ snapshots:
       neo-async: 2.6.2
       schema-utils: 3.3.0
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.10(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13)))
+      terser-webpack-plugin: 5.3.10(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0)(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))(esbuild@0.23.0))
       watchpack: 2.4.1
       webpack-sources: 3.2.3
     transitivePeerDependencies:
