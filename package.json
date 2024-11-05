@@ -22,7 +22,7 @@
     "@nx/angular": "20.0.6",
     "ngx-webstorage": "^18.0.0",
     "rxjs": "~7.8.1",
-    "tslib": "^2.8.0",
+    "tslib": "^2.8.1",
     "validator": "^13.12.0",
     "zone.js": "~0.14.10"
   },
