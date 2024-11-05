@@ -5593,9 +5593,6 @@ packages:
     resolution: {integrity: sha512-5HviZNaZcfqP95rwpv+1HDgUamezbqdSYTyzjTvwtJSnIH+3vnbmWsItli8OFEndS984VT55M3jduxZbX351gg==}
     engines: {node: '>=12'}
 
-  picocolors@1.0.1:
-    resolution: {integrity: sha512-anP1Z8qwhkbmu7MFP5iTt+wQKXgwzf7zTyGlcdzabySa9vd0Xt392U0rVmz9poOaBj0uHJKyyo9/upk0HrEQew==}
-
   picocolors@1.1.0:
     resolution: {integrity: sha512-TQ92mBOW0l3LeMeyLV6mzy/kWr8lkd/hp3mTg7wYK7zJhuBStmGMBG0BdeDZS/dZx1IukaX6Bk11zcln25o1Aw==}
 
@@ -7483,12 +7480,12 @@ snapshots:
   '@babel/code-frame@7.24.7':
     dependencies:
       '@babel/highlight': 7.24.7
-      picocolors: 1.0.1
+      picocolors: 1.1.1
 
   '@babel/code-frame@7.25.7':
     dependencies:
       '@babel/highlight': 7.25.7
-      picocolors: 1.1.0
+      picocolors: 1.1.1
 
   '@babel/code-frame@7.26.2':
     dependencies:
@@ -7756,14 +7753,14 @@ snapshots:
       '@babel/helper-validator-identifier': 7.24.7
       chalk: 2.4.2
       js-tokens: 4.0.0
-      picocolors: 1.0.1
+      picocolors: 1.1.1
 
   '@babel/highlight@7.25.7':
     dependencies:
       '@babel/helper-validator-identifier': 7.25.7
       chalk: 2.4.2
       js-tokens: 4.0.0
-      picocolors: 1.1.0
+      picocolors: 1.1.1
 
   '@babel/parser@7.24.8':
     dependencies:
@@ -10629,6 +10626,13 @@ snapshots:
       schema-utils: 4.2.0
       webpack: 5.94.0(@swc/core@1.8.0(@swc/helpers@0.5.13))(esbuild@0.23.0)
 
+  babel-loader@9.1.3(@babel/core@7.25.2)(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))):
+    dependencies:
+      '@babel/core': 7.25.2
+      find-cache-dir: 4.0.0
+      schema-utils: 4.2.0
+      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))
+
   babel-plugin-const-enum@1.2.0(@babel/core@7.25.2):
     dependencies:
       '@babel/core': 7.25.2
@@ -11248,7 +11252,7 @@ snapshots:
     dependencies:
       css-selector-tokenizer: 0.8.0
       culori: 3.3.0
-      picocolors: 1.0.1
+      picocolors: 1.1.1
       postcss-js: 4.0.1(postcss@8.4.47)
     transitivePeerDependencies:
       - postcss
@@ -12941,6 +12945,12 @@ snapshots:
     optionalDependencies:
       webpack: 5.94.0(@swc/core@1.8.0(@swc/helpers@0.5.13))(esbuild@0.23.0)
 
+  license-webpack-plugin@4.0.2(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))):
+    dependencies:
+      webpack-sources: 3.2.3
+    optionalDependencies:
+      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))
+
   lilconfig@2.1.0: {}
 
   lilconfig@3.1.2: {}
@@ -13644,8 +13654,6 @@ snapshots:
   path-type@4.0.0: {}
 
   path-type@5.0.0: {}
-
-  picocolors@1.0.1: {}
 
   picocolors@1.1.0: {}
 
@@ -14386,6 +14394,12 @@ snapshots:
       source-map-js: 1.2.1
       webpack: 5.94.0(@swc/core@1.8.0(@swc/helpers@0.5.13))(esbuild@0.23.0)
 
+  source-map-loader@5.0.0(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))):
+    dependencies:
+      iconv-lite: 0.6.3
+      source-map-js: 1.2.1
+      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))
+
   source-map-support@0.5.13:
     dependencies:
       buffer-from: 1.1.2
@@ -14633,6 +14647,17 @@ snapshots:
     optionalDependencies:
       '@swc/core': 1.8.0(@swc/helpers@0.5.13)
       esbuild: 0.23.0
+
+  terser-webpack-plugin@5.3.10(@swc/core@1.7.40(@swc/helpers@0.5.13))(webpack@5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))):
+    dependencies:
+      '@jridgewell/trace-mapping': 0.3.25
+      jest-worker: 27.5.1
+      schema-utils: 3.3.0
+      serialize-javascript: 6.0.2
+      terser: 5.31.6
+      webpack: 5.94.0(@swc/core@1.7.40(@swc/helpers@0.5.13))
+    optionalDependencies:
+      '@swc/core': 1.7.40(@swc/helpers@0.5.13)
 
   terser@5.31.6:
     dependencies:
@@ -14882,7 +14907,7 @@ snapshots:
     dependencies:
       browserslist: 4.23.3
       escalade: 3.1.2
-      picocolors: 1.1.0
+      picocolors: 1.1.1
 
   update-browserslist-db@1.1.1(browserslist@4.24.0):
     dependencies:
