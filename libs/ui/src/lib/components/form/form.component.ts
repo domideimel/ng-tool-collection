@@ -14,7 +14,6 @@ import { NgClass } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'lib-form',
   templateUrl: './form.component.html',
-  standalone: true,
   imports: [ReactiveFormsModule, NgClass],
 })
 export class FormComponent<T extends FormModel> {

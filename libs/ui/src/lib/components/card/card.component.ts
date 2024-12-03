@@ -5,7 +5,6 @@ import { RouterLink } from '@angular/router';
   selector: 'lib-card',
   templateUrl: './card.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [RouterLink],
 })
 export class CardComponent {

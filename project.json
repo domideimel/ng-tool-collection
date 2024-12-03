@@ -15,7 +15,6 @@
         "outputPath": "dist/ng-tool-collection",
         "index": "./src/index.html",
         "browser": "./src/main.ts",
-        "polyfills": [],
         "tsConfig": "./tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
@@ -30,8 +29,7 @@
         ],
         "styles": [
           "./src/styles.scss"
-        ],
-        "scripts": []
+        ]
       },
       "configurations": {
         "production": {

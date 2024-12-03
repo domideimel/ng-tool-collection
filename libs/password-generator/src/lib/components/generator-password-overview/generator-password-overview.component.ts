@@ -10,7 +10,6 @@ import { $localize } from '@angular/localize/init';
   selector: 'lib-generator-password-overview',
   templateUrl: './generator-password-overview.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [CardComponent],
 })
 export class GeneratorPasswordOverviewComponent {
