@@ -6,7 +6,6 @@ import { ToastMessage } from '@ng-tool-collection/models';
 
 @Component({
   selector: 'lib-toasts',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './toasts.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

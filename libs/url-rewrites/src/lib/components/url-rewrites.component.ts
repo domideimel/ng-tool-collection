@@ -12,7 +12,6 @@ import { $localize } from '@angular/localize/init';
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'lib-url-rewrites',
   templateUrl: './url-rewrites.component.html',
-  standalone: true,
   imports: [CardComponent, ReactiveFormsModule, NgClass],
 })
 export class UrlRewritesComponent implements OnInit {

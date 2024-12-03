@@ -8,7 +8,6 @@ import { $localize } from '@angular/localize/init';
   selector: 'lib-generator-wrapper',
   templateUrl: './generator-wrapper.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [GeneratorFormComponent, GeneratorPasswordOverviewComponent],
 })
 export class GeneratorWrapperComponent implements OnInit {

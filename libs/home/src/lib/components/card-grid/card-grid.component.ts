@@ -9,7 +9,6 @@ import { $localize } from '@angular/localize/init';
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'lib-card-grid',
   templateUrl: './card-grid.component.html',
-  standalone: true,
   imports: [CardComponent],
 })
 export class CardGridComponent implements OnInit {

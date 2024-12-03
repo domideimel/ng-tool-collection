@@ -8,7 +8,6 @@ import { $localize } from '@angular/localize/init';
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'lib-navbar',
   templateUrl: './navbar.component.html',
-  standalone: true,
   imports: [RouterLink, RouterLinkActive, ThemeSwitcherComponent],
 })
 export class NavbarComponent {
