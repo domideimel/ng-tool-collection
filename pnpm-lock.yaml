@@ -7871,7 +7871,7 @@ snapshots:
 
   '@angular-devkit/build-angular@19.0.2(oet5toz5pmutw5igz4xubtbp6m)':
     dependencies:
-      '@ampproject/remapping': 2.3.0<<<<<<< develop
+      '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.1900.2(chokidar@4.0.1)
       '@angular-devkit/build-webpack': 0.1900.2(chokidar@4.0.1)(webpack-dev-server@5.1.0(webpack@5.96.1(@swc/core@1.9.3(@swc/helpers@0.5.15))(esbuild@0.24.0)))(webpack@5.96.1(@swc/core@1.9.3(@swc/helpers@0.5.15))(esbuild@0.24.0))
       '@angular-devkit/core': 19.0.2(chokidar@4.0.1)
@@ -7925,7 +7925,7 @@ snapshots:
       typescript: 5.6.3
       webpack: 5.96.1(@swc/core@1.9.3(@swc/helpers@0.5.15))(esbuild@0.24.0)
       webpack-dev-middleware: 7.4.2(webpack@5.96.1(@swc/core@1.9.3(@swc/helpers@0.5.15))(esbuild@0.24.0))
-      webpack-dev-server: 5.1.0(webpack@5.88.0(@swc/core@1.9.3(@swc/helpers@0.5.15)))
+      webpack-dev-server: 5.1.0(webpack@5.94.0(@swc/core@1.9.3(@swc/helpers@0.5.15)))
       webpack-merge: 6.0.1
       webpack-subresource-integrity: 5.1.0(webpack@5.96.1(@swc/core@1.9.3(@swc/helpers@0.5.15))(esbuild@0.24.0))
     optionalDependencies:
@@ -7960,7 +7960,7 @@ snapshots:
       '@angular-devkit/architect': 0.1900.2(chokidar@4.0.1)
       rxjs: 7.8.1
       webpack: 5.96.1(@swc/core@1.9.3(@swc/helpers@0.5.15))(esbuild@0.24.0)
-      webpack-dev-server: 5.1.0(webpack@5.88.0(@swc/core@1.9.3(@swc/helpers@0.5.15)))
+      webpack-dev-server: 5.1.0(webpack@5.94.0(@swc/core@1.9.3(@swc/helpers@0.5.15)))
     transitivePeerDependencies:
       - chokidar
 
@@ -12060,13 +12060,6 @@ snapshots:
       schema-utils: 4.2.0
       webpack: 5.96.1(@swc/core@1.9.3(@swc/helpers@0.5.15))(esbuild@0.24.0)
 
-  babel-loader@9.1.3(@babel/core@7.25.2)(webpack@5.94.0(@swc/core@1.9.2(@swc/helpers@0.5.15))):
-    dependencies:
-      '@babel/core': 7.25.2
-      find-cache-dir: 4.0.0
-      schema-utils: 4.2.0
-      webpack: 5.94.0(@swc/core@1.9.2(@swc/helpers@0.5.15))
-
   babel-plugin-const-enum@1.2.0(@babel/core@7.25.2):
     dependencies:
       '@babel/core': 7.25.2
@@ -14395,12 +14388,6 @@ snapshots:
     optionalDependencies:
       webpack: 5.96.1(@swc/core@1.9.3(@swc/helpers@0.5.15))(esbuild@0.24.0)
 
-  license-webpack-plugin@4.0.2(webpack@5.94.0(@swc/core@1.9.2(@swc/helpers@0.5.15))):
-    dependencies:
-      webpack-sources: 3.2.3
-    optionalDependencies:
-      webpack: 5.94.0(@swc/core@1.9.2(@swc/helpers@0.5.15))
-
   lilconfig@2.1.0: {}
 
   lilconfig@3.1.2: {}
@@ -15931,12 +15918,6 @@ snapshots:
       source-map-js: 1.2.1
       webpack: 5.96.1(@swc/core@1.9.3(@swc/helpers@0.5.15))(esbuild@0.24.0)
 
-  source-map-loader@5.0.0(webpack@5.94.0(@swc/core@1.9.2(@swc/helpers@0.5.15))):
-    dependencies:
-      iconv-lite: 0.6.3
-      source-map-js: 1.2.1
-      webpack: 5.94.0(@swc/core@1.9.2(@swc/helpers@0.5.15))
-
   source-map-support@0.5.13:
     dependencies:
       buffer-from: 1.1.2
@@ -16540,17 +16521,6 @@ snapshots:
 
   webidl-conversions@7.0.0: {}
 
-  webpack-dev-middleware@7.4.2(webpack@5.88.0(@swc/core@1.9.3(@swc/helpers@0.5.15))):
-    dependencies:
-      colorette: 2.0.20
-      memfs: 4.14.0
-      mime-types: 2.1.35
-      on-finished: 2.4.1
-      range-parser: 1.2.1
-      schema-utils: 4.2.0
-    optionalDependencies:
-      webpack: 5.88.0(@swc/core@1.9.3(@swc/helpers@0.5.15))
-
   webpack-dev-middleware@7.4.2(webpack@5.94.0(@swc/core@1.9.3(@swc/helpers@0.5.15))):
     dependencies:
       colorette: 2.0.20
@@ -16613,7 +16583,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  webpack-dev-server@5.1.0(webpack@5.88.0(@swc/core@1.9.3(@swc/helpers@0.5.15))):
+  webpack-dev-server@5.1.0(webpack@5.94.0(@swc/core@1.9.3(@swc/helpers@0.5.15))):
     dependencies:
       '@types/bonjour': 3.5.13
       '@types/connect-history-api-fallback': 1.5.4
@@ -16641,10 +16611,10 @@ snapshots:
       serve-index: 1.9.1
       sockjs: 0.3.24
       spdy: 4.0.2
-      webpack-dev-middleware: 7.4.2(webpack@5.88.0(@swc/core@1.9.3(@swc/helpers@0.5.15)))
+      webpack-dev-middleware: 7.4.2(webpack@5.94.0(@swc/core@1.9.3(@swc/helpers@0.5.15)))
       ws: 8.18.0
     optionalDependencies:
-      webpack: 5.88.0(@swc/core@1.9.3(@swc/helpers@0.5.15))
+      webpack: 5.94.0(@swc/core@1.9.3(@swc/helpers@0.5.15))
     transitivePeerDependencies:
       - bufferutil
       - debug
