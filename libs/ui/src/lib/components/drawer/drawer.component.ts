@@ -10,7 +10,6 @@ import { NavbarComponent } from '../navbar/navbar.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'lib-drawer',
   templateUrl: './drawer.component.html',
-  standalone: true,
   imports: [NavbarComponent, RouterLinkActive, RouterLink, AsyncPipe],
 })
 export class DrawerComponent implements OnInit, OnDestroy {

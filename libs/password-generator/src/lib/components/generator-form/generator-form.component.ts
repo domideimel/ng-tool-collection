@@ -12,7 +12,6 @@ import { $localize } from '@angular/localize/init';
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'lib-generator-form',
   templateUrl: './generator-form.component.html',
-  standalone: true,
   imports: [CardComponent, FormComponent],
 })
 export class GeneratorFormComponent {
