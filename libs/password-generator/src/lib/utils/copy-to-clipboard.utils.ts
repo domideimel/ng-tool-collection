@@ -7,11 +7,7 @@ export const copyToClipboard = <T>(data: T) => {
     return of(State.ERROR);
   }
 
-  const dataToCopy$ = of(data).pipe(
-    map(data => {
-      return typeof data === 'object' && data != null ? JSON.stringify(data) : String(data);
-    }),
-  );
+  const dataToCopy$ = of(data).pipe(map(data => (typeof data === 'string' ? data : JSON.stringify(data))));
 
   return dataToCopy$.pipe(
     switchMap(dataToCopy => fromPromise(navigator.clipboard.writeText(dataToCopy))),
