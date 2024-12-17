@@ -1,12 +1,12 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnDestroy, signal } from '@angular/core';
 import { FormModel, GenerationProperties } from '@ng-tool-collection/models';
 import { Validators } from '@angular/forms';
 import { PasswordGeneratorService } from '../../services/password-generator.service';
 import { atLeastOneCheckedValidator, CardComponent, FormComponent, ToastService } from '@ng-tool-collection/ui';
 import { LocalStorageService } from 'ngx-webstorage';
-import { fromPromise } from 'rxjs/internal/observable/innerFrom';
-import { catchError, tap } from 'rxjs';
+import { catchError, Subscription, tap } from 'rxjs';
 import { $localize } from '@angular/localize/init';
+import { copyToClipboard } from '../../utils/copy-to-clipboard.utils';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -14,7 +14,7 @@ import { $localize } from '@angular/localize/init';
   templateUrl: './generator-form.component.html',
   imports: [CardComponent, FormComponent],
 })
-export class GeneratorFormComponent {
+export class GeneratorFormComponent implements OnDestroy {
   formModel = {
     items: [
       {
@@ -52,9 +52,9 @@ export class GeneratorFormComponent {
     submitButtonLabel: $localize`Passwort generieren`,
     customValidators: atLeastOneCheckedValidator(['upper', 'lower', 'symbol', 'number']),
   } as const satisfies FormModel;
-
   password = signal<string>('');
   hasCopied = signal<boolean>(false);
+  private subscription: Subscription | undefined;
   private passwordGeneratorService = inject(PasswordGeneratorService);
   private storageService = inject(LocalStorageService);
   private toast = inject(ToastService);
@@ -66,8 +66,12 @@ export class GeneratorFormComponent {
     this.hasCopied.set(false);
   }
 
+  ngOnDestroy() {
+    this.subscription?.unsubscribe();
+  }
+
   copyToClipboard() {
-    fromPromise(navigator.clipboard.writeText(this.password()))
+    this.subscription = copyToClipboard(this.password())
       .pipe(
         tap(() => {
           const oldPasswords = this.storageService.retrieve('passwords') ?? [];

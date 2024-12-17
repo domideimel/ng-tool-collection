@@ -2,15 +2,15 @@ import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@a
 import { LocalStorageService } from 'ngx-webstorage';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { CardComponent, ToastService } from '@ng-tool-collection/ui';
-import { fromPromise } from 'rxjs/internal/observable/innerFrom';
-import { catchError, tap } from 'rxjs';
 import { $localize } from '@angular/localize/init';
+import { State } from '@ng-tool-collection/models';
+import { CopyToClipboardDirective } from '../../directives/copy-to-clipboard.directive';
 
 @Component({
   selector: 'lib-generator-password-overview',
   templateUrl: './generator-password-overview.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CardComponent],
+  imports: [CardComponent, CopyToClipboardDirective],
 })
 export class GeneratorPasswordOverviewComponent {
   passwords = computed<string[]>(() => {
@@ -22,16 +22,12 @@ export class GeneratorPasswordOverviewComponent {
   initialPasswords = signal<string[]>(this.storageService.retrieve('passwords'));
   private toast = inject(ToastService);
 
-  copy(password: string) {
-    fromPromise(navigator.clipboard.writeText(password))
-      .pipe(
-        tap(() => this.toast.success($localize`Passwort wurde erfolgreich kopiert`)),
-        catchError(err => {
-          this.toast.error($localize`Beim kopieren ist etwas schief gelaufen`);
-          return err;
-        }),
-      )
-      .subscribe();
+  onCopySuccess() {
+    this.toast.success($localize`Passwort wurde erfolgreich kopiert`);
+  }
+
+  onCopyError() {
+    this.toast.error($localize`Beim kopieren ist etwas schief gelaufen`);
   }
 
   delete(password: string) {
@@ -41,5 +37,9 @@ export class GeneratorPasswordOverviewComponent {
       currentPasswords.filter(p => p !== password),
     );
     this.toast.success($localize`Passwort wurde erfolgreich gelöscht`);
+  }
+
+  log(input: State) {
+    console.log(input);
   }
 }
