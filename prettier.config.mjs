@@ -6,5 +6,5 @@ export default {
   useTabs: false,
   arrowParens: 'avoid',
   bracketSameLine: false,
-  endOfLine: 'lf'
+  endOfLine: 'lf',
 };
