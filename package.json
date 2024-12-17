@@ -7,7 +7,6 @@
     "build": "nx build",
     "test": "nx test"
   },
-  "type": "module",
   "private": true,
   "dependencies": {
     "@angular/animations": "19.0.4",
