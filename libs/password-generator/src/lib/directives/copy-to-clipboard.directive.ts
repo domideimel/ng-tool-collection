@@ -1,7 +1,7 @@
 import { Directive, ElementRef, HostListener, inject, input, OnDestroy, output } from '@angular/core';
 import { State } from '@ng-tool-collection/models';
+import { copyToClipboard } from '@ng-tool-collection/utils';
 import { catchError, of, Subscription, tap } from 'rxjs';
-import { copyToClipboard } from '../utils/copy-to-clipboard.utils';
 
 @Directive({
   selector: '[copyToClipboard]',

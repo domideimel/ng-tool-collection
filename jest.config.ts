@@ -1,7 +1,6 @@
-/* eslint-disable */
 export default {
   displayName: 'ng-tool-collection',
-  preset: './jest.preset.js',
+  preset: './jest.preset.ts',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory: './coverage/ng-tool-collection',
   transform: {

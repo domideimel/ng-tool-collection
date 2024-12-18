@@ -10,36 +10,19 @@
     "importHelpers": true,
     "target": "esnext",
     "module": "esnext",
-    "lib": [
-      "ESNext",
-      "dom"
-    ],
+    "lib": ["ESNext", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ng-tool-collection/constants": [
-        "libs/constants/src/index.ts"
-      ],
-      "@ng-tool-collection/home": [
-        "libs/home/src/index.ts"
-      ],
-      "@ng-tool-collection/models": [
-        "libs/models/src/index.ts"
-      ],
-      "@ng-tool-collection/password-generator": [
-        "libs/password-generator/src/index.ts"
-      ],
-      "@ng-tool-collection/ui": [
-        "libs/ui/src/index.ts"
-      ],
-      "@ng-tool-collection/url-rewrites": [
-        "libs/url-rewrites/src/index.ts"
-      ]
+      "@ng-tool-collection/constants": ["libs/constants/src/index.ts"],
+      "@ng-tool-collection/home": ["libs/home/src/index.ts"],
+      "@ng-tool-collection/models": ["libs/models/src/index.ts"],
+      "@ng-tool-collection/password-generator": ["libs/password-generator/src/index.ts"],
+      "@ng-tool-collection/ui": ["libs/ui/src/index.ts"],
+      "@ng-tool-collection/url-rewrites": ["libs/url-rewrites/src/index.ts"],
+      "@ng-tool-collection/utils": ["libs/utils/src/index.ts"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }
