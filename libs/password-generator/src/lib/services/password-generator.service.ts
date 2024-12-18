@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { map, Observable, of } from 'rxjs';
 import { GenerationProperties, RandomFunc } from '@ng-tool-collection/models';
+import { random, range, sample } from '@ng-tool-collection/utils';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,7 @@ export class PasswordGeneratorService {
 
         const typesArray = Object.entries(filteredTypes) as [keyof typeof filteredTypes, boolean][];
         return Array.from({ length }, () => {
-          const [type] = this.sample(typesArray);
+          const [type] = sample(typesArray);
           return this.randomFunc[type as keyof RandomFunc]();
         }).join('');
       }),
@@ -22,19 +23,14 @@ export class PasswordGeneratorService {
   };
 
   private createSymbolString(): string[] {
-    const asciiCharsRanges: number[] = [
-      ...this.range(33, 48),
-      ...this.range(58, 65),
-      ...this.range(91, 97),
-      ...this.range(123, 127),
-    ];
+    const asciiCharsRanges: number[] = [...range(33, 48), ...range(58, 65), ...range(91, 97), ...range(123, 127)];
     return asciiCharsRanges.map(char => String.fromCharCode(char));
   }
 
-  private getRandomChar = (start: number, end: number): string => String.fromCharCode(this.random(start, end));
+  private getRandomChar = (start: number, end: number): string => String.fromCharCode(random(start, end));
 
   private getRandomSymbol = (symbols: string[] = this.createSymbolString()): string =>
-    symbols[this.random(0, symbols.length - 1)];
+    symbols[random(0, symbols.length - 1)];
 
   private randomFunc: RandomFunc = {
     lower: () => this.getRandomChar(97, 122),
@@ -42,10 +38,4 @@ export class PasswordGeneratorService {
     number: () => this.getRandomChar(48, 57),
     symbol: this.getRandomSymbol,
   };
-
-  // Helper methods to replace lodash
-  private sample = <T>(array: T[]): T => array[Math.floor(Math.random() * array.length)];
-  private random = (lower: number, upper: number): number => Math.floor(Math.random() * (upper - lower + 1)) + lower;
-  private range = (start: number, end: number): number[] =>
-    Array.from({ length: end - start }, (_, index) => start + index);
 }

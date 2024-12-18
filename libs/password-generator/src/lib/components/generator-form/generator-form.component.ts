@@ -6,7 +6,7 @@ import { atLeastOneCheckedValidator, CardComponent, FormComponent, ToastService 
 import { LocalStorageService } from 'ngx-webstorage';
 import { catchError, Subscription, tap } from 'rxjs';
 import { $localize } from '@angular/localize/init';
-import { copyToClipboard } from '../../utils/copy-to-clipboard.utils';
+import { copyToClipboard } from '@ng-tool-collection/utils';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
