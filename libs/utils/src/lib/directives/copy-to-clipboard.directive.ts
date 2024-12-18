@@ -1,15 +1,16 @@
 import { Directive, ElementRef, HostListener, inject, input, OnDestroy, output } from '@angular/core';
 import { State } from '@ng-tool-collection/models';
-import { copyToClipboard } from '@ng-tool-collection/utils';
+import { copyToClipboard } from '../utils/copy-to-clipboard.utils';
 import { catchError, of, Subscription, tap } from 'rxjs';
 
 @Directive({
+  // eslint-disable-next-line @angular-eslint/directive-selector
   selector: '[copyToClipboard]',
 })
 export class CopyToClipboardDirective<T> implements OnDestroy {
   copyToClipboard = input<T>();
 
-  error = output<State.ERROR>();
+  copyError = output<State.ERROR>();
   success = output<State.SUCCESS>();
 
   private subscription: Subscription | undefined;
@@ -32,7 +33,7 @@ export class CopyToClipboardDirective<T> implements OnDestroy {
       .pipe(
         tap(() => this.success.emit(State.SUCCESS)),
         catchError(() => {
-          this.error.emit(State.ERROR);
+          this.copyError.emit(State.ERROR);
           return of(null);
         }),
       )
