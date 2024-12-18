@@ -19,6 +19,7 @@
       "@ng-tool-collection/home": ["libs/home/src/index.ts"],
       "@ng-tool-collection/models": ["libs/models/src/index.ts"],
       "@ng-tool-collection/password-generator": ["libs/password-generator/src/index.ts"],
+      "@ng-tool-collection/tools": ["libs/tools/src/index.ts"],
       "@ng-tool-collection/ui": ["libs/ui/src/index.ts"],
       "@ng-tool-collection/url-rewrites": ["libs/url-rewrites/src/index.ts"],
       "@ng-tool-collection/utils": ["libs/utils/src/index.ts"]

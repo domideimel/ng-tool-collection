@@ -8,13 +8,9 @@ export const appRoutes: Route[] = [
     title: 'Tool Collection',
   },
   {
-    path: 'password-generator',
-    loadComponent: () => import('@ng-tool-collection/password-generator').then(m => m.GeneratorWrapperComponent),
-    title: 'Passwort Generator',
-  },
-  {
-    path: 'url-rewrites',
-    loadComponent: () => import('@ng-tool-collection/url-rewrites').then(m => m.UrlRewritesComponent),
-    title: 'Weiterleitungs-Generator',
+    path: 'tools',
+    // eslint-disable-next-line @nx/enforce-module-boundaries
+    loadChildren: () => import('@ng-tool-collection/tools').then(m => m.toolsRoutes),
+    title: 'Tool Collection',
   },
 ];
