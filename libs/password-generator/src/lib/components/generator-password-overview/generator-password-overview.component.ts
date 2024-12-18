@@ -4,7 +4,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { CardComponent, ToastService } from '@ng-tool-collection/ui';
 import { $localize } from '@angular/localize/init';
 import { State } from '@ng-tool-collection/models';
-import { CopyToClipboardDirective } from '../../directives/copy-to-clipboard.directive';
+import { CopyToClipboardDirective } from '@ng-tool-collection/utils';
 
 @Component({
   selector: 'lib-generator-password-overview',
@@ -13,13 +13,13 @@ import { CopyToClipboardDirective } from '../../directives/copy-to-clipboard.dir
   imports: [CardComponent, CopyToClipboardDirective],
 })
 export class GeneratorPasswordOverviewComponent {
+  private storageService = inject(LocalStorageService);
+  newPasswords = toSignal<string[]>(this.storageService.observe('passwords'));
+  initialPasswords = signal<string[]>(this.storageService.retrieve('passwords'));
   passwords = computed<string[]>(() => {
     if (!this.newPasswords()) return this.initialPasswords() ?? [];
     return this.newPasswords() ?? [];
   });
-  private storageService = inject(LocalStorageService);
-  newPasswords = toSignal<string[]>(this.storageService.observe('passwords'));
-  initialPasswords = signal<string[]>(this.storageService.retrieve('passwords'));
   private toast = inject(ToastService);
 
   onCopySuccess() {
