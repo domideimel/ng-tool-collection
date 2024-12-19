@@ -13,13 +13,13 @@
             }
 
             @if (item?.children) {
-              <details>
-                <summary>
+              <details class="h-full w-52">
+                <summary class="h-full place-content-center">
                   {{ item.label }}
                 </summary>
-                <ul class="p-2 bg-base-100 rounded-t-none w-full">
+                <ul class="p-2 bg-base-100 rounded-t-none">
                   @for (child of item.children; track child.label) {
-                    <li><a [routerLink]="child.path">{{ child.label }}</a></li>
+                    <li><a [routerLink]="child.path" routerLinkActive="btn-active">{{ child.label }}</a></li>
                   }
                 </ul>
               </details>
