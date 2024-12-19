@@ -3,6 +3,11 @@ import { $localize } from '@angular/localize/init';
 
 export const NAVIGATION: Link[] = [
   {
+    label: $localize`Me`,
+    path: '',
+    description: $localize`Entdecken Sie unseren Passwort-Generator, der robuste und sichere Passwörter erstellt, die schwer zu knacken sind. Mit zufällig generierten Kombinationen aus Buchstaben, Zahlen und Sonderzeichen gewährleisten wir höchste Sicherheit für Ihre Online-Konten. Steigern Sie Ihre digitale Sicherheit, indem Sie einzigartige Passwörter für jeden Account erstellen.`,
+  },
+  {
     label: $localize`Tools`,
     path: 'tools',
     description: $localize`Entdecken Sie unseren Passwort-Generator, der robuste und sichere Passwörter erstellt, die schwer zu knacken sind. Mit zufällig generierten Kombinationen aus Buchstaben, Zahlen und Sonderzeichen gewährleisten wir höchste Sicherheit für Ihre Online-Konten. Steigern Sie Ihre digitale Sicherheit, indem Sie einzigartige Passwörter für jeden Account erstellen.`,
