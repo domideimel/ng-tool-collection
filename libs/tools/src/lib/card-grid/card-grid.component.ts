@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, OnInit } from '@angular/core';
 import { Link } from '@ng-tool-collection/models';
 import { NAVIGATION } from '@ng-tool-collection/constants';
 import { Meta } from '@angular/platform-browser';
@@ -12,7 +12,15 @@ import { $localize } from '@angular/localize/init';
   imports: [CardComponent],
 })
 export class CardGridComponent implements OnInit {
-  cards = signal<Link[]>(NAVIGATION);
+  cards = computed<Link[]>(() => {
+    const link = NAVIGATION.find(link => link.path.includes('tools'));
+    if (!link) return [];
+    const children = link?.children?.map(child => ({
+      ...child,
+      path: child.path.replace('tools/', ''),
+    }));
+    return children ?? [];
+  });
   private meta = inject(Meta);
 
   ngOnInit() {
