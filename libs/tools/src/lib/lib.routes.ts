@@ -9,7 +9,7 @@ export const toolsRoutes: Route[] = [
       {
         path: '',
         pathMatch: 'full',
-        loadComponent: () => import('@ng-tool-collection/home').then(m => m.CardGridComponent),
+        loadComponent: () => import('./card-grid/card-grid.component').then(m => m.CardGridComponent),
         title: 'Tool Collection',
       },
       {

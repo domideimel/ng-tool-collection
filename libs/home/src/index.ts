@@ -1,1 +1,1 @@
-export * from './lib/components/card-grid/card-grid.component';
+export * from './lib/components/website/website.component';
