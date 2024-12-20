@@ -33,7 +33,7 @@ export default {
     ({ addComponents, theme }) => {
       addComponents({
         '.container': {
-          '@apply px-4 mx-auto': {},
+          '@apply px-4 mx-auto w-full': {},
           maxWidth: theme('screens.2xl'),
         },
       });
