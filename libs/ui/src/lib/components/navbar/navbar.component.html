@@ -8,18 +8,32 @@
         @for (item of links(); track item.label) {
           <li>
             @if (!item?.children) {
-              <a [routerLink]="item.path" routerLinkActive="btn-active"
-                 class="btn btn-ghost">{{ item.label }}</a>
+              <a
+                [routerLink]="item.path"
+                [routerLinkActiveOptions]="{exact: true}"
+                routerLinkActive="btn-active"
+                class="btn btn-ghost"
+              >
+                {{ item.label }}
+              </a>
             }
 
             @if (item?.children) {
-              <details class="h-full w-52">
+              <details class="h-full">
                 <summary class="h-full place-content-center">
                   {{ item.label }}
                 </summary>
-                <ul class="p-2 bg-base-100 rounded-t-none">
+                <ul class="p-2 bg-base-100 rounded-t-none break-normal">
                   @for (child of item.children; track child.label) {
-                    <li><a [routerLink]="child.path" routerLinkActive="btn-active">{{ child.label }}</a></li>
+                    <li>
+                      <a
+                        [routerLink]="child.path"
+                        [routerLinkActiveOptions]="{exact: true}"
+                        routerLinkActive="btn-active"
+                      >
+                        {{ child.label }}
+                      </a>
+                    </li>
                   }
                 </ul>
               </details>
