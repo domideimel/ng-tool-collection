@@ -42,7 +42,13 @@
       @for (item of navItems(); track item.label) {
         <li>
           @if (!item?.children) {
-            <a routerLinkActive="btn-active" [routerLink]="item.path">{{ item.label }}</a>
+            <a
+              [routerLinkActiveOptions]="{exact: true}"
+              routerLinkActive="btn-active"
+              [routerLink]="item.path"
+            >
+              {{ item.label }}
+            </a>
           }
 
           @if (item?.children) {
@@ -52,7 +58,15 @@
               </summary>
               <ul class="p-2 bg-base-100 rounded-t-none">
                 @for (child of item.children; track child.label) {
-                  <li><a [routerLink]="child.path">{{ child.label }}</a></li>
+                  <li>
+                    <a
+                      [routerLink]="child.path"
+                      [routerLinkActiveOptions]="{exact: true}"
+                      routerLinkActive="btn-active"
+                    >
+                      {{ child.label }}
+                    </a>
+                  </li>
                 }
               </ul>
             </details>
