@@ -67,7 +67,8 @@
     "tailwindcss": "^3.4.17",
     "ts-jest": "^29.2.5",
     "ts-node": "10.9.2",
-    "typescript": "5.6.3"
+    "typescript": "5.6.3",
+    "typescript-eslint": "^8.13.0"
   },
   "nx": {},
   "pnpm": {
@@ -79,7 +80,8 @@
       "express@<4.20.0": ">=4.20.0",
       "path-to-regexp@<0.1.10": ">=0.1.10",
       "cookie@<0.7.0": ">=0.7.0",
-      "cross-spawn": ">=7.0.5"
+      "cross-spawn": ">=7.0.5",
+      "webpack@>=5.0.0-alpha.0 <5.94.0": ">=5.94.0"
     }
   }
 }
