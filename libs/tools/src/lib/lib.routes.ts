@@ -22,6 +22,11 @@ export const toolsRoutes: Route[] = [
         loadComponent: () => import('@ng-tool-collection/url-rewrites').then(m => m.UrlRewritesComponent),
         title: 'Weiterleitungs-Generator',
       },
+      {
+        path: 'currency-converter',
+        loadComponent: () => import('@ng-tool-collection/currency-converter').then(m => m.CurrencyConverterComponent),
+        title: 'Währungs-Umrechner',
+      },
     ],
   },
 ];
