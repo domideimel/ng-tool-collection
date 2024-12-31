@@ -22,6 +22,11 @@ export const NAVIGATION: Link[] = [
         path: 'tools/url-rewrites',
         description: $localize`Erstellen Sie Weiterleitungen für Ihre URLs und Links. Generieren Sie kurze, benutzerdefinierte URLs, die sich leicht merken und teilen lassen. Mit unserem Weiterleitungs-Generator können Sie lange, komplexe URLs in kurze, benutzerfreundliche Links umwandeln.`,
       },
+      {
+        label: $localize`Currency Converter`,
+        path: 'tools/currency-converter',
+        description: $localize`Einfach und schnell von einer Wâhrung zu einer anderen umwandeln.`,
+      },
     ],
   },
 ];

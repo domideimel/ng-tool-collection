@@ -9,6 +9,8 @@ const compat = new FlatCompat({
 
 module.exports = [
   ...baseConfig,
+
+  ...baseConfig,
   ...compat
     .config({
       extends: ['plugin:@nx/angular', 'plugin:@angular-eslint/template/process-inline-templates'],

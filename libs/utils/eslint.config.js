@@ -3,6 +3,8 @@ const baseConfig = require('../../eslint.base.config.js');
 
 module.exports = [
   ...baseConfig,
+
+  ...baseConfig,
   ...nx.configs['flat/angular'],
   ...nx.configs['flat/angular-template'],
   {
