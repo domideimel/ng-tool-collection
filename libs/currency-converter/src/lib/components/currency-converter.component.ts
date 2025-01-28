@@ -1,0 +1,55 @@
+import { ChangeDetectionStrategy, Component, computed, effect, inject, OnDestroy, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { debounceTime, map, Subscription, tap } from 'rxjs';
+import { CardComponent } from '@ng-tool-collection/ui';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { CurrencyConverterStore } from '../store/currency-converter.store';
+
+@Component({
+  selector: 'lib-currency-converter',
+  imports: [CommonModule, CardComponent, ReactiveFormsModule],
+  providers: [CurrencyConverterStore],
+  templateUrl: './currency-converter.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class CurrencyConverterComponent implements OnInit, OnDestroy {
+  private subscription: Subscription | undefined;
+
+  private store = inject(CurrencyConverterStore);
+  currencies = computed(() => this.store.currencies());
+  private fb = inject(FormBuilder);
+  private fromCurrencies = computed(() => this.store.fromCurrency());
+  private toCurrencies = computed(() => this.store.toCurrency());
+  private amount = computed(() => this.store.computedAmount());
+  private result = computed(() => this.store.computedResult());
+  formGroup = this.fb.group({
+    fromCurrency: this.fromCurrencies(),
+    toCurrency: this.toCurrencies(),
+    amount: this.amount(),
+    result: this.result()
+  });
+
+  constructor () {
+    effect(() => {
+      this.formGroup.setValue({
+        fromCurrency: this.fromCurrencies(),
+        toCurrency: this.toCurrencies(),
+        amount: this.amount(),
+        result: this.result()
+      });
+    });
+  }
+
+  ngOnInit () {
+    this.subscription = this.formGroup.valueChanges
+      .pipe(
+        debounceTime(500),
+        tap(state => this.store.updateStateFromForm(state))
+      )
+      .subscribe();
+  }
+
+  ngOnDestroy () {
+    this.subscription?.unsubscribe();
+  }
+}
