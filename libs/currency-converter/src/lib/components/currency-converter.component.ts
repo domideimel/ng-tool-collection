@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, effect, inject, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { debounceTime, map, Subscription, tap } from 'rxjs';
+import { debounceTime, Subscription, tap } from 'rxjs';
 import { CardComponent } from '@ng-tool-collection/ui';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { CurrencyConverterStore } from '../store/currency-converter.store';
