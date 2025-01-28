@@ -70,6 +70,5 @@
       "style": "none"
     }
   },
-  "defaultProject": "ng-tool-collection",
-  "useLegacyCache": true
+  "defaultProject": "ng-tool-collection"
 }
