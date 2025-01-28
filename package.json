@@ -18,6 +18,7 @@
     "@angular/platform-browser-dynamic": "19.0.5",
     "@angular/router": "19.0.5",
     "@angular/service-worker": "19.0.5",
+    "@ngrx/signals": "^19.0.0",
     "@nx/angular": "20.3.0",
     "ngx-webstorage": "^19.0.1",
     "rxjs": "~7.8.1",

@@ -1,1 +1,1 @@
-export * from './lib/currency-converter.component';
+export * from './lib/components/currency-converter.component';

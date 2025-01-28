@@ -1,0 +1,62 @@
+<div class="grid">
+  <lib-card [showLink]='false' title="Währungsumrechner">
+    <form [formGroup]="formGroup">
+      <div class="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_1fr_auto] lg:gap-12">
+        <div>
+          <label class="form-control ">
+            <div class="label">
+              <span class="label-text">Währung</span>
+            </div>
+            <select
+              class="select select-bordered"
+              formControlName="fromCurrency"
+            >
+              @for (contents of currencies(); track contents[0]) {
+                <option [value]="contents[0]">
+                  {{ contents[1] !== '' ? contents[1] : contents[0] }}
+                </option>
+              }
+            </select>
+          </label>
+          <label class="form-control ">
+            <div class="label">
+              <span class="label-text">Menge</span>
+            </div>
+            <input
+              class="input input-bordered "
+              formControlName="amount"
+              type="text"
+            />
+          </label>
+        </div>
+        <div>
+          <label class="form-control ">
+            <div class="label">
+              <span class="label-text">Währung</span>
+            </div>
+            <select
+              class="select select-bordered"
+              formControlName="toCurrency"
+            >
+              @for (contents of currencies(); track contents[0]) {
+                <option [value]="contents[0]">
+                  {{ contents[1] !== '' ? contents[1] : contents[0] }}
+                </option>
+              }
+            </select>
+          </label>
+          <label class="form-control ">
+            <div class="label">
+              <span class="label-text">Menge</span>
+            </div>
+            <input
+              class="input input-bordered "
+              formControlName="result"
+              type="text"
+            />
+          </label>
+        </div>
+      </div>
+    </form>
+  </lib-card>
+</div>
