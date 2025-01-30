@@ -1,11 +1,11 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CardComponent, ToastService, urlValidator } from '@ng-tool-collection/ui';
 import { UrlRewritesService } from '../services/url-rewrites.service';
 import { Meta } from '@angular/platform-browser';
 import { NgClass } from '@angular/common';
-import { fromPromise } from 'rxjs/internal/observable/innerFrom';
-import { catchError, tap } from 'rxjs';
+import { catchError, Subscription, tap } from 'rxjs';
+import { copyToClipboard } from '@ng-tool-collection/utils';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,7 +13,7 @@ import { catchError, tap } from 'rxjs';
   templateUrl: './url-rewrites.component.html',
   imports: [CardComponent, ReactiveFormsModule, NgClass],
 })
-export class UrlRewritesComponent implements OnInit {
+export class UrlRewritesComponent implements OnInit, OnDestroy {
   result = signal<string>('');
   private fb = inject(FormBuilder);
   formGroup = this.fb.group({
@@ -22,6 +22,7 @@ export class UrlRewritesComponent implements OnInit {
   private toast = inject(ToastService);
   private rewriteService = inject(UrlRewritesService);
   private meta = inject(Meta);
+  private subscription: Subscription[] = [];
 
   get urlRowsFormArray() {
     return this.formGroup.get('urlRows') as FormArray;
@@ -47,13 +48,14 @@ export class UrlRewritesComponent implements OnInit {
   }
 
   onSubmit() {
-    this.rewriteService
+    const submitSub = this.rewriteService
       .generateRewrites((this.formGroup as FormGroup).value)
       .subscribe(result => this.result.set(result));
+    this.subscription.push(submitSub);
   }
 
   copyRewrites() {
-    fromPromise(navigator.clipboard.writeText(this.result()))
+    const copySub = copyToClipboard(this.result())
       .pipe(
         tap(() => this.toast.success(`Die Rewrites wurden erfolgreich kopiert`)),
         catchError(err => {
@@ -62,6 +64,12 @@ export class UrlRewritesComponent implements OnInit {
         }),
       )
       .subscribe();
+
+    this.subscription.push(copySub);
+  }
+
+  ngOnDestroy() {
+    this.subscription.forEach(sub => sub.unsubscribe());
   }
 
   private createUrlRow() {
