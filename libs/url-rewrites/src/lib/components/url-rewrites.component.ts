@@ -6,7 +6,6 @@ import { Meta } from '@angular/platform-browser';
 import { NgClass } from '@angular/common';
 import { fromPromise } from 'rxjs/internal/observable/innerFrom';
 import { catchError, tap } from 'rxjs';
-import { $localize } from '@angular/localize/init';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -35,7 +34,7 @@ export class UrlRewritesComponent implements OnInit {
   ngOnInit() {
     this.meta.updateTag({
       name: 'description',
-      content: $localize`Erstellen Sie benutzerdefinierte Weiterleitungen für Ihre URLs und Links - schnell und einfach!`,
+      content: 'Erstellen Sie benutzerdefinierte Weiterleitungen für Ihre URLs und Links - schnell und einfach!',
     });
   }
 
@@ -56,9 +55,9 @@ export class UrlRewritesComponent implements OnInit {
   copyRewrites() {
     fromPromise(navigator.clipboard.writeText(this.result()))
       .pipe(
-        tap(() => this.toast.success($localize`Die Rewrites wurden erfolgreich kopiert`)),
+        tap(() => this.toast.success(`Die Rewrites wurden erfolgreich kopiert`)),
         catchError(err => {
-          this.toast.success($localize`Es gab ein Fehler beim kopieren`);
+          this.toast.success(`Es gab ein Fehler beim kopieren`);
           return err;
         }),
       )

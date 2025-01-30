@@ -5,7 +5,6 @@ import { PasswordGeneratorService } from '../../services/password-generator.serv
 import { atLeastOneCheckedValidator, CardComponent, FormComponent, ToastService } from '@ng-tool-collection/ui';
 import { LocalStorageService } from 'ngx-webstorage';
 import { catchError, Subscription, tap } from 'rxjs';
-import { $localize } from '@angular/localize/init';
 import { copyToClipboard } from '@ng-tool-collection/utils';
 
 @Component({
@@ -18,38 +17,38 @@ export class GeneratorFormComponent implements OnDestroy {
   formModel = {
     items: [
       {
-        label: $localize`Passwort Länge`,
+        label: 'Passwort Länge',
         controlName: 'length',
         type: 'range',
         value: 10,
         validators: [Validators.required, Validators.min(6), Validators.max(100)],
       },
       {
-        label: $localize`Großbuchstaben verwenden`,
+        label: 'Großbuchstaben verwenden',
         controlName: 'upper',
         type: 'checkbox',
         value: true,
       },
       {
-        label: $localize`Kleinbuchstaben verwenden`,
+        label: 'Kleinbuchstaben verwenden',
         controlName: 'lower',
         type: 'checkbox',
         value: true,
       },
       {
-        label: $localize`Sonderzeichen verwenden`,
+        label: 'Sonderzeichen verwenden',
         controlName: 'symbol',
         type: 'checkbox',
         value: true,
       },
       {
-        label: $localize`Zahlen verwenden`,
+        label: 'Zahlen verwenden',
         controlName: 'number',
         type: 'checkbox',
         value: true,
       },
     ],
-    submitButtonLabel: $localize`Passwort generieren`,
+    submitButtonLabel: 'Passwort generieren',
     customValidators: atLeastOneCheckedValidator(['upper', 'lower', 'symbol', 'number']),
   } as const satisfies FormModel;
   password = signal<string>('');
@@ -77,10 +76,10 @@ export class GeneratorFormComponent implements OnDestroy {
           const oldPasswords = this.storageService.retrieve('passwords') ?? [];
           this.storageService.store('passwords', [this.password(), ...oldPasswords]);
           this.hasCopied.set(true);
-          this.toast.success($localize`Passwort wurde erfolgreich kopiert`);
+          this.toast.success('Passwort wurde erfolgreich kopiert');
         }),
         catchError(err => {
-          this.toast.error($localize`Beim kopieren ist etwas schief gelaufen`);
+          this.toast.error('Beim kopieren ist etwas schief gelaufen');
           return err;
         }),
       )

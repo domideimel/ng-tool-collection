@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/cor
 import { Meta } from '@angular/platform-browser';
 import { GeneratorPasswordOverviewComponent } from '../generator-password-overview/generator-password-overview.component';
 import { GeneratorFormComponent } from '../generator-form/generator-form.component';
-import { $localize } from '@angular/localize/init';
 
 @Component({
   selector: 'lib-generator-wrapper',
@@ -16,7 +15,7 @@ export class GeneratorWrapperComponent implements OnInit {
   ngOnInit() {
     this.meta.updateTag({
       name: 'description',
-      content: $localize`Erstelle hier benutzerdefinierte Passwörter jeder beliebigen Länge - sicher und bequem!`,
+      content: `Erstelle hier benutzerdefinierte Passwörter jeder beliebigen Länge - sicher und bequem!`,
     });
   }
 }
