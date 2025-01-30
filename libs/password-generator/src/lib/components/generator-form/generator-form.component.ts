@@ -4,7 +4,7 @@ import { Validators } from '@angular/forms';
 import { PasswordGeneratorService } from '../../services/password-generator.service';
 import { atLeastOneCheckedValidator, CardComponent, FormComponent, ToastService } from '@ng-tool-collection/ui';
 import { LocalStorageService } from 'ngx-webstorage';
-import { catchError, Subscription, tap } from 'rxjs';
+import { catchError, finalize, Subscription, tap } from 'rxjs';
 import { copyToClipboard } from '@ng-tool-collection/utils';
 
 @Component({
@@ -53,24 +53,28 @@ export class GeneratorFormComponent implements OnDestroy {
   } as const satisfies FormModel;
   password = signal<string>('');
   hasCopied = signal<boolean>(false);
-  private subscription: Subscription | undefined;
+  private subscription: Subscription[] = [];
   private passwordGeneratorService = inject(PasswordGeneratorService);
   private storageService = inject(LocalStorageService);
   private toast = inject(ToastService);
 
   onSubmit(value: GenerationProperties) {
-    this.passwordGeneratorService.generatePassword(value).subscribe(password => {
-      this.password.set(password);
-    });
-    this.hasCopied.set(false);
+    const submitSub = this.passwordGeneratorService
+      .generatePassword(value)
+      .pipe(
+        tap(password => this.password.set(password)),
+        finalize(() => this.hasCopied.set(false)),
+      )
+      .subscribe();
+    this.subscription.push(submitSub);
   }
 
   ngOnDestroy() {
-    this.subscription?.unsubscribe();
+    this.subscription.forEach(sub => sub.unsubscribe());
   }
 
   copyToClipboard() {
-    this.subscription = copyToClipboard(this.password())
+    const copySub = copyToClipboard(this.password())
       .pipe(
         tap(() => {
           const oldPasswords = this.storageService.retrieve('passwords') ?? [];
@@ -84,5 +88,6 @@ export class GeneratorFormComponent implements OnDestroy {
         }),
       )
       .subscribe();
+    this.subscription.push(copySub);
   }
 }
