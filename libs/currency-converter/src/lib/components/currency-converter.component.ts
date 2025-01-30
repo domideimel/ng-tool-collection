@@ -10,7 +10,7 @@ import { CurrencyConverterStore } from '../store/currency-converter.store';
   imports: [CommonModule, CardComponent, ReactiveFormsModule],
   providers: [CurrencyConverterStore],
   templateUrl: './currency-converter.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CurrencyConverterComponent implements OnInit, OnDestroy {
   private subscription: Subscription | undefined;
@@ -26,30 +26,30 @@ export class CurrencyConverterComponent implements OnInit, OnDestroy {
     fromCurrency: this.fromCurrencies(),
     toCurrency: this.toCurrencies(),
     amount: this.amount(),
-    result: this.result()
+    result: this.result(),
   });
 
-  constructor () {
+  constructor() {
     effect(() => {
-      this.formGroup.setValue({
+      this.formGroup.patchValue({
         fromCurrency: this.fromCurrencies(),
         toCurrency: this.toCurrencies(),
         amount: this.amount(),
-        result: this.result()
+        result: this.result(),
       });
     });
   }
 
-  ngOnInit () {
+  ngOnInit() {
     this.subscription = this.formGroup.valueChanges
       .pipe(
         debounceTime(500),
-        tap(state => this.store.updateStateFromForm(state))
+        tap(state => this.store.updateStateFromForm(state)),
       )
       .subscribe();
   }
 
-  ngOnDestroy () {
+  ngOnDestroy() {
     this.subscription?.unsubscribe();
   }
 }
