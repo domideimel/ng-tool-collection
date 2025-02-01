@@ -11,13 +11,13 @@ import { CopyToClipboardDirective } from '@ng-tool-collection/utils';
   imports: [CardComponent, CopyToClipboardDirective],
 })
 export class GeneratorPasswordOverviewComponent {
+  private storageService = inject(LocalStorageService);
+  newPasswords = toSignal<string[]>(this.storageService.observe('passwords'));
+  initialPasswords = signal<string[]>(this.storageService.retrieve('passwords'));
   passwords = computed<string[]>(() => {
     if (!this.newPasswords()) return this.initialPasswords() ?? [];
     return this.newPasswords() ?? [];
   });
-  private storageService = inject(LocalStorageService);
-  newPasswords = toSignal<string[]>(this.storageService.observe('passwords'));
-  initialPasswords = signal<string[]>(this.storageService.retrieve('passwords'));
   private toast = inject(ToastService);
 
   onCopySuccess() {

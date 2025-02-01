@@ -58,9 +58,9 @@ export class GeneratorFormComponent implements OnDestroy {
   private storageService = inject(LocalStorageService);
   private toast = inject(ToastService);
 
-  onSubmit(value: GenerationProperties) {
+  onSubmit(value: unknown) {
     const submitSub = this.passwordGeneratorService
-      .generatePassword(value)
+      .generatePassword(value as unknown as GenerationProperties)
       .pipe(
         tap(password => this.password.set(password)),
         finalize(() => this.hasCopied.set(false)),
