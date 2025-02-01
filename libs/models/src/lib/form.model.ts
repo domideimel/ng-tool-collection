@@ -1,4 +1,4 @@
-import { ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, ValidatorFn, Validators } from '@angular/forms';
 
 export interface FormModel {
   items: FormControlModel[];
@@ -15,3 +15,7 @@ export interface FormControlModel {
   validators?: ValidatorFn[] | ValidatorFn | Validators[] | Validators;
   options?: { label: string; value: any }[];
 }
+
+export type FormControls<T extends FormModel> = {
+  [K in T['items'][number] as K['controlName']]: AbstractControl<K['value']>;
+};

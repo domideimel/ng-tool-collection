@@ -1,12 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, output, Signal } from '@angular/core';
-import {
-  AbstractControl,
-  NonNullableFormBuilder,
-  ReactiveFormsModule,
-  ValidationErrors,
-  ValidatorFn,
-} from '@angular/forms';
-import { FormModel } from '@ng-tool-collection/models';
+import { NonNullableFormBuilder, ReactiveFormsModule, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { FormControls, FormModel } from '@ng-tool-collection/models';
 import { NgClass } from '@angular/common';
 
 type SignalValue<T> = T extends Signal<infer V> ? V : never;
@@ -29,9 +23,7 @@ export class FormComponent<T extends FormModel> {
           ...controls,
           [item.controlName]: this.fb.control(item.value, item.validators ? item.validators : []),
         }),
-        {} as {
-          [K in T['items'][number] as K['controlName']]: AbstractControl<K['value']>;
-        },
+        {} as FormControls<T>,
       ),
     );
     if (this.model()?.customValidators) {
