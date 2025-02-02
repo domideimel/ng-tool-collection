@@ -1,9 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'lib-website',
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './website.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
