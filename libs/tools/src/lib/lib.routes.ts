@@ -1,10 +1,9 @@
 import { Route } from '@angular/router';
-import { ToolsComponent } from './tools/tools.component';
 
 export const toolsRoutes: Route[] = [
   {
     path: '',
-    component: ToolsComponent,
+    loadComponent: () => import('./tools/tools.component').then(m => m.ToolsComponent),
     children: [
       {
         path: '',
