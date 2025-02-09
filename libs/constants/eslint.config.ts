@@ -1,13 +1,16 @@
-const { FlatCompat } = require('@eslint/eslintrc');
-const js = require('@eslint/js');
-const baseConfig = require('../../eslint.base.config.js');
+import { FlatCompat } from '@eslint/eslintrc';
+
+import js from '@eslint/js';
+
+// eslint-disable-next-line @nx/enforce-module-boundaries
+import baseConfig from '../../eslint.base.config';
 
 const compat = new FlatCompat({
   baseDirectory: __dirname,
   recommendedConfig: js.configs.recommended,
 });
 
-module.exports = [
+export default [
   ...baseConfig,
 
   ...baseConfig,

@@ -1,7 +1,8 @@
-const nx = require('@nx/eslint-plugin');
-const baseConfig = require('../../eslint.base.config.js');
+import nx from '@nx/eslint-plugin';
+// eslint-disable-next-line @nx/enforce-module-boundaries
+import baseConfig from '../../eslint.base.config';
 
-module.exports = [
+export default [
   ...baseConfig,
   ...nx.configs['flat/angular'],
   ...nx.configs['flat/angular-template'],

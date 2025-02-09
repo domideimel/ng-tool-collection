@@ -1,6 +1,6 @@
-const baseConfig = require('./eslint.base.config.js');
+import baseConfig from './eslint.base.config.js';
 
-module.exports = [
+export default [
   ...baseConfig,
   {
     ignores: ['**/dist'],
