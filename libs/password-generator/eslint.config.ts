@@ -1,24 +1,18 @@
-const { FlatCompat } = require('@eslint/eslintrc');
-const js = require('@eslint/js');
-const baseConfig = require('./eslint.base.config.js');
+import { FlatCompat } from '@eslint/eslintrc';
+
+import js from '@eslint/js';
+// eslint-disable-next-line @nx/enforce-module-boundaries
+import baseConfig from '../../eslint.base.config';
 
 const compat = new FlatCompat({
   baseDirectory: __dirname,
   recommendedConfig: js.configs.recommended,
 });
 
-module.exports = [
+export default [
   ...baseConfig,
-  {
-    files: ['**/*.ts', '**/*.tsx'],
-    // Override or add rules here
-    rules: {},
-  },
-  {
-    files: ['**/*.js', '**/*.jsx'],
-    // Override or add rules here
-    rules: {},
-  },
+
+  ...baseConfig,
   ...compat
     .config({
       extends: ['plugin:@nx/angular', 'plugin:@angular-eslint/template/process-inline-templates'],
@@ -32,7 +26,7 @@ module.exports = [
           'error',
           {
             type: 'attribute',
-            prefix: 'app',
+            prefix: 'lib',
             style: 'camelCase',
           },
         ],
@@ -40,7 +34,7 @@ module.exports = [
           'error',
           {
             type: 'element',
-            prefix: 'app',
+            prefix: 'lib',
             style: 'kebab-case',
           },
         ],
