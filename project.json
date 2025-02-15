@@ -16,7 +16,7 @@
         "index": "./src/index.html",
         "browser": "./src/main.ts",
         "tsConfig": "./tsconfig.app.json",
-        "inlineStyleLanguage": "scss",
+        "inlineStyleLanguage": "css",
         "assets": [
           "./src/favicon.ico",
           "./src/icon-192x192.png",
@@ -28,7 +28,7 @@
           "./src/robots.txt"
         ],
         "styles": [
-          "./src/styles.scss"
+          "./src/styles.css"
         ]
       },
       "configurations": {
