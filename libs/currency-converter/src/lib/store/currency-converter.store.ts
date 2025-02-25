@@ -21,7 +21,7 @@ const initialState: CurrencyConverterState = {
   amount: 1,
   result: 1,
   currencies: [],
-  error: undefined
+  error: undefined,
 };
 
 const subscriptions: Subscription[] = [];
@@ -32,7 +32,7 @@ export const CurrencyConverterStore = signalStore(
     const computedResult = computed(() => store.result());
     return {
       computedAmount,
-      computedResult
+      computedResul,
     };
   }),
   withMethods(store => {
@@ -77,7 +77,7 @@ export const CurrencyConverterStore = signalStore(
               console.log(error);
               patchState(store, state => ({ ...state, error: error.message }));
               return [];
-            })
+            }),
           )
           .subscribe();
         subscriptions.push(resultSub);
@@ -98,7 +98,7 @@ export const CurrencyConverterStore = signalStore(
             console.log(error);
             patchState(store, state => ({ ...state, error: error.message }));
             return [];
-          })
+          }),
         )
         .subscribe();
       subscriptions.push(amountSub);
@@ -106,7 +106,7 @@ export const CurrencyConverterStore = signalStore(
 
     return {
       updateStateFromForm,
-      calculate
+      calculate,
     };
   }),
   withHooks(store => {
@@ -126,14 +126,14 @@ export const CurrencyConverterStore = signalStore(
             catchError(error => {
               patchState(store, state => ({ ...state, error: error.message }));
               return [];
-            })
+            }),
           )
           .subscribe();
         subscriptions.push(initialCurrencySub);
       },
       onDestroy: () => {
         subscriptions.forEach(sub => sub?.unsubscribe());
-      }
+      },
     };
-  })
+  }),
 );
