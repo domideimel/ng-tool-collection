@@ -13,7 +13,7 @@ import { CurrencyConverterStore } from '../store/currency-converter.store';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CurrencyConverterComponent implements OnInit, OnDestroy {
-  private subscription: Subscription | undefined;
+  private subscription = new Subscription();
 
   private store = inject(CurrencyConverterStore);
   currencies = computed(() => this.store.currencies());
@@ -41,12 +41,14 @@ export class CurrencyConverterComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.subscription = this.formGroup.valueChanges
+    const sub = this.formGroup.valueChanges
       .pipe(
         debounceTime(500),
         tap(state => this.store.updateStateFromForm(state)),
       )
       .subscribe();
+
+    this.subscription.add(sub);
   }
 
   ngOnDestroy() {
