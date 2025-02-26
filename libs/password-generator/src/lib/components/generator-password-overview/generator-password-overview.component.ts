@@ -1,8 +1,6 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
-import { LocalStorageService } from 'ngx-webstorage';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CardComponent, ToastService } from '@ng-tool-collection/ui';
-import { CopyToClipboardDirective } from '@ng-tool-collection/utils';
+import { CopyToClipboardDirective, ReactiveStorageService } from '@ng-tool-collection/utils';
 
 @Component({
   selector: 'lib-generator-password-overview',
@@ -11,13 +9,8 @@ import { CopyToClipboardDirective } from '@ng-tool-collection/utils';
   imports: [CardComponent, CopyToClipboardDirective],
 })
 export class GeneratorPasswordOverviewComponent {
-  private storageService = inject(LocalStorageService);
-  newPasswords = toSignal<string[]>(this.storageService.observe('passwords'));
-  initialPasswords = signal<string[]>(this.storageService.retrieve('passwords'));
-  passwords = computed<string[]>(() => {
-    if (!this.newPasswords()) return this.initialPasswords() ?? [];
-    return this.newPasswords() ?? [];
-  });
+  private storageService = inject(ReactiveStorageService);
+  passwords = this.storageService.getItem<string[]>('passwords');
   private toast = inject(ToastService);
 
   onCopySuccess() {
@@ -29,10 +22,9 @@ export class GeneratorPasswordOverviewComponent {
   }
 
   delete(password: string) {
-    const currentPasswords = this.storageService.retrieve('passwords') as string[];
-    this.storageService.store(
+    this.storageService.setItem(
       'passwords',
-      currentPasswords.filter(p => p !== password),
+      this.passwords().filter(p => p !== password),
     );
     this.toast.success('Passwort wurde erfolgreich gelöscht');
   }
