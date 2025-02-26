@@ -32,7 +32,7 @@ export const CurrencyConverterStore = signalStore(
     const computedResult = computed(() => store.result());
     return {
       computedAmount,
-      computedResul,
+      computedResult,
     };
   }),
   withMethods(store => {
