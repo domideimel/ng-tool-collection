@@ -3,9 +3,8 @@ import { FormModel, GenerationProperties } from '@ng-tool-collection/models';
 import { Validators } from '@angular/forms';
 import { PasswordGeneratorService } from '../../services/password-generator.service';
 import { atLeastOneCheckedValidator, CardComponent, FormComponent, ToastService } from '@ng-tool-collection/ui';
-import { LocalStorageService } from 'ngx-webstorage';
 import { catchError, finalize, Subscription, tap } from 'rxjs';
-import { copyToClipboard } from '@ng-tool-collection/utils';
+import { copyToClipboard, ReactiveStorageService } from '@ng-tool-collection/utils';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -53,9 +52,9 @@ export class GeneratorFormComponent implements OnDestroy {
   } as const satisfies FormModel;
   password = signal<string>('');
   hasCopied = signal<boolean>(false);
-  private subscription: Subscription[] = [];
+  private subscription = new Subscription();
   private passwordGeneratorService = inject(PasswordGeneratorService);
-  private storageService = inject(LocalStorageService);
+  private storageService = inject(ReactiveStorageService);
   private toast = inject(ToastService);
 
   onSubmit(value: unknown) {
@@ -66,19 +65,20 @@ export class GeneratorFormComponent implements OnDestroy {
         finalize(() => this.hasCopied.set(false)),
       )
       .subscribe();
-    this.subscription.push(submitSub);
+    this.subscription.add(submitSub);
   }
 
   ngOnDestroy() {
-    this.subscription.forEach(sub => sub.unsubscribe());
+    this.subscription.unsubscribe();
   }
 
   copyToClipboard() {
     const copySub = copyToClipboard(this.password())
       .pipe(
         tap(() => {
-          const oldPasswords = this.storageService.retrieve('passwords') ?? [];
-          this.storageService.store('passwords', [this.password(), ...oldPasswords]);
+          const passwords = this.storageService.getItem<string[]>('passwords');
+          const oldPasswords = passwords() ? passwords() : [];
+          this.storageService.setItem('passwords', [this.password(), ...oldPasswords]);
           this.hasCopied.set(true);
           this.toast.success('Passwort wurde erfolgreich kopiert');
         }),
@@ -88,6 +88,6 @@ export class GeneratorFormComponent implements OnDestroy {
         }),
       )
       .subscribe();
-    this.subscription.push(copySub);
+    this.subscription.add(copySub);
   }
 }
