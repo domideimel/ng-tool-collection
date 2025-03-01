@@ -1,9 +1,7 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input, output, Signal } from '@angular/core';
-import { NonNullableFormBuilder, ReactiveFormsModule, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, effect, inject, input, OnInit, output } from '@angular/core';
+import { FormGroup, NonNullableFormBuilder, ReactiveFormsModule, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { FormControls, FormModel } from '@ng-tool-collection/models';
 import { NgClass } from '@angular/common';
-
-type SignalValue<T> = T extends Signal<infer V> ? V : never;
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -11,14 +9,37 @@ type SignalValue<T> = T extends Signal<infer V> ? V : never;
   templateUrl: './form.component.html',
   imports: [ReactiveFormsModule, NgClass],
 })
-export class FormComponent<T extends FormModel> {
+export class FormComponent<T extends FormModel> implements OnInit {
   model = input.required<T>();
-  private value = computed(() => this.formGroup()?.value);
-  submitEvent = output<SignalValue<typeof this.value>>();
+  formGroup!: FormGroup;
+  submitEvent = output<typeof this.value>();
   private fb = inject(NonNullableFormBuilder);
-  formGroup = computed(() => {
+
+  constructor() {
+    effect(() => {
+      this.formGroup = this.generateFormGroup(this.model());
+    });
+  }
+
+  get value() {
+    return this.formGroup?.value;
+  }
+
+  ngOnInit() {
+    this.formGroup = this.generateFormGroup(this.model());
+  }
+
+  hasErrors(controlName: string): ValidationErrors | undefined | null {
+    return this.formGroup.get(controlName)?.errors;
+  }
+
+  onSubmit() {
+    this.submitEvent.emit(this.value);
+  }
+
+  private generateFormGroup(model: T) {
     const formGroup = this.fb.group(
-      this.model().items.reduce(
+      model.items.reduce(
         (controls, item) => ({
           ...controls,
           [item.controlName]: this.fb.control(item.value, item.validators ? item.validators : []),
@@ -26,18 +47,10 @@ export class FormComponent<T extends FormModel> {
         {} as FormControls<T>,
       ),
     );
-    if (this.model()?.customValidators) {
-      formGroup.setValidators(this.model().customValidators as ValidatorFn | ValidatorFn[]);
+    if (model?.customValidators) {
+      formGroup.setValidators(model.customValidators as ValidatorFn | ValidatorFn[]);
     }
 
     return formGroup;
-  });
-
-  hasErrors(controlName: string): ValidationErrors | undefined | null {
-    return this.formGroup().get(controlName)?.errors;
-  }
-
-  onSubmit() {
-    this.submitEvent.emit(this.value());
   }
 }
