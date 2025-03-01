@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="formGroup()" class="flex flex-col gap-4">
+<form (ngSubmit)="onSubmit()" [formGroup]="formGroup" class="flex flex-col gap-4">
   @for (item of model().items; track item.label) {
     @switch (item.type) {
       @case ("text") {
@@ -104,15 +104,15 @@
               [ngClass]="[hasErrors(item.controlName) ? 'range-error' : '']"
               [attr.id]="item.controlName"
             />
-            <div class="range-value">{{ formGroup().get(item.controlName)?.value }}</div>
+            <div class="range-value">{{ formGroup.get(item.controlName)?.value }}</div>
           </div>
         </label>
       }
     }
   }
   <button
-    [disabled]="!formGroup().valid"
-    [ngClass]="!formGroup().valid ? 'cursor-not-allowed' : ''"
+    [disabled]="!formGroup.valid"
+    [ngClass]="!formGroup.valid ? 'cursor-not-allowed' : ''"
     class="btn btn-outline"
   >
     {{ model().submitButtonLabel }}
