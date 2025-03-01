@@ -17,7 +17,7 @@ export class ThemeService {
   setDarkTheme(isDarkTheme: boolean) {
     this.darkTheme.next(isDarkTheme);
     if (isDarkTheme) {
-      document.body.setAttribute('data-theme', 'black');
+      document.body.setAttribute('data-theme', 'sunset');
     } else {
       document.body.setAttribute('data-theme', 'cupcake');
     }
