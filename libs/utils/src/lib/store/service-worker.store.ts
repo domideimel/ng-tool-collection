@@ -36,6 +36,9 @@ export const ServiceWorkerStore = signalStore(
       onInit() {
         const sub = swUpdate.versionUpdates
           .pipe(
+            tap(evt => {
+              console.log(evt);
+            }),
             filter((evt): evt is VersionReadyEvent => evt.type === 'VERSION_READY'),
             tap(() => {
               store.updateHasUpdates(true);
