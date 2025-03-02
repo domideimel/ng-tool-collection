@@ -8,3 +8,5 @@ export * from './lib/components/theme-switcher/theme-switcher.component';
 export * from './lib/components/theme-switcher/services/theme.service';
 export * from './lib/components/toasts/toasts.component';
 export * from './lib/components/toasts/services/toasts.service';
+
+export * from './lib/components/service-worker-update-prompt/service-worker-update-prompt.component';
