@@ -1,4 +1,19 @@
 <lib-drawer>
   <router-outlet />
   <lib-toasts />
+
+  @if (hasUpdates()) {
+    <div class="fixed !bottom-6 inset-x-4 md:inset-[unset] md:right-6 z-50">
+      <div class="card bg-neutral text-neutral-content w-full max-w-96">
+        <div class="card-body items-center text-center">
+          <h2 class="card-title">Updates!</h2>
+          <p>Eine neuere Version der Applikation ist verfügbar</p>
+          <div class="card-actions justify-end">
+            <button (click)="updateApp()" class="btn btn-primary">Update</button>
+            <button (click)="ignoreUpdate()" class="btn btn-ghost">Abbrechen</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
 </lib-drawer>
