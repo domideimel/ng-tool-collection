@@ -4,7 +4,6 @@ import { DrawerComponent, ServiceWorkerUpdatePromptComponent, ToastsComponent } 
 
 @Component({
   imports: [RouterModule, DrawerComponent, ToastsComponent, ServiceWorkerUpdatePromptComponent],
-  providers: [],
   selector: 'app-root',
   templateUrl: './app.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
