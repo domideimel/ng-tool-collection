@@ -56,7 +56,7 @@ importers:
         version: 19.0.1(@angular/core@19.1.8(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2)
       '@nx/angular':
         specifier: 20.4.6
-        version: 20.4.6(@angular-devkit/build-angular@19.1.8(467e27c349ad5449be4b3124d1c1f259))(@angular-devkit/core@19.1.8(chokidar@4.0.3))(@angular-devkit/schematics@19.1.8(chokidar@4.0.3))(@babel/traverse@7.26.9)(@rspack/core@1.2.5(@swc/helpers@0.5.15))(@schematics/angular@19.1.8(chokidar@4.0.3))(@swc-node/register@1.10.9(@swc/core@1.11.1(@swc/helpers@0.5.15))(@swc/types@0.1.18)(typescript@5.7.3))(@swc/core@1.11.1(@swc/helpers@0.5.15))(@swc/helpers@0.5.15)(@types/node@22.13.5)(@zkochan/js-yaml@0.0.7)(eslint@9.21.0(jiti@2.4.2))(nx@20.4.6(@swc-node/register@1.10.9(@swc/core@1.11.1(@swc/helpers@0.5.15))(@swc/types@0.1.18)(typescript@5.7.3))(@swc/core@1.11.1(@swc/helpers@0.5.15)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rxjs@7.8.2)(typescript@5.7.3)
+        version: 20.4.6(@angular-devkit/build-angular@19.1.8(6hce7e7smgbolgpeox7ze72a4e))(@angular-devkit/core@19.1.8(chokidar@4.0.3))(@angular-devkit/schematics@19.1.8(chokidar@4.0.3))(@babel/traverse@7.26.9)(@rspack/core@1.2.5(@swc/helpers@0.5.15))(@schematics/angular@19.1.8(chokidar@4.0.3))(@swc-node/register@1.10.9(@swc/core@1.11.1(@swc/helpers@0.5.15))(@swc/types@0.1.18)(typescript@5.7.3))(@swc/core@1.11.1(@swc/helpers@0.5.15))(@swc/helpers@0.5.15)(@types/node@22.13.5)(@zkochan/js-yaml@0.0.7)(eslint@9.21.0(jiti@2.4.2))(nx@20.4.6(@swc-node/register@1.10.9(@swc/core@1.11.1(@swc/helpers@0.5.15))(@swc/types@0.1.18)(typescript@5.7.3))(@swc/core@1.11.1(@swc/helpers@0.5.15)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rxjs@7.8.2)(typescript@5.7.3)
       rxjs:
         specifier: ~7.8.2
         version: 7.8.2
@@ -72,7 +72,7 @@ importers:
     devDependencies:
       '@angular-devkit/build-angular':
         specifier: 19.1.8
-        version: 19.1.8(467e27c349ad5449be4b3124d1c1f259)
+        version: 19.1.8(6hce7e7smgbolgpeox7ze72a4e)
       '@angular-devkit/core':
         specifier: 19.1.8
         version: 19.1.8(chokidar@4.0.3)
@@ -191,11 +191,11 @@ importers:
         specifier: ^8.5.3
         version: 8.5.3
       prettier:
-        specifier: ^3.5.2
-        version: 3.5.2
+        specifier: ^3.5.3
+        version: 3.5.3
       prettier-plugin-tailwindcss:
         specifier: ^0.6.11
-        version: 0.6.11(prettier@3.5.2)
+        version: 0.6.11(prettier@3.5.3)
       tailwindcss:
         specifier: ^3.4.17
         version: 3.4.17(ts-node@10.9.2(@swc/core@1.11.1(@swc/helpers@0.5.15))(@types/node@22.13.5)(typescript@5.7.3))
@@ -5840,8 +5840,8 @@ packages:
       prettier-plugin-svelte:
         optional: true
 
-  prettier@3.5.2:
-    resolution: {integrity: sha512-lc6npv5PH7hVqozBR7lkBNOGXV9vMwROAPlumdBkX0wTbbzPu/U1hk5yL8p2pt4Xoc+2mkT8t/sow2YrV/M5qg==}
+  prettier@3.5.3:
+    resolution: {integrity: sha512-QQtaxnoDJeAkDvDKWCLiwIXkTgRhwYDEQCghU9Z6q03iyek/rxRh/2lC3HB7P8sWT2xC/y5JDctPLBIGzHKbhw==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -7086,7 +7086,7 @@ snapshots:
     transitivePeerDependencies:
       - chokidar
 
-  '@angular-devkit/build-angular@19.1.8(467e27c349ad5449be4b3124d1c1f259)':
+  '@angular-devkit/build-angular@19.1.8(6hce7e7smgbolgpeox7ze72a4e)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.1901.8(chokidar@4.0.3)
@@ -9671,9 +9671,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@nx/angular@20.4.6(@angular-devkit/build-angular@19.1.8(467e27c349ad5449be4b3124d1c1f259))(@angular-devkit/core@19.1.8(chokidar@4.0.3))(@angular-devkit/schematics@19.1.8(chokidar@4.0.3))(@babel/traverse@7.26.9)(@rspack/core@1.2.5(@swc/helpers@0.5.15))(@schematics/angular@19.1.8(chokidar@4.0.3))(@swc-node/register@1.10.9(@swc/core@1.11.1(@swc/helpers@0.5.15))(@swc/types@0.1.18)(typescript@5.7.3))(@swc/core@1.11.1(@swc/helpers@0.5.15))(@swc/helpers@0.5.15)(@types/node@22.13.5)(@zkochan/js-yaml@0.0.7)(eslint@9.21.0(jiti@2.4.2))(nx@20.4.6(@swc-node/register@1.10.9(@swc/core@1.11.1(@swc/helpers@0.5.15))(@swc/types@0.1.18)(typescript@5.7.3))(@swc/core@1.11.1(@swc/helpers@0.5.15)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rxjs@7.8.2)(typescript@5.7.3)':
+  '@nx/angular@20.4.6(@angular-devkit/build-angular@19.1.8(6hce7e7smgbolgpeox7ze72a4e))(@angular-devkit/core@19.1.8(chokidar@4.0.3))(@angular-devkit/schematics@19.1.8(chokidar@4.0.3))(@babel/traverse@7.26.9)(@rspack/core@1.2.5(@swc/helpers@0.5.15))(@schematics/angular@19.1.8(chokidar@4.0.3))(@swc-node/register@1.10.9(@swc/core@1.11.1(@swc/helpers@0.5.15))(@swc/types@0.1.18)(typescript@5.7.3))(@swc/core@1.11.1(@swc/helpers@0.5.15))(@swc/helpers@0.5.15)(@types/node@22.13.5)(@zkochan/js-yaml@0.0.7)(eslint@9.21.0(jiti@2.4.2))(nx@20.4.6(@swc-node/register@1.10.9(@swc/core@1.11.1(@swc/helpers@0.5.15))(@swc/types@0.1.18)(typescript@5.7.3))(@swc/core@1.11.1(@swc/helpers@0.5.15)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rxjs@7.8.2)(typescript@5.7.3)':
     dependencies:
-      '@angular-devkit/build-angular': 19.1.8(467e27c349ad5449be4b3124d1c1f259)
+      '@angular-devkit/build-angular': 19.1.8(6hce7e7smgbolgpeox7ze72a4e)
       '@angular-devkit/core': 19.1.8(chokidar@4.0.3)
       '@angular-devkit/schematics': 19.1.8(chokidar@4.0.3)
       '@nx/devkit': 20.4.6(nx@20.4.6(@swc-node/register@1.10.9(@swc/core@1.11.1(@swc/helpers@0.5.15))(@swc/types@0.1.18)(typescript@5.7.3))(@swc/core@1.11.1(@swc/helpers@0.5.15)))
@@ -14228,11 +14228,11 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-tailwindcss@0.6.11(prettier@3.5.2):
+  prettier-plugin-tailwindcss@0.6.11(prettier@3.5.3):
     dependencies:
-      prettier: 3.5.2
+      prettier: 3.5.3
 
-  prettier@3.5.2: {}
+  prettier@3.5.3: {}
 
   pretty-format@29.7.0:
     dependencies:
