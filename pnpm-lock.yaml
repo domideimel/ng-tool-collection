@@ -56,7 +56,7 @@ importers:
         version: 19.0.1(@angular/core@19.1.8(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2)
       '@nx/angular':
         specifier: 20.4.6
-        version: 20.4.6(@angular-devkit/build-angular@19.1.8(467e27c349ad5449be4b3124d1c1f259))(@angular-devkit/core@19.1.8(chokidar@4.0.3))(@angular-devkit/schematics@19.1.8(chokidar@4.0.3))(@babel/traverse@7.26.9)(@rspack/core@1.2.5(@swc/helpers@0.5.15))(@schematics/angular@19.1.8(chokidar@4.0.3))(@swc-node/register@1.10.9(@swc/core@1.11.1(@swc/helpers@0.5.15))(@swc/types@0.1.18)(typescript@5.7.3))(@swc/core@1.11.1(@swc/helpers@0.5.15))(@swc/helpers@0.5.15)(@types/node@22.13.5)(@zkochan/js-yaml@0.0.7)(eslint@9.21.0(jiti@2.4.2))(nx@20.4.6(@swc-node/register@1.10.9(@swc/core@1.11.1(@swc/helpers@0.5.15))(@swc/types@0.1.18)(typescript@5.7.3))(@swc/core@1.11.1(@swc/helpers@0.5.15)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rxjs@7.8.2)(typescript@5.7.3)
+        version: 20.4.6(@angular-devkit/build-angular@19.1.8(6hce7e7smgbolgpeox7ze72a4e))(@angular-devkit/core@19.1.8(chokidar@4.0.3))(@angular-devkit/schematics@19.1.8(chokidar@4.0.3))(@babel/traverse@7.26.9)(@rspack/core@1.2.5(@swc/helpers@0.5.15))(@schematics/angular@19.1.8(chokidar@4.0.3))(@swc-node/register@1.10.9(@swc/core@1.11.1(@swc/helpers@0.5.15))(@swc/types@0.1.18)(typescript@5.7.3))(@swc/core@1.11.1(@swc/helpers@0.5.15))(@swc/helpers@0.5.15)(@types/node@22.13.5)(@zkochan/js-yaml@0.0.7)(eslint@9.21.0(jiti@2.4.2))(nx@20.4.6(@swc-node/register@1.10.9(@swc/core@1.11.1(@swc/helpers@0.5.15))(@swc/types@0.1.18)(typescript@5.7.3))(@swc/core@1.11.1(@swc/helpers@0.5.15)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rxjs@7.8.2)(typescript@5.7.3)
       rxjs:
         specifier: ~7.8.2
         version: 7.8.2
@@ -72,7 +72,7 @@ importers:
     devDependencies:
       '@angular-devkit/build-angular':
         specifier: 19.1.8
-        version: 19.1.8(467e27c349ad5449be4b3124d1c1f259)
+        version: 19.1.8(6hce7e7smgbolgpeox7ze72a4e)
       '@angular-devkit/core':
         specifier: 19.1.8
         version: 19.1.8(chokidar@4.0.3)
@@ -80,8 +80,8 @@ importers:
         specifier: 19.1.8
         version: 19.1.8(chokidar@4.0.3)
       '@angular-eslint/eslint-plugin':
-        specifier: 19.1.0
-        version: 19.1.0(@typescript-eslint/utils@8.25.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3))(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)
+        specifier: 19.2.0
+        version: 19.2.0(@typescript-eslint/utils@8.25.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3))(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)
       '@angular-eslint/eslint-plugin-template':
         specifier: 19.1.0
         version: 19.1.0(@typescript-eslint/types@8.24.1)(@typescript-eslint/utils@8.25.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3))(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)
@@ -302,6 +302,9 @@ packages:
   '@angular-eslint/bundled-angular-compiler@19.1.0':
     resolution: {integrity: sha512-HUJyukRvnh8Z9lIdxdblBRuBaPYEVv4iAYZMw3d+dn4rrM27Nt5oh3/zkwYrrPkt36tZdeXdDWrOuz9jgjVN5w==}
 
+  '@angular-eslint/bundled-angular-compiler@19.2.0':
+    resolution: {integrity: sha512-hmmAogTpYGbBvnJ0j7DNLi8YQ+YEEuwFdx0heU8XjTpZlRoSRIP7MJJVlaQCt+ZT5f5XwdGtqi9lOXqqcyGHLA==}
+
   '@angular-eslint/eslint-plugin-template@19.1.0':
     resolution: {integrity: sha512-bIUizkCY40mnU8oAO1tLV7uN2H/cHf1evLlhpqlb9JYwc5dT2moiEhNDo61OtOgkJmDGNuThAeO9Xk9hGQc7nA==}
     peerDependencies:
@@ -312,6 +315,13 @@ packages:
 
   '@angular-eslint/eslint-plugin@19.1.0':
     resolution: {integrity: sha512-TDO0+Ry+oNkxnaLHogKp1k2aey6IkJef5d7hathE4UFT6owjRizltWaRoX6bGw7Qu1yagVLL8L2Se8SddxSPAQ==}
+    peerDependencies:
+      '@typescript-eslint/utils': ^7.11.0 || ^8.0.0
+      eslint: ^8.57.0 || ^9.0.0
+      typescript: '*'
+
+  '@angular-eslint/eslint-plugin@19.2.0':
+    resolution: {integrity: sha512-QQWWDrTdJ22tBd7RLFG/FdPwNyYEhg7YwWgn29z6XcdnV00ZFtf7FRbv/te1kqVNPvfjtht7bvtHcPQ432aUdQ==}
     peerDependencies:
       '@typescript-eslint/utils': ^7.11.0 || ^8.0.0
       eslint: ^8.57.0 || ^9.0.0
@@ -328,6 +338,13 @@ packages:
 
   '@angular-eslint/utils@19.1.0':
     resolution: {integrity: sha512-mcb7hPMH/u6wwUwvsewrmgb9y9NWN6ZacvpUvKlTOxF/jOtTdsu0XfV4YB43sp2A8NWzYzX0Str4c8K1xSmuBQ==}
+    peerDependencies:
+      '@typescript-eslint/utils': ^7.11.0 || ^8.0.0
+      eslint: ^8.57.0 || ^9.0.0
+      typescript: '*'
+
+  '@angular-eslint/utils@19.2.0':
+    resolution: {integrity: sha512-1XQXzIqYadKUxcAgW1DPev56SVbR8Uld6TthgolU7rfIX23RYMIIRtQlrQCk7zoXLXm5fzcGqjTR4wHfoD+iWg==}
     peerDependencies:
       '@typescript-eslint/utils': ^7.11.0 || ^8.0.0
       eslint: ^8.57.0 || ^9.0.0
@@ -7086,7 +7103,7 @@ snapshots:
     transitivePeerDependencies:
       - chokidar
 
-  '@angular-devkit/build-angular@19.1.8(467e27c349ad5449be4b3124d1c1f259)':
+  '@angular-devkit/build-angular@19.1.8(6hce7e7smgbolgpeox7ze72a4e)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.1901.8(chokidar@4.0.3)
@@ -7216,6 +7233,8 @@ snapshots:
 
   '@angular-eslint/bundled-angular-compiler@19.1.0': {}
 
+  '@angular-eslint/bundled-angular-compiler@19.2.0': {}
+
   '@angular-eslint/eslint-plugin-template@19.1.0(@typescript-eslint/types@8.24.1)(@typescript-eslint/utils@8.25.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3))(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)':
     dependencies:
       '@angular-eslint/bundled-angular-compiler': 19.1.0
@@ -7231,6 +7250,14 @@ snapshots:
     dependencies:
       '@angular-eslint/bundled-angular-compiler': 19.1.0
       '@angular-eslint/utils': 19.1.0(@typescript-eslint/utils@8.25.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3))(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)
+      '@typescript-eslint/utils': 8.25.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)
+      eslint: 9.21.0(jiti@2.4.2)
+      typescript: 5.7.3
+
+  '@angular-eslint/eslint-plugin@19.2.0(@typescript-eslint/utils@8.25.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3))(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)':
+    dependencies:
+      '@angular-eslint/bundled-angular-compiler': 19.2.0
+      '@angular-eslint/utils': 19.2.0(@typescript-eslint/utils@8.25.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3))(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)
       '@typescript-eslint/utils': 8.25.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)
       eslint: 9.21.0(jiti@2.4.2)
       typescript: 5.7.3
@@ -7261,6 +7288,13 @@ snapshots:
   '@angular-eslint/utils@19.1.0(@typescript-eslint/utils@8.25.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3))(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)':
     dependencies:
       '@angular-eslint/bundled-angular-compiler': 19.1.0
+      '@typescript-eslint/utils': 8.25.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)
+      eslint: 9.21.0(jiti@2.4.2)
+      typescript: 5.7.3
+
+  '@angular-eslint/utils@19.2.0(@typescript-eslint/utils@8.25.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3))(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)':
+    dependencies:
+      '@angular-eslint/bundled-angular-compiler': 19.2.0
       '@typescript-eslint/utils': 8.25.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)
       eslint: 9.21.0(jiti@2.4.2)
       typescript: 5.7.3
@@ -9671,9 +9705,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@nx/angular@20.4.6(@angular-devkit/build-angular@19.1.8(467e27c349ad5449be4b3124d1c1f259))(@angular-devkit/core@19.1.8(chokidar@4.0.3))(@angular-devkit/schematics@19.1.8(chokidar@4.0.3))(@babel/traverse@7.26.9)(@rspack/core@1.2.5(@swc/helpers@0.5.15))(@schematics/angular@19.1.8(chokidar@4.0.3))(@swc-node/register@1.10.9(@swc/core@1.11.1(@swc/helpers@0.5.15))(@swc/types@0.1.18)(typescript@5.7.3))(@swc/core@1.11.1(@swc/helpers@0.5.15))(@swc/helpers@0.5.15)(@types/node@22.13.5)(@zkochan/js-yaml@0.0.7)(eslint@9.21.0(jiti@2.4.2))(nx@20.4.6(@swc-node/register@1.10.9(@swc/core@1.11.1(@swc/helpers@0.5.15))(@swc/types@0.1.18)(typescript@5.7.3))(@swc/core@1.11.1(@swc/helpers@0.5.15)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rxjs@7.8.2)(typescript@5.7.3)':
+  '@nx/angular@20.4.6(@angular-devkit/build-angular@19.1.8(6hce7e7smgbolgpeox7ze72a4e))(@angular-devkit/core@19.1.8(chokidar@4.0.3))(@angular-devkit/schematics@19.1.8(chokidar@4.0.3))(@babel/traverse@7.26.9)(@rspack/core@1.2.5(@swc/helpers@0.5.15))(@schematics/angular@19.1.8(chokidar@4.0.3))(@swc-node/register@1.10.9(@swc/core@1.11.1(@swc/helpers@0.5.15))(@swc/types@0.1.18)(typescript@5.7.3))(@swc/core@1.11.1(@swc/helpers@0.5.15))(@swc/helpers@0.5.15)(@types/node@22.13.5)(@zkochan/js-yaml@0.0.7)(eslint@9.21.0(jiti@2.4.2))(nx@20.4.6(@swc-node/register@1.10.9(@swc/core@1.11.1(@swc/helpers@0.5.15))(@swc/types@0.1.18)(typescript@5.7.3))(@swc/core@1.11.1(@swc/helpers@0.5.15)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rxjs@7.8.2)(typescript@5.7.3)':
     dependencies:
-      '@angular-devkit/build-angular': 19.1.8(467e27c349ad5449be4b3124d1c1f259)
+      '@angular-devkit/build-angular': 19.1.8(6hce7e7smgbolgpeox7ze72a4e)
       '@angular-devkit/core': 19.1.8(chokidar@4.0.3)
       '@angular-devkit/schematics': 19.1.8(chokidar@4.0.3)
       '@nx/devkit': 20.4.6(nx@20.4.6(@swc-node/register@1.10.9(@swc/core@1.11.1(@swc/helpers@0.5.15))(@swc/types@0.1.18)(typescript@5.7.3))(@swc/core@1.11.1(@swc/helpers@0.5.15)))
