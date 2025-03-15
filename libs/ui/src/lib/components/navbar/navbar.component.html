@@ -19,24 +19,7 @@
             }
 
             @if (item?.children) {
-              <details class="h-full">
-                <summary class="h-full place-content-center">
-                  {{ item.label }}
-                </summary>
-                <ul class="p-2 bg-base-100 rounded-t-none break-normal w-max right-0">
-                  @for (child of item.children; track child.label) {
-                    <li>
-                      <a
-                        [routerLink]="child.path"
-                        [routerLinkActiveOptions]="{exact: true}"
-                        routerLinkActive="btn-active"
-                      >
-                        {{ child.label }}
-                      </a>
-                    </li>
-                  }
-                </ul>
-              </details>
+              <lib-submenu [item]="item" class="p-0" />
             }
           </li>
         }
