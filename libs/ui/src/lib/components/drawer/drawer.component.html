@@ -52,24 +52,21 @@
           }
 
           @if (item?.children) {
-            <details>
-              <summary>
-                {{ item.label }}
-              </summary>
-              <ul class="p-2 bg-base-100 rounded-t-none">
-                @for (child of item.children; track child.label) {
-                  <li>
-                    <a
-                      [routerLink]="child.path"
-                      [routerLinkActiveOptions]="{exact: true}"
-                      routerLinkActive="btn-active"
-                    >
-                      {{ child.label }}
-                    </a>
-                  </li>
-                }
-              </ul>
-            </details>
+            <strong class="mb-2">{{ item.label }}</strong>
+            <ul class="p-2 bg-base-300 rounded-xl space-y-4">
+              @for (child of item.children; track child.label) {
+                <li>
+                  <a
+                    class="btn btn-sm btn-ghost justify-start"
+                    [routerLink]="child.path"
+                    [routerLinkActiveOptions]="{exact: true}"
+                    routerLinkActive="btn-active"
+                  >
+                    {{ child.label }}
+                  </a>
+                </li>
+              }
+            </ul>
           }
         </li>
       }
