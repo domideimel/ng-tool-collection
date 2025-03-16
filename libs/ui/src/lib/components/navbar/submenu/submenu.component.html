@@ -2,18 +2,20 @@
   {{ item().label }}
 </button>
 <ng-template #menu>
-  <ul class="p-2 bg-base-300 rounded-xl space-y-4" ngpMenu>
-    @for (child of item()?.children ?? []; track child.label) {
-      <li ngpMenuItem>
-        <a
-          class="btn btn-sm btn-ghost w-full justify-start"
-          [routerLink]="child.path"
-          [routerLinkActiveOptions]="{exact: true}"
-          routerLinkActive="btn-active"
-        >
-          {{ child.label }}
-        </a>
-      </li>
-    }
-  </ul>
+  @if (item().children?.length) {
+    <ul class="p-2 bg-base-300 rounded-xl space-y-4" ngpMenu>
+      @for (child of item().children; track child.label) {
+        <li ngpMenuItem>
+          <a
+            class="btn btn-sm btn-ghost w-full justify-start"
+            [routerLink]="child.path"
+            [routerLinkActiveOptions]="{exact: true}"
+            routerLinkActive="btn-active"
+          >
+            {{ child.label }}
+          </a>
+        </li>
+      }
+    </ul>
+  }
 </ng-template>

@@ -1,12 +1,13 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CardComponent, ToastService } from '@ng-tool-collection/ui';
 import { CopyToClipboardDirective, ReactiveStorageService } from '@ng-tool-collection/utils';
+import { NgpButton } from 'ng-primitives/button';
 
 @Component({
   selector: 'lib-generator-password-overview',
   templateUrl: './generator-password-overview.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CardComponent, CopyToClipboardDirective],
+  imports: [CardComponent, CopyToClipboardDirective, NgpButton],
 })
 export class GeneratorPasswordOverviewComponent {
   private storageService = inject(ReactiveStorageService);

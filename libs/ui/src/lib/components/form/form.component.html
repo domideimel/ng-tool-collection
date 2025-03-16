@@ -1,5 +1,5 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="formGroup" class="flex flex-col gap-4">
-  @for (item of model().items; track item.label) {
+  @for (item of formModel().items; track item.label) {
     @switch (item.type) {
       @case ("text") {
         <label class="form-control ">
@@ -114,7 +114,8 @@
     [disabled]="!formGroup.valid"
     [ngClass]="!formGroup.valid ? 'cursor-not-allowed' : ''"
     class="btn btn-outline"
+    ngpButton
   >
-    {{ model().submitButtonLabel }}
+    {{ formModel().submitButtonLabel }}
   </button>
 </form>
