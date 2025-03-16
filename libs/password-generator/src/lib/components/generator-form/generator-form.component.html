@@ -2,7 +2,8 @@
   <label class="input input-bordered flex items-center gap-2">
     <input [value]="password()" class="grow" id="password" placeholder="Passwort" readonly type="text" />
     <button (click)="copyToClipboard()" [disabled]="hasCopied()" aria-label="Passwort kopieren"
-            class="btn btn-circle btn-sm">
+            class="btn btn-circle btn-sm"
+            ngpButton>
       <svg class="size-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
            xmlns="http://www.w3.org/2000/svg">
         <path
@@ -14,6 +15,6 @@
   </label>
   <lib-form
     (submitEvent)="onSubmit($event)"
-    [model]="formModel"
+    [formModel]="formModel"
   />
 </lib-card>
