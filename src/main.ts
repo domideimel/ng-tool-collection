@@ -6,7 +6,14 @@ import { inject } from '@vercel/analytics';
 
 try {
   await bootstrapApplication(AppComponent, appConfig);
-  inject();
+  inject({
+    beforeSend: event => {
+      if (localStorage.getItem('va-disable') === 'true') {
+        return null;
+      }
+      return event;
+    },
+  });
 } catch (e) {
   console.error(e);
 }

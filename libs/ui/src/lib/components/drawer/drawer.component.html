@@ -20,6 +20,9 @@
       <aside>
         <p>Copyright © {{ currentYear }}</p>
       </aside>
+      <aside>
+        <button (click)="openModal()" ngpButton>Analytics verwenden</button>
+      </aside>
     </footer>
   </div>
   <div class="drawer-side z-40 lg:hidden">
@@ -73,3 +76,18 @@
     </ul>
   </div>
 </div>
+<dialog #dialog class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Vercel Analytic</h3>
+    <p class="py-4">Diese Seite verwendet Vercel Analytics</p>
+    <div class="modal-action">
+      <form method="dialog">
+        <div class="flex gap-4">
+          <button (click)="closeModal('false')" class="btn btn-success">Akzeptieren</button>
+          <button (click)="closeModal('true')" class="btn btn-error">Ablehnen</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</dialog>
