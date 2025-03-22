@@ -19,24 +19,7 @@
             }
 
             @if (item?.children) {
-              <details class="h-full">
-                <summary class="h-full place-content-center">
-                  {{ item.label }}
-                </summary>
-                <ul class="p-2 bg-base-100 rounded-t-none break-normal w-max right-0">
-                  @for (child of item.children; track child.label) {
-                    <li>
-                      <a
-                        [routerLink]="child.path"
-                        [routerLinkActiveOptions]="{exact: true}"
-                        routerLinkActive="btn-active"
-                      >
-                        {{ child.label }}
-                      </a>
-                    </li>
-                  }
-                </ul>
-              </details>
+              <lib-submenu [item]="item" class="p-0" />
             }
           </li>
         }
@@ -46,7 +29,7 @@
       <lib-theme-switcher />
     </div>
     <div class="flex-none lg:hidden">
-      <button (click)="onOpenClick()" aria-label="open sidebar" class="btn btn-circle btn-ghost">
+      <button (click)="onOpenClick()" aria-label="open sidebar" class="btn btn-circle btn-ghost" ngpButton>
         <svg aria-hidden="true" class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
              xmlns="http://www.w3.org/2000/svg">
           <path d="M4 6h16M4 12h16M4 18h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />

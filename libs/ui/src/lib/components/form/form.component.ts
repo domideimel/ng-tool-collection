@@ -2,22 +2,25 @@ import { ChangeDetectionStrategy, Component, effect, inject, input, OnInit, outp
 import { FormGroup, NonNullableFormBuilder, ReactiveFormsModule, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { FormControls, FormModel } from '@ng-tool-collection/models';
 import { NgClass } from '@angular/common';
+import { NgpButton } from 'ng-primitives/button';
+import { NgpFormControl, NgpFormField } from 'ng-primitives/form-field';
+import { NgpSelect } from 'ng-primitives/select';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'lib-form',
   templateUrl: './form.component.html',
-  imports: [ReactiveFormsModule, NgClass],
+  imports: [ReactiveFormsModule, NgClass, NgpButton, NgpFormControl, NgpFormField, NgpSelect],
 })
 export class FormComponent<T extends FormModel> implements OnInit {
-  model = input.required<T>();
+  formModel = input.required<T>();
   formGroup!: FormGroup;
   submitEvent = output<typeof this.value>();
   private fb = inject(NonNullableFormBuilder);
 
   constructor() {
     effect(() => {
-      this.formGroup = this.generateFormGroup(this.model());
+      this.formGroup = this.generateFormGroup(this.formModel());
     });
   }
 
@@ -26,7 +29,7 @@ export class FormComponent<T extends FormModel> implements OnInit {
   }
 
   ngOnInit() {
-    this.formGroup = this.generateFormGroup(this.model());
+    this.formGroup = this.generateFormGroup(this.formModel());
   }
 
   hasErrors(controlName: string): ValidationErrors | undefined | null {
