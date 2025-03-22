@@ -8,7 +8,7 @@
     }
     @if (showLink()) {
       <div class="card-actions justify-end">
-        <button [routerLink]="link()" class="btn btn-outline w-full lg:w-auto">{{ linkText() }}</button>
+        <button ngpButton [routerLink]="link()" class="btn btn-outline w-full lg:w-auto">{{ linkText() }}</button>
       </div>
     }
   </div>
