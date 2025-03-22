@@ -6,12 +6,13 @@ import { Meta } from '@angular/platform-browser';
 import { NgClass } from '@angular/common';
 import { catchError, Subscription, tap } from 'rxjs';
 import { copyToClipboard } from '@ng-tool-collection/utils';
+import { NgpButton } from 'ng-primitives/button';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'lib-url-rewrites',
   templateUrl: './url-rewrites.component.html',
-  imports: [CardComponent, ReactiveFormsModule, NgClass],
+  imports: [CardComponent, ReactiveFormsModule, NgClass, NgpButton],
 })
 export class UrlRewritesComponent implements OnInit, OnDestroy {
   result = signal<string>('');

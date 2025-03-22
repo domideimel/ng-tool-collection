@@ -33,7 +33,7 @@
               </label>
               <div class="flex justify-end gap-2 items-end">
                 <button
-                  type="button"
+                  ngpButton
                   class="btn btn-circle btn-outline"
                   (click)="addUrlRow()"
                   aria-label="Reihe hinzufügen"
@@ -46,11 +46,11 @@
                   </svg>
                 </button>
                 <button
-                  type="button"
                   class="btn btn-circle btn-outline"
                   (click)="removeUrlRow($index)"
                   [disabled]="hasOnlyOneRow"
                   aria-label="Reihe entfernen"
+                  ngpButton
                 >
                   <svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
                     <path
@@ -64,7 +64,8 @@
           }
         </div>
         <div>
-          <button [disabled]="!formGroup.valid" class="btn btn-outline w-full lg:w-auto" type="submit">Generieren
+          <button [disabled]="!formGroup.valid" class="btn btn-outline w-full lg:w-auto" ngpButton type="submit">
+            Generieren
           </button>
         </div>
       </form>
@@ -76,7 +77,7 @@
           <textarea [value]="result()" class="textarea textarea-bordered h-48" placeholder="Rewrites"
                     readonly></textarea>
         </label>
-        <button (click)="copyRewrites()" class="btn btn-outline w-full lg:w-auto" type="button">Rewrites kopieren
+        <button (click)="copyRewrites()" class="btn btn-outline w-full lg:w-auto" ngpButton>Rewrites kopieren
         </button>
       }
     </div>
