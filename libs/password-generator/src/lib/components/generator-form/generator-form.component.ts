@@ -5,12 +5,13 @@ import { PasswordGeneratorService } from '../../services/password-generator.serv
 import { atLeastOneCheckedValidator, CardComponent, FormComponent, ToastService } from '@ng-tool-collection/ui';
 import { catchError, finalize, Subscription, tap } from 'rxjs';
 import { copyToClipboard, ReactiveStorageService } from '@ng-tool-collection/utils';
+import { NgpButton } from 'ng-primitives/button';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'lib-generator-form',
   templateUrl: './generator-form.component.html',
-  imports: [CardComponent, FormComponent],
+  imports: [CardComponent, FormComponent, NgpButton],
 })
 export class GeneratorFormComponent implements OnDestroy {
   formModel = {
