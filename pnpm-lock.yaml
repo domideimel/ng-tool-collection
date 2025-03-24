@@ -50,7 +50,7 @@ importers:
         version: 19.0.1(@angular/core@19.2.2(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2)
       '@nx/angular':
         specifier: 20.6.2
-        version: 20.6.2(6cd35d3c4fa4a6bfe39fc8d6dd9da792)
+        version: 20.6.2(w3rpc2dzqqjepypygmxbn3nqke)
       '@vercel/analytics':
         specifier: ^1.5.0
         version: 1.5.0(react@18.3.1)
@@ -69,7 +69,7 @@ importers:
     devDependencies:
       '@angular-devkit/build-angular':
         specifier: 19.2.3
-        version: 19.2.3(0aedde73d6bb602b9b88393a86905f87)
+        version: 19.2.3(saqfzaf45qe6k7f57ceqvz5ipu)
       '@angular-devkit/core':
         specifier: 19.2.3
         version: 19.2.3(chokidar@4.0.3)
@@ -119,8 +119,8 @@ importers:
         specifier: 20.6.2
         version: 20.6.2(@swc-node/register@1.10.10(@swc/core@1.11.9(@swc/helpers@0.5.15))(@swc/types@0.1.19)(typescript@5.8.2))(@swc/core@1.11.9(@swc/helpers@0.5.15))
       '@schematics/angular':
-        specifier: 19.2.3
-        version: 19.2.3(chokidar@4.0.3)
+        specifier: 19.2.4
+        version: 19.2.4(chokidar@4.0.3)
       '@swc-node/register':
         specifier: 1.10.10
         version: 1.10.10(@swc/core@1.11.9(@swc/helpers@0.5.15))(@swc/types@0.1.19)(typescript@5.8.2)
@@ -2547,10 +2547,6 @@ packages:
     peerDependenciesMeta:
       react-refresh:
         optional: true
-
-  '@schematics/angular@19.2.3':
-    resolution: {integrity: sha512-bhtGJtetkiqyB/OR506ftC+o98xLQXnOlvFO/zbkTddkLgMdPpyOt2A9Fuu+z4OVigqBiLBkzmR8i0w8xUUAmw==}
-    engines: {node: ^18.19.1 || ^20.11.1 || >=22.0.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
 
   '@schematics/angular@19.2.4':
     resolution: {integrity: sha512-P7fphIPbqHHYRVRPiFl7RAHYPYhINGSUYOXrcThVBBsgKQBX18oNdUWvhZA6ylwK/9T21XB20VyLjNy0d78H1Q==}
@@ -7452,7 +7448,7 @@ snapshots:
     transitivePeerDependencies:
       - chokidar
 
-  '@angular-devkit/build-angular@19.2.3(0aedde73d6bb602b9b88393a86905f87)':
+  '@angular-devkit/build-angular@19.2.3(saqfzaf45qe6k7f57ceqvz5ipu)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.1902.3(chokidar@4.0.3)
@@ -9672,9 +9668,9 @@ snapshots:
       - '@swc/core'
       - debug
 
-  '@nx/angular@20.6.2(6cd35d3c4fa4a6bfe39fc8d6dd9da792)':
+  '@nx/angular@20.6.2(w3rpc2dzqqjepypygmxbn3nqke)':
     dependencies:
-      '@angular-devkit/build-angular': 19.2.3(0aedde73d6bb602b9b88393a86905f87)
+      '@angular-devkit/build-angular': 19.2.3(saqfzaf45qe6k7f57ceqvz5ipu)
       '@angular-devkit/core': 19.2.3(chokidar@4.0.3)
       '@angular-devkit/schematics': 19.2.3(chokidar@4.0.3)
       '@nx/devkit': 20.6.2(nx@20.6.2(@swc-node/register@1.10.10(@swc/core@1.11.9(@swc/helpers@0.5.15))(@swc/types@0.1.19)(typescript@5.8.2))(@swc/core@1.11.9(@swc/helpers@0.5.15)))
@@ -9686,7 +9682,7 @@ snapshots:
       '@nx/webpack': 20.6.2(@babel/traverse@7.26.10)(@rspack/core@1.2.8(@swc/helpers@0.5.15))(@swc-node/register@1.10.10(@swc/core@1.11.9(@swc/helpers@0.5.15))(@swc/types@0.1.19)(typescript@5.8.2))(@swc/core@1.11.9(@swc/helpers@0.5.15))(@types/node@22.13.10)(nx@20.6.2(@swc-node/register@1.10.10(@swc/core@1.11.9(@swc/helpers@0.5.15))(@swc/types@0.1.19)(typescript@5.8.2))(@swc/core@1.11.9(@swc/helpers@0.5.15)))(typescript@5.8.2)
       '@nx/workspace': 20.6.2(@swc-node/register@1.10.10(@swc/core@1.11.9(@swc/helpers@0.5.15))(@swc/types@0.1.19)(typescript@5.8.2))(@swc/core@1.11.9(@swc/helpers@0.5.15))
       '@phenomnomnominal/tsquery': 5.0.1(typescript@5.8.2)
-      '@schematics/angular': 19.2.3(chokidar@4.0.3)
+      '@schematics/angular': 19.2.4(chokidar@4.0.3)
       '@typescript-eslint/type-utils': 8.27.0(eslint@9.22.0(jiti@2.4.2))(typescript@5.8.2)
       enquirer: 2.3.6
       magic-string: 0.30.17
@@ -10422,14 +10418,6 @@ snapshots:
     dependencies:
       error-stack-parser: 2.1.4
       html-entities: 2.5.2
-
-  '@schematics/angular@19.2.3(chokidar@4.0.3)':
-    dependencies:
-      '@angular-devkit/core': 19.2.3(chokidar@4.0.3)
-      '@angular-devkit/schematics': 19.2.3(chokidar@4.0.3)
-      jsonc-parser: 3.3.1
-    transitivePeerDependencies:
-      - chokidar
 
   '@schematics/angular@19.2.4(chokidar@4.0.3)':
     dependencies:
