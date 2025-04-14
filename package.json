@@ -59,7 +59,7 @@
     "@types/validator": "^13.12.3",
     "@typescript-eslint/eslint-plugin": "^8.29.0",
     "@typescript-eslint/parser": "^8.29.0",
-    "@typescript-eslint/utils": "8.29.0",
+    "@typescript-eslint/utils": "8.29.1",
     "angular-eslint": "19.3.0",
     "autoprefixer": "^10.4.21",
     "daisyui": "^4.12.24",
