@@ -1,5 +1,5 @@
 <lib-card [showLink]='false' title="Password Generator">
-  <label class="input input-bordered flex items-center gap-2">
+  <label class="input input-lg input-bordered items-center gap-2 w-full">
     <input [value]="password()" class="grow" id="password" placeholder="Passwort" readonly type="text" />
     <button (click)="copyToClipboard()" [disabled]="hasCopied()" aria-label="Passwort kopieren"
             class="btn btn-circle btn-sm"
