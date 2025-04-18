@@ -2,14 +2,14 @@
   @for (item of formModel().items; track item.label) {
     @switch (item.type) {
       @case ("text") {
-        <label class="form-control" ngpFormField>
+        <label ngpFormField>
           <div class="label">
             <span class="label-text">{{ item.label }}</span>
           </div>
           <input
             ngpFormControl
             type="text"
-            class="input input-bordered "
+            class="input input-bordered input-lg"
             [placeholder]="item?.placeholder"
             [formControlName]="item.controlName"
             [attr.id]="item.controlName"
@@ -17,11 +17,11 @@
         </label>
       }
       @case ("checkbox") {
-        <div class="form-control" ngpFormField>
+        <div ngpFormField>
           <label class="label cursor-pointer justify-normal gap-4">
             <input
               type="checkbox"
-              class="checkbox"
+              class="checkbox checkbox-lg"
               ngpFormControl
               [formControlName]="item.controlName"
               [ngClass]="[hasErrors(item.controlName) ? 'checkbox-error' : '']"
@@ -33,11 +33,11 @@
       }
       @case ("radio") {
         @for (option of item.options; track option.value) {
-          <div class="form-control" ngpFormField>
+          <div ngpFormField>
             <label class="label cursor-pointer justify-normal gap-4">
               <input
                 type="radio"
-                class="radio"
+                class="radio radio-lg"
                 ngpFormControl
                 [formControlName]="item.controlName"
                 [ngClass]="[hasErrors(item.controlName) ? 'radio-error' : '']"
@@ -49,12 +49,12 @@
         }
       }
       @case ("select") {
-        <label class="form-control" ngpFormField>
+        <label ngpFormField>
           <div class="label">
             <span class="label-text">{{ item.label }}</span>
           </div>
           <select
-            class="select select-bordered"
+            class="select select-bordered select-lg"
             ngpSelect
             [formControlName]="item.controlName"
             [ngClass]="[hasErrors(item.controlName) ? 'select-error' : '']"
@@ -69,13 +69,13 @@
         </label>
       }
       @case ("textarea") {
-        <label class="form-control" ngpFormField>
+        <label ngpFormField>
           <div class="label">
             <span class="label-text">{{ item.label }}</span>
           </div>
           <textarea
             ngpFormControl
-            class="textarea textarea-bordered h-24"
+            class="textarea textarea-bordered h-24 textarea-lg"
             [formControlName]="item.controlName"
             [ngClass]="[hasErrors(item.controlName) ? 'textarea-error' : '']"
             [attr.id]="item.controlName"
@@ -83,14 +83,14 @@
         </label>
       }
       @case ("date") {
-        <label class="form-control w-full lg:max-w-xs" ngpFormField>
+        <label class="w-full lg:max-w-xs" ngpFormField>
           <div class="label">
             <span class="label-text">{{ item.label }}</span>
           </div>
           <input
             ngpFormControl
             type="date"
-            class="input input-bordered "
+            class="input input-bordered input-lg"
             [formControlName]="item.controlName"
             [ngClass]="[hasErrors(item.controlName) ? 'input-error' : '']"
             [attr.id]="item.controlName"
@@ -98,7 +98,7 @@
         </label>
       }
       @case ("range") {
-        <label class="form-control w-full" ngpFormField>
+        <label ngpFormField>
           <div class="label">
             <span class="label-text">{{ item.label }}</span>
           </div>
@@ -106,7 +106,7 @@
             <input
               ngpFormControl
               type="range"
-              class="range"
+              class="flex-1 range range-lg"
               [formControlName]="item.controlName"
               [ngClass]="[hasErrors(item.controlName) ? 'range-error' : '']"
               [attr.id]="item.controlName"
