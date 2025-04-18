@@ -1,5 +1,5 @@
 @if (item().children?.length) {
-  <button [ngpMenuTrigger]="menu" class="btn btn-sm btn-ghost" ngpButton>
+  <button [ngpMenuTrigger]="menu" class="btn btn-ghost" ngpButton>
     {{ item().label }}
   </button>
   <ng-template #menu>
@@ -7,7 +7,7 @@
       @for (child of item().children; track child.label) {
         <li ngpMenuItem>
           <a
-            class="btn btn-sm btn-ghost w-full justify-start"
+            class="btn btn-ghost w-full justify-start"
             [routerLink]="child.path"
             [routerLinkActiveOptions]="{exact: true}"
             routerLinkActive="btn-active"

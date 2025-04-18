@@ -2,13 +2,13 @@
   <lib-card [showLink]='false' title="Währungsumrechner">
     <form [formGroup]="formGroup">
       <div class="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_1fr_auto] lg:gap-12">
-        <div>
-          <label class="form-control ">
-            <div class="label">
-              <span class="label-text">Währung</span>
+        <div class="flex flex-col space-y-4">
+          <label>
+            <div class="mb-2">
+              Währung
             </div>
             <select
-              class="select select-bordered"
+              class="select select-bordered select-lg"
               formControlName="fromCurrency"
             >
               @for (contents of currencies(); track contents[0]) {
@@ -18,24 +18,22 @@
               }
             </select>
           </label>
-          <label class="form-control ">
-            <div class="label">
-              <span class="label-text">Menge</span>
+          <label>
+            <div class="mb-2">
+              Menge
             </div>
             <input
-              class="input input-bordered "
+              class="input input-bordered input-lg"
               formControlName="amount"
               type="text"
             />
           </label>
         </div>
-        <div>
-          <label class="form-control ">
-            <div class="label">
-              <span class="label-text">Währung</span>
-            </div>
+        <div class="flex flex-col space-y-4">
+          <label>
+            <div class="mb-2">Währung</div>
             <select
-              class="select select-bordered"
+              class="select select-bordered select-lg"
               formControlName="toCurrency"
             >
               @for (contents of currencies(); track contents[0]) {
@@ -45,12 +43,12 @@
               }
             </select>
           </label>
-          <label class="form-control ">
-            <div class="label">
-              <span class="label-text">Menge</span>
+          <label>
+            <div class="mb-2">
+              Menge
             </div>
             <input
-              class="input input-bordered "
+              class="input input-bordered input-lg"
               formControlName="result"
               type="text"
             />
