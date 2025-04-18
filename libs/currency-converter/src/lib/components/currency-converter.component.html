@@ -8,7 +8,7 @@
               Währung
             </div>
             <select
-              class="select select-bordered select-lg"
+              class="select select-bordered select-lg w-full"
               formControlName="fromCurrency"
             >
               @for (contents of currencies(); track contents[0]) {
@@ -23,7 +23,7 @@
               Menge
             </div>
             <input
-              class="input input-bordered input-lg"
+              class="input input-bordered input-lg w-full"
               formControlName="amount"
               type="text"
             />
@@ -33,7 +33,7 @@
           <label>
             <div class="mb-2">Währung</div>
             <select
-              class="select select-bordered select-lg"
+              class="select select-bordered select-lg w-full"
               formControlName="toCurrency"
             >
               @for (contents of currencies(); track contents[0]) {
@@ -48,7 +48,7 @@
               Menge
             </div>
             <input
-              class="input input-bordered input-lg"
+              class="input input-bordered input-lg w-full"
               formControlName="result"
               type="text"
             />
