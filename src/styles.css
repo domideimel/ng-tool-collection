@@ -1,8 +1,6 @@
 @import 'tailwindcss';
 
-@plugin "daisyui" {
-  themes: sunset --default, dark --prefersdark, cupcake;
-}
+@plugin "daisyui";
 @config '../tailwind.config.mjs';
 
 /*
