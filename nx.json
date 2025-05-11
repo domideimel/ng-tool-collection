@@ -70,5 +70,6 @@
       "style": "none"
     }
   },
-  "defaultProject": "ng-tool-collection"
+  "defaultProject": "ng-tool-collection",
+  "nxCloudId": "664cf4b0670e450fafd2d1ef"
 }
