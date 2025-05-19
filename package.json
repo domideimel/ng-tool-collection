@@ -44,7 +44,7 @@
     "@angular/language-service": "19.2.10",
     "@angular/localize": "19.2.10",
     "@eslint/eslintrc": "^3.3.1",
-    "@eslint/js": "^9.26.0",
+    "@eslint/js": "^9.27.0",
     "@nx/eslint": "21.0.3",
     "@nx/eslint-plugin": "21.0.3",
     "@nx/jest": "21.0.3",
