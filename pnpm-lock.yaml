@@ -72,9 +72,6 @@ importers:
       zod:
         specifier: 3.25.51
         version: 3.25.51
-      zone.js:
-        specifier: 0.15.1
-        version: 0.15.1
     devDependencies:
       '@angular-devkit/build-angular':
         specifier: 20.0.1
@@ -16488,4 +16485,5 @@ snapshots:
 
   zod@3.25.51: {}
 
-  zone.js@0.15.1: {}
+  zone.js@0.15.1:
+    optional: true
