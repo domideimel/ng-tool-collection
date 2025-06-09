@@ -123,8 +123,8 @@ importers:
         specifier: 21.2.0-beta.2
         version: 21.2.0-beta.2(@babel/traverse@7.27.4)(@swc-node/register@1.10.10(@swc/core@1.11.31(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.8.3))(@swc/core@1.11.31(@swc/helpers@0.5.17))(nx@21.2.0-beta.2(@swc-node/register@1.10.10(@swc/core@1.11.31(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.8.3))(@swc/core@1.11.31(@swc/helpers@0.5.17)))
       '@nx/workspace':
-        specifier: 21.2.0-beta.2
-        version: 21.2.0-beta.2(@swc-node/register@1.10.10(@swc/core@1.11.31(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.8.3))(@swc/core@1.11.31(@swc/helpers@0.5.17))
+        specifier: 21.2.0-canary.20250606-c43d2f2
+        version: 21.2.0-canary.20250606-c43d2f2(@swc-node/register@1.10.10(@swc/core@1.11.31(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.8.3))(@swc/core@1.11.31(@swc/helpers@0.5.17))
       '@schematics/angular':
         specifier: 20.0.1
         version: 20.0.1(chokidar@4.0.3)
@@ -2006,8 +2006,8 @@ packages:
     resolution: {integrity: sha512-zM0mVWSXE0a0h9aKACLwKmD6nHcRiKrPpCfvaKqG1CqDEyjEawId0ocXxVzPMCAm6kkWr2P025msfxXEnt8UGQ==}
     engines: {node: '>= 10'}
 
-  '@napi-rs/wasm-runtime@0.2.10':
-    resolution: {integrity: sha512-bCsCyeZEwVErsGmyPNSzwfwFn4OdxBj0mmv6hOFucB/k81Ojdu68RbZdxYsRQUPc9l6SU5F/cG+bXgWs3oUgsQ==}
+  '@napi-rs/wasm-runtime@0.2.11':
+    resolution: {integrity: sha512-9DPkXtvHydrcOsopiYpUgPHpmj0HWZKMUnL2dZqpvC42lsratuBG06V5ipyno0fUek5VlFsNQ+AcFATSrJXgMA==}
 
   '@napi-rs/wasm-runtime@0.2.4':
     resolution: {integrity: sha512-9zESzOO5aDByvhIAsOy9TbpZ0Ur2AJbUI7UT73kcUTS2mxAMHOBaa1st/jAymNoCtvrit99kkzT1FZuXVcgfIQ==}
@@ -2101,6 +2101,11 @@ packages:
     peerDependencies:
       nx: 21.2.0-beta.2
 
+  '@nx/devkit@21.2.0-canary.20250606-c43d2f2':
+    resolution: {integrity: sha512-xRhAdmoa6GF1XnkcYp5XGXcp/IqabLrTS+WCV8mbm2qd5jhsGmGtfX1zsVK7t7xLeC08k5ZKJ1Jj2DhIbp/+pQ==}
+    peerDependencies:
+      nx: 21.2.0-canary.20250606-c43d2f2
+
   '@nx/eslint-plugin@21.2.0-beta.2':
     resolution: {integrity: sha512-eU5+eWZyn+400gtxYh34JcJXbXZJSYKEhNea0cKQOZ1fdbeNzAi8ZhmYFzRfg86FXPRLnj4iWpjiH4tcgiO6Bg==}
     peerDependencies:
@@ -2138,8 +2143,18 @@ packages:
     cpu: [arm64]
     os: [darwin]
 
+  '@nx/nx-darwin-arm64@21.2.0-canary.20250606-c43d2f2':
+    resolution: {integrity: sha512-bbCW3ywApQ+Wj8JVp2SEU/HBEECm+M10d+gwgJW+63lvtyPcdQovglz7C8VX3fmDQxTb8k8YQd/gPejU+BxtiQ==}
+    cpu: [arm64]
+    os: [darwin]
+
   '@nx/nx-darwin-x64@21.2.0-beta.2':
     resolution: {integrity: sha512-f9jcaEqzQMxgBcqN03wXtQZFv7Xw4bxyBi1g1M4Gk0zk5Pdpc4WsnujbkGqPAaX7P4/JTwc6CTeM3WshZBt5aA==}
+    cpu: [x64]
+    os: [darwin]
+
+  '@nx/nx-darwin-x64@21.2.0-canary.20250606-c43d2f2':
+    resolution: {integrity: sha512-WSfIyDsXeXXPUfaefWJOAAOKSNSX4AQYY+c7JZGkcTlof8mToAALFomC4IFruBtGzqelyKklcNlVVNLh9wj30w==}
     cpu: [x64]
     os: [darwin]
 
@@ -2148,8 +2163,18 @@ packages:
     cpu: [x64]
     os: [freebsd]
 
+  '@nx/nx-freebsd-x64@21.2.0-canary.20250606-c43d2f2':
+    resolution: {integrity: sha512-mjnid+RlGSfbqnmJ/dKvJh2dBJS3iqz8SAzGzGOfLFHg7mvvMBSBVIrmZHooDGrorSaj8kT9QZ2dWFhcRklqfA==}
+    cpu: [x64]
+    os: [freebsd]
+
   '@nx/nx-linux-arm-gnueabihf@21.2.0-beta.2':
     resolution: {integrity: sha512-qipC8lYWb9vmML+XasTDWYrOoj/uFXNjvZxBv8PIHK+9T0GxVfF5filNM6MhcnWgwC/TIyU7Mz54dN39oMIR4A==}
+    cpu: [arm]
+    os: [linux]
+
+  '@nx/nx-linux-arm-gnueabihf@21.2.0-canary.20250606-c43d2f2':
+    resolution: {integrity: sha512-DcNhAaP0x0eqZZqGZ1z8Rjc/YuKluKORO8LRtX9kSioZC1dcjuOruG+vijCi2e5YAyFeaTtkfPuP5widlwYr1w==}
     cpu: [arm]
     os: [linux]
 
@@ -2158,8 +2183,18 @@ packages:
     cpu: [arm64]
     os: [linux]
 
+  '@nx/nx-linux-arm64-gnu@21.2.0-canary.20250606-c43d2f2':
+    resolution: {integrity: sha512-l6vjJE+meA1HCKBe+b5WpjvSOuqb9oDbti104Q/o38zOz6P4B2runXitxTr8UeDg/o9QFCLIVtjYayINT7W4wg==}
+    cpu: [arm64]
+    os: [linux]
+
   '@nx/nx-linux-arm64-musl@21.2.0-beta.2':
     resolution: {integrity: sha512-Sk8CVc9202AvIzl2LXxZYajjpaQhrDGQ7FDcJhNfqWUVVGea3iwEb435ea4tAMTC3tAi1rmwo8vpuTPYRMjelg==}
+    cpu: [arm64]
+    os: [linux]
+
+  '@nx/nx-linux-arm64-musl@21.2.0-canary.20250606-c43d2f2':
+    resolution: {integrity: sha512-FMvz3dV1XxAVfMAXNtn6jRUZEp8MRt0IZc57ZB2VRQMllRbtq7DDv1JakUatLTblIe7h20awipJEbARILwTjHw==}
     cpu: [arm64]
     os: [linux]
 
@@ -2168,8 +2203,18 @@ packages:
     cpu: [x64]
     os: [linux]
 
+  '@nx/nx-linux-x64-gnu@21.2.0-canary.20250606-c43d2f2':
+    resolution: {integrity: sha512-lIcLYKebQ+iQDcxHXpPRRoNQ8sJPtUnKg+rd2qvEG8Fs34sat1INMA5C2+6yFmXThHva93I8G4NFMriKcpKaog==}
+    cpu: [x64]
+    os: [linux]
+
   '@nx/nx-linux-x64-musl@21.2.0-beta.2':
     resolution: {integrity: sha512-ajB9lr49lJ2sH3VOiVYUvOJ3azZyUnpTW8ETPXX/eR953Fbr/8AZzbkPbaH1z2HjdJIHHhl+nDVeor1dw0kmsw==}
+    cpu: [x64]
+    os: [linux]
+
+  '@nx/nx-linux-x64-musl@21.2.0-canary.20250606-c43d2f2':
+    resolution: {integrity: sha512-1A/AbfV8n88AjsGhT6OZXjRZaK3bF52bcV0TB/a/vippfuE/DH7PgbtVpCbuFMMGm2WntU9zdO55Sszn8Rs/4A==}
     cpu: [x64]
     os: [linux]
 
@@ -2178,8 +2223,18 @@ packages:
     cpu: [arm64]
     os: [win32]
 
+  '@nx/nx-win32-arm64-msvc@21.2.0-canary.20250606-c43d2f2':
+    resolution: {integrity: sha512-rdszaBwGT/n5Msf1VfPR27k1TSBDZ6UTi1v2qEtrYlNLM/1NzxBbm7W08n1vm6vjkYChG4VkVOHzW5SUFpVRgA==}
+    cpu: [arm64]
+    os: [win32]
+
   '@nx/nx-win32-x64-msvc@21.2.0-beta.2':
     resolution: {integrity: sha512-yKQjtGscv8zD1oMeN+5LUTCvbtdbpo6yULuBJ+mxykLxevy350qwFoJCQC7WPQvjDZY2q8RzTQFOL+/y4uujrA==}
+    cpu: [x64]
+    os: [win32]
+
+  '@nx/nx-win32-x64-msvc@21.2.0-canary.20250606-c43d2f2':
+    resolution: {integrity: sha512-E5PxqoerTs3rHfxfEaCUJnMTN4v4I+u++fJyzfSN03FMSxeuhuostT+Eyc748mUdcc8r1YbgpBBrQDM+Bj5Wyg==}
     cpu: [x64]
     os: [win32]
 
@@ -2197,6 +2252,9 @@ packages:
 
   '@nx/workspace@21.2.0-beta.2':
     resolution: {integrity: sha512-m1nlfzBfDNkBtE0ffpBS3xzMTY4CEawoyJEX5CrUQEXVorPP9YosXPehq4EkECJCqf+zrUUNINPvpxWUhAZafg==}
+
+  '@nx/workspace@21.2.0-canary.20250606-c43d2f2':
+    resolution: {integrity: sha512-1Dc0lQ05MZEE0/EGgboiBH+wm/FT8XZ62eMpgVygVy4ZeLEEB3xQpi6Kfs/N12/lHnVBw1yOv2g+lt61kt1f4w==}
 
   '@oxc-resolver/binding-darwin-arm64@5.3.0':
     resolution: {integrity: sha512-hXem5ZAguS7IlSiHg/LK0tEfLj4eUo+9U6DaFwwBEGd0L0VIF9LmuiHydRyOrdnnmi9iAAFMAn/wl2cUoiuruA==}
@@ -5629,6 +5687,18 @@ packages:
 
   nx@21.2.0-beta.2:
     resolution: {integrity: sha512-246moUiylszfV+gxGJB5hxu0iaZ6fqiTEZJrWMh+sfiPDlsR3v5ezXf2fwWbcdzg12iKqCu6Kn2kJPiPkyxw8A==}
+    hasBin: true
+    peerDependencies:
+      '@swc-node/register': ^1.8.0
+      '@swc/core': ^1.3.85
+    peerDependenciesMeta:
+      '@swc-node/register':
+        optional: true
+      '@swc/core':
+        optional: true
+
+  nx@21.2.0-canary.20250606-c43d2f2:
+    resolution: {integrity: sha512-v2uODOmJU9k21SILGu/Xvhbuqrcyuh4BEn1U0cUIn6qJ6tA+xpegU2VxHCgUUSh2WUTgq8Q3uc+kd818Y+6/7w==}
     hasBin: true
     peerDependencies:
       '@swc-node/register': ^1.8.0
@@ -10229,7 +10299,7 @@ snapshots:
       '@napi-rs/nice-win32-x64-msvc': 1.0.1
     optional: true
 
-  '@napi-rs/wasm-runtime@0.2.10':
+  '@napi-rs/wasm-runtime@0.2.11':
     dependencies:
       '@emnapi/core': 1.4.3
       '@emnapi/runtime': 1.4.3
@@ -10401,6 +10471,18 @@ snapshots:
       tslib: 2.8.1
       yargs-parser: 21.1.1
 
+  '@nx/devkit@21.2.0-canary.20250606-c43d2f2(nx@21.2.0-canary.20250606-c43d2f2(@swc-node/register@1.10.10(@swc/core@1.11.31(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.8.3))(@swc/core@1.11.31(@swc/helpers@0.5.17)))':
+    dependencies:
+      ejs: 3.1.10
+      enquirer: 2.3.6
+      ignore: 5.3.2
+      minimatch: 9.0.3
+      nx: 21.2.0-canary.20250606-c43d2f2(@swc-node/register@1.10.10(@swc/core@1.11.31(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.8.3))(@swc/core@1.11.31(@swc/helpers@0.5.17))
+      semver: 7.7.2
+      tmp: 0.2.3
+      tslib: 2.8.1
+      yargs-parser: 21.1.1
+
   '@nx/eslint-plugin@21.2.0-beta.2(@babel/traverse@7.27.4)(@swc-node/register@1.10.10(@swc/core@1.11.31(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.8.3))(@swc/core@1.11.31(@swc/helpers@0.5.17))(@typescript-eslint/parser@8.33.1(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3))(eslint-config-prettier@10.1.5(eslint@9.28.0(jiti@2.4.2)))(eslint@9.28.0(jiti@2.4.2))(nx@21.2.0-beta.2(@swc-node/register@1.10.10(@swc/core@1.11.31(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.8.3))(@swc/core@1.11.31(@swc/helpers@0.5.17)))(typescript@5.8.3)':
     dependencies:
       '@nx/devkit': 21.2.0-beta.2(nx@21.2.0-beta.2(@swc-node/register@1.10.10(@swc/core@1.11.31(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.8.3))(@swc/core@1.11.31(@swc/helpers@0.5.17)))
@@ -10553,31 +10635,61 @@ snapshots:
   '@nx/nx-darwin-arm64@21.2.0-beta.2':
     optional: true
 
+  '@nx/nx-darwin-arm64@21.2.0-canary.20250606-c43d2f2':
+    optional: true
+
   '@nx/nx-darwin-x64@21.2.0-beta.2':
+    optional: true
+
+  '@nx/nx-darwin-x64@21.2.0-canary.20250606-c43d2f2':
     optional: true
 
   '@nx/nx-freebsd-x64@21.2.0-beta.2':
     optional: true
 
+  '@nx/nx-freebsd-x64@21.2.0-canary.20250606-c43d2f2':
+    optional: true
+
   '@nx/nx-linux-arm-gnueabihf@21.2.0-beta.2':
+    optional: true
+
+  '@nx/nx-linux-arm-gnueabihf@21.2.0-canary.20250606-c43d2f2':
     optional: true
 
   '@nx/nx-linux-arm64-gnu@21.2.0-beta.2':
     optional: true
 
+  '@nx/nx-linux-arm64-gnu@21.2.0-canary.20250606-c43d2f2':
+    optional: true
+
   '@nx/nx-linux-arm64-musl@21.2.0-beta.2':
+    optional: true
+
+  '@nx/nx-linux-arm64-musl@21.2.0-canary.20250606-c43d2f2':
     optional: true
 
   '@nx/nx-linux-x64-gnu@21.2.0-beta.2':
     optional: true
 
+  '@nx/nx-linux-x64-gnu@21.2.0-canary.20250606-c43d2f2':
+    optional: true
+
   '@nx/nx-linux-x64-musl@21.2.0-beta.2':
+    optional: true
+
+  '@nx/nx-linux-x64-musl@21.2.0-canary.20250606-c43d2f2':
     optional: true
 
   '@nx/nx-win32-arm64-msvc@21.2.0-beta.2':
     optional: true
 
+  '@nx/nx-win32-arm64-msvc@21.2.0-canary.20250606-c43d2f2':
+    optional: true
+
   '@nx/nx-win32-x64-msvc@21.2.0-beta.2':
+    optional: true
+
+  '@nx/nx-win32-x64-msvc@21.2.0-canary.20250606-c43d2f2':
     optional: true
 
   '@nx/rspack@21.2.0-beta.2(@babel/traverse@7.27.4)(@module-federation/enhanced@0.14.3(@rspack/core@1.3.13(@swc/helpers@0.5.17))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3)(webpack@5.99.9(@swc/core@1.11.31(@swc/helpers@0.5.17))))(@module-federation/node@2.7.6(@rspack/core@1.3.13(@swc/helpers@0.5.17))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3)(webpack@5.99.9(@swc/core@1.11.31(@swc/helpers@0.5.17))))(@swc-node/register@1.10.10(@swc/core@1.11.31(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.8.3))(@swc/core@1.11.31(@swc/helpers@0.5.17))(@swc/helpers@0.5.17)(@types/express@4.17.22)(less@4.1.3)(nx@21.2.0-beta.2(@swc-node/register@1.10.10(@swc/core@1.11.31(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.8.3))(@swc/core@1.11.31(@swc/helpers@0.5.17)))(react-dom@18.3.1(react@18.3.1))(react-refresh@0.17.0)(react@18.3.1)(typescript@5.8.3)':
@@ -10736,6 +10848,21 @@ snapshots:
       - '@swc/core'
       - debug
 
+  '@nx/workspace@21.2.0-canary.20250606-c43d2f2(@swc-node/register@1.10.10(@swc/core@1.11.31(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.8.3))(@swc/core@1.11.31(@swc/helpers@0.5.17))':
+    dependencies:
+      '@nx/devkit': 21.2.0-canary.20250606-c43d2f2(nx@21.2.0-canary.20250606-c43d2f2(@swc-node/register@1.10.10(@swc/core@1.11.31(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.8.3))(@swc/core@1.11.31(@swc/helpers@0.5.17)))
+      '@zkochan/js-yaml': 0.0.7
+      chalk: 4.1.2
+      enquirer: 2.3.6
+      nx: 21.2.0-canary.20250606-c43d2f2(@swc-node/register@1.10.10(@swc/core@1.11.31(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.8.3))(@swc/core@1.11.31(@swc/helpers@0.5.17))
+      picomatch: 4.0.2
+      tslib: 2.8.1
+      yargs-parser: 21.1.1
+    transitivePeerDependencies:
+      - '@swc-node/register'
+      - '@swc/core'
+      - debug
+
   '@oxc-resolver/binding-darwin-arm64@5.3.0':
     optional: true
 
@@ -10768,7 +10895,7 @@ snapshots:
 
   '@oxc-resolver/binding-wasm32-wasi@5.3.0':
     dependencies:
-      '@napi-rs/wasm-runtime': 0.2.10
+      '@napi-rs/wasm-runtime': 0.2.11
     optional: true
 
   '@oxc-resolver/binding-win32-arm64-msvc@5.3.0':
@@ -14544,6 +14671,59 @@ snapshots:
       '@nx/nx-linux-x64-musl': 21.2.0-beta.2
       '@nx/nx-win32-arm64-msvc': 21.2.0-beta.2
       '@nx/nx-win32-x64-msvc': 21.2.0-beta.2
+      '@swc-node/register': 1.10.10(@swc/core@1.11.31(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.8.3)
+      '@swc/core': 1.11.31(@swc/helpers@0.5.17)
+    transitivePeerDependencies:
+      - debug
+
+  nx@21.2.0-canary.20250606-c43d2f2(@swc-node/register@1.10.10(@swc/core@1.11.31(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.8.3))(@swc/core@1.11.31(@swc/helpers@0.5.17)):
+    dependencies:
+      '@napi-rs/wasm-runtime': 0.2.4
+      '@yarnpkg/lockfile': 1.1.0
+      '@yarnpkg/parsers': 3.0.2
+      '@zkochan/js-yaml': 0.0.7
+      axios: 1.9.0
+      chalk: 4.1.2
+      cli-cursor: 3.1.0
+      cli-spinners: 2.6.1
+      cliui: 8.0.1
+      dotenv: 16.4.7
+      dotenv-expand: 11.0.7
+      enquirer: 2.3.6
+      figures: 3.2.0
+      flat: 5.0.2
+      front-matter: 4.0.2
+      ignore: 5.3.2
+      jest-diff: 29.7.0
+      jsonc-parser: 3.2.0
+      lines-and-columns: 2.0.3
+      minimatch: 9.0.3
+      node-machine-id: 1.1.12
+      npm-run-path: 4.0.1
+      open: 8.4.2
+      ora: 5.3.0
+      resolve.exports: 2.0.3
+      semver: 7.7.2
+      string-width: 4.2.3
+      tar-stream: 2.2.0
+      tmp: 0.2.3
+      tree-kill: 1.2.2
+      tsconfig-paths: 4.2.0
+      tslib: 2.8.1
+      yaml: 2.8.0
+      yargs: 17.7.2
+      yargs-parser: 21.1.1
+    optionalDependencies:
+      '@nx/nx-darwin-arm64': 21.2.0-canary.20250606-c43d2f2
+      '@nx/nx-darwin-x64': 21.2.0-canary.20250606-c43d2f2
+      '@nx/nx-freebsd-x64': 21.2.0-canary.20250606-c43d2f2
+      '@nx/nx-linux-arm-gnueabihf': 21.2.0-canary.20250606-c43d2f2
+      '@nx/nx-linux-arm64-gnu': 21.2.0-canary.20250606-c43d2f2
+      '@nx/nx-linux-arm64-musl': 21.2.0-canary.20250606-c43d2f2
+      '@nx/nx-linux-x64-gnu': 21.2.0-canary.20250606-c43d2f2
+      '@nx/nx-linux-x64-musl': 21.2.0-canary.20250606-c43d2f2
+      '@nx/nx-win32-arm64-msvc': 21.2.0-canary.20250606-c43d2f2
+      '@nx/nx-win32-x64-msvc': 21.2.0-canary.20250606-c43d2f2
       '@swc-node/register': 1.10.10(@swc/core@1.11.31(@swc/helpers@0.5.17))(@swc/types@0.1.21)(typescript@5.8.3)
       '@swc/core': 1.11.31(@swc/helpers@0.5.17)
     transitivePeerDependencies:
