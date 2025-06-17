@@ -27,6 +27,8 @@ describe("CopyToClipboardDirective", () => {
   let component: TestComponent;
   let fixture: ComponentFixture<TestComponent>;
   let mockClipboard: {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     writeText: vi.Mock;
   };
 
