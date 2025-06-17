@@ -1,5 +1,6 @@
 import { catchError, map, Observable, of, switchMap, throwError } from "rxjs";
 import { State } from "@ng-tool-collection/models";
+import { fromPromise } from "rxjs/internal/observable/innerFrom";
 
 export const copyToClipboard = <T>(data: T) => {
   if (!navigator?.clipboard || !navigator?.clipboard?.writeText || !data) {
