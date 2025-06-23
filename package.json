@@ -22,7 +22,7 @@
     "@angular/service-worker": "20.0.1",
     "@floating-ui/dom": "^1.7.1",
     "@ngrx/signals": "^19.2.1",
-    "@nx/angular": "21.2.0-beta.2",
+    "@nx/angular": "21.2.1",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "ng-primitives": "^0.49.0",
