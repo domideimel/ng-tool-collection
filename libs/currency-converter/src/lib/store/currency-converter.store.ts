@@ -1,8 +1,8 @@
-import { patchState, signalStore, withComputed, withHooks, withMethods, withState } from '@ngrx/signals';
-import { Currencies, Currency } from '@ng-tool-collection/models';
-import { computed, inject } from '@angular/core';
-import { CurrencyService } from '../services/currency.service';
-import { catchError, map, Subscription, tap } from 'rxjs';
+import { patchState, signalStore, withComputed, withHooks, withMethods, withState } from "@ngrx/signals";
+import { Currencies, Currency } from "@ng-tool-collection/models";
+import { computed, inject } from "@angular/core";
+import { CurrencyService } from "../services/currency.service";
+import { catchError, map, Subscription, tap } from "rxjs";
 
 type CurrencyConverterState = {
   fromCurrency: keyof Currencies | null | undefined;
@@ -13,18 +13,18 @@ type CurrencyConverterState = {
   error?: string;
 };
 
-type FormState = Partial<Omit<CurrencyConverterState, 'currencies' | 'error'>>;
+type FormState = Partial<Omit<CurrencyConverterState, "currencies" | "error">>;
 
 const initialState: CurrencyConverterState = {
-  fromCurrency: 'eur',
-  toCurrency: 'usd',
+  fromCurrency: "eur",
+  toCurrency: "usd",
   amount: 1,
   result: 1,
   currencies: [],
   error: undefined,
 };
-
-const subscriptions: Subscription[] = [];
+export type CurrencyConverterStoreType = InstanceType<typeof CurrencyConverterStore>;
+const subscriptions = new Subscription();
 export const CurrencyConverterStore = signalStore(
   withState<CurrencyConverterState>(initialState),
   withComputed(store => {
@@ -59,8 +59,8 @@ export const CurrencyConverterStore = signalStore(
       }
     };
     const calculate = (isResult = false) => {
-      const resultValue = store.toCurrency() ?? 'usd';
-      const amountValue = store.fromCurrency() ?? 'eur';
+      const resultValue = store.toCurrency() ?? "usd";
+      const amountValue = store.fromCurrency() ?? "eur";
 
       if (isResult) {
         const resultSub = currencyService
@@ -80,7 +80,7 @@ export const CurrencyConverterStore = signalStore(
             }),
           )
           .subscribe();
-        subscriptions.push(resultSub);
+        subscriptions.add(resultSub);
         return;
       }
 
@@ -101,7 +101,7 @@ export const CurrencyConverterStore = signalStore(
           }),
         )
         .subscribe();
-      subscriptions.push(amountSub);
+      subscriptions.add(amountSub);
     };
 
     return {
@@ -129,10 +129,10 @@ export const CurrencyConverterStore = signalStore(
             }),
           )
           .subscribe();
-        subscriptions.push(initialCurrencySub);
+        subscriptions.add(initialCurrencySub);
       },
       onDestroy: () => {
-        subscriptions.forEach(sub => sub?.unsubscribe());
+        subscriptions.unsubscribe();
       },
     };
   }),
