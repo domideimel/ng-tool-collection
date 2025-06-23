@@ -45,7 +45,7 @@
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.28.0",
     "@nx/eslint": "21.2.0-beta.2",
-    "@nx/eslint-plugin": "21.2.0-beta.2",
+    "@nx/eslint-plugin": "21.2.1",
     "@nx/jest": "21.2.0-beta.2",
     "@nx/js": "21.2.0-beta.2",
     "@nx/workspace": "21.2.0-beta.2",
