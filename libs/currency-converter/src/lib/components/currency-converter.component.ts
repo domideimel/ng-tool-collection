@@ -1,15 +1,15 @@
-import { ChangeDetectionStrategy, Component, computed, effect, inject, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, inject, OnDestroy, OnInit } from "@angular/core";
 
-import { debounceTime, Subscription, tap } from 'rxjs';
-import { CardComponent } from '@ng-tool-collection/ui';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { CurrencyConverterStore } from '../store/currency-converter.store';
+import { debounceTime, Subscription, tap } from "rxjs";
+import { CardComponent } from "@ng-tool-collection/ui";
+import { FormBuilder, ReactiveFormsModule } from "@angular/forms";
+import { CurrencyConverterStore } from "../store/currency-converter.store";
 
 @Component({
-  selector: 'lib-currency-converter',
+  selector: "lib-currency-converter",
   imports: [CardComponent, ReactiveFormsModule],
   providers: [CurrencyConverterStore],
-  templateUrl: './currency-converter.component.html',
+  templateUrl: "./currency-converter.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CurrencyConverterComponent implements OnInit, OnDestroy {
