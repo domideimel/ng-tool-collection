@@ -1,16 +1,12 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-
-import { ToastService } from './services/toasts.service';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { ToastMessage } from '@ng-tool-collection/models';
+import { ChangeDetectionStrategy, Component, computed, inject } from "@angular/core";
+import { ToastService } from "./services/toasts.service";
 
 @Component({
-  selector: 'lib-toasts',
-  imports: [],
-  templateUrl: './toasts.component.html',
+  selector: "lib-toasts",
+  templateUrl: "./toasts.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToastsComponent {
   private toastsService = inject(ToastService);
-  toasts = toSignal<ToastMessage[]>(this.toastsService.toasts);
+  toasts = computed(() => this.toastsService.toasts());
 }

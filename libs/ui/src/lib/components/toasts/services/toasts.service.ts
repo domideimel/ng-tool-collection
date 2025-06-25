@@ -1,42 +1,40 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { ToastMessage, ToastType } from '@ng-tool-collection/models';
+import { Injectable, Signal, signal } from "@angular/core";
+import { ToastMessage, ToastType } from "@ng-tool-collection/models";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class ToastService {
-  private toastMessagesSubject = new BehaviorSubject<ToastMessage[]>([]);
-  toasts = this.toastMessagesSubject.asObservable();
-  private nextId = 0;
+  private toastMessagesSignal = signal<ToastMessage[]>([]);
+  readonly toasts: Signal<ToastMessage[]> = this.toastMessagesSignal.asReadonly();
 
   success(message: string) {
-    this.showToast(message, 'success');
+    this.showToast(message, "success");
   }
 
   error(message: string) {
-    this.showToast(message, 'error');
+    this.showToast(message, "error");
   }
 
   info(message: string) {
-    this.showToast(message, 'info');
+    this.showToast(message, "info");
   }
 
   warning(message: string) {
-    this.showToast(message, 'warning');
+    this.showToast(message, "warning");
   }
 
   private showToast(message: string, type: ToastType) {
-    const toast: ToastMessage = { id: this.nextId++, message, type };
+    const toast: ToastMessage = { id: crypto.randomUUID(), message, type };
 
     // Add the new toast message to the array
-    this.toastMessagesSubject.next([...this.toastMessagesSubject.value, toast]);
-    // Remove the toast message after 3 seconds
-    setTimeout(() => this.removeToast(toast.id), 3000);
+    this.toastMessagesSignal.update(messages => [...messages, toast]);
+
+    // Remove the toast message after set timeout or 3 seconds
+    setTimeout(() => this.removeToast(toast.id), toast?.timeout ?? 3000);
   }
 
-  private removeToast(id: number) {
-    const updatedMessages = this.toastMessagesSubject.value.filter(toast => toast.id !== id);
-    this.toastMessagesSubject.next(updatedMessages);
+  private removeToast(id: string) {
+    this.toastMessagesSignal.update(messages => messages.filter(toast => toast.id !== id));
   }
 }
