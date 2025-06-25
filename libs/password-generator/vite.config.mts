@@ -6,7 +6,7 @@ import { nxCopyAssetsPlugin } from "@nx/vite/plugins/nx-copy-assets.plugin";
 
 export default defineConfig(() => ({
   root: __dirname,
-  cacheDir: "./node_modules/.vite/ng-tool-collection",
+  cacheDir: "../../node_modules/.vite/libs/password-generator",
   plugins: [angular(), nxViteTsPaths(), nxCopyAssetsPlugin(["*.md"])],
   // Uncomment this if you are using workers.
   // worker: {
@@ -19,9 +19,8 @@ export default defineConfig(() => ({
     include: ["{src,tests}/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
     setupFiles: ["src/test-setup.ts"],
     reporters: ["default"],
-    projects: ["**/vite.config.{mjs,js,ts,mts}", "**/vitest.config.{mjs,js,ts,mts}"],
     coverage: {
-      reportsDirectory: "./coverage/ng-tool-collection",
+      reportsDirectory: "../../coverage/libs/password-generator",
       provider: "v8" as const,
     },
   },
