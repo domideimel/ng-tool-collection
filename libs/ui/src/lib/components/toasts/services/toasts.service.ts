@@ -1,13 +1,12 @@
-import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
+import { Injectable, Signal, signal } from "@angular/core";
 import { ToastMessage, ToastType } from "@ng-tool-collection/models";
 
 @Injectable({
   providedIn: "root",
 })
 export class ToastService {
-  private toastMessagesSubject = new BehaviorSubject<ToastMessage[]>([]);
-  toasts = this.toastMessagesSubject.asObservable();
+  private toastMessagesSignal = signal<ToastMessage[]>([]);
+  readonly toasts: Signal<ToastMessage[]> = this.toastMessagesSignal.asReadonly();
 
   success(message: string) {
     this.showToast(message, "success");
@@ -29,13 +28,13 @@ export class ToastService {
     const toast: ToastMessage = { id: crypto.randomUUID(), message, type };
 
     // Add the new toast message to the array
-    this.toastMessagesSubject.next([...this.toastMessagesSubject.value, toast]);
+    this.toastMessagesSignal.update(messages => [...messages, toast]);
+
     // Remove the toast message after 3 seconds
     setTimeout(() => this.removeToast(toast.id), 3000);
   }
 
   private removeToast(id: string) {
-    const updatedMessages = this.toastMessagesSubject.value.filter(toast => toast.id !== id);
-    this.toastMessagesSubject.next(updatedMessages);
+    this.toastMessagesSignal.update(messages => messages.filter(toast => toast.id !== id));
   }
 }
