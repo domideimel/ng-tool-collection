@@ -30,8 +30,8 @@ export class ToastService {
     // Add the new toast message to the array
     this.toastMessagesSignal.update(messages => [...messages, toast]);
 
-    // Remove the toast message after 3 seconds
-    setTimeout(() => this.removeToast(toast.id), 3000);
+    // Remove the toast message after set timeout or 3 seconds
+    setTimeout(() => this.removeToast(toast.id), toast?.timeout ?? 3000);
   }
 
   private removeToast(id: string) {
