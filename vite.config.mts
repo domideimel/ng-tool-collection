@@ -19,6 +19,7 @@ export default defineConfig(() => ({
     include: ["{src,tests}/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
     setupFiles: ["src/test-setup.ts"],
     reporters: ["default"],
+    projects: ["**/vite.config.{mjs,js,ts,mts}", "**/vitest.config.{mjs,js,ts,mts}"],
     coverage: {
       reportsDirectory: "./coverage/ng-tool-collection",
       provider: "v8" as const,
