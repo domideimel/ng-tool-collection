@@ -33,9 +33,7 @@ export class LoadingService {
     observables: ObservableMap;
     stateChangeDelay?: number;
     deleteLoadingState?: boolean;
-  }): Observable<{
-    [K in keyof ObservableMap]: ObservableMap[K] extends Observable<infer T> ? T : never;
-  }> {
+  }) {
     const identifiers = Array.isArray(identifier) ? identifier : [identifier];
 
     return concat(
