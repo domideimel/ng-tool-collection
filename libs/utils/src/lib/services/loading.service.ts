@@ -23,17 +23,19 @@ export class LoadingService {
   private loadingErrorSubject = new Subject<Record<string, Error>>();
   private readonly loadingError$ = this.loadingErrorSubject.asObservable();
 
-  load<I extends Identifier, O extends Record<I, any>>({
+  load<I extends Identifier, ObservableMap extends DownloadObservables<I, any>>({
     identifier,
     observables,
     stateChangeDelay = STATE_CHANGE_DELAY,
     deleteLoadingState = true,
   }: {
     identifier: I | I[];
-    observables: DownloadObservables<I, O[I]>;
+    observables: ObservableMap;
     stateChangeDelay?: number;
     deleteLoadingState?: boolean;
-  }) {
+  }): Observable<{
+    [K in keyof ObservableMap]: ObservableMap[K] extends Observable<infer T> ? T : never;
+  }> {
     const identifiers = Array.isArray(identifier) ? identifier : [identifier];
 
     return concat(
@@ -60,15 +62,15 @@ export class LoadingService {
                   [id]: State.SUCCESS,
                 });
               }),
-              map(value => ({ [id]: value }) as Pick<O, I>),
+              map(value => ({ [id]: value })),
               catchError(error => {
                 this.handleError(id, error);
                 return throwError(() => error);
               }),
-            ) || of({} as Pick<O, I>),
+            ) || of({}),
         ),
         // Collect all results into a single object
-        reduce((acc, curr) => ({ ...acc, ...curr }), {} as O),
+        reduce((acc, curr) => ({ ...acc, ...curr }), {} as any),
       ),
       // Clean up states after delay
       interval(stateChangeDelay).pipe(
@@ -92,7 +94,9 @@ export class LoadingService {
         }),
         ignoreElements(),
       ),
-    );
+    ) as Observable<{
+      [K in keyof ObservableMap]: ObservableMap[K] extends Observable<infer T> ? T : never;
+    }>;
   }
 
   getLatestMergedLoadingStates(...keys: Identifier[]) {

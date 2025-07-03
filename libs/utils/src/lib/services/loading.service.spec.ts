@@ -171,9 +171,9 @@ describe('DownloadServiceService', () => {
       const identifier = 'testIdentifier';
       const identifier2 = 'testIdentifier2';
       const expectedValue1 = 'test';
-      const expectedValue2 = 'test2';
+      const expectedValue2 = { foo: 'bar' };
 
-      const mockObservables: DownloadObservables<'testIdentifier' | 'testIdentifier2', any> = {
+      const mockObservables = {
         testIdentifier: of(expectedValue1),
         testIdentifier2: of(expectedValue2),
       };
