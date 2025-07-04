@@ -93,7 +93,7 @@ export class LoadingService {
         ignoreElements(),
       ),
     ) as Observable<{
-      [K in keyof ObservableMap]: ObservableMap[K] extends Observable<infer T> ? T : never;
+      [K in keyof ObservableMap]: ObservableMap[K] extends Observable<infer q> ? T : never;
     }>;
   }
 
