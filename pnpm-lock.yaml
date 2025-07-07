@@ -45,8 +45,8 @@ importers:
         specifier: ^1.7.2
         version: 1.7.2
       '@ngrx/signals':
-        specifier: ^19.2.1
-        version: 19.2.1(@angular/core@20.0.6(@angular/compiler@20.0.6)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)
+        specifier: 20.0.0-beta.0
+        version: 20.0.0-beta.0(@angular/core@20.0.6(@angular/compiler@20.0.6)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)
       '@nx/angular':
         specifier: 21.2.2
         version: 21.2.2(v4yz6zgywijigzbihofrzvdklu)
@@ -2163,10 +2163,10 @@ packages:
   '@napi-rs/wasm-runtime@0.2.4':
     resolution: {integrity: sha512-9zESzOO5aDByvhIAsOy9TbpZ0Ur2AJbUI7UT73kcUTS2mxAMHOBaa1st/jAymNoCtvrit99kkzT1FZuXVcgfIQ==}
 
-  '@ngrx/signals@19.2.1':
-    resolution: {integrity: sha512-Tajd2TVjkxxyFMhnMSWLa5pAWfynjP0VM0B/BCMaLiBrwBBxybxRVENoUDU5tGyiKSax/2tBJC3+sOglmxm27A==}
+  '@ngrx/signals@20.0.0-beta.0':
+    resolution: {integrity: sha512-2tokIrLCilgSbgR9zpNPkvPHatBdkzB266P3MbTPdSyIjslwQ/3C4hlX5bihQ1MQD+UZ7P7zPxFYqqWNhA6mRw==}
     peerDependencies:
-      '@angular/core': ^19.0.0
+      '@angular/core': ^20.0.0
       rxjs: ^6.5.3 || ^7.4.0
     peerDependenciesMeta:
       rxjs:
@@ -11474,7 +11474,7 @@ snapshots:
       '@emnapi/runtime': 1.4.3
       '@tybys/wasm-util': 0.9.0
 
-  '@ngrx/signals@19.2.1(@angular/core@20.0.6(@angular/compiler@20.0.6)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)':
+  '@ngrx/signals@20.0.0-beta.0(@angular/core@20.0.6(@angular/compiler@20.0.6)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)':
     dependencies:
       '@angular/core': 20.0.6(@angular/compiler@20.0.6)(rxjs@7.8.2)(zone.js@0.15.1)
       tslib: 2.8.1
