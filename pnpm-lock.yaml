@@ -57,8 +57,8 @@ importers:
         specifier: ^1.2.0
         version: 1.2.0(react@18.3.1)
       ng-primitives:
-        specifier: ^0.57.0
-        version: 0.57.0(lffexxmoj2rczhbd633p3vhtvq)
+        specifier: ^0.58.0
+        version: 0.58.0(lffexxmoj2rczhbd633p3vhtvq)
       rxjs:
         specifier: ~7.8.2
         version: 7.8.2
@@ -6251,8 +6251,8 @@ packages:
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
 
-  ng-primitives@0.57.0:
-    resolution: {integrity: sha512-UgzXwyJAJci+m4lfn4CA6YBAQG9T7eTK42P1iOjvn6HYTf9SFvCfuHe4iyzdG0f2XXpRva5AaGuk1fDuVSB0JQ==}
+  ng-primitives@0.58.0:
+    resolution: {integrity: sha512-rHvCxKqLYPu8f9+yUz305NY6mb0uWyOHVa+OKUjhXRAHPj+y/Lisp+6rUIzBiuo5ShGxPI4/kJxxHwnef+VjRw==}
     peerDependencies:
       '@angular/cdk': '>=19.0.0'
       '@angular/common': '>=19.0.0'
@@ -16457,7 +16457,7 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  ng-primitives@0.57.0(lffexxmoj2rczhbd633p3vhtvq):
+  ng-primitives@0.58.0(lffexxmoj2rczhbd633p3vhtvq):
     dependencies:
       '@angular/cdk': 20.0.5(@angular/common@20.0.6(@angular/core@20.0.6(@angular/compiler@20.0.6)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.0.6(@angular/compiler@20.0.6)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)
       '@angular/common': 20.0.6(@angular/core@20.0.6(@angular/compiler@20.0.6)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)
