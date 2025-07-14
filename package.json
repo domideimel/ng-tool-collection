@@ -34,7 +34,7 @@
     "@analogjs/vite-plugin-angular": "~1.19.0",
     "@analogjs/vitest-angular": "~1.19.0",
     "@angular-devkit/build-angular": "20.0.5",
-    "@angular-devkit/core": "20.0.5",
+    "@angular-devkit/core": "20.1.0",
     "@angular-devkit/schematics": "20.0.5",
     "@angular-eslint/eslint-plugin": "20.1.1",
     "@angular-eslint/eslint-plugin-template": "20.1.1",
