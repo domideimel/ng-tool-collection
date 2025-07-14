@@ -1,27 +1,16 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  effect,
-  ElementRef,
-  inject,
-  OnDestroy,
-  OnInit,
-  signal,
-  viewChild,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, ElementRef, inject, OnDestroy, OnInit, signal, viewChild } from '@angular/core';
 import { Link } from '@ng-tool-collection/models';
 import { NAVIGATION } from '@ng-tool-collection/constants';
 import { BehaviorSubject, filter, Subscription, tap } from 'rxjs';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AsyncPipe } from '@angular/common';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { NgpButton } from 'ng-primitives/button';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'lib-drawer',
   templateUrl: './drawer.component.html',
-  imports: [NavbarComponent, RouterLinkActive, RouterLink, AsyncPipe, NgpButton],
+  imports: [NavbarComponent, RouterLinkActive, RouterLink, AsyncPipe],
 })
 export class DrawerComponent implements OnInit, OnDestroy {
   navItems = signal<Link[]>(NAVIGATION);
