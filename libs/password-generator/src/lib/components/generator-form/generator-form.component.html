@@ -1,9 +1,12 @@
 <lib-card [showLink]='false' title="Password Generator">
   <label class="input input-lg input-bordered items-center gap-2 w-full">
     <input [value]="password()" class="grow" id="password" placeholder="Passwort" readonly type="text" />
-    <button (click)="copyToClipboard()" [disabled]="hasCopied()" aria-label="Passwort kopieren"
-            class="btn btn-circle btn-sm"
-            ngpButton>
+    <button
+      (click)="copyToClipboard()"
+      [disabled]="hasCopied()"
+      aria-label="Passwort kopieren"
+      class="btn btn-circle btn-sm"
+    >
       <svg class="size-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
            xmlns="http://www.w3.org/2000/svg">
         <path
