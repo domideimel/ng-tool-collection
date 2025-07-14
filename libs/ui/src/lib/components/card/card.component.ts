@@ -1,12 +1,11 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { NgpButton } from 'ng-primitives/button';
 
 @Component({
   selector: 'lib-card',
   templateUrl: './card.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterLink, NgpButton],
+  imports: [RouterLink],
 })
 export class CardComponent {
   title = input.required<string>();

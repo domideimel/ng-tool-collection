@@ -2,15 +2,12 @@ import { ChangeDetectionStrategy, Component, effect, inject, input, OnInit, outp
 import { FormGroup, NonNullableFormBuilder, ReactiveFormsModule, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { FormControls, FormModel } from '@ng-tool-collection/models';
 import { NgClass } from '@angular/common';
-import { NgpButton } from 'ng-primitives/button';
-import { NgpFormControl, NgpFormField } from 'ng-primitives/form-field';
-import { NgpSelect } from 'ng-primitives/select';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'lib-form',
   templateUrl: './form.component.html',
-  imports: [ReactiveFormsModule, NgClass, NgpButton, NgpFormControl, NgpFormField, NgpSelect],
+  imports: [ReactiveFormsModule, NgClass],
 })
 export class FormComponent<T extends FormModel> implements OnInit {
   formModel = input.required<T>();

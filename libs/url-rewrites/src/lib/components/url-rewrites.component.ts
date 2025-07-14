@@ -1,21 +1,20 @@
-import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit, signal } from "@angular/core";
-import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
-import { CardComponent, ToastService, urlValidator } from "@ng-tool-collection/ui";
-import { UrlRewritesService } from "../services/url-rewrites.service";
-import { Meta } from "@angular/platform-browser";
-import { NgClass } from "@angular/common";
-import { catchError, Subscription, tap } from "rxjs";
-import { copyToClipboard } from "@ng-tool-collection/utils";
-import { NgpButton } from "ng-primitives/button";
+import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CardComponent, ToastService, urlValidator } from '@ng-tool-collection/ui';
+import { UrlRewritesService } from '../services/url-rewrites.service';
+import { Meta } from '@angular/platform-browser';
+import { NgClass } from '@angular/common';
+import { catchError, Subscription, tap } from 'rxjs';
+import { copyToClipboard } from '@ng-tool-collection/utils';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: "lib-url-rewrites",
-  templateUrl: "./url-rewrites.component.html",
-  imports: [CardComponent, ReactiveFormsModule, NgClass, NgpButton],
+  selector: 'lib-url-rewrites',
+  templateUrl: './url-rewrites.component.html',
+  imports: [CardComponent, ReactiveFormsModule, NgClass],
 })
 export class UrlRewritesComponent implements OnInit, OnDestroy {
-  result = signal<string>("");
+  result = signal<string>('');
   private fb = inject(FormBuilder);
   formGroup = this.fb.group({
     urlRows: this.fb.array([this.createUrlRow()]),
@@ -26,7 +25,7 @@ export class UrlRewritesComponent implements OnInit, OnDestroy {
   private subscription = new Subscription();
 
   get urlRowsFormArray() {
-    return this.formGroup.get("urlRows") as FormArray;
+    return this.formGroup.get('urlRows') as FormArray;
   }
 
   get hasOnlyOneRow(): boolean {
@@ -35,8 +34,8 @@ export class UrlRewritesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.meta.updateTag({
-      name: "description",
-      content: "Erstellen Sie benutzerdefinierte Weiterleitungen für Ihre URLs und Links - schnell und einfach!",
+      name: 'description',
+      content: 'Erstellen Sie benutzerdefinierte Weiterleitungen für Ihre URLs und Links - schnell und einfach!',
     });
   }
 
@@ -75,8 +74,8 @@ export class UrlRewritesComponent implements OnInit, OnDestroy {
 
   private createUrlRow() {
     return this.fb.group({
-      oldUrl: ["", [Validators.required, urlValidator]],
-      newUrl: ["", [Validators.required, urlValidator]],
+      oldUrl: ['', [Validators.required, urlValidator]],
+      newUrl: ['', [Validators.required, urlValidator]],
     });
   }
 }
