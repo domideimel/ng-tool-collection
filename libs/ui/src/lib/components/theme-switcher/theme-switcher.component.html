@@ -1,4 +1,4 @@
-<button [(ngpToggleSelected)]="selected" class="btn btn-circle btn-ghost" ngpButton ngpToggle>
+<button (click)="toggleSelected()" class="btn btn-circle btn-ghost">
   @if (selected()) {
     <!-- sun icon -->
     <svg aria-hidden="true" class="swap-off fill-current size-5" viewBox="0 0 24 24"

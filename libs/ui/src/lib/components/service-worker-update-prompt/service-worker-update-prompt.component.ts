@@ -1,12 +1,10 @@
-import { ChangeDetectionStrategy, Component, computed, inject } from "@angular/core";
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 
-import { ServiceWorkerStore } from "@ng-tool-collection/utils";
-import { NgpButton } from "ng-primitives/button";
+import { ServiceWorkerStore } from '@ng-tool-collection/utils';
 
 @Component({
-  selector: "lib-service-worker-update-prompt",
-  imports: [NgpButton],
-  templateUrl: "./service-worker-update-prompt.component.html",
+  selector: 'lib-service-worker-update-prompt',
+  templateUrl: './service-worker-update-prompt.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ServiceWorkerUpdatePromptComponent {

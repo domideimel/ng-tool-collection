@@ -1,7 +1,5 @@
 import { ChangeDetectionStrategy, Component, effect, inject, OnDestroy, signal } from '@angular/core';
 import { ThemeService } from './services/theme.service';
-import { NgpButton } from 'ng-primitives/button';
-import { NgpToggle } from 'ng-primitives/toggle';
 import { Subscription, tap } from 'rxjs';
 
 @Component({
@@ -9,7 +7,6 @@ import { Subscription, tap } from 'rxjs';
   templateUrl: './theme-switcher.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [NgpButton, NgpToggle],
 })
 export class ThemeSwitcherComponent implements OnDestroy {
   readonly selected = signal(false);
@@ -23,6 +20,10 @@ export class ThemeSwitcherComponent implements OnDestroy {
     this.subscriptions.add(
       this.themeService.isDarkTheme.pipe(tap(isDarkTheme => this.selected.set(isDarkTheme))).subscribe(),
     );
+  }
+
+  toggleSelected() {
+    this.selected.set(!this.selected());
   }
 
   ngOnDestroy() {
