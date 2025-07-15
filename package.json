@@ -58,7 +58,7 @@
     "@tailwindcss/postcss": "^4.1.11",
     "@total-typescript/ts-reset": "^0.6.1",
     "@types/jest": "30.0.0",
-    "@types/node": "24.0.13",
+    "@types/node": "24.0.14",
     "@types/validator": "^13.15.2",
     "@typescript-eslint/eslint-plugin": "^8.37.0",
     "@typescript-eslint/parser": "^8.37.0",
