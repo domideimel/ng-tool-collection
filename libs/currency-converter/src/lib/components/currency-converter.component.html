@@ -3,56 +3,62 @@
     <form [formGroup]="formGroup">
       <div class="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_1fr_auto] lg:gap-12">
         <div class="flex flex-col space-y-4">
-          <label>
-            <div class="mb-2">
-              Währung
-            </div>
-            <select
-              class="select select-bordered select-lg w-full"
+          <div>
+            <label for="fromCurrency">
+              <div class="mb-2">
+                Währung
+              </div>
+            </label>
+            <p-select
+              [options]="currencies()"
+              class="w-full"
               formControlName="fromCurrency"
-            >
-              @for (contents of currencies(); track contents[0]) {
-                <option [value]="contents[0]">
-                  {{ contents[1] !== '' ? contents[1] : contents[0] }}
-                </option>
-              }
-            </select>
-          </label>
-          <label>
-            <div class="mb-2">
-              Menge
-            </div>
-            <input
-              class="input input-bordered input-lg w-full"
-              formControlName="amount"
-              type="text"
+              inputId="fromCurrency"
+              optionLabel="name"
+              optionValue="code"
             />
-          </label>
+          </div>
+          <div>
+            <label for="amount">
+              <div class="mb-2">
+                Menge
+              </div>
+            </label>
+            <input
+              class="w-full"
+              formControlName="amount"
+              id="amount"
+              pInputText
+            />
+          </div>
         </div>
         <div class="flex flex-col space-y-4">
-          <label>
-            <div class="mb-2">Währung</div>
-            <select
-              class="select select-bordered select-lg w-full"
+          <div>
+            <label for="toCurrency">
+              <div class="mb-2">Währung</div>
+            </label>
+            <p-select
+              [options]="currencies()"
+              class="w-full"
               formControlName="toCurrency"
-            >
-              @for (contents of currencies(); track contents[0]) {
-                <option [value]="contents[0]">
-                  {{ contents[1] !== '' ? contents[1] : contents[0] }}
-                </option>
-              }
-            </select>
-          </label>
-          <label>
-            <div class="mb-2">
-              Menge
-            </div>
-            <input
-              class="input input-bordered input-lg w-full"
-              formControlName="result"
-              type="text"
+              inputId="toCurrency"
+              optionLabel="name"
+              optionValue="code"
             />
-          </label>
+          </div>
+          <div>
+            <label for="result">
+              <div class="mb-2">
+                Menge
+              </div>
+            </label>
+            <input
+              class="w-full"
+              formControlName="result"
+              id="result"
+              pInputText
+            />
+          </div>
         </div>
       </div>
     </form>
