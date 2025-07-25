@@ -1,22 +1,24 @@
-import { ChangeDetectionStrategy, Component, effect, ElementRef, inject, OnDestroy, OnInit, signal, viewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { Link } from '@ng-tool-collection/models';
 import { NAVIGATION } from '@ng-tool-collection/constants';
 import { BehaviorSubject, filter, Subscription, tap } from 'rxjs';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AsyncPipe } from '@angular/common';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { Dialog } from 'primeng/dialog';
+import { Button } from 'primeng/button';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'lib-drawer',
   templateUrl: './drawer.component.html',
-  imports: [NavbarComponent, RouterLinkActive, RouterLink, AsyncPipe],
+  imports: [NavbarComponent, RouterLinkActive, RouterLink, AsyncPipe, Dialog, Button],
 })
 export class DrawerComponent implements OnInit, OnDestroy {
   navItems = signal<Link[]>(NAVIGATION);
   isOpen$: BehaviorSubject<boolean> = new BehaviorSubject(false);
   routerSubscription!: Subscription;
-  dialog = viewChild<ElementRef<HTMLDialogElement>>('dialog');
+  visibleAnalytics = signal(false);
 
   private router = inject(Router);
 
@@ -34,14 +36,14 @@ export class DrawerComponent implements OnInit, OnDestroy {
   }
 
   openModal() {
-    this.dialog()?.nativeElement.showModal();
+    this.visibleAnalytics.set(true);
   }
 
   closeModal(accept: 'true' | 'false') {
     const formerValue = localStorage.getItem('va-disable');
     localStorage.setItem('va-disable', accept);
 
-    this.dialog()?.nativeElement.close();
+    this.visibleAnalytics.set(false);
 
     if (accept !== formerValue) {
       window.location.reload();
