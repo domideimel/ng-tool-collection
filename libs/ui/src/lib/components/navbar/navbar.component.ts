@@ -1,25 +1,29 @@
-import { ChangeDetectionStrategy, Component, input, model } from '@angular/core';
-import { Link } from '@ng-tool-collection/models';
-import { ThemeSwitcherComponent } from '../theme-switcher/theme-switcher.component';
-import { RouterLink, RouterLinkActive } from '@angular/router';
-import { SubmenuComponent } from './submenu/submenu.component';
+import { ChangeDetectionStrategy, Component, input, signal, viewChild } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { Button } from 'primeng/button';
+import { Drawer } from 'primeng/drawer';
+import { MenuItem } from 'primeng/api';
+import { NAVIGATION } from '@ng-tool-collection/constants';
+import { Menu } from 'primeng/menu';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'lib-navbar',
   templateUrl: './navbar.component.html',
-  imports: [RouterLink, RouterLinkActive, ThemeSwitcherComponent, SubmenuComponent],
+  imports: [RouterLink, Button, Drawer, Menu],
 })
 export class NavbarComponent {
   title = input('Tool Collection');
-  links = input.required<Link[]>();
-  openNavbar = model<boolean | null>();
+  links = input<MenuItem[]>(NAVIGATION);
+  drawerVisible = signal(false);
 
-  onOpenClick() {
-    if (this.openNavbar()) {
-      this.openNavbar.set(false);
-      return;
-    }
-    this.openNavbar.set(true);
+  drawerRef = viewChild<Drawer>('drawerRef');
+
+  openDrawer() {
+    this.drawerVisible.set(true);
+  }
+
+  closeCallback(e: any): void {
+    this.drawerRef()?.close(e);
   }
 }
