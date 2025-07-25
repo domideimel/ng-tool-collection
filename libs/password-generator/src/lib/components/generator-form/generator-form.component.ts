@@ -1,17 +1,20 @@
 import { ChangeDetectionStrategy, Component, inject, OnDestroy, signal } from '@angular/core';
 import { FormModel, GenerationProperties } from '@ng-tool-collection/models';
-import { Validators } from '@angular/forms';
+import { FormsModule, Validators } from '@angular/forms';
 import { PasswordGeneratorService } from '../../services/password-generator.service';
 import { atLeastOneCheckedValidator, CardComponent, FormComponent } from '@ng-tool-collection/ui';
 import { catchError, finalize, Subscription, tap } from 'rxjs';
 import { copyToClipboard, ReactiveStorageService } from '@ng-tool-collection/utils';
 import { MessageService } from 'primeng/api';
+import { InputText } from 'primeng/inputtext';
+import { InputGroup } from 'primeng/inputgroup';
+import { Button } from 'primeng/button';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'lib-generator-form',
   templateUrl: './generator-form.component.html',
-  imports: [CardComponent, FormComponent],
+  imports: [CardComponent, FormComponent, InputText, FormsModule, InputGroup, Button],
 })
 export class GeneratorFormComponent implements OnDestroy {
   formModel = {
