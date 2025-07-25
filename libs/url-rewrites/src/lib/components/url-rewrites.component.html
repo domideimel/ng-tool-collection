@@ -11,11 +11,12 @@
                 </div>
                 <input
                   type="url"
-                  class="input input-bordered input-lg w-full"
+                  pInputText
+                  class="w-full"
                   placeholder="https://old-url.com"
                   formControlName="oldUrl"
                   [attr.id]="'oldUrl_' + $index"
-                  [ngClass]="[(row.get('oldUrl')?.errors && !row.get('oldUrl')?.pristine) ? 'input-error' : '']"
+                  [invalid]="row.get('oldUrl')?.errors && !row.get('oldUrl')?.pristine"
                 />
               </label>
               <label>
@@ -24,63 +25,56 @@
                 </div>
                 <input
                   type="url"
-                  class="input input-bordered input-lg w-full"
+                  pInputText
+                  class="w-full"
                   placeholder="https://new-url.com"
                   formControlName="newUrl"
+                  [invalid]="(row.get('newUrl')?.errors && !row.get('newUrl')?.pristine)"
                   [attr.id]="'newUrl_' + $index"
-                  [ngClass]="[(row.get('newUrl')?.errors && !row.get('newUrl')?.pristine)? 'input-error' : '']"
                 />
               </label>
               <div class="flex justify-end gap-2 items-end">
-                <button
-                  ngpButton
-                  class="btn btn-circle btn-outline"
+                <p-button
+                  ariaLabel="Reihe hinzufügen"
+                  icon="pi pi-plus"
+                  [rounded]="true"
+                  [outlined]="true"
                   (click)="addUrlRow()"
-                  aria-label="Reihe hinzufügen"
-                  type="button"
-                >
-                  <svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                    <path
-                      fill="currentColor"
-                      d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"
-                    />
-                  </svg>
-                </button>
-                <button
-                  class="btn btn-circle btn-outline"
+                />
+                <p-button
+                  ariaLabel="Reihe entfernen"
+                  icon="pi pi-times"
+                  [rounded]="true"
+                  [outlined]="true"
                   (click)="removeUrlRow($index)"
                   [disabled]="hasOnlyOneRow"
-                  aria-label="Reihe entfernen"
-                  ngpButton
-                  type="button"
-                >
-                  <svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                    <path
-                      fill="currentColor"
-                      d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
-                    />
-                  </svg>
-                </button>
+                />
               </div>
             </div>
           }
         </div>
         <div>
-          <button [disabled]="!formGroup.valid" class="btn btn-outline w-full lg:w-auto" type="submit">
-            Generieren
-          </button>
+          <p-button
+            [disabled]="!formGroup.valid"
+            label="Generieren"
+            type="submit"
+          />
         </div>
       </form>
       @if (result().length) {
         <div>
           <label>
-            <div class="mb-2">Rewrites</div>
-            <textarea [value]="result()" class="w-full h-48 textarea textarea-bordered" placeholder="Rewrites"
-                      readonly></textarea>
+            <span>Rewrites</span>
           </label>
+          <textarea
+            id="results"
+            [ngModel]="result()"
+            class="w-full h-48"
+            pTextarea
+            placeholder="Rewrites"
+            readonly></textarea>
         </div>
-        <button (click)="copyRewrites()" class="btn btn-outline w-full lg:w-auto">Rewrites kopieren
-        </button>
+        <p-button (click)="copyRewrites()" styleClass="w-full lg:w-auto" label="Rewrites kopieren" />
       }
     </div>
   </lib-card>

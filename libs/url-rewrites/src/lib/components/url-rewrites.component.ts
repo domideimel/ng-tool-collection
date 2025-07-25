@@ -1,18 +1,20 @@
 import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CardComponent, urlValidator } from '@ng-tool-collection/ui';
 import { UrlRewritesService } from '../services/url-rewrites.service';
 import { Meta } from '@angular/platform-browser';
-import { NgClass } from '@angular/common';
 import { catchError, Subscription, tap } from 'rxjs';
 import { copyToClipboard } from '@ng-tool-collection/utils';
 import { MessageService } from 'primeng/api';
+import { Button } from 'primeng/button';
+import { Textarea } from 'primeng/textarea';
+import { InputText } from 'primeng/inputtext';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'lib-url-rewrites',
   templateUrl: './url-rewrites.component.html',
-  imports: [CardComponent, ReactiveFormsModule, NgClass],
+  imports: [CardComponent, ReactiveFormsModule, Button, FormsModule, Textarea, InputText],
 })
 export class UrlRewritesComponent implements OnInit, OnDestroy {
   result = signal<string>('');
