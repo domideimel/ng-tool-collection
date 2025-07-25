@@ -1,7 +1,6 @@
 @import 'tailwindcss';
 
 @plugin "tailwindcss-primeui";
-@plugin "daisyui";
 @config '../tailwind.config.mjs';
 
 /*
