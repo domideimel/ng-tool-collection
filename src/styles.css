@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import "primeicons/primeicons.css";
 
 @plugin "tailwindcss-primeui";
 @config '../tailwind.config.mjs';
@@ -18,5 +19,9 @@
   ::backdrop,
   ::file-selector-button {
     border-color: var(--color-gray-200, currentcolor);
+  }
+
+  .p-menu-item-link-active {
+    @apply bg-primary-100 !text-primary-800 font-bold;
   }
 }

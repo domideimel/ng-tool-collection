@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, computed, inject, OnInit } from '@angular/core';
-import { Link } from '@ng-tool-collection/models';
 import { NAVIGATION } from '@ng-tool-collection/constants';
 import { Meta } from '@angular/platform-browser';
 import { CardComponent } from '@ng-tool-collection/ui';
+import { MenuItem } from 'primeng/api';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -11,13 +11,13 @@ import { CardComponent } from '@ng-tool-collection/ui';
   imports: [CardComponent],
 })
 export class CardGridComponent implements OnInit {
-  cards = computed<Link[]>(() => {
-    const link = NAVIGATION.find(link => link.path.includes('tools'));
+  cards = computed<MenuItem[]>(() => {
+    const link = NAVIGATION.find(link => link.routerLink.includes('tools'));
     if (!link) return [];
-    const children = link?.children?.map(child => ({
+    const children = link?.items?.map(child => ({
       ...child,
-      path: child.path.replace('tools/', ''),
-    }));
+      path: child.routerLink.replace('tools/', ''),
+    })) as MenuItem[];
     return children ?? [];
   });
   private meta = inject(Meta);

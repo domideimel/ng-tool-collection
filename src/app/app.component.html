@@ -1,5 +1,32 @@
-<lib-drawer>
-  <router-outlet />
+<div class="min-h-screen flex flex-col">
+  <lib-navbar />
+  <main class="container py-8 flex-1">
+    <router-outlet />
+  </main>
+  <footer class="p-4 flex justify-center items-center gap-4 ">
+    <aside>
+      <p>Copyright © {{ currentYear() }}</p>
+    </aside>
+    <aside>
+      <p-button (click)="openModal()" link>Analytics verwenden</p-button>
+    </aside>
+  </footer>
   <lib-toasts />
   <lib-service-worker-update-prompt />
-</lib-drawer>
+</div>
+
+<p-dialog
+  [closable]="false"
+  [dismissableMask]="true"
+  [modal]="true"
+  [visible]="visibleAnalytics()"
+  header="Analytics verwenden"
+  maskStyleClass="backdrop-blur-sm"
+>
+  <h3 class="text-lg font-bold">Vercel Analytic</h3>
+  <p class="py-4">Diese Seite verwendet Vercel Analytics</p>
+  <div class="flex justify-end gap-2">
+    <p-button (click)="closeModal('false')" label="Akzeptieren" />
+    <p-button (click)="closeModal('true')" label="Ablehnen" severity="secondary" />
+  </div>
+</p-dialog>
