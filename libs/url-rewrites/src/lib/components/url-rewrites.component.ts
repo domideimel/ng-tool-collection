@@ -1,11 +1,12 @@
 import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CardComponent, ToastService, urlValidator } from '@ng-tool-collection/ui';
+import { CardComponent, urlValidator } from '@ng-tool-collection/ui';
 import { UrlRewritesService } from '../services/url-rewrites.service';
 import { Meta } from '@angular/platform-browser';
 import { NgClass } from '@angular/common';
 import { catchError, Subscription, tap } from 'rxjs';
 import { copyToClipboard } from '@ng-tool-collection/utils';
+import { MessageService } from 'primeng/api';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -19,11 +20,11 @@ export class UrlRewritesComponent implements OnInit, OnDestroy {
   formGroup = this.fb.group({
     urlRows: this.fb.array([this.createUrlRow()]),
   });
-  private toast = inject(ToastService);
   private rewriteService = inject(UrlRewritesService);
   private meta = inject(Meta);
-  private subscription = new Subscription();
+  private messageService = inject(MessageService);
 
+  private subscription = new Subscription();
   get urlRowsFormArray() {
     return this.formGroup.get('urlRows') as FormArray;
   }
@@ -57,9 +58,9 @@ export class UrlRewritesComponent implements OnInit, OnDestroy {
   copyRewrites() {
     const copySub = copyToClipboard(this.result())
       .pipe(
-        tap(() => this.toast.success(`Die Rewrites wurden erfolgreich kopiert`)),
+        tap(() => this.messageService.add({ severity: 'success', detail: `Die Rewrites wurden erfolgreich kopiert` })),
         catchError(err => {
-          this.toast.success(`Es gab ein Fehler beim kopieren`);
+          this.messageService.add({ severity: 'error', detail: `Es gab ein Fehler beim kopieren` });
           return err;
         }),
       )

@@ -2,9 +2,10 @@ import { ChangeDetectionStrategy, Component, inject, OnDestroy, signal } from '@
 import { FormModel, GenerationProperties } from '@ng-tool-collection/models';
 import { Validators } from '@angular/forms';
 import { PasswordGeneratorService } from '../../services/password-generator.service';
-import { atLeastOneCheckedValidator, CardComponent, FormComponent, ToastService } from '@ng-tool-collection/ui';
+import { atLeastOneCheckedValidator, CardComponent, FormComponent } from '@ng-tool-collection/ui';
 import { catchError, finalize, Subscription, tap } from 'rxjs';
 import { copyToClipboard, ReactiveStorageService } from '@ng-tool-collection/utils';
+import { MessageService } from 'primeng/api';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -55,7 +56,7 @@ export class GeneratorFormComponent implements OnDestroy {
   private subscription = new Subscription();
   private passwordGeneratorService = inject(PasswordGeneratorService);
   private storageService = inject(ReactiveStorageService);
-  private toast = inject(ToastService);
+  private messageService = inject(MessageService);
 
   onSubmit(value: unknown) {
     const submitSub = this.passwordGeneratorService
@@ -80,10 +81,10 @@ export class GeneratorFormComponent implements OnDestroy {
           const oldPasswords = passwords() ? passwords() : [];
           this.storageService.setItem('passwords', [this.password(), ...oldPasswords]);
           this.hasCopied.set(true);
-          this.toast.success('Passwort wurde erfolgreich kopiert');
+          this.messageService.add({ severity: 'success', detail: 'Passwort wurde erfolgreich kopiert' });
         }),
         catchError(err => {
-          this.toast.error('Beim kopieren ist etwas schief gelaufen');
+          this.messageService.add({ severity: 'error', detail: 'Beim kopieren ist etwas schief gelaufen' });
           return err;
         }),
       )
