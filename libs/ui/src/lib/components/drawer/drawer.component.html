@@ -76,18 +76,12 @@
     </ul>
   </div>
 </div>
-<dialog #dialog class="modal">
-  <div class="modal-box">
-    <h3 class="text-lg font-bold">Vercel Analytic</h3>
-    <p class="py-4">Diese Seite verwendet Vercel Analytics</p>
-    <div class="modal-action">
-      <form method="dialog">
-        <div class="flex gap-4">
-          <button (click)="closeModal('false')" class="btn btn-success">Akzeptieren</button>
-          <button (click)="closeModal('true')" class="btn btn-error">Ablehnen</button>
-        </div>
 
-      </form>
-    </div>
+<p-dialog (onHide)="closeModal('true')" [modal]="true" [visible]="visibleAnalytics()" header="Analytics verwenden">
+  <h3 class="text-lg font-bold">Vercel Analytic</h3>
+  <p class="py-4">Diese Seite verwendet Vercel Analytics</p>
+  <div class="flex justify-end gap-2">
+    <p-button (click)="closeModal('false')" label="Akzeptieren" />
+    <p-button (click)="closeModal('true')" label="Ablehnen" severity="secondary" />
   </div>
-</dialog>
+</p-dialog>
