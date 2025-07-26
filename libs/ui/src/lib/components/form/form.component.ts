@@ -2,12 +2,31 @@ import { ChangeDetectionStrategy, Component, effect, inject, input, OnInit, outp
 import { FormGroup, NonNullableFormBuilder, ReactiveFormsModule, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { FormControls, FormModel } from '@ng-tool-collection/models';
 import { NgClass } from '@angular/common';
+import { Button } from 'primeng/button';
+import { Slider } from 'primeng/slider';
+import { DatePicker } from 'primeng/datepicker';
+import { Textarea } from 'primeng/textarea';
+import { Select } from 'primeng/select';
+import { RadioButton } from 'primeng/radiobutton';
+import { Checkbox } from 'primeng/checkbox';
+import { InputText } from 'primeng/inputtext';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'lib-form',
   templateUrl: './form.component.html',
-  imports: [ReactiveFormsModule, NgClass],
+  imports: [
+    ReactiveFormsModule,
+    NgClass,
+    Button,
+    Slider,
+    DatePicker,
+    Textarea,
+    Select,
+    RadioButton,
+    Checkbox,
+    InputText,
+  ],
 })
 export class FormComponent<T extends FormModel> implements OnInit {
   formModel = input.required<T>();

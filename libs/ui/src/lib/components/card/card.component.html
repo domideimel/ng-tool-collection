@@ -1,15 +1,17 @@
-<div class="card card-bordered flex flex-col h-full p-0">
-  <div class="card-body gap-6 lg:gap-4 p-4 md:p-6">
-    <h2 class="card-title">{{ title() }}</h2>
-    @if (description().length) {
-      <p>{{ description() }}</p>
-    } @else {
-      <ng-content />
-    }
-    @if (showLink()) {
-      <div class="card-actions justify-end">
-        <button ngpButton [routerLink]="link()" class="btn btn-outline w-full lg:w-auto">{{ linkText() }}</button>
+<p-card>
+  <ng-template #title>
+    {{ cardTitle() }}
+  </ng-template>
+  @if (description().length) {
+    <p>{{ description() }}</p>
+  } @else {
+    <ng-content />
+  }
+  @if (showLink()) {
+    <ng-template #footer>
+      <div class="flex gap-4 mt-1">
+        <p-button [label]="linkText()" (click)="onLinkClick()" class="w-full" styleClass="w-full" />
       </div>
-    }
-  </div>
-</div>
+    </ng-template>
+  }
+</p-card>

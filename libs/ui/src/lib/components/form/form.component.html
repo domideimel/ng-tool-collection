@@ -1,128 +1,97 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="formGroup" class="flex flex-col gap-4">
+<form (ngSubmit)="onSubmit()" [formGroup]="formGroup" class="flex flex-col gap-6">
   @for (item of formModel().items; track item.label) {
     @switch (item.type) {
       @case ("text") {
-        <label ngpFormField>
-          <div class="label">
-            <span class="label-text">{{ item.label }}</span>
-          </div>
+        <div>
+          <label [for]="item.controlName">
+            <span>{{ item.label }}</span>
+          </label>
           <input
-            ngpFormControl
-            type="text"
-            class="input input-bordered input-lg"
+            pInputText
             [placeholder]="item?.placeholder"
             [formControlName]="item.controlName"
             [attr.id]="item.controlName"
           />
-        </label>
+        </div>
       }
       @case ("checkbox") {
-        <div ngpFormField>
-          <label class="label cursor-pointer justify-normal gap-4">
-            <input
-              type="checkbox"
-              class="checkbox checkbox-lg"
-              ngpFormControl
-              [formControlName]="item.controlName"
-              [ngClass]="[hasErrors(item.controlName) ? 'checkbox-error' : '']"
-              [attr.id]="item.controlName"
-            />
-            <span class="label-text">{{ item.label }}</span>
+        <div class="flex items-center gap-2">
+          <p-checkbox [formControlName]="item.controlName" [binary]="true" [inputId]="item.controlName" />
+          <label [for]="item.controlName">
+            <span>{{ item.label }}</span>
           </label>
         </div>
       }
       @case ("radio") {
-        @for (option of item.options; track option.value) {
-          <div ngpFormField>
-            <label class="label cursor-pointer justify-normal gap-4">
-              <input
-                type="radio"
-                class="radio radio-lg"
-                ngpFormControl
-                [formControlName]="item.controlName"
-                [ngClass]="[hasErrors(item.controlName) ? 'radio-error' : '']"
-                [attr.id]="item.controlName"
-              />
-              <span class="label-text">{{ option.label }}</span>
+        <div class="flex flex-col gap-4">
+          @for (option of item.options; track option.value) {
+            <p-radio-button
+              [inputId]="item.controlName"
+              [formControlName]="item.controlName"
+              [name]="item.controlName"
+              [value]="option.value"
+            />
+            <label [for]="item.controlName">
+              <span>{{ item.label }}</span>
             </label>
-          </div>
-        }
+          }
+        </div>
       }
       @case ("select") {
-        <label ngpFormField>
-          <div class="label">
-            <span class="label-text">{{ item.label }}</span>
-          </div>
-          <select
-            class="select select-bordered select-lg"
-            ngpSelect
+        <div>
+          <label [for]="item.controlName">
+            <span>{{ item.label }}</span>
+          </label>
+          <p-select
+            [options]="item.options"
             [formControlName]="item.controlName"
-            [ngClass]="[hasErrors(item.controlName) ? 'select-error' : '']"
-            [attr.id]="item.controlName"
-          >
-            @for (option of item.options; track option.value) {
-              <option [value]="option?.value">
-                {{ option.label }}
-              </option>
-            }
-          </select>
-        </label>
-      }
-      @case ("textarea") {
-        <label ngpFormField>
-          <div class="label">
-            <span class="label-text">{{ item.label }}</span>
-          </div>
-          <textarea
-            ngpFormControl
-            class="textarea textarea-bordered h-24 textarea-lg"
-            [formControlName]="item.controlName"
-            [ngClass]="[hasErrors(item.controlName) ? 'textarea-error' : '']"
-            [attr.id]="item.controlName"
-          ></textarea>
-        </label>
-      }
-      @case ("date") {
-        <label class="w-full lg:max-w-xs" ngpFormField>
-          <div class="label">
-            <span class="label-text">{{ item.label }}</span>
-          </div>
-          <input
-            ngpFormControl
-            type="date"
-            class="input input-bordered input-lg"
-            [formControlName]="item.controlName"
-            [ngClass]="[hasErrors(item.controlName) ? 'input-error' : '']"
             [attr.id]="item.controlName"
           />
-        </label>
+        </div>
+      }
+      @case ("textarea") {
+        <div>
+          <label [for]="item.controlName">
+            <span>{{ item.label }}</span>
+          </label>
+          <textarea
+            pTextarea
+            class="h-24 "
+            [formControlName]="item.controlName"
+            [attr.id]="item.controlName"
+          ></textarea>
+        </div>
+      }
+      @case ("date") {
+        <div>
+          <label [for]="item.controlName">
+            <span>{{ item.label }}</span>
+          </label>
+          <p-datepicker
+            [inputId]="item.controlName" [formControlName]="item.controlName"
+            [invalid]="hasErrors(item.controlName)"
+          />
+        </div>
       }
       @case ("range") {
-        <label ngpFormField>
-          <div class="label">
-            <span class="label-text">{{ item.label }}</span>
-          </div>
-          <div class="flex gap-4">
-            <input
-              ngpFormControl
-              type="range"
-              class="flex-1 range range-lg"
-              [formControlName]="item.controlName"
-              [ngClass]="[hasErrors(item.controlName) ? 'range-error' : '']"
-              [attr.id]="item.controlName"
-            />
+        <div>
+          <label [for]="item.controlName">
+            <span>{{ item.label }}</span>
+          </label>
+          <div class="flex gap-4 items-center">
+            <p-slider [id]="item.controlName" [formControlName]="item.controlName" class="flex-1" />
             <div class="range-value">{{ formGroup.get(item.controlName)?.value }}</div>
           </div>
-        </label>
+        </div>
       }
     }
   }
-  <button
+  <p-button
     [disabled]="!formGroup.valid"
     [ngClass]="!formGroup.valid ? 'cursor-not-allowed' : ''"
-    class="btn btn-outline"
-    ngpButton
+    [outlined]="true"
+    type="submit"
   >
     {{ formModel().submitButtonLabel }}
-  </button>
+  </p-button>
 </form>

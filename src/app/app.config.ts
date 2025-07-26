@@ -3,6 +3,9 @@ import { provideRouter } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { provideServiceWorker } from '@angular/service-worker';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { providePrimeNG } from 'primeng/config';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import Material from '@primeuix/themes/material';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -13,5 +16,12 @@ export const appConfig: ApplicationConfig = {
     }),
     provideZonelessChangeDetection(),
     provideHttpClient(withFetch()),
+    provideAnimationsAsync(),
+    providePrimeNG({
+      ripple: true,
+      theme: {
+        preset: Material,
+      },
+    }),
   ],
 };
