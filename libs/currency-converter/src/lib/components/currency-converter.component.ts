@@ -33,12 +33,15 @@ export class CurrencyConverterComponent implements OnInit, OnDestroy {
 
   constructor() {
     effect(() => {
-      this.formGroup.patchValue({
-        fromCurrency: this.fromCurrencies(),
-        toCurrency: this.toCurrencies(),
-        amount: this.amount(),
-        result: this.result(),
-      });
+      this.formGroup.patchValue(
+        {
+          fromCurrency: this.fromCurrencies(),
+          toCurrency: this.toCurrencies(),
+          amount: this.amount(),
+          result: this.result(),
+        },
+        { emitEvent: false },
+      );
     });
   }
 
