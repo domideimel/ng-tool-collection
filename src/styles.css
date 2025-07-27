@@ -2,7 +2,6 @@
 @import "primeicons/primeicons.css";
 
 @plugin "tailwindcss-primeui";
-@config '../tailwind.config.mjs';
 
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
@@ -23,5 +22,9 @@
 
   .p-menu-item-link-active {
     @apply bg-primary-100 !text-primary-800 font-bold;
+  }
+
+  .container {
+    @apply px-4 mx-auto w-full max-w-screen-2xl;
   }
 }
