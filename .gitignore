@@ -48,3 +48,6 @@ nx-cloud.env
 
 vite.config.*.timestamp*
 vitest.config.*.timestamp*
+
+# Nx migrations
+migrations.json
