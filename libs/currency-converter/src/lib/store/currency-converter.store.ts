@@ -1,8 +1,8 @@
-import { patchState, signalStore, withComputed, withHooks, withMethods, withState } from "@ngrx/signals";
-import { Currencies, Currency } from "@ng-tool-collection/models";
-import { computed, inject } from "@angular/core";
-import { CurrencyService } from "../services/currency.service";
-import { catchError, map, Subscription, tap } from "rxjs";
+import { patchState, signalStore, withComputed, withHooks, withMethods, withState } from '@ngrx/signals';
+import { Currencies, Currency } from '@ng-tool-collection/models';
+import { computed, inject } from '@angular/core';
+import { CurrencyService } from '../services/currency.service';
+import { catchError, map, Subscription, tap } from 'rxjs';
 
 type CurrencyConverterState = {
   fromCurrency: keyof Currencies | null | undefined;
@@ -13,11 +13,11 @@ type CurrencyConverterState = {
   error?: string;
 };
 
-type FormState = Partial<Omit<CurrencyConverterState, "currencies" | "error">>;
+type FormState = Partial<Omit<CurrencyConverterState, 'currencies' | 'error'>>;
 
 const initialState: CurrencyConverterState = {
-  fromCurrency: "eur",
-  toCurrency: "usd",
+  fromCurrency: 'eur',
+  toCurrency: 'usd',
   amount: 1,
   result: 1,
   currencies: [],
@@ -59,8 +59,8 @@ export const CurrencyConverterStore = signalStore(
       }
     };
     const calculate = (isResult = false) => {
-      const resultValue = store.toCurrency() ?? "usd";
-      const amountValue = store.fromCurrency() ?? "eur";
+      const resultValue = store.toCurrency() ?? 'usd';
+      const amountValue = store.fromCurrency() ?? 'eur';
 
       if (isResult) {
         const resultSub = currencyService
@@ -70,6 +70,7 @@ export const CurrencyConverterStore = signalStore(
               return (resp[resultValue] as Currencies)[amountValue];
             }),
             tap(value => {
+              if (!value) return;
               const result = value * (store.result() ?? 1);
               patchState(store, state => ({ ...state, amount: Number(result.toFixed(2)) }));
             }),
@@ -91,6 +92,7 @@ export const CurrencyConverterStore = signalStore(
             return (resp[amountValue] as Currencies)[resultValue];
           }),
           tap(value => {
+            if (!value) return;
             const result = value * (store.amount() ?? 1);
             patchState(store, state => ({ ...state, result: Number(result.toFixed(2)) }));
           }),
