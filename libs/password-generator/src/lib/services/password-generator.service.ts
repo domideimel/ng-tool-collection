@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { map, Observable, of } from 'rxjs';
+import { map, of } from 'rxjs';
 import { GenerationProperties, RandomFunc } from '@ng-tool-collection/models';
 import { random, range, sample } from '@ng-tool-collection/utils';
 
@@ -7,7 +7,7 @@ import { random, range, sample } from '@ng-tool-collection/utils';
   providedIn: 'root',
 })
 export class PasswordGeneratorService {
-  generatePassword = ({ length, ...args }: GenerationProperties): Observable<string> => {
+  generatePassword = ({ length, ...args }: GenerationProperties) => {
     return of(args).pipe(
       map(args => Object.fromEntries(Object.entries(args).filter(([_, value]) => value))),
       map(filteredTypes => {
@@ -22,20 +22,19 @@ export class PasswordGeneratorService {
     );
   };
 
-  private createSymbolString(): string[] {
+  private createSymbolString() {
     const asciiCharsRanges: number[] = [...range(33, 48), ...range(58, 65), ...range(91, 97), ...range(123, 127)];
     return asciiCharsRanges.map(char => String.fromCharCode(char));
   }
 
-  private getRandomChar = (start: number, end: number): string => String.fromCharCode(random(start, end));
+  private getRandomChar = (start: number, end: number) => String.fromCharCode(random(start, end));
 
-  private getRandomSymbol = (symbols: string[] = this.createSymbolString()): string =>
-    symbols[random(0, symbols.length - 1)];
+  private getRandomSymbol = (symbols: string[]) => symbols[random(0, symbols.length - 1)];
 
   private randomFunc: RandomFunc = {
     lower: () => this.getRandomChar(97, 122),
     upper: () => this.getRandomChar(65, 90),
     number: () => this.getRandomChar(48, 57),
-    symbol: this.getRandomSymbol,
+    symbol: () => this.getRandomSymbol(this.createSymbolString()),
   };
 }
