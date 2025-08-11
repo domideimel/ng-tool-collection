@@ -54,7 +54,7 @@
     "@nx/js": "21.3.10",
     "@nx/vite": "21.3.10",
     "@nx/web": "21.3.10",
-    "@nx/workspace": "21.3.10",
+    "@nx/workspace": "21.3.11",
     "@schematics/angular": "20.1.3",
     "@swc-node/register": "1.10.10",
     "@swc/core": "1.13.3",
