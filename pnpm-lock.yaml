@@ -48,7 +48,7 @@ importers:
         version: 20.0.0(@angular/core@20.1.6(@angular/compiler@20.1.6)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)
       '@nx/angular':
         specifier: 21.3.11
-        version: 21.3.11(6d782694ff75007680470da217dd8579)
+        version: 21.3.11(xyntcgtkikpa2kzdhkji2idhs4)
       '@primeuix/themes':
         specifier: ^1.2.3
         version: 1.2.3
@@ -63,13 +63,13 @@ importers:
         version: 7.0.0
       primeng:
         specifier: ^20.0.1
-        version: 20.0.1(1e48c736918f92e733ee6c22e7405f4f)
+        version: 20.0.1(yuqhfpbfkulsmayjbus2mebvb4)
       rxjs:
         specifier: ~7.8.2
         version: 7.8.2
       tailwindcss-primeui:
         specifier: ^0.6.1
-        version: 0.6.1(tailwindcss@4.1.11)
+        version: 0.6.1(tailwindcss@4.1.12)
       tslib:
         specifier: ^2.8.1
         version: 2.8.1
@@ -82,13 +82,13 @@ importers:
     devDependencies:
       '@analogjs/vite-plugin-angular':
         specifier: 1.19.4
-        version: 1.19.4(@angular-devkit/build-angular@20.1.5(fe0de39d60383f4437831debc7f0a54c))(@angular/build@20.1.5(014bb6821d44bc29b498021137ecec87))
+        version: 1.19.4(@angular-devkit/build-angular@20.1.5(aammdosbhbz2luzin3p3obyr34))(@angular/build@20.1.5(kp4znmn5nyf3xofpjykmw2lezy))
       '@analogjs/vitest-angular':
         specifier: 1.19.4
-        version: 1.19.4(@analogjs/vite-plugin-angular@1.19.4(@angular-devkit/build-angular@20.1.5(fe0de39d60383f4437831debc7f0a54c))(@angular/build@20.1.5(014bb6821d44bc29b498021137ecec87)))(@angular-devkit/architect@0.2001.5(chokidar@4.0.3))(vitest@3.2.4)
+        version: 1.19.4(@analogjs/vite-plugin-angular@1.19.4(@angular-devkit/build-angular@20.1.5(aammdosbhbz2luzin3p3obyr34))(@angular/build@20.1.5(kp4znmn5nyf3xofpjykmw2lezy)))(@angular-devkit/architect@0.2001.5(chokidar@4.0.3))(vitest@3.2.4)
       '@angular-devkit/build-angular':
         specifier: 20.1.5
-        version: 20.1.5(fe0de39d60383f4437831debc7f0a54c)
+        version: 20.1.5(aammdosbhbz2luzin3p3obyr34)
       '@angular-devkit/core':
         specifier: 20.1.5
         version: 20.1.5(chokidar@4.0.3)
@@ -205,7 +205,7 @@ importers:
         version: 30.0.5
       jest-preset-angular:
         specifier: 15.0.0
-        version: 15.0.0(4870e373d799ffc1d5a40bca9d36f0ad)
+        version: 15.0.0(fmpnmlppbg2egzcnswcoszstgm)
       jest-util:
         specifier: ~30.0.5
         version: 30.0.5
@@ -228,8 +228,8 @@ importers:
         specifier: ^0.6.14
         version: 0.6.14(prettier@3.6.2)
       tailwindcss:
-        specifier: ^4.1.11
-        version: 4.1.11
+        specifier: ^4.1.12
+        version: 4.1.12
       ts-jest:
         specifier: 29.4.1
         version: 29.4.1(@babel/core@7.28.0)(@jest/transform@30.0.5)(@jest/types@30.0.5)(babel-jest@30.0.5(@babel/core@7.28.0))(esbuild@0.25.8)(jest-util@30.0.5)(jest@30.0.5(@types/node@24.2.1)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.13.3(@swc/helpers@0.5.17))(@types/node@24.2.1)(typescript@5.8.3)))(typescript@5.8.3)
@@ -7717,6 +7717,9 @@ packages:
   tailwindcss@4.1.11:
     resolution: {integrity: sha512-2E9TBm6MDD/xKYe+dvJZAmg3yxIEDNRc0jwlNyDg/4Fil2QcSLjFKGVff0lAf1jjeaArlG/M75Ey/EYr/OJtBA==}
 
+  tailwindcss@4.1.12:
+    resolution: {integrity: sha512-DzFtxOi+7NsFf7DBtI3BJsynR+0Yp6etH+nRPTbpWnS2pZBaSksv/JGctNwSWzbFjp0vxSqknaUylseZqMDGrA==}
+
   tapable@2.2.2:
     resolution: {integrity: sha512-Re10+NauLTMCudc7T5WLFLAwDhQ0JWdrMK+9B2M8zR5hRExKmsRDCBA7/aV/pNJFltmBFO5BAMlQFi/vq3nKOg==}
     engines: {node: '>=6'}
@@ -8575,17 +8578,17 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.12
       '@jridgewell/trace-mapping': 0.3.29
 
-  '@analogjs/vite-plugin-angular@1.19.4(@angular-devkit/build-angular@20.1.5(fe0de39d60383f4437831debc7f0a54c))(@angular/build@20.1.5(014bb6821d44bc29b498021137ecec87))':
+  '@analogjs/vite-plugin-angular@1.19.4(@angular-devkit/build-angular@20.1.5(aammdosbhbz2luzin3p3obyr34))(@angular/build@20.1.5(kp4znmn5nyf3xofpjykmw2lezy))':
     dependencies:
       ts-morph: 21.0.1
       vfile: 6.0.3
     optionalDependencies:
-      '@angular-devkit/build-angular': 20.1.5(fe0de39d60383f4437831debc7f0a54c)
-      '@angular/build': 20.1.5(014bb6821d44bc29b498021137ecec87)
+      '@angular-devkit/build-angular': 20.1.5(aammdosbhbz2luzin3p3obyr34)
+      '@angular/build': 20.1.5(kp4znmn5nyf3xofpjykmw2lezy)
 
-  '@analogjs/vitest-angular@1.19.4(@analogjs/vite-plugin-angular@1.19.4(@angular-devkit/build-angular@20.1.5(fe0de39d60383f4437831debc7f0a54c))(@angular/build@20.1.5(014bb6821d44bc29b498021137ecec87)))(@angular-devkit/architect@0.2001.5(chokidar@4.0.3))(vitest@3.2.4)':
+  '@analogjs/vitest-angular@1.19.4(@analogjs/vite-plugin-angular@1.19.4(@angular-devkit/build-angular@20.1.5(aammdosbhbz2luzin3p3obyr34))(@angular/build@20.1.5(kp4znmn5nyf3xofpjykmw2lezy)))(@angular-devkit/architect@0.2001.5(chokidar@4.0.3))(vitest@3.2.4)':
     dependencies:
-      '@analogjs/vite-plugin-angular': 1.19.4(@angular-devkit/build-angular@20.1.5(fe0de39d60383f4437831debc7f0a54c))(@angular/build@20.1.5(014bb6821d44bc29b498021137ecec87))
+      '@analogjs/vite-plugin-angular': 1.19.4(@angular-devkit/build-angular@20.1.5(aammdosbhbz2luzin3p3obyr34))(@angular/build@20.1.5(kp4znmn5nyf3xofpjykmw2lezy))
       '@angular-devkit/architect': 0.2001.5(chokidar@4.0.3)
       vitest: 3.2.4(@types/node@24.2.1)(@vitest/ui@3.2.4)(jiti@2.5.1)(jsdom@26.1.0)(less@4.3.0)(lightningcss@1.30.1)(sass-embedded@1.89.2)(sass@1.89.2)(stylus@0.64.0)(terser@5.43.1)(yaml@2.8.0)
 
@@ -8596,13 +8599,13 @@ snapshots:
     transitivePeerDependencies:
       - chokidar
 
-  '@angular-devkit/build-angular@20.1.5(fe0de39d60383f4437831debc7f0a54c)':
+  '@angular-devkit/build-angular@20.1.5(aammdosbhbz2luzin3p3obyr34)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.2001.5(chokidar@4.0.3)
       '@angular-devkit/build-webpack': 0.2001.5(chokidar@4.0.3)(webpack-dev-server@5.2.2(webpack@5.99.9(@swc/core@1.13.3(@swc/helpers@0.5.17))))(webpack@5.99.9(@swc/core@1.13.3(@swc/helpers@0.5.17)))
       '@angular-devkit/core': 20.1.5(chokidar@4.0.3)
-      '@angular/build': 20.1.5(014bb6821d44bc29b498021137ecec87)
+      '@angular/build': 20.1.5(kp4znmn5nyf3xofpjykmw2lezy)
       '@angular/compiler-cli': 20.1.6(@angular/compiler@20.1.6)(typescript@5.8.3)
       '@babel/core': 7.27.7
       '@babel/generator': 7.27.5
@@ -8662,7 +8665,7 @@ snapshots:
       esbuild: 0.25.5
       jest: 30.0.5(@types/node@24.2.1)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.13.3(@swc/helpers@0.5.17))(@types/node@24.2.1)(typescript@5.8.3))
       jest-environment-jsdom: 30.0.5
-      tailwindcss: 4.1.11
+      tailwindcss: 4.1.12
     transitivePeerDependencies:
       - '@angular/compiler'
       - '@rspack/core'
@@ -8785,7 +8788,7 @@ snapshots:
       '@angular/core': 20.1.6(@angular/compiler@20.1.6)(rxjs@7.8.2)(zone.js@0.15.1)
       tslib: 2.8.1
 
-  '@angular/build@20.1.5(014bb6821d44bc29b498021137ecec87)':
+  '@angular/build@20.1.5(kp4znmn5nyf3xofpjykmw2lezy)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.2001.5(chokidar@4.0.3)
@@ -8825,7 +8828,7 @@ snapshots:
       less: 4.3.0
       lmdb: 3.4.1
       postcss: 8.5.6
-      tailwindcss: 4.1.11
+      tailwindcss: 4.1.12
       vitest: 3.2.4(@types/node@24.2.1)(@vitest/ui@3.2.4)(jiti@2.5.1)(jsdom@26.1.0)(less@4.3.0)(lightningcss@1.30.1)(sass-embedded@1.89.2)(sass@1.89.2)(stylus@0.64.0)(terser@5.43.1)(yaml@2.8.0)
     transitivePeerDependencies:
       - '@types/node'
@@ -11541,7 +11544,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@nx/angular@21.3.11(6d782694ff75007680470da217dd8579)':
+  '@nx/angular@21.3.11(xyntcgtkikpa2kzdhkji2idhs4)':
     dependencies:
       '@angular-devkit/core': 20.1.5(chokidar@4.0.3)
       '@angular-devkit/schematics': 20.1.5(chokidar@4.0.3)
@@ -11565,8 +11568,8 @@ snapshots:
       tslib: 2.8.1
       webpack-merge: 5.10.0
     optionalDependencies:
-      '@angular-devkit/build-angular': 20.1.5(fe0de39d60383f4437831debc7f0a54c)
-      '@angular/build': 20.1.5(014bb6821d44bc29b498021137ecec87)
+      '@angular-devkit/build-angular': 20.1.5(aammdosbhbz2luzin3p3obyr34)
+      '@angular/build': 20.1.5(kp4znmn5nyf3xofpjykmw2lezy)
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@module-federation/enhanced'
@@ -15335,7 +15338,7 @@ snapshots:
     optionalDependencies:
       jest-resolve: 30.0.5
 
-  jest-preset-angular@15.0.0(4870e373d799ffc1d5a40bca9d36f0ad):
+  jest-preset-angular@15.0.0(fmpnmlppbg2egzcnswcoszstgm):
     dependencies:
       '@angular/compiler-cli': 20.1.6(@angular/compiler@20.1.6)(typescript@5.8.3)
       '@angular/core': 20.1.6(@angular/compiler@20.1.6)(rxjs@7.8.2)(zone.js@0.15.1)
@@ -16753,7 +16756,7 @@ snapshots:
 
   primeicons@7.0.0: {}
 
-  primeng@20.0.1(1e48c736918f92e733ee6c22e7405f4f):
+  primeng@20.0.1(yuqhfpbfkulsmayjbus2mebvb4):
     dependencies:
       '@angular/animations': 20.1.6(@angular/common@20.1.6(@angular/core@20.1.6(@angular/compiler@20.1.6)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.1.6(@angular/compiler@20.1.6)(rxjs@7.8.2)(zone.js@0.15.1))
       '@angular/cdk': 20.1.5(@angular/common@20.1.6(@angular/core@20.1.6(@angular/compiler@20.1.6)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.1.6(@angular/compiler@20.1.6)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)
@@ -17538,11 +17541,13 @@ snapshots:
     dependencies:
       '@pkgr/core': 0.2.9
 
-  tailwindcss-primeui@0.6.1(tailwindcss@4.1.11):
+  tailwindcss-primeui@0.6.1(tailwindcss@4.1.12):
     dependencies:
-      tailwindcss: 4.1.11
+      tailwindcss: 4.1.12
 
   tailwindcss@4.1.11: {}
+
+  tailwindcss@4.1.12: {}
 
   tapable@2.2.2: {}
 
