@@ -12,12 +12,12 @@ repository.
     - [x] Add a CONTRIBUTING.md with commit message conventions, branching strategy, PR process, and code review
       checklist
     - [x] Add CODE_OF_CONDUCT.md and SECURITY.md with responsible disclosure
-    - [ ] Ensure LICENSE header templates or repo-level license scanning (keep MIT license current)
+    - [x] Ensure LICENSE header templates or repo-level license scanning (keep MIT license current)
 
 2. [ ] Define Nx workspace governance
-    - [ ] Enable/enforce Nx dependency constraints (e.g., enforce that feature libs don’t depend on app; shared libs are
-      dependency-safe) via nx.json/tslint.eslintrc equivalent
-    - [ ] Add and document tagging for libraries (e.g., type:feature, type:shared, domain:ui, domain:utils) and
+    - [x] Enable/enforce Nx dependency constraints (e.g., enforce that feature libs don’t depend on app; shared libs are
+      dependency-safe) via eslint.base.config.ts enforce-module-boundaries
+    - [x] Add and document tagging for libraries (e.g., type:feature, type:shared, domain:ui, domain:utils) and
       configure constraints
     - [ ] Generate and commit project graph docs (nx graph export) under docs/architecture/ for visibility
 
@@ -48,7 +48,7 @@ repository.
       with rationale
 
 7. [ ] Utils quality and correctness
-    - [ ] Add unit tests for utils/lib/utils/lodash.utils.ts (sample/random/range), including boundary conditions and
+    - [x] Add unit tests for utils/lib/utils/lodash.utils.ts (sample/random/range), including boundary conditions and
       randomness distribution sanity checks
     - [ ] Consider seeding strategy or wrapper to make randomness testable/deterministic in CI
     - [ ] Document copy-to-clipboard utilities and directives with usage examples and accessibility notes
@@ -73,7 +73,7 @@ repository.
 10. [ ] UI/UX and accessibility (PrimeNG + Tailwind)
     - [ ] Audit interactive elements for accessible names, roles, and keyboard support (e.g., buttons in
       generator-password-overview)
-    - [ ] Provide i18n strategy: extract hard-coded German strings to a constants or i18n library; consider Angular i18n
+    - [x] Provide i18n strategy: extract hard-coded German strings to a constants or i18n library; consider Angular i18n
       or lightweight solution
     - [ ] Establish a design tokens layer (Tailwind config + Prime theme alignment) and document usage
     - [ ] Use NgOptimizedImage for static images across ui/home libs (if applicable)
