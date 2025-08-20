@@ -26,6 +26,15 @@ export const toolsRoutes: Route[] = [
         loadComponent: () => import('@ng-tool-collection/currency-converter').then(m => m.CurrencyConverterComponent),
         title: 'Währungs-Umrechner',
       },
+      {
+        path: 'not-found',
+        loadComponent: () => import('./not-found/not-found.component').then(m => m.NotFoundComponent),
+        title: 'Seite nicht gefunden',
+      },
+      {
+        path: '**',
+        redirectTo: 'not-found',
+      },
     ],
   },
 ];

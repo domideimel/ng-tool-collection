@@ -79,14 +79,14 @@ repository.
     - [ ] Use NgOptimizedImage for static images across ui/home libs (if applicable)
 
 11. [ ] Routing and navigation
-    - [ ] Add route-level preloading/standby strategies if beneficial; verify titles and SEO metadata per route
-    - [ ] Validate deep-linking and 404 handling; add a not-found component in tools routes
+    - [x] Add route-level preloading/standby strategies if beneficial; verify titles and SEO metadata per route
+    - [x] Validate deep-linking and 404 handling; add a not-found component in tools routes
     - [ ] Ensure lazy-loaded routes do not pull unnecessary shared code (review bundle splits)
 
 12. [ ] Performance and change detection
     - [ ] Verify provideZonelessChangeDetection + signal patterns do not lead to missed updates; add example patterns to
       guidelines
-    - [ ] Add runtime performance metrics (web-vitals) and log to console in dev, Vercel analytics in prod is already
+    - [x] Add runtime performance metrics (web-vitals) and log to console in dev, Vercel analytics in prod is already
       configured
     - [ ] Evaluate hydration/SSR readiness with Analog if SSR is desired; create spike tasks
 
@@ -110,8 +110,8 @@ repository.
     - [ ] Upload coverage reports as artifacts and enforce thresholds
 
 16. [ ] PWA and service worker
-    - [ ] Review ngsw-config.json for asset groups and data groups; ensure versioning and cache busting are correct
-    - [ ] Add a runtime SW status indicator and update flow (prompt user to refresh on new version)
+    - [x] Review ngsw-config.json for asset groups and data groups; ensure versioning and cache busting are correct
+    - [x] Add a runtime SW status indicator and update flow (prompt user to refresh on new version)
     - [ ] Ensure offline fallbacks exist for tools (basic UX messaging)
 
 17. [ ] Security and dependency management
