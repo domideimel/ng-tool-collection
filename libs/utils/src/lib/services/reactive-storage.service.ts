@@ -9,7 +9,7 @@ export class ReactiveStorageService {
   // Use a safe storage by default to prevent runtime errors in non-browser/private mode
   private storage: Storage = this.getSafeStorage('localStorage');
   private suffix = ''; // Optional suffix for key names
-  private data = signal<{ [key: string]: any }>({});
+  private data = signal<Record<string, unknown>>({});
   private isConfigured = signal<boolean>(false); // Signal to indicate readiness
 
   constructor() {
@@ -144,7 +144,7 @@ export class ReactiveStorageService {
   private _loadStoredData() {
     try {
       const keys = Object.keys(this.storage);
-      const data: { [key: string]: any } = {};
+      const data: Record<string, unknown> = {};
       keys.forEach(key => {
         // Only load keys that match the configured suffix
         if (!this.suffix || key.endsWith(`_${this.suffix}`)) {

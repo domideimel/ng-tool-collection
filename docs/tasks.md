@@ -22,18 +22,18 @@ repository.
     - [ ] Generate and commit project graph docs (nx graph export) under docs/architecture/ for visibility
 
 3. [ ] Strengthen TypeScript configuration and strictness
-    - [ ] Turn on strictest compiler options across tsconfig.* (noImplicitAny, strictNullChecks, noUnusedLocals,
+    - [x] Turn on strictest compiler options across tsconfig.* (noImplicitAny, strictNullChecks, noUnusedLocals,
       noUnusedParameters, exactOptionalPropertyTypes)
-    - [ ] Remove skipLibCheck where feasible and fix offending types locally
-    - [ ] Audit any usage of any in models and services; replace with unknown or precise types where possible (keep
+    - [x] Remove skipLibCheck where feasible and fix offending types locally
+    - [x] Audit any usage of any in models and services; replace with unknown or precise types where possible (keep
       Angular validators exceptions documented)
 
 4. [ ] Align Angular 20 best practices (standalone + signals)
-    - [ ] Audit all components/directives/pipes to ensure standalone usage without standalone: true in decorators,
+    - [x] Audit all components/directives/pipes to ensure standalone usage without standalone: true in decorators,
       following guidelines.md
-    - [ ] Ensure changeDetection: OnPush on all components
-    - [ ] Migrate any constructor DI to inject() function for consistency
-    - [ ] Replace legacy control flow (*ngIf/*ngFor) with new @if/@for where not already applied
+    - [x] Ensure changeDetection: OnPush on all components
+    - [x] Migrate any constructor DI to inject() function for consistency
+    - [x] Replace legacy control flow (*ngIf/*ngFor) with new @if/@for where not already applied
 
 5. [ ] Library boundaries and public APIs
     - [ ] Ensure each library’s public API is clean and documented via src/index.ts (only export intended symbols)

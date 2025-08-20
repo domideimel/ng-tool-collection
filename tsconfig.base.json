@@ -11,7 +11,11 @@
     "target": "esnext",
     "module": "esnext",
     "lib": ["ESNext", "dom"],
-    "skipLibCheck": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "exactOptionalPropertyTypes": true,
+    "skipLibCheck": false,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {

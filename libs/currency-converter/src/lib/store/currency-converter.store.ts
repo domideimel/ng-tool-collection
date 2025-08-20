@@ -21,7 +21,6 @@ const initialState: CurrencyConverterState = {
   amount: 1,
   result: 1,
   currencies: [],
-  error: undefined,
 };
 export type CurrencyConverterStoreType = InstanceType<typeof CurrencyConverterStore>;
 const subscriptions = new Subscription();
