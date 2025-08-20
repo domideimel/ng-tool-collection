@@ -7,11 +7,11 @@ UX/accessibility, developer experience, and deployment/operations. Each item is 
 repository.
 
 1. [ ] Establish repository hygiene and conventions
-    - [ ] Add a comprehensive project README with usage, development, testing, and release information; link to WARP.md
+    - [x] Add a comprehensive project README with usage, development, testing, and release information; link to WARP.md
       and guidelines.md
-    - [ ] Add a CONTRIBUTING.md with commit message conventions, branching strategy, PR process, and code review
+    - [x] Add a CONTRIBUTING.md with commit message conventions, branching strategy, PR process, and code review
       checklist
-    - [ ] Add CODE_OF_CONDUCT.md and SECURITY.md with responsible disclosure
+    - [x] Add CODE_OF_CONDUCT.md and SECURITY.md with responsible disclosure
     - [ ] Ensure LICENSE header templates or repo-level license scanning (keep MIT license current)
 
 2. [ ] Define Nx workspace governance
@@ -57,7 +57,7 @@ repository.
     - [ ] Add initialization guard patterns in consumers (e.g., ensure configure() is called in providers or component
       init) to avoid runtime errors
     - [ ] Add tests covering configure(), suffix behavior, JSON parse failures, and storage quota errors
-    - [ ] Add try/catch for localStorage access in non-browser or private mode scenarios; provide graceful fallback (
+    - [x] Add try/catch for localStorage access in non-browser or private mode scenarios; provide graceful fallback (
       in-memory)
     - [ ] Ensure providedIn strategy is intentional (currently 'any'); document rationale and evaluate 'root' vs
       component-level providers
@@ -67,7 +67,7 @@ repository.
       selected type if desired)
     - [ ] Optionally enforce at least one char of each selected type; make this a toggle in GenerationProperties and
       document behavior
-    - [ ] Optimize createSymbolString() to precompute symbols once (memoize) and avoid recreating on each call
+    - [x] Optimize createSymbolString() to precompute symbols once (memoize) and avoid recreating on each call
     - [ ] Review performance for very large lengths; stream generation or chunking if necessary
 
 10. [ ] UI/UX and accessibility (PrimeNG + Tailwind)

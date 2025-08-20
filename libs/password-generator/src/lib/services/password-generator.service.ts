@@ -7,6 +7,9 @@ import { random, range, sample } from '@ng-tool-collection/utils';
   providedIn: 'root',
 })
 export class PasswordGeneratorService {
+  // Precompute symbol characters once to avoid recomputation on each call
+  private readonly symbols: string[] = this.createSymbolString();
+
   generatePassword = ({ length, ...args }: GenerationProperties) => {
     return of(args).pipe(
       map(args => Object.fromEntries(Object.entries(args).filter(([_, value]) => value))),
@@ -35,6 +38,6 @@ export class PasswordGeneratorService {
     lower: () => this.getRandomChar(97, 122),
     upper: () => this.getRandomChar(65, 90),
     number: () => this.getRandomChar(48, 57),
-    symbol: () => this.getRandomSymbol(this.createSymbolString()),
+    symbol: () => this.getRandomSymbol(this.symbols),
   };
 }

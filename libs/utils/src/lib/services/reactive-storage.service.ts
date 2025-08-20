@@ -6,7 +6,8 @@ export type StorageType = 'localStorage' | 'sessionStorage';
   providedIn: 'any',
 })
 export class ReactiveStorageService {
-  private storage: Storage = localStorage;
+  // Use a safe storage by default to prevent runtime errors in non-browser/private mode
+  private storage: Storage = this.getSafeStorage('localStorage');
   private suffix = ''; // Optional suffix for key names
   private data = signal<{ [key: string]: any }>({});
   private isConfigured = signal<boolean>(false); // Signal to indicate readiness
@@ -26,7 +27,8 @@ export class ReactiveStorageService {
    * @param suffix Optional suffix added to all keys
    */
   configure(type: StorageType, suffix?: string) {
-    this.storage = type === 'localStorage' ? localStorage : sessionStorage;
+    // Select a safe storage backend based on the requested type
+    this.storage = this.getSafeStorage(type);
     if (suffix && suffix.length > 0) {
       this.suffix = suffix; // Set suffix, default to empty if not provided
     }
@@ -85,6 +87,46 @@ export class ReactiveStorageService {
       throw new Error('ReactiveStorageService is not configured. Call configure() first.');
     }
     this.data.set({});
+  }
+
+  /**
+   * Returns a safe Storage implementation. If the requested Web Storage is not
+   * available (SSR, private mode, or blocked), falls back to an in-memory implementation.
+   */
+  private getSafeStorage(type: StorageType): Storage {
+    try {
+      const candidate = type === 'localStorage' ? localStorage : sessionStorage;
+      // Probe storage availability
+      const testKey = `__probe_${Date.now()}__`;
+      candidate.setItem(testKey, 'ok');
+      candidate.removeItem(testKey);
+      return candidate;
+    } catch {
+      // In-memory fallback implementing Storage interface
+      const map = new Map<string, string>();
+      const memoryStorage: Storage = {
+        get length() {
+          return map.size;
+        },
+        clear() {
+          map.clear();
+        },
+        getItem(key: string) {
+          return map.has(key) ? map.get(key)! : null;
+        },
+        key(index: number) {
+          const keys = Array.from(map.keys());
+          return index >= 0 && index < keys.length ? keys[index] : null;
+        },
+        removeItem(key: string) {
+          map.delete(key);
+        },
+        setItem(key: string, value: string) {
+          map.set(key, String(value));
+        },
+      } as Storage;
+      return memoryStorage;
+    }
   }
 
   /**
