@@ -4,7 +4,10 @@
   "sourceRoot": "libs/home/src",
   "prefix": "lib",
   "projectType": "library",
-  "tags": [],
+  "tags": [
+    "type:feature",
+    "domain:home"
+  ],
   "targets": {
     "lint": {
       "executor": "@nx/eslint:lint"

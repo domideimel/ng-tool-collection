@@ -12,4 +12,8 @@ export const appRoutes: Route[] = [
     loadChildren: () => import('@ng-tool-collection/tools').then(m => m.toolsRoutes),
     title: 'Tool Collection',
   },
+  {
+    path: '**',
+    redirectTo: 'tools/not-found',
+  },
 ];

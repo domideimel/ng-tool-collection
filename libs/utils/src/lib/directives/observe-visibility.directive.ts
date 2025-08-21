@@ -4,7 +4,6 @@ import { delay, filter, Subject } from 'rxjs';
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
   selector: '[observeVisibility]',
-  standalone: true,
 })
 export class ObserveVisibilityDirective implements OnDestroy {
   debounceTime = input(0);
@@ -40,7 +39,7 @@ export class ObserveVisibilityDirective implements OnDestroy {
     effect(() => {
       this.observer().observe(this.element.nativeElement);
 
-      this.subject$.pipe(delay(this.debounceTime()), filter(Boolean)).subscribe(async ({ entry, observer }) => {
+      this.subject$.pipe(delay(this.debounceTime()), filter(Boolean)).subscribe(async ({ entry }) => {
         const target = entry.target as HTMLElement;
 
         if (entry.isIntersecting) {

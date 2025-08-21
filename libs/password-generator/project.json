@@ -4,7 +4,10 @@
   "sourceRoot": "libs/password-generator/src",
   "prefix": "lib",
   "projectType": "library",
-  "tags": [],
+  "tags": [
+    "type:feature",
+    "domain:tools"
+  ],
   "targets": {
     "lint": {
       "executor": "@nx/eslint:lint"

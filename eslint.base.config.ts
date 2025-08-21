@@ -20,8 +20,21 @@ export default [
           allow: [],
           depConstraints: [
             {
-              sourceTag: '*',
-              onlyDependOnLibsWithTags: ['*'],
+              sourceTag: 'type:feature',
+              onlyDependOnLibsWithTags: [
+                'type:shared',
+                'domain:tools',
+                'domain:ui',
+                'domain:models',
+                'domain:constants',
+                'domain:utils',
+                'domain:home',
+                'type:feature',
+              ],
+            },
+            {
+              sourceTag: 'type:shared',
+              onlyDependOnLibsWithTags: ['type:shared'],
             },
           ],
         },
