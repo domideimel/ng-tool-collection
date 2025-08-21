@@ -23,8 +23,6 @@
     "@ngrx/signals": "20.0.0",
     "@nx/angular": "21.4.0",
     "@primeuix/themes": "^1.2.3",
-    "@vercel/analytics": "^1.5.0",
-    "@vercel/speed-insights": "^1.2.0",
     "primeicons": "^7.0.0",
     "primeng": "^20.0.1",
     "rxjs": "~7.8.2",
