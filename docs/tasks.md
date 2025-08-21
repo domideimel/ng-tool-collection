@@ -109,20 +109,20 @@ repository.
     - [ ] Add Nx affected commands to speed up CI (nx affected -t lint,test,build)
     - [ ] Upload coverage reports as artifacts and enforce thresholds
 
-16. [ ] PWA and service worker
+16. [x] PWA and service worker
     - [x] Review ngsw-config.json for asset groups and data groups; ensure versioning and cache busting are correct
     - [x] Add a runtime SW status indicator and update flow (prompt user to refresh on new version)
-    - [ ] Ensure offline fallbacks exist for tools (basic UX messaging)
+    - [x] Ensure offline fallbacks exist for tools (basic UX messaging)
 
 17. [ ] Security and dependency management
     - [ ] Enable automated dependency updates (Renovate or Dependabot) with grouping rules for Angular/Nx
     - [ ] Audit dependencies (npm audit, OSV) and keep pnpm overrides up-to-date (currently on-headers, koa, tmp)
     - [ ] Add CSP recommendations and security headers guidance for deployment target
 
-18. [ ] Observability and error handling
-    - [ ] Add a centralized error boundary strategy and global error handler; route to a friendly error UI
-    - [ ] Integrate lightweight logging with levels (debug/info/warn/error) toggled by environment
-    - [ ] Optionally integrate Sentry or similar with sourcemaps in CI
+18. [x] Observability and error handling
+    - [x] Add a centralized error boundary strategy and global error handler; route to a friendly error UI
+    - [x] Integrate lightweight logging with levels (debug/info/warn/error) toggled by environment
+    - [x] Integrate Vercel Logs: client warn/error forwarding to /api/log serverless endpoint (captured in Vercel logs)
 
 19. [ ] Documentation improvements
     - [ ] Expand WARP.md with step-by-step common tasks and troubleshooting

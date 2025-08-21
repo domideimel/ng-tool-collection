@@ -32,6 +32,11 @@ export const toolsRoutes: Route[] = [
         title: 'Seite nicht gefunden',
       },
       {
+        path: 'error',
+        loadComponent: () => import('@ng-tool-collection/ui').then(m => m.ErrorPageComponent),
+        title: 'Fehler',
+      },
+      {
         path: '**',
         redirectTo: 'not-found',
       },
