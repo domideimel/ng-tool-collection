@@ -119,10 +119,10 @@ repository.
     - [ ] Audit dependencies (npm audit, OSV) and keep pnpm overrides up-to-date (currently on-headers, koa, tmp)
     - [ ] Add CSP recommendations and security headers guidance for deployment target
 
-18. [ ] Observability and error handling
-    - [ ] Add a centralized error boundary strategy and global error handler; route to a friendly error UI
-    - [ ] Integrate lightweight logging with levels (debug/info/warn/error) toggled by environment
-    - [ ] Optionally integrate Sentry or similar with sourcemaps in CI
+18. [x] Observability and error handling
+    - [x] Add a centralized error boundary strategy and global error handler; route to a friendly error UI
+    - [x] Integrate lightweight logging with levels (debug/info/warn/error) toggled by environment
+    - [x] Integrate Vercel Logs: client warn/error forwarding to /api/log serverless endpoint (captured in Vercel logs)
 
 19. [ ] Documentation improvements
     - [ ] Expand WARP.md with step-by-step common tasks and troubleshooting

@@ -6,3 +6,5 @@ export * from './lib/directives/observe-visibility.directive';
 export * from './lib/decorators/storage.decorator';
 export * from './lib/services/reactive-storage.service';
 export * from './lib/store/service-worker.store';
+export * from './lib/services/logger.service';
+export * from './lib/services/global-error.handler';
