@@ -4,3 +4,4 @@ export * from './lib/components/card/card.component';
 export * from './lib/components/form/form.component';
 export * from './lib/components/navbar/navbar.component';
 export * from './lib/components/service-worker-update-prompt/service-worker-update-prompt.component';
+export * from './lib/components/offline-indicator/offline-indicator.component';
