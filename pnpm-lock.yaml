@@ -48,7 +48,7 @@ importers:
         version: 20.0.0(@angular/core@20.2.0(@angular/compiler@20.2.0)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)
       '@nx/angular':
         specifier: 21.4.0
-        version: 21.4.0(209f7823d7d18173f76820c56fab88ae)
+        version: 21.4.0(ma3cykwnr4afmzs5mpxnq43dt4)
       '@primeuix/themes':
         specifier: ^1.2.3
         version: 1.2.3
@@ -57,7 +57,7 @@ importers:
         version: 7.0.0
       primeng:
         specifier: ^20.0.1
-        version: 20.0.1(606e2b80a37b55633083906e50f3eebf)
+        version: 20.0.1(5r737vu43kv35lis26jqhaukrm)
       rxjs:
         specifier: ~7.8.2
         version: 7.8.2
@@ -75,14 +75,14 @@ importers:
         version: 13.15.15
     devDependencies:
       '@analogjs/vite-plugin-angular':
-        specifier: 1.19.4
-        version: 1.19.4(@angular-devkit/build-angular@20.2.0(c05bae216dbe6751c0ce72ab9ced53dc))(@angular/build@20.2.0(c582f65f98fb4a15181ea44bb2a8e21d))
+        specifier: 1.20.1
+        version: 1.20.1(@angular-devkit/build-angular@20.2.0(mvqrwgsnktvat6c77hp7iso6qi))(@angular/build@20.2.0(tltqq3u4m7wcq4q6p4yo5zpvdq))
       '@analogjs/vitest-angular':
         specifier: 1.19.4
-        version: 1.19.4(@analogjs/vite-plugin-angular@1.19.4(@angular-devkit/build-angular@20.2.0(c05bae216dbe6751c0ce72ab9ced53dc))(@angular/build@20.2.0(c582f65f98fb4a15181ea44bb2a8e21d)))(@angular-devkit/architect@0.2002.0(chokidar@4.0.3))(vitest@3.2.4)
+        version: 1.19.4(@analogjs/vite-plugin-angular@1.20.1(@angular-devkit/build-angular@20.2.0(mvqrwgsnktvat6c77hp7iso6qi))(@angular/build@20.2.0(tltqq3u4m7wcq4q6p4yo5zpvdq)))(@angular-devkit/architect@0.2002.0(chokidar@4.0.3))(vitest@3.2.4)
       '@angular-devkit/build-angular':
         specifier: 20.2.0
-        version: 20.2.0(c05bae216dbe6751c0ce72ab9ced53dc)
+        version: 20.2.0(mvqrwgsnktvat6c77hp7iso6qi)
       '@angular-devkit/core':
         specifier: 20.2.0
         version: 20.2.0(chokidar@4.0.3)
@@ -199,7 +199,7 @@ importers:
         version: 30.0.5
       jest-preset-angular:
         specifier: 15.0.0
-        version: 15.0.0(c68e414916dd5b7e8faeefff0208b241)
+        version: 15.0.0(ikth3polhcwmb6jnycwzxjdjyu)
       jest-util:
         specifier: ~30.0.5
         version: 30.0.5
@@ -312,8 +312,8 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
-  '@analogjs/vite-plugin-angular@1.19.4':
-    resolution: {integrity: sha512-DqGFF4Y+WDcXLcgi7dse9Ljvqy6F4mg79MKGAjjCOf5ujJyVp9bzjj/57Tch5p0t7j7cYCYT7PW/UGw3PcHYmg==}
+  '@analogjs/vite-plugin-angular@1.20.1':
+    resolution: {integrity: sha512-1JYFMbfx2jIB/L4vekm8n+0iNd9QEVWzYsOlfz6vcdc94/hmXBMRskeygMjKQU8Gz2gQyA2PXIw5PMrcJ3fTqA==}
     peerDependencies:
       '@angular-devkit/build-angular': ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^20.0.0
       '@angular/build': ^18.0.0 || ^19.0.0 || ^20.0.0
@@ -8868,17 +8868,17 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.12
       '@jridgewell/trace-mapping': 0.3.29
 
-  '@analogjs/vite-plugin-angular@1.19.4(@angular-devkit/build-angular@20.2.0(c05bae216dbe6751c0ce72ab9ced53dc))(@angular/build@20.2.0(c582f65f98fb4a15181ea44bb2a8e21d))':
+  '@analogjs/vite-plugin-angular@1.20.1(@angular-devkit/build-angular@20.2.0(mvqrwgsnktvat6c77hp7iso6qi))(@angular/build@20.2.0(tltqq3u4m7wcq4q6p4yo5zpvdq))':
     dependencies:
       ts-morph: 21.0.1
       vfile: 6.0.3
     optionalDependencies:
-      '@angular-devkit/build-angular': 20.2.0(c05bae216dbe6751c0ce72ab9ced53dc)
-      '@angular/build': 20.2.0(c582f65f98fb4a15181ea44bb2a8e21d)
+      '@angular-devkit/build-angular': 20.2.0(mvqrwgsnktvat6c77hp7iso6qi)
+      '@angular/build': 20.2.0(tltqq3u4m7wcq4q6p4yo5zpvdq)
 
-  '@analogjs/vitest-angular@1.19.4(@analogjs/vite-plugin-angular@1.19.4(@angular-devkit/build-angular@20.2.0(c05bae216dbe6751c0ce72ab9ced53dc))(@angular/build@20.2.0(c582f65f98fb4a15181ea44bb2a8e21d)))(@angular-devkit/architect@0.2002.0(chokidar@4.0.3))(vitest@3.2.4)':
+  '@analogjs/vitest-angular@1.19.4(@analogjs/vite-plugin-angular@1.20.1(@angular-devkit/build-angular@20.2.0(mvqrwgsnktvat6c77hp7iso6qi))(@angular/build@20.2.0(tltqq3u4m7wcq4q6p4yo5zpvdq)))(@angular-devkit/architect@0.2002.0(chokidar@4.0.3))(vitest@3.2.4)':
     dependencies:
-      '@analogjs/vite-plugin-angular': 1.19.4(@angular-devkit/build-angular@20.2.0(c05bae216dbe6751c0ce72ab9ced53dc))(@angular/build@20.2.0(c582f65f98fb4a15181ea44bb2a8e21d))
+      '@analogjs/vite-plugin-angular': 1.20.1(@angular-devkit/build-angular@20.2.0(mvqrwgsnktvat6c77hp7iso6qi))(@angular/build@20.2.0(tltqq3u4m7wcq4q6p4yo5zpvdq))
       '@angular-devkit/architect': 0.2002.0(chokidar@4.0.3)
       vitest: 3.2.4(@types/node@24.3.0)(@vitest/ui@3.2.4)(jiti@2.5.1)(jsdom@26.1.0)(less@4.3.0)(lightningcss@1.30.1)(sass-embedded@1.89.2)(sass@1.89.2)(stylus@0.64.0)(terser@5.43.1)(yaml@2.8.0)
 
@@ -8889,13 +8889,13 @@ snapshots:
     transitivePeerDependencies:
       - chokidar
 
-  '@angular-devkit/build-angular@20.2.0(c05bae216dbe6751c0ce72ab9ced53dc)':
+  '@angular-devkit/build-angular@20.2.0(mvqrwgsnktvat6c77hp7iso6qi)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.2002.0(chokidar@4.0.3)
       '@angular-devkit/build-webpack': 0.2002.0(chokidar@4.0.3)(webpack-dev-server@5.2.2(webpack@5.101.2(@swc/core@1.13.3(@swc/helpers@0.5.17))(esbuild@0.25.9)))(webpack@5.101.2(@swc/core@1.13.3(@swc/helpers@0.5.17))(esbuild@0.25.9))
       '@angular-devkit/core': 20.2.0(chokidar@4.0.3)
-      '@angular/build': 20.2.0(b71e1884a9b283624350aca6a40bce5a)
+      '@angular/build': 20.2.0(scmpdsc5mkdr4f5ctavoukeiye)
       '@angular/compiler-cli': 20.2.0(@angular/compiler@20.2.0)(typescript@5.8.3)
       '@babel/core': 7.28.3
       '@babel/generator': 7.28.3
@@ -9078,7 +9078,7 @@ snapshots:
       '@angular/core': 20.2.0(@angular/compiler@20.2.0)(rxjs@7.8.2)(zone.js@0.15.1)
       tslib: 2.8.1
 
-  '@angular/build@20.2.0(b71e1884a9b283624350aca6a40bce5a)':
+  '@angular/build@20.2.0(scmpdsc5mkdr4f5ctavoukeiye)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.2002.0(chokidar@4.0.3)
@@ -9133,7 +9133,7 @@ snapshots:
       - tsx
       - yaml
 
-  '@angular/build@20.2.0(c582f65f98fb4a15181ea44bb2a8e21d)':
+  '@angular/build@20.2.0(tltqq3u4m7wcq4q6p4yo5zpvdq)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.2002.0(chokidar@4.0.3)
@@ -12114,7 +12114,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@nx/angular@21.4.0(209f7823d7d18173f76820c56fab88ae)':
+  '@nx/angular@21.4.0(ma3cykwnr4afmzs5mpxnq43dt4)':
     dependencies:
       '@angular-devkit/core': 20.2.0(chokidar@4.0.3)
       '@angular-devkit/schematics': 20.2.0(chokidar@4.0.3)
@@ -12138,8 +12138,8 @@ snapshots:
       tslib: 2.8.1
       webpack-merge: 5.10.0
     optionalDependencies:
-      '@angular-devkit/build-angular': 20.2.0(c05bae216dbe6751c0ce72ab9ced53dc)
-      '@angular/build': 20.2.0(c582f65f98fb4a15181ea44bb2a8e21d)
+      '@angular-devkit/build-angular': 20.2.0(mvqrwgsnktvat6c77hp7iso6qi)
+      '@angular/build': 20.2.0(tltqq3u4m7wcq4q6p4yo5zpvdq)
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@module-federation/enhanced'
@@ -15974,7 +15974,7 @@ snapshots:
     optionalDependencies:
       jest-resolve: 30.0.5
 
-  jest-preset-angular@15.0.0(c68e414916dd5b7e8faeefff0208b241):
+  jest-preset-angular@15.0.0(ikth3polhcwmb6jnycwzxjdjyu):
     dependencies:
       '@angular/compiler-cli': 20.2.0(@angular/compiler@20.2.0)(typescript@5.8.3)
       '@angular/core': 20.2.0(@angular/compiler@20.2.0)(rxjs@7.8.2)(zone.js@0.15.1)
@@ -17442,7 +17442,7 @@ snapshots:
 
   primeicons@7.0.0: {}
 
-  primeng@20.0.1(606e2b80a37b55633083906e50f3eebf):
+  primeng@20.0.1(5r737vu43kv35lis26jqhaukrm):
     dependencies:
       '@angular/animations': 20.2.0(@angular/common@20.2.0(@angular/core@20.2.0(@angular/compiler@20.2.0)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.2.0(@angular/compiler@20.2.0)(rxjs@7.8.2)(zone.js@0.15.1))
       '@angular/cdk': 20.2.0(@angular/common@20.2.0(@angular/core@20.2.0(@angular/compiler@20.2.0)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.2.0(@angular/compiler@20.2.0)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)
