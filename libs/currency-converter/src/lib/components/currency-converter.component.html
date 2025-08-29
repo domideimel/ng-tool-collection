@@ -1,13 +1,11 @@
 <div class="grid">
-  <lib-card [showLink]='false' title="Währungsumrechner">
+  <lib-card [showLink]="false" title="Währungsumrechner">
     <form [formGroup]="formGroup">
       <div class="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_1fr_auto] lg:gap-12">
         <div class="flex flex-col space-y-4">
           <div>
             <label for="fromCurrency">
-              <div class="mb-2">
-                Währung
-              </div>
+              <div class="mb-2">Währung</div>
             </label>
             <p-select
               [options]="currencies()"
@@ -20,16 +18,9 @@
           </div>
           <div>
             <label for="amount">
-              <div class="mb-2">
-                Menge
-              </div>
+              <div class="mb-2">Menge</div>
             </label>
-            <input
-              class="w-full"
-              formControlName="amount"
-              id="amount"
-              pInputText
-            />
+            <input class="w-full" formControlName="amount" id="amount" pInputText />
           </div>
         </div>
         <div class="flex flex-col space-y-4">
@@ -48,16 +39,9 @@
           </div>
           <div>
             <label for="result">
-              <div class="mb-2">
-                Menge
-              </div>
+              <div class="mb-2">Menge</div>
             </label>
-            <input
-              class="w-full"
-              formControlName="result"
-              id="result"
-              pInputText
-            />
+            <input class="w-full" formControlName="result" id="result" pInputText />
           </div>
         </div>
       </div>

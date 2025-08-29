@@ -1,13 +1,13 @@
 /// <reference types='vitest' />
-import { defineConfig } from "vite";
-import angular from "@analogjs/vite-plugin-angular";
-import { nxViteTsPaths } from "@nx/vite/plugins/nx-tsconfig-paths.plugin";
-import { nxCopyAssetsPlugin } from "@nx/vite/plugins/nx-copy-assets.plugin";
+import { defineConfig } from 'vite';
+import angular from '@analogjs/vite-plugin-angular';
+import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
+import { nxCopyAssetsPlugin } from '@nx/vite/plugins/nx-copy-assets.plugin';
 
 export default defineConfig(() => ({
   root: __dirname,
-  cacheDir: "../../node_modules/.vite/libs/currency-converter",
-  plugins: [angular(), nxViteTsPaths(), nxCopyAssetsPlugin(["*.md"])],
+  cacheDir: '../../node_modules/.vite/libs/currency-converter',
+  plugins: [angular(), nxViteTsPaths(), nxCopyAssetsPlugin(['*.md'])],
   // Uncomment this if you are using workers.
   // worker: {
   //  plugins: [ nxViteTsPaths() ],
@@ -15,13 +15,13 @@ export default defineConfig(() => ({
   test: {
     watch: false,
     globals: true,
-    environment: "jsdom",
-    include: ["{src,tests}/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
-    setupFiles: ["src/test-setup.ts"],
-    reporters: ["default"],
+    environment: 'jsdom',
+    include: ['{src,tests}/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    setupFiles: ['src/test-setup.ts'],
+    reporters: ['default'],
     coverage: {
-      reportsDirectory: "../../coverage/libs/currency-converter",
-      provider: "v8" as const,
+      reportsDirectory: '../../coverage/libs/currency-converter',
+      provider: 'v8' as const,
     },
   },
 }));

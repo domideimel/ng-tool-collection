@@ -1,20 +1,20 @@
-import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { CurrencyConverterComponent } from "./currency-converter.component";
-import { CardComponent } from "@ng-tool-collection/ui";
-import { FormBuilder, ReactiveFormsModule } from "@angular/forms";
-import { CurrencyConverterStore, CurrencyConverterStoreType } from "../store/currency-converter.store";
-import { beforeEach, describe, expect, it, vi } from "vitest";
-import { HttpClient, HttpHandler } from "@angular/common/http";
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { CurrencyConverterComponent } from './currency-converter.component';
+import { CardComponent } from '@ng-tool-collection/ui';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { CurrencyConverterStore, CurrencyConverterStoreType } from '../store/currency-converter.store';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
-describe("CurrencyConverterComponent", () => {
+describe('CurrencyConverterComponent', () => {
   let component: CurrencyConverterComponent;
   let fixture: ComponentFixture<CurrencyConverterComponent>;
   let store: CurrencyConverterStoreType;
 
   const mockStore = {
-    currencies: vi.fn(() => ["USD", "EUR", "GBP"]),
-    fromCurrency: vi.fn(() => "USD"),
-    toCurrency: vi.fn(() => "EUR"),
+    currencies: vi.fn(() => ['USD', 'EUR', 'GBP']),
+    fromCurrency: vi.fn(() => 'USD'),
+    toCurrency: vi.fn(() => 'EUR'),
     computedAmount: vi.fn(() => 100),
     computedResult: vi.fn(() => 85),
     updateStateFromForm: vi.fn(),
@@ -32,13 +32,13 @@ describe("CurrencyConverterComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it("should initialize form with values from store", () => {
+  it('should initialize form with values from store', () => {
     const formValues = component.formGroup.value;
-    expect(formValues).toEqual({ fromCurrency: "eur", toCurrency: "usd", amount: 1, result: 1 });
+    expect(formValues).toEqual({ fromCurrency: 'eur', toCurrency: 'usd', amount: 1, result: 1 });
   });
 
   // it("should update store when form values change", async () => {
@@ -57,8 +57,8 @@ describe("CurrencyConverterComponent", () => {
   //   expect(mockStore.updateStateFromForm).toHaveBeenCalledWith(expect.objectContaining(newValues));
   // });
 
-  it("should unsubscribe on destroy", () => {
-    const unsubscribeSpy = vi.spyOn(component["subscription"], "unsubscribe");
+  it('should unsubscribe on destroy', () => {
+    const unsubscribeSpy = vi.spyOn(component['subscription'], 'unsubscribe');
 
     component.ngOnDestroy();
 
@@ -85,10 +85,10 @@ describe("CurrencyConverterComponent", () => {
   //   });
   // });
 
-  it("should have form controls for all required fields", () => {
-    expect(component.formGroup.contains("fromCurrency")).toBeTruthy();
-    expect(component.formGroup.contains("toCurrency")).toBeTruthy();
-    expect(component.formGroup.contains("amount")).toBeTruthy();
-    expect(component.formGroup.contains("result")).toBeTruthy();
+  it('should have form controls for all required fields', () => {
+    expect(component.formGroup.contains('fromCurrency')).toBeTruthy();
+    expect(component.formGroup.contains('toCurrency')).toBeTruthy();
+    expect(component.formGroup.contains('amount')).toBeTruthy();
+    expect(component.formGroup.contains('result')).toBeTruthy();
   });
 });

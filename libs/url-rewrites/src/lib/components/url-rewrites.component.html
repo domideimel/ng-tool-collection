@@ -1,14 +1,12 @@
 <div class="grid">
-  <lib-card [showLink]='false' title="URL Rewrites">
+  <lib-card [showLink]="false" title="URL Rewrites">
     <div class="space-y-4">
       <form (ngSubmit)="onSubmit()" [formGroup]="formGroup" class="grid grid-cols-1 gap-4">
         <div class="space-y-4" formArrayName="urlRows">
           @for (row of urlRowsFormArray.controls; track row) {
             <div class="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_1fr_auto] lg:gap-12" [formGroupName]="$index">
               <label>
-                <div class="mb-2">
-                  Alte URL
-                </div>
+                <div class="mb-2">Alte URL</div>
                 <input
                   type="url"
                   pInputText
@@ -20,16 +18,14 @@
                 />
               </label>
               <label>
-                <div class="mb-2">
-                  Neue URL
-                </div>
+                <div class="mb-2">Neue URL</div>
                 <input
                   type="url"
                   pInputText
                   class="w-full"
                   placeholder="https://new-url.com"
                   formControlName="newUrl"
-                  [invalid]="(row.get('newUrl')?.errors && !row.get('newUrl')?.pristine)"
+                  [invalid]="row.get('newUrl')?.errors && !row.get('newUrl')?.pristine"
                   [attr.id]="'newUrl_' + $index"
                 />
               </label>
@@ -54,11 +50,7 @@
           }
         </div>
         <div>
-          <p-button
-            [disabled]="!formGroup.valid"
-            label="Generieren"
-            type="submit"
-          />
+          <p-button [disabled]="!formGroup.valid" label="Generieren" type="submit" />
         </div>
       </form>
       @if (result().length) {
@@ -72,7 +64,8 @@
             class="w-full h-48"
             pTextarea
             placeholder="Rewrites"
-            readonly></textarea>
+            readonly
+          ></textarea>
         </div>
         <p-button (click)="copyRewrites()" styleClass="w-full lg:w-auto" label="Rewrites kopieren" />
       }

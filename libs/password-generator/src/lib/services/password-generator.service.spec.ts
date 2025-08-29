@@ -1,18 +1,18 @@
-import { TestBed } from "@angular/core/testing";
-import { PasswordGeneratorService } from "./password-generator.service";
-import { beforeEach, describe, expect, it, vi } from "vitest";
-import { firstValueFrom } from "rxjs";
-import { GenerationProperties } from "@ng-tool-collection/models";
-import * as utils from "@ng-tool-collection/utils";
+import { TestBed } from '@angular/core/testing';
+import { PasswordGeneratorService } from './password-generator.service';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { firstValueFrom } from 'rxjs';
+import { GenerationProperties } from '@ng-tool-collection/models';
+import * as utils from '@ng-tool-collection/utils';
 
 // Mock the utility functions
-vi.mock("@ng-tool-collection/utils", () => ({
+vi.mock('@ng-tool-collection/utils', () => ({
   sample: vi.fn(),
   random: vi.fn(),
   range: vi.fn(),
 }));
 
-describe("PasswordGeneratorService", () => {
+describe('PasswordGeneratorService', () => {
   let service: PasswordGeneratorService;
   let mockSample: ReturnType<typeof vi.fn>;
   let mockRandom: ReturnType<typeof vi.fn>;
@@ -37,14 +37,14 @@ describe("PasswordGeneratorService", () => {
     service = TestBed.inject(PasswordGeneratorService);
   });
 
-  describe("service creation", () => {
-    it("should be created", () => {
+  describe('service creation', () => {
+    it('should be created', () => {
       expect(service).toBeTruthy();
     });
   });
 
-  describe("generatePassword", () => {
-    it("should return empty string when no character types are selected", async () => {
+  describe('generatePassword', () => {
+    it('should return empty string when no character types are selected', async () => {
       const props: GenerationProperties = {
         length: 10,
         lower: false,
@@ -54,10 +54,10 @@ describe("PasswordGeneratorService", () => {
       };
 
       const result = await firstValueFrom(service.generatePassword(props));
-      expect(result).toBe("");
+      expect(result).toBe('');
     });
 
-    it("should generate password with lowercase characters only", async () => {
+    it('should generate password with lowercase characters only', async () => {
       const props: GenerationProperties = {
         length: 5,
         lower: true,
@@ -67,18 +67,18 @@ describe("PasswordGeneratorService", () => {
       };
 
       // Mock sample to always return lowercase
-      mockSample.mockReturnValue(["lower", true]);
+      mockSample.mockReturnValue(['lower', true]);
       // Mock random for lowercase chars (97-122)
       mockRandom.mockReturnValue(97); // 'a'
 
       const result = await firstValueFrom(service.generatePassword(props));
 
-      expect(result).toBe("aaaaa");
+      expect(result).toBe('aaaaa');
       expect(result).toHaveLength(5);
       expect(mockSample).toHaveBeenCalledTimes(5);
     });
 
-    it("should generate password with uppercase characters only", async () => {
+    it('should generate password with uppercase characters only', async () => {
       const props: GenerationProperties = {
         length: 3,
         lower: false,
@@ -87,16 +87,16 @@ describe("PasswordGeneratorService", () => {
         symbol: false,
       };
 
-      mockSample.mockReturnValue(["upper", true]);
+      mockSample.mockReturnValue(['upper', true]);
       mockRandom.mockReturnValue(65); // 'A'
 
       const result = await firstValueFrom(service.generatePassword(props));
 
-      expect(result).toBe("AAA");
+      expect(result).toBe('AAA');
       expect(result).toHaveLength(3);
     });
 
-    it("should generate password with numbers only", async () => {
+    it('should generate password with numbers only', async () => {
       const props: GenerationProperties = {
         length: 4,
         lower: false,
@@ -105,16 +105,16 @@ describe("PasswordGeneratorService", () => {
         symbol: false,
       };
 
-      mockSample.mockReturnValue(["number", true]);
+      mockSample.mockReturnValue(['number', true]);
       mockRandom.mockReturnValue(48); // '0'
 
       const result = await firstValueFrom(service.generatePassword(props));
 
-      expect(result).toBe("0000");
+      expect(result).toBe('0000');
       expect(result).toHaveLength(4);
     });
 
-    it("should generate password with symbols only", async () => {
+    it('should generate password with symbols only', async () => {
       const props: GenerationProperties = {
         length: 2,
         lower: false,
@@ -123,7 +123,7 @@ describe("PasswordGeneratorService", () => {
         symbol: true,
       };
 
-      mockSample.mockReturnValue(["symbol", true]);
+      mockSample.mockReturnValue(['symbol', true]);
       // Mock random to return index 0 for symbol selection
       mockRandom.mockReturnValue(0);
 
@@ -133,7 +133,7 @@ describe("PasswordGeneratorService", () => {
       expect(mockSample).toHaveBeenCalledTimes(2);
     });
 
-    it("should generate mixed character password", async () => {
+    it('should generate mixed character password', async () => {
       const props: GenerationProperties = {
         length: 4,
         lower: true,
@@ -144,10 +144,10 @@ describe("PasswordGeneratorService", () => {
 
       // Mock different character types for each position
       mockSample
-        .mockReturnValueOnce(["lower", true])
-        .mockReturnValueOnce(["upper", true])
-        .mockReturnValueOnce(["number", true])
-        .mockReturnValueOnce(["lower", true]);
+        .mockReturnValueOnce(['lower', true])
+        .mockReturnValueOnce(['upper', true])
+        .mockReturnValueOnce(['number', true])
+        .mockReturnValueOnce(['lower', true]);
 
       mockRandom
         .mockReturnValueOnce(97) // 'a'
@@ -157,11 +157,11 @@ describe("PasswordGeneratorService", () => {
 
       const result = await firstValueFrom(service.generatePassword(props));
 
-      expect(result).toBe("aA0z");
+      expect(result).toBe('aA0z');
       expect(result).toHaveLength(4);
     });
 
-    it("should handle zero length", async () => {
+    it('should handle zero length', async () => {
       const props: GenerationProperties = {
         length: 0,
         lower: true,
@@ -172,11 +172,11 @@ describe("PasswordGeneratorService", () => {
 
       const result = await firstValueFrom(service.generatePassword(props));
 
-      expect(result).toBe("");
+      expect(result).toBe('');
       expect(mockSample).not.toHaveBeenCalled();
     });
 
-    it("should filter out false properties", async () => {
+    it('should filter out false properties', async () => {
       const props: GenerationProperties = {
         length: 1,
         lower: true,
@@ -185,19 +185,19 @@ describe("PasswordGeneratorService", () => {
         symbol: false,
       };
 
-      mockSample.mockReturnValue(["lower", true]);
+      mockSample.mockReturnValue(['lower', true]);
       mockRandom.mockReturnValue(97);
 
       await firstValueFrom(service.generatePassword(props));
 
       // Should only pass properties that are true
-      expect(mockSample).toHaveBeenCalledWith([["lower", true]]);
+      expect(mockSample).toHaveBeenCalledWith([['lower', true]]);
     });
   });
 
-  describe("private methods", () => {
-    describe("createSymbolString", () => {
-      it("should create symbol string from ASCII ranges", () => {
+  describe('private methods', () => {
+    describe('createSymbolString', () => {
+      it('should create symbol string from ASCII ranges', () => {
         // The range function should work with the actual implementation
         const symbols = (service as any).createSymbolString();
 
@@ -213,85 +213,85 @@ describe("PasswordGeneratorService", () => {
       });
     });
 
-    describe("getRandomChar", () => {
-      it("should generate character within specified range", () => {
+    describe('getRandomChar', () => {
+      it('should generate character within specified range', () => {
         mockRandom.mockReturnValue(65);
 
         const result = (service as any).getRandomChar(65, 90);
 
         expect(mockRandom).toHaveBeenCalledWith(65, 90);
-        expect(result).toBe("A");
+        expect(result).toBe('A');
       });
     });
 
-    describe("getRandomSymbol", () => {
-      it("should return random symbol from provided array", () => {
-        const symbols = ["!", "@", "#"];
+    describe('getRandomSymbol', () => {
+      it('should return random symbol from provided array', () => {
+        const symbols = ['!', '@', '#'];
         mockRandom.mockReturnValue(1);
 
         const result = (service as any).getRandomSymbol(symbols);
 
         expect(mockRandom).toHaveBeenCalledWith(0, 2);
-        expect(result).toBe("@");
+        expect(result).toBe('@');
       });
 
-      it("should use default symbols when none provided", () => {
+      it('should use default symbols when none provided', () => {
         mockRandom.mockReturnValue(0);
 
         const result = (service as any).getRandomSymbol();
 
         // Should return the first symbol from the generated symbol array
-        expect(typeof result).toBe("string");
+        expect(typeof result).toBe('string');
         expect(result.length).toBe(1);
       });
     });
 
-    describe("randomFunc", () => {
-      it("should have all required character generation functions", () => {
+    describe('randomFunc', () => {
+      it('should have all required character generation functions', () => {
         const randomFunc = (service as any).randomFunc;
 
-        expect(randomFunc).toHaveProperty("lower");
-        expect(randomFunc).toHaveProperty("upper");
-        expect(randomFunc).toHaveProperty("number");
-        expect(randomFunc).toHaveProperty("symbol");
-        expect(typeof randomFunc.lower).toBe("function");
-        expect(typeof randomFunc.upper).toBe("function");
-        expect(typeof randomFunc.number).toBe("function");
-        expect(typeof randomFunc.symbol).toBe("function");
+        expect(randomFunc).toHaveProperty('lower');
+        expect(randomFunc).toHaveProperty('upper');
+        expect(randomFunc).toHaveProperty('number');
+        expect(randomFunc).toHaveProperty('symbol');
+        expect(typeof randomFunc.lower).toBe('function');
+        expect(typeof randomFunc.upper).toBe('function');
+        expect(typeof randomFunc.number).toBe('function');
+        expect(typeof randomFunc.symbol).toBe('function');
       });
 
-      it("should generate lowercase characters", () => {
+      it('should generate lowercase characters', () => {
         mockRandom.mockReturnValue(97);
         const result = (service as any).randomFunc.lower();
         expect(mockRandom).toHaveBeenCalledWith(97, 122);
-        expect(result).toBe("a");
+        expect(result).toBe('a');
       });
 
-      it("should generate uppercase characters", () => {
+      it('should generate uppercase characters', () => {
         mockRandom.mockReturnValue(90);
         const result = (service as any).randomFunc.upper();
         expect(mockRandom).toHaveBeenCalledWith(65, 90);
-        expect(result).toBe("Z");
+        expect(result).toBe('Z');
       });
 
-      it("should generate number characters", () => {
+      it('should generate number characters', () => {
         mockRandom.mockReturnValue(57);
         const result = (service as any).randomFunc.number();
         expect(mockRandom).toHaveBeenCalledWith(48, 57);
-        expect(result).toBe("9");
+        expect(result).toBe('9');
       });
 
-      it("should generate symbol characters", () => {
+      it('should generate symbol characters', () => {
         mockRandom.mockReturnValue(0);
         const result = (service as any).randomFunc.symbol();
-        expect(typeof result).toBe("string");
+        expect(typeof result).toBe('string');
         expect(result.length).toBe(1);
       });
     });
   });
 
-  describe("integration tests", () => {
-    it("should generate password with realistic character distribution", async () => {
+  describe('integration tests', () => {
+    it('should generate password with realistic character distribution', async () => {
       const props: GenerationProperties = {
         length: 20,
         lower: true,
@@ -304,10 +304,10 @@ describe("PasswordGeneratorService", () => {
       let callCount = 0;
       mockSample.mockImplementation(() => {
         const types = [
-          ["lower", true],
-          ["upper", true],
-          ["number", true],
-          ["symbol", true],
+          ['lower', true],
+          ['upper', true],
+          ['number', true],
+          ['symbol', true],
         ];
         return types[callCount++ % 4];
       });
@@ -325,7 +325,7 @@ describe("PasswordGeneratorService", () => {
       expect(mockSample).toHaveBeenCalledTimes(20);
     });
 
-    it("should handle large password lengths", async () => {
+    it('should handle large password lengths', async () => {
       const props: GenerationProperties = {
         length: 100,
         lower: true,
@@ -334,18 +334,18 @@ describe("PasswordGeneratorService", () => {
         symbol: false,
       };
 
-      mockSample.mockReturnValue(["lower", true]);
+      mockSample.mockReturnValue(['lower', true]);
       mockRandom.mockReturnValue(97);
 
       const result = await firstValueFrom(service.generatePassword(props));
 
       expect(result).toHaveLength(100);
-      expect(result).toBe("a".repeat(100));
+      expect(result).toBe('a'.repeat(100));
     });
   });
 
-  describe("observable behavior", () => {
-    it("should return an observable", () => {
+  describe('observable behavior', () => {
+    it('should return an observable', () => {
       const props: GenerationProperties = {
         length: 5,
         lower: true,
@@ -357,10 +357,10 @@ describe("PasswordGeneratorService", () => {
       const result = service.generatePassword(props);
 
       expect(result).toBeDefined();
-      expect(typeof result.subscribe).toBe("function");
+      expect(typeof result.subscribe).toBe('function');
     });
 
-    it("should emit password value", done => {
+    it('should emit password value', done => {
       const props: GenerationProperties = {
         length: 3,
         lower: true,
@@ -369,17 +369,17 @@ describe("PasswordGeneratorService", () => {
         symbol: false,
       };
 
-      mockSample.mockReturnValue(["lower", true]);
+      mockSample.mockReturnValue(['lower', true]);
       mockRandom.mockReturnValue(97);
 
       service.generatePassword(props).subscribe(password => {
-        expect(password).toBe("aaa");
+        expect(password).toBe('aaa');
       });
     });
   });
 
-  describe("edge cases", () => {
-    it("should handle single character generation", async () => {
+  describe('edge cases', () => {
+    it('should handle single character generation', async () => {
       const props: GenerationProperties = {
         length: 1,
         lower: true,
@@ -388,16 +388,16 @@ describe("PasswordGeneratorService", () => {
         symbol: false,
       };
 
-      mockSample.mockReturnValue(["lower", true]);
+      mockSample.mockReturnValue(['lower', true]);
       mockRandom.mockReturnValue(122); // 'z'
 
       const result = await firstValueFrom(service.generatePassword(props));
 
-      expect(result).toBe("z");
+      expect(result).toBe('z');
       expect(result).toHaveLength(1);
     });
 
-    it("should handle all character types enabled", async () => {
+    it('should handle all character types enabled', async () => {
       const props: GenerationProperties = {
         length: 4,
         lower: true,
@@ -407,10 +407,10 @@ describe("PasswordGeneratorService", () => {
       };
 
       mockSample
-        .mockReturnValueOnce(["lower", true])
-        .mockReturnValueOnce(["upper", true])
-        .mockReturnValueOnce(["number", true])
-        .mockReturnValueOnce(["symbol", true]);
+        .mockReturnValueOnce(['lower', true])
+        .mockReturnValueOnce(['upper', true])
+        .mockReturnValueOnce(['number', true])
+        .mockReturnValueOnce(['symbol', true]);
 
       mockRandom
         .mockReturnValueOnce(97) // 'a'

@@ -1,11 +1,11 @@
-import { Directive, ElementRef, HostListener, inject, input, OnDestroy, output } from "@angular/core";
-import { State } from "@ng-tool-collection/models";
-import { copyToClipboard } from "../utils/copy-to-clipboard.utils";
-import { catchError, of, Subscription, tap } from "rxjs";
+import { Directive, ElementRef, HostListener, inject, input, OnDestroy, output } from '@angular/core';
+import { State } from '@ng-tool-collection/models';
+import { copyToClipboard } from '../utils/copy-to-clipboard.utils';
+import { catchError, of, Subscription, tap } from 'rxjs';
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
-  selector: "[copyToClipboard]",
+  selector: '[copyToClipboard]',
 })
 export class CopyToClipboardDirective<T> implements OnDestroy {
   copyToClipboard = input<T>();
@@ -21,8 +21,8 @@ export class CopyToClipboardDirective<T> implements OnDestroy {
     this.subscription?.unsubscribe();
   }
 
-  @HostListener("click")
-  @HostListener("touchstart")
+  @HostListener('click')
+  @HostListener('touchstart')
   copy() {
     const textToCopy = this.copyToClipboard() ?? (this.elementRef.nativeElement as HTMLElement).innerText;
 
