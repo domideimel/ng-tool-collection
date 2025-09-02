@@ -48,7 +48,7 @@ importers:
         version: 20.0.1(@angular/core@20.2.3(@angular/compiler@20.2.3)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)
       '@nx/angular':
         specifier: 21.4.1
-        version: 21.4.1(faa59f22e0e59cb3b95ed37044cb7a95)
+        version: 21.4.1(r5rsjlywxti6lyxl5nleqepgtu)
       '@primeuix/themes':
         specifier: ^1.2.3
         version: 1.2.3
@@ -56,8 +56,8 @@ importers:
         specifier: ^7.0.0
         version: 7.0.0
       primeng:
-        specifier: ^20.0.1
-        version: 20.0.1(87e5dd619f8e65be29b737fa9c918e8a)
+        specifier: ^20.1.0
+        version: 20.1.0(5nfilioy56rljywlu7w7msc43u)
       rxjs:
         specifier: ~7.8.2
         version: 7.8.2
@@ -76,13 +76,13 @@ importers:
     devDependencies:
       '@analogjs/vite-plugin-angular':
         specifier: 1.20.1
-        version: 1.20.1(@angular-devkit/build-angular@20.2.1(f3f0201598c1bff6e558dcb72fa7346a))(@angular/build@20.2.1(c819da4a47688b5f3ebc5a5bda8626df))
+        version: 1.20.1(@angular-devkit/build-angular@20.2.1(nibiahu4m4npz2yquwnb6uvjru))(@angular/build@20.2.1(zlw7h5z6ncvxue2fvb4ysuwi44))
       '@analogjs/vitest-angular':
         specifier: 1.20.1
-        version: 1.20.1(@analogjs/vite-plugin-angular@1.20.1(@angular-devkit/build-angular@20.2.1(f3f0201598c1bff6e558dcb72fa7346a))(@angular/build@20.2.1(c819da4a47688b5f3ebc5a5bda8626df)))(@angular-devkit/architect@0.2002.1(chokidar@4.0.3))(vitest@3.2.4)
+        version: 1.20.1(@analogjs/vite-plugin-angular@1.20.1(@angular-devkit/build-angular@20.2.1(nibiahu4m4npz2yquwnb6uvjru))(@angular/build@20.2.1(zlw7h5z6ncvxue2fvb4ysuwi44)))(@angular-devkit/architect@0.2002.1(chokidar@4.0.3))(vitest@3.2.4)
       '@angular-devkit/build-angular':
         specifier: 20.2.1
-        version: 20.2.1(f3f0201598c1bff6e558dcb72fa7346a)
+        version: 20.2.1(nibiahu4m4npz2yquwnb6uvjru)
       '@angular-devkit/core':
         specifier: 20.2.1
         version: 20.2.1(chokidar@4.0.3)
@@ -199,7 +199,7 @@ importers:
         version: 30.1.1
       jest-preset-angular:
         specifier: 15.0.0
-        version: 15.0.0(a826145fe0a935297c553a65c6d74e84)
+        version: 15.0.0(fbgxqmj23juo3skzwwhlcirjdq)
       jest-util:
         specifier: ~30.0.5
         version: 30.0.5
@@ -2990,23 +2990,15 @@ packages:
   '@polka/url@1.0.0-next.29':
     resolution: {integrity: sha512-wwQAWhWSuHaag8c4q/KN/vCoeOJYshAIvMQwD4GpSb3OiZklFfvAgmj0VCBBImRpuF/aFgIRzllXlVX93Jevww==}
 
-  '@primeuix/styled@0.7.1':
-    resolution: {integrity: sha512-4L42Vlse/uL68ND0nLB0T7x0NKQJXeYY9dVLMt/aSv7VU/IFdKEi/1awPZkHKCKgN2jO5cxB/BJfB+1Wxy4T1w==}
-    engines: {node: '>=12.11.0'}
-
   '@primeuix/styled@0.7.2':
     resolution: {integrity: sha512-tIJ6byZezTYZ9YUICNSidQHOIQOQL3zeUgjwiX0JnBTK3+WCvy4DyCBcrJ94RtiX0WGFZSYNvaGaFkTo4jU8FQ==}
     engines: {node: '>=12.11.0'}
 
-  '@primeuix/styles@1.2.2':
-    resolution: {integrity: sha512-yOyEVLYXJ+ec1qBzE83hJeaCRJZEKcEIa+WPTycHbTPAJ75HdZwqVgQQnxPpzPNz6vb7XbxRkIDTqAL3OPyy0Q==}
+  '@primeuix/styles@1.2.3':
+    resolution: {integrity: sha512-+KwmQsLTYgVAqFADmO252btz40lstPML6r4QMNjxz4gLNCKVW3kPR0/aCouQx6/21+boXG1P68tu8Zk3FAKr2w==}
 
   '@primeuix/themes@1.2.3':
     resolution: {integrity: sha512-GLAU2h6lhgln2w10EQalUQlgwbgQ0xZoIOLMNGfIvqU4O09L282P7rwKCKQksvAGAFt1GoO/Q1NgBSxnttr7iA==}
-
-  '@primeuix/utils@0.6.0':
-    resolution: {integrity: sha512-ULpB87ImNAiX36OMtyDeRceWB7N/mVlh6gGLqp/lx8UMKZlLIQH/UAFND86hYXHwNpXeNKcWfMGreb0Oc0hcZA==}
-    engines: {node: '>=12.11.0'}
 
   '@primeuix/utils@0.6.1':
     resolution: {integrity: sha512-tQL/ZOPgCdD+NTimlUmhyD0ey8J1XmpZE4hDHM+/fnuBicVVmlKOd5HpS748LcOVRUKbWjmEPdHX4hi5XZoC1Q==}
@@ -7423,8 +7415,8 @@ packages:
   primeicons@7.0.0:
     resolution: {integrity: sha512-jK3Et9UzwzTsd6tzl2RmwrVY/b8raJ3QZLzoDACj+oTJ0oX7L9Hy+XnVwgo4QVKlKpnP/Ur13SXV/pVh4LzaDw==}
 
-  primeng@20.0.1:
-    resolution: {integrity: sha512-TDt0e8/fwVCRghXPzDiuZK679/d0jYU7sZN3/Xm2YWsGLe0W2uewLuaxzCj1HYT4RsIFwIYtumJooWq13SNPaA==}
+  primeng@20.1.0:
+    resolution: {integrity: sha512-iZsg7bJsIMRSIii1ZY6wk/0vcNpFjFlhzLzJXgq8/DHdJM0pvfu81dmmAMr3BHCQYjsDEZ4YEVAQ9m0ToAvUoA==}
     peerDependencies:
       '@angular/animations': ^20.0.4
       '@angular/cdk': ^20.0.3
@@ -9020,17 +9012,17 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.12
       '@jridgewell/trace-mapping': 0.3.29
 
-  '@analogjs/vite-plugin-angular@1.20.1(@angular-devkit/build-angular@20.2.1(f3f0201598c1bff6e558dcb72fa7346a))(@angular/build@20.2.1(c819da4a47688b5f3ebc5a5bda8626df))':
+  '@analogjs/vite-plugin-angular@1.20.1(@angular-devkit/build-angular@20.2.1(nibiahu4m4npz2yquwnb6uvjru))(@angular/build@20.2.1(zlw7h5z6ncvxue2fvb4ysuwi44))':
     dependencies:
       ts-morph: 21.0.1
       vfile: 6.0.3
     optionalDependencies:
-      '@angular-devkit/build-angular': 20.2.1(f3f0201598c1bff6e558dcb72fa7346a)
-      '@angular/build': 20.2.1(c819da4a47688b5f3ebc5a5bda8626df)
+      '@angular-devkit/build-angular': 20.2.1(nibiahu4m4npz2yquwnb6uvjru)
+      '@angular/build': 20.2.1(zlw7h5z6ncvxue2fvb4ysuwi44)
 
-  '@analogjs/vitest-angular@1.20.1(@analogjs/vite-plugin-angular@1.20.1(@angular-devkit/build-angular@20.2.1(f3f0201598c1bff6e558dcb72fa7346a))(@angular/build@20.2.1(c819da4a47688b5f3ebc5a5bda8626df)))(@angular-devkit/architect@0.2002.1(chokidar@4.0.3))(vitest@3.2.4)':
+  '@analogjs/vitest-angular@1.20.1(@analogjs/vite-plugin-angular@1.20.1(@angular-devkit/build-angular@20.2.1(nibiahu4m4npz2yquwnb6uvjru))(@angular/build@20.2.1(zlw7h5z6ncvxue2fvb4ysuwi44)))(@angular-devkit/architect@0.2002.1(chokidar@4.0.3))(vitest@3.2.4)':
     dependencies:
-      '@analogjs/vite-plugin-angular': 1.20.1(@angular-devkit/build-angular@20.2.1(f3f0201598c1bff6e558dcb72fa7346a))(@angular/build@20.2.1(c819da4a47688b5f3ebc5a5bda8626df))
+      '@analogjs/vite-plugin-angular': 1.20.1(@angular-devkit/build-angular@20.2.1(nibiahu4m4npz2yquwnb6uvjru))(@angular/build@20.2.1(zlw7h5z6ncvxue2fvb4ysuwi44))
       '@angular-devkit/architect': 0.2002.1(chokidar@4.0.3)
       vitest: 3.2.4(@types/node@24.3.0)(@vitest/ui@3.2.4)(jiti@2.5.1)(jsdom@26.1.0)(less@4.4.0)(lightningcss@1.30.1)(sass-embedded@1.89.2)(sass@1.90.0)(stylus@0.64.0)(terser@5.43.1)(yaml@2.8.0)
 
@@ -9041,13 +9033,13 @@ snapshots:
     transitivePeerDependencies:
       - chokidar
 
-  '@angular-devkit/build-angular@20.2.1(f3f0201598c1bff6e558dcb72fa7346a)':
+  '@angular-devkit/build-angular@20.2.1(nibiahu4m4npz2yquwnb6uvjru)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.2002.1(chokidar@4.0.3)
       '@angular-devkit/build-webpack': 0.2002.1(chokidar@4.0.3)(webpack-dev-server@5.2.2(webpack@5.101.2(@swc/core@1.13.5(@swc/helpers@0.5.17))(esbuild@0.25.9)))(webpack@5.101.2(@swc/core@1.13.5(@swc/helpers@0.5.17))(esbuild@0.25.9))
       '@angular-devkit/core': 20.2.1(chokidar@4.0.3)
-      '@angular/build': 20.2.1(c819da4a47688b5f3ebc5a5bda8626df)
+      '@angular/build': 20.2.1(zlw7h5z6ncvxue2fvb4ysuwi44)
       '@angular/compiler-cli': 20.2.3(@angular/compiler@20.2.3)(typescript@5.8.3)
       '@babel/core': 7.28.3
       '@babel/generator': 7.28.3
@@ -9230,7 +9222,7 @@ snapshots:
       '@angular/core': 20.2.3(@angular/compiler@20.2.3)(rxjs@7.8.2)(zone.js@0.15.1)
       tslib: 2.8.1
 
-  '@angular/build@20.2.1(c819da4a47688b5f3ebc5a5bda8626df)':
+  '@angular/build@20.2.1(zlw7h5z6ncvxue2fvb4ysuwi44)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.2002.1(chokidar@4.0.3)
@@ -11786,7 +11778,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@nx/angular@21.4.1(faa59f22e0e59cb3b95ed37044cb7a95)':
+  '@nx/angular@21.4.1(r5rsjlywxti6lyxl5nleqepgtu)':
     dependencies:
       '@angular-devkit/core': 20.2.1(chokidar@4.0.3)
       '@angular-devkit/schematics': 20.2.1(chokidar@4.0.3)
@@ -11810,8 +11802,8 @@ snapshots:
       tslib: 2.8.1
       webpack-merge: 5.10.0
     optionalDependencies:
-      '@angular-devkit/build-angular': 20.2.1(f3f0201598c1bff6e558dcb72fa7346a)
-      '@angular/build': 20.2.1(c819da4a47688b5f3ebc5a5bda8626df)
+      '@angular-devkit/build-angular': 20.2.1(nibiahu4m4npz2yquwnb6uvjru)
+      '@angular/build': 20.2.1(zlw7h5z6ncvxue2fvb4ysuwi44)
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@module-federation/enhanced'
@@ -12356,23 +12348,17 @@ snapshots:
 
   '@polka/url@1.0.0-next.29': {}
 
-  '@primeuix/styled@0.7.1':
-    dependencies:
-      '@primeuix/utils': 0.6.0
-
   '@primeuix/styled@0.7.2':
     dependencies:
       '@primeuix/utils': 0.6.1
 
-  '@primeuix/styles@1.2.2':
+  '@primeuix/styles@1.2.3':
     dependencies:
-      '@primeuix/styled': 0.7.1
+      '@primeuix/styled': 0.7.2
 
   '@primeuix/themes@1.2.3':
     dependencies:
       '@primeuix/styled': 0.7.2
-
-  '@primeuix/utils@0.6.0': {}
 
   '@primeuix/utils@0.6.1': {}
 
@@ -15831,7 +15817,7 @@ snapshots:
     optionalDependencies:
       jest-resolve: 30.1.0
 
-  jest-preset-angular@15.0.0(a826145fe0a935297c553a65c6d74e84):
+  jest-preset-angular@15.0.0(fbgxqmj23juo3skzwwhlcirjdq):
     dependencies:
       '@angular/compiler-cli': 20.2.3(@angular/compiler@20.2.3)(typescript@5.8.3)
       '@angular/core': 20.2.3(@angular/compiler@20.2.3)(rxjs@7.8.2)(zone.js@0.15.1)
@@ -17406,7 +17392,7 @@ snapshots:
 
   primeicons@7.0.0: {}
 
-  primeng@20.0.1(87e5dd619f8e65be29b737fa9c918e8a):
+  primeng@20.1.0(5nfilioy56rljywlu7w7msc43u):
     dependencies:
       '@angular/animations': 20.2.3(@angular/common@20.2.3(@angular/core@20.2.3(@angular/compiler@20.2.3)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.2.3(@angular/compiler@20.2.3)(rxjs@7.8.2)(zone.js@0.15.1))
       '@angular/cdk': 20.2.1(@angular/common@20.2.3(@angular/core@20.2.3(@angular/compiler@20.2.3)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.2.3(@angular/compiler@20.2.3)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)
@@ -17415,9 +17401,9 @@ snapshots:
       '@angular/forms': 20.2.3(@angular/common@20.2.3(@angular/core@20.2.3(@angular/compiler@20.2.3)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.2.3(@angular/compiler@20.2.3)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@20.2.3(@angular/animations@20.2.3(@angular/common@20.2.3(@angular/core@20.2.3(@angular/compiler@20.2.3)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.2.3(@angular/compiler@20.2.3)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@20.2.3(@angular/core@20.2.3(@angular/compiler@20.2.3)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.2.3(@angular/compiler@20.2.3)(rxjs@7.8.2)(zone.js@0.15.1)))(rxjs@7.8.2)
       '@angular/platform-browser': 20.2.3(@angular/animations@20.2.3(@angular/common@20.2.3(@angular/core@20.2.3(@angular/compiler@20.2.3)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.2.3(@angular/compiler@20.2.3)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@20.2.3(@angular/core@20.2.3(@angular/compiler@20.2.3)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.2.3(@angular/compiler@20.2.3)(rxjs@7.8.2)(zone.js@0.15.1))
       '@angular/router': 20.2.3(@angular/common@20.2.3(@angular/core@20.2.3(@angular/compiler@20.2.3)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.2.3(@angular/compiler@20.2.3)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@20.2.3(@angular/animations@20.2.3(@angular/common@20.2.3(@angular/core@20.2.3(@angular/compiler@20.2.3)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.2.3(@angular/compiler@20.2.3)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@20.2.3(@angular/core@20.2.3(@angular/compiler@20.2.3)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.2.3(@angular/compiler@20.2.3)(rxjs@7.8.2)(zone.js@0.15.1)))(rxjs@7.8.2)
-      '@primeuix/styled': 0.7.1
-      '@primeuix/styles': 1.2.2
-      '@primeuix/utils': 0.6.0
+      '@primeuix/styled': 0.7.2
+      '@primeuix/styles': 1.2.3
+      '@primeuix/utils': 0.6.1
       rxjs: 7.8.2
       tslib: 2.8.1
 
