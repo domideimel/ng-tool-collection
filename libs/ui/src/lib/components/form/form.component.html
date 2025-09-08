@@ -1,7 +1,7 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="formGroup" class="flex flex-col gap-6">
   @for (item of formModel().items; track item.label) {
     @switch (item.type) {
-      @case ("text") {
+      @case ('text') {
         <div>
           <label [for]="item.controlName">
             <span>{{ item.label }}</span>
@@ -14,7 +14,7 @@
           />
         </div>
       }
-      @case ("checkbox") {
+      @case ('checkbox') {
         <div class="flex items-center gap-2">
           <p-checkbox [formControlName]="item.controlName" [binary]="true" [inputId]="item.controlName" />
           <label [for]="item.controlName">
@@ -22,7 +22,7 @@
           </label>
         </div>
       }
-      @case ("radio") {
+      @case ('radio') {
         <div class="flex flex-col gap-4">
           @for (option of item.options; track option.value) {
             <p-radio-button
@@ -37,43 +37,35 @@
           }
         </div>
       }
-      @case ("select") {
+      @case ('select') {
         <div>
           <label [for]="item.controlName">
             <span>{{ item.label }}</span>
           </label>
-          <p-select
-            [options]="item.options"
-            [formControlName]="item.controlName"
-            [attr.id]="item.controlName"
-          />
+          <p-select [options]="item.options" [formControlName]="item.controlName" [attr.id]="item.controlName" />
         </div>
       }
-      @case ("textarea") {
+      @case ('textarea') {
         <div>
           <label [for]="item.controlName">
             <span>{{ item.label }}</span>
           </label>
-          <textarea
-            pTextarea
-            class="h-24 "
-            [formControlName]="item.controlName"
-            [attr.id]="item.controlName"
-          ></textarea>
+          <textarea pTextarea class="h-24" [formControlName]="item.controlName" [attr.id]="item.controlName"></textarea>
         </div>
       }
-      @case ("date") {
+      @case ('date') {
         <div>
           <label [for]="item.controlName">
             <span>{{ item.label }}</span>
           </label>
           <p-datepicker
-            [inputId]="item.controlName" [formControlName]="item.controlName"
+            [inputId]="item.controlName"
+            [formControlName]="item.controlName"
             [invalid]="hasErrors(item.controlName)"
           />
         </div>
       }
-      @case ("range") {
+      @case ('range') {
         <div>
           <label [for]="item.controlName">
             <span>{{ item.label }}</span>

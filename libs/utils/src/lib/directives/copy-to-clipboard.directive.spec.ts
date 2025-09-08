@@ -1,9 +1,9 @@
-import { Component, signal } from "@angular/core";
-import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { CopyToClipboardDirective } from "./copy-to-clipboard.directive";
-import { beforeEach, describe, expect, it, vi } from "vitest";
-import { By } from "@angular/platform-browser";
-import { State } from "@ng-tool-collection/models";
+import { Component, signal } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { CopyToClipboardDirective } from './copy-to-clipboard.directive';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { By } from '@angular/platform-browser';
+import { State } from '@ng-tool-collection/models';
 
 @Component({
   template: `
@@ -13,7 +13,7 @@ import { State } from "@ng-tool-collection/models";
   imports: [CopyToClipboardDirective],
 })
 class TestComponent {
-  textToCopy = signal("Test text");
+  textToCopy = signal('Test text');
   copySuccess = false;
   copyState?: State;
 
@@ -23,7 +23,7 @@ class TestComponent {
   }
 }
 
-describe("CopyToClipboardDirective", () => {
+describe('CopyToClipboardDirective', () => {
   let component: TestComponent;
   let fixture: ComponentFixture<TestComponent>;
   let mockClipboard: {
@@ -37,7 +37,7 @@ describe("CopyToClipboardDirective", () => {
       writeText: vi.fn(),
     };
 
-    Object.defineProperty(navigator, "clipboard", {
+    Object.defineProperty(navigator, 'clipboard', {
       value: mockClipboard,
       writable: true,
     });
@@ -51,11 +51,11 @@ describe("CopyToClipboardDirective", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it("should copy text to clipboard on button click", async () => {
+  it('should copy text to clipboard on button click', async () => {
     // Arrange
     const button = fixture.debugElement.query(By.css('[data-testid="copy-button"]'));
     mockClipboard.writeText.mockResolvedValueOnce(undefined);
@@ -65,30 +65,30 @@ describe("CopyToClipboardDirective", () => {
     await fixture.whenStable();
 
     // Assert
-    expect(mockClipboard.writeText).toHaveBeenCalledWith("Test text");
+    expect(mockClipboard.writeText).toHaveBeenCalledWith('Test text');
     expect(component.copySuccess).toBe(true);
     expect(component.copyState).toBe(State.SUCCESS);
   });
 
-  it("should handle clipboard API errors", async () => {
+  it('should handle clipboard API errors', async () => {
     // Arrange
     const button = fixture.debugElement.query(By.css('[data-testid="copy-button"]'));
-    mockClipboard.writeText.mockRejectedValueOnce(new Error("Clipboard error"));
+    mockClipboard.writeText.mockRejectedValueOnce(new Error('Clipboard error'));
 
     // Act
     button.nativeElement.click();
     await fixture.whenStable();
 
     // Assert
-    expect(mockClipboard.writeText).toHaveBeenCalledWith("Test text");
+    expect(mockClipboard.writeText).toHaveBeenCalledWith('Test text');
     expect(component.copySuccess).toBe(false);
     expect(component.copyState).toBe(State.ERROR);
   });
 
-  it("should handle missing clipboard API", async () => {
+  it('should handle missing clipboard API', async () => {
     // Arrange
     const button = fixture.debugElement.query(By.css('[data-testid="copy-button"]'));
-    Object.defineProperty(navigator, "clipboard", { value: undefined });
+    Object.defineProperty(navigator, 'clipboard', { value: undefined });
 
     // Act
     button.nativeElement.click();
@@ -99,10 +99,10 @@ describe("CopyToClipboardDirective", () => {
     expect(component.copyState).toBe(State.ERROR);
   });
 
-  it("should handle empty text", async () => {
+  it('should handle empty text', async () => {
     // Arrange
     const button = fixture.debugElement.query(By.css('[data-testid="copy-button"]'));
-    component.textToCopy.set("");
+    component.textToCopy.set('');
     mockClipboard.writeText.mockResolvedValueOnce(undefined);
     fixture.detectChanges();
 
@@ -116,7 +116,7 @@ describe("CopyToClipboardDirective", () => {
     expect(component.copyState).toBe(undefined);
   });
 
-  it("should handle null text", async () => {
+  it('should handle null text', async () => {
     // Arrange
     const button = fixture.debugElement.query(By.css('[data-testid="copy-button"]'));
     component.textToCopy.set(null as any);

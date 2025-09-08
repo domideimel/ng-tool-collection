@@ -46,7 +46,6 @@ protected readonly
 ```
 
 ```html
-
 <section class="container">
   @if (isServerRunning()) {
   <span>Yes, the server is running</span>

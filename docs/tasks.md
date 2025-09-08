@@ -22,7 +22,7 @@ repository.
     - [ ] Generate and commit project graph docs (nx graph export) under docs/architecture/ for visibility
 
 3. [ ] Strengthen TypeScript configuration and strictness
-    - [x] Turn on strictest compiler options across tsconfig.* (noImplicitAny, strictNullChecks, noUnusedLocals,
+    - [x] Turn on strictest compiler options across tsconfig.\* (noImplicitAny, strictNullChecks, noUnusedLocals,
       noUnusedParameters, exactOptionalPropertyTypes)
     - [x] Remove skipLibCheck where feasible and fix offending types locally
     - [x] Audit any usage of any in models and services; replace with unknown or precise types where possible (keep

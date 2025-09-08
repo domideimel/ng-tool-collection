@@ -1,18 +1,18 @@
-import { beforeEach, describe, expect, it, vi } from "vitest";
-import { copyToClipboard } from "./copy-to-clipboard.utils";
-import { State } from "@ng-tool-collection/models";
-import { firstValueFrom } from "rxjs";
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { copyToClipboard } from './copy-to-clipboard.utils';
+import { State } from '@ng-tool-collection/models';
+import { firstValueFrom } from 'rxjs';
 
-describe("copyToClipboard", () => {
+describe('copyToClipboard', () => {
   beforeEach(() => {
     // Reset all mocks before each test
     vi.resetAllMocks();
   });
 
-  describe("when clipboard API is available", () => {
+  describe('when clipboard API is available', () => {
     beforeEach(() => {
       // Mock clipboard API
-      Object.defineProperty(navigator, "clipboard", {
+      Object.defineProperty(navigator, 'clipboard', {
         value: {
           writeText: vi.fn().mockResolvedValue(undefined),
         },
@@ -20,8 +20,8 @@ describe("copyToClipboard", () => {
       });
     });
 
-    it("should copy string data successfully", async () => {
-      const testData = "test string";
+    it('should copy string data successfully', async () => {
+      const testData = 'test string';
       const result = await firstValueFrom(copyToClipboard(testData));
 
       expect(result).toBe(State.SUCCESS);
@@ -29,8 +29,8 @@ describe("copyToClipboard", () => {
       expect(navigator.clipboard.writeText).toHaveBeenCalledTimes(1);
     });
 
-    it("should stringify and copy object data successfully", async () => {
-      const testData = { key: "value" };
+    it('should stringify and copy object data successfully', async () => {
+      const testData = { key: 'value' };
       const result = await firstValueFrom(copyToClipboard(testData));
 
       expect(result).toBe(State.SUCCESS);
@@ -38,12 +38,12 @@ describe("copyToClipboard", () => {
       expect(navigator.clipboard.writeText).toHaveBeenCalledTimes(1);
     });
 
-    it("should handle clipboard write errors", async () => {
-      const testData = "test string";
-      const error = new Error("Clipboard error");
+    it('should handle clipboard write errors', async () => {
+      const testData = 'test string';
+      const error = new Error('Clipboard error');
 
-      vi.spyOn(navigator.clipboard, "writeText").mockRejectedValueOnce(error);
-      vi.spyOn(console, "error").mockImplementation(() => {});
+      vi.spyOn(navigator.clipboard, 'writeText').mockRejectedValueOnce(error);
+      vi.spyOn(console, 'error').mockImplementation(() => {});
 
       try {
         await firstValueFrom(copyToClipboard(testData));
@@ -55,24 +55,24 @@ describe("copyToClipboard", () => {
     });
   });
 
-  describe("when clipboard API is not available", () => {
+  describe('when clipboard API is not available', () => {
     beforeEach(() => {
       // Mock missing clipboard API
-      Object.defineProperty(navigator, "clipboard", {
+      Object.defineProperty(navigator, 'clipboard', {
         value: undefined,
         configurable: true,
       });
     });
 
-    it("should return error state when clipboard API is not available", async () => {
+    it('should return error state when clipboard API is not available', async () => {
       try {
-        await firstValueFrom(copyToClipboard("test"));
+        await firstValueFrom(copyToClipboard('test'));
       } catch (err) {
         expect(err).toBe(State.ERROR);
       }
     });
 
-    it("should return error state for null data", async () => {
+    it('should return error state for null data', async () => {
       try {
         await firstValueFrom(copyToClipboard(null));
       } catch (err) {

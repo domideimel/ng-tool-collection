@@ -1,13 +1,13 @@
-import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { UrlRewritesComponent } from "./url-rewrites.component";
-import { Meta } from "@angular/platform-browser";
-import { UrlRewritesService } from "../services/url-rewrites.service";
-import { ToastService } from "@ng-tool-collection/ui";
-import { FormArray, ReactiveFormsModule } from "@angular/forms";
-import { beforeEach, describe, expect, it, vi } from "vitest";
-import { of } from "rxjs";
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { UrlRewritesComponent } from './url-rewrites.component';
+import { Meta } from '@angular/platform-browser';
+import { UrlRewritesService } from '../services/url-rewrites.service';
+import { ToastService } from '@ng-tool-collection/ui';
+import { FormArray, ReactiveFormsModule } from '@angular/forms';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { of } from 'rxjs';
 
-describe("UrlRewritesComponent", () => {
+describe('UrlRewritesComponent', () => {
   let component: UrlRewritesComponent;
   let fixture: ComponentFixture<UrlRewritesComponent>;
   let urlRewritesService: UrlRewritesService;
@@ -16,7 +16,7 @@ describe("UrlRewritesComponent", () => {
 
   beforeEach(async () => {
     const urlRewritesServiceMock = {
-      generateRewrites: vi.fn().mockReturnValue(of("mock rewrite rule")),
+      generateRewrites: vi.fn().mockReturnValue(of('mock rewrite rule')),
     };
 
     const toastServiceMock = {
@@ -45,65 +45,65 @@ describe("UrlRewritesComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it("should initialize with one URL row", () => {
+  it('should initialize with one URL row', () => {
     expect(component.urlRowsFormArray.length).toBe(1);
   });
 
-  it("should update meta tag on init", () => {
+  it('should update meta tag on init', () => {
     expect(metaService.updateTag).toHaveBeenCalledWith({
-      name: "description",
+      name: 'description',
       content: expect.any(String),
     });
   });
 
-  describe("Form Array Management", () => {
-    it("should add new URL row", () => {
+  describe('Form Array Management', () => {
+    it('should add new URL row', () => {
       const initialLength = component.urlRowsFormArray.length;
       component.addUrlRow();
       expect(component.urlRowsFormArray.length).toBe(initialLength + 1);
     });
 
-    it("should remove URL row", () => {
+    it('should remove URL row', () => {
       component.addUrlRow(); // Add an extra row first
       const initialLength = component.urlRowsFormArray.length;
       component.removeUrlRow(1);
       expect(component.urlRowsFormArray.length).toBe(initialLength - 1);
     });
 
-    it("should not remove last row when only one exists", () => {
+    it('should not remove last row when only one exists', () => {
       expect(component.hasOnlyOneRow).toBe(true);
       component.removeUrlRow(0);
       expect(component.urlRowsFormArray.length).toBe(0);
     });
   });
 
-  describe("Form Submission", () => {
-    it("should generate rewrites on submit", () => {
+  describe('Form Submission', () => {
+    it('should generate rewrites on submit', () => {
       const urlRows = component.urlRowsFormArray as FormArray;
       const firstRow = urlRows.at(0);
       firstRow.patchValue({
-        oldUrl: "https://example.com/old",
-        newUrl: "https://example.com/new",
+        oldUrl: 'https://example.com/old',
+        newUrl: 'https://example.com/new',
       });
 
       component.onSubmit();
 
       expect(urlRewritesService.generateRewrites).toHaveBeenCalled();
-      expect(component.result()).toBe("mock rewrite rule");
+      expect(component.result()).toBe('mock rewrite rule');
     });
   });
 
-  describe("Copy Functionality", () => {
+  describe('Copy Functionality', () => {
     beforeEach(() => {
-      component.result.set("test rewrite rule");
+      component.result.set('test rewrite rule');
     });
 
-    it("should handle successful copy", () => {
-      Object.defineProperty(navigator, "clipboard", {
+    it('should handle successful copy', () => {
+      Object.defineProperty(navigator, 'clipboard', {
         value: { writeText: vi.fn().mockResolvedValue(undefined) },
         configurable: true,
       });
@@ -113,9 +113,9 @@ describe("UrlRewritesComponent", () => {
       expect(toastService.success).not.toHaveBeenCalled();
     });
 
-    it("should handle copy failure", () => {
-      Object.defineProperty(navigator, "clipboard", {
-        value: { writeText: vi.fn().mockRejectedValue(new Error("Copy failed")) },
+    it('should handle copy failure', () => {
+      Object.defineProperty(navigator, 'clipboard', {
+        value: { writeText: vi.fn().mockRejectedValue(new Error('Copy failed')) },
         configurable: true,
       });
 
@@ -125,8 +125,8 @@ describe("UrlRewritesComponent", () => {
     });
   });
 
-  it("should clean up subscriptions on destroy", () => {
-    const unsubscribeSpy = vi.spyOn(component["subscription"], "unsubscribe");
+  it('should clean up subscriptions on destroy', () => {
+    const unsubscribeSpy = vi.spyOn(component['subscription'], 'unsubscribe');
     component.ngOnDestroy();
     expect(unsubscribeSpy).toHaveBeenCalled();
   });
