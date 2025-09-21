@@ -1,9 +1,10 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { CardComponent } from '@ng-tool-collection/ui';
-import { CopyToClipboardDirective, ReactiveStorageService } from '@ng-tool-collection/utils';
+import { CopyToClipboardDirective } from '@ng-tool-collection/utils';
 import { MessageService } from 'primeng/api';
 import { Button } from 'primeng/button';
 import { PG_I18N } from '@ng-tool-collection/constants';
+import { PasswordStore } from '../../services/passwords.store';
 
 @Component({
   selector: 'lib-generator-password-overview',
@@ -13,8 +14,8 @@ import { PG_I18N } from '@ng-tool-collection/constants';
 })
 export class GeneratorPasswordOverviewComponent {
   protected readonly i18n = PG_I18N;
-  private storageService = inject(ReactiveStorageService);
-  passwords = this.storageService.getItem<string[]>('passwords');
+  private passwordStore = inject(PasswordStore);
+  passwords = computed(() => this.passwordStore.passwords());
   private messageService = inject(MessageService);
 
   onCopySuccess() {
@@ -26,10 +27,7 @@ export class GeneratorPasswordOverviewComponent {
   }
 
   delete(password: string) {
-    this.storageService.setItem(
-      'passwords',
-      this.passwords().filter(p => p !== password),
-    );
+    this.passwordStore.deletePassword(password);
     this.messageService.add({ severity: 'success', detail: this.i18n.deleteSuccess });
   }
 }
