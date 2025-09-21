@@ -1,14 +1,11 @@
-import { ChangeDetectionStrategy, Component, inject, OnDestroy, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { FormModel, GenerationProperties } from '@ng-tool-collection/models';
 import { FormsModule, Validators } from '@angular/forms';
-import { PasswordGeneratorService } from '../../services/password-generator.service';
 import { atLeastOneCheckedValidator, CardComponent, FormComponent } from '@ng-tool-collection/ui';
-import { catchError, finalize, Subscription, tap } from 'rxjs';
-import { copyToClipboard, ReactiveStorageService } from '@ng-tool-collection/utils';
-import { MessageService } from 'primeng/api';
 import { InputText } from 'primeng/inputtext';
 import { InputGroup } from 'primeng/inputgroup';
 import { Button } from 'primeng/button';
+import { PasswordStore } from '../../services/passwords.store';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -16,7 +13,7 @@ import { Button } from 'primeng/button';
   templateUrl: './generator-form.component.html',
   imports: [CardComponent, FormComponent, InputText, FormsModule, InputGroup, Button],
 })
-export class GeneratorFormComponent implements OnDestroy {
+export class GeneratorFormComponent {
   formModel = {
     items: [
       {
@@ -54,44 +51,15 @@ export class GeneratorFormComponent implements OnDestroy {
     submitButtonLabel: 'Passwort generieren',
     customValidators: atLeastOneCheckedValidator(['upper', 'lower', 'symbol', 'number']),
   } as const satisfies FormModel;
-  password = signal<string>('');
-  hasCopied = signal<boolean>(true);
-  private subscription = new Subscription();
-  private passwordGeneratorService = inject(PasswordGeneratorService);
-  private storageService = inject(ReactiveStorageService);
-  private messageService = inject(MessageService);
+  private passwordStore = inject(PasswordStore);
+  hasCopied = computed(() => this.passwordStore.hasCopied());
+  password = computed(() => this.passwordStore.currentPassword());
 
   onSubmit(value: unknown) {
-    const submitSub = this.passwordGeneratorService
-      .generatePassword(value as unknown as GenerationProperties)
-      .pipe(
-        tap(password => this.password.set(password)),
-        finalize(() => this.hasCopied.set(false)),
-      )
-      .subscribe();
-    this.subscription.add(submitSub);
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this.passwordStore.generatePassword(value as unknown as GenerationProperties);
   }
 
   copyToClipboard() {
-    const copySub = copyToClipboard(this.password())
-      .pipe(
-        tap(() => {
-          const passwords = this.storageService.getItem<string[]>('passwords');
-          const oldPasswords = passwords() ? passwords() : [];
-          this.storageService.setItem('passwords', [this.password(), ...oldPasswords]);
-          this.hasCopied.set(true);
-          this.messageService.add({ severity: 'success', detail: 'Passwort wurde erfolgreich kopiert' });
-        }),
-        catchError(err => {
-          this.messageService.add({ severity: 'error', detail: 'Beim kopieren ist etwas schief gelaufen' });
-          return err;
-        }),
-      )
-      .subscribe();
-    this.subscription.add(copySub);
+    this.passwordStore.copyPassword(this.password());
   }
 }
