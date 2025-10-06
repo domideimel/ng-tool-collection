@@ -22,7 +22,7 @@
     "@angular/router": "20.3.2",
     "@angular/service-worker": "20.3.2",
     "@ngrx/signals": "20.0.1",
-    "@nx/angular": "21.6.2",
+    "@nx/angular": "21.6.3",
     "@primeuix/themes": "^1.2.5",
     "primeicons": "^7.0.0",
     "primeng": "^20.2.0",
