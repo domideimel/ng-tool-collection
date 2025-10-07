@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NavbarComponent, ServiceWorkerUpdatePromptComponent } from '@ng-tool-collection/ui';
+import { NavbarComponent, ServiceWorkerUpdatePromptComponent } from '@ng-tool-collection/ui-core';
 import { Toast } from 'primeng/toast';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
