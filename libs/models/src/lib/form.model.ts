@@ -1,10 +1,10 @@
 import { AbstractControl } from '@angular/forms';
-import { any, array, InferInput, object, optional, string } from 'valibot';
+import { array, InferInput, object, optional, string, unknown } from 'valibot';
 
 // Valibot schema for form control option
 const FormControlOptionSchema = object({
   label: string(),
-  value: any(),
+  value: unknown(), // More type-safe than any
 });
 
 // Valibot schema for form control model
@@ -12,9 +12,9 @@ const FormControlModelSchema = object({
   controlName: string(),
   label: string(),
   placeholder: optional(string()),
-  value: optional(any()),
+  value: optional(unknown()),
   type: string(),
-  validators: optional(any()), // Keep as any for Angular validator compatibility
+  validators: optional(unknown()), // ValidatorFn[] should be validated at runtime
   options: optional(array(FormControlOptionSchema)),
 });
 
@@ -22,7 +22,7 @@ const FormControlModelSchema = object({
 const FormModelSchema = object({
   items: array(FormControlModelSchema),
   submitButtonLabel: string(),
-  customValidators: optional(any()), // Keep as any for Angular validator compatibility
+  customValidators: optional(unknown()),
 });
 
 // Infer types from schemas
