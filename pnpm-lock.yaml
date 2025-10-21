@@ -4,12 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  on-headers@<1.1.0: '>=1.1.0'
-  koa@<2.16.2: '>=2.16.2'
-  tmp@<=0.2.3: '>=0.2.4'
-  axios@<1.12.0: '>=1.12.0'
-
 importers:
 
   .:
