@@ -1,14 +1,15 @@
-import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CardComponent, urlValidator } from '@ng-tool-collection/ui';
 import { UrlRewritesService } from '../services/url-rewrites.service';
 import { Meta } from '@angular/platform-browser';
-import { catchError, Subscription, tap } from 'rxjs';
+import { catchError, tap } from 'rxjs';
 import { copyToClipboard } from '@ng-tool-collection/utils';
 import { MessageService } from 'primeng/api';
 import { Button } from 'primeng/button';
 import { Textarea } from 'primeng/textarea';
 import { InputText } from 'primeng/inputtext';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -16,7 +17,7 @@ import { InputText } from 'primeng/inputtext';
   templateUrl: './url-rewrites.component.html',
   imports: [CardComponent, ReactiveFormsModule, Button, FormsModule, Textarea, InputText],
 })
-export class UrlRewritesComponent implements OnInit, OnDestroy {
+export class UrlRewritesComponent implements OnInit {
   result = signal<string>('');
   private fb = inject(FormBuilder);
   formGroup = this.fb.group({
@@ -25,8 +26,8 @@ export class UrlRewritesComponent implements OnInit, OnDestroy {
   private rewriteService = inject(UrlRewritesService);
   private meta = inject(Meta);
   private messageService = inject(MessageService);
+  private destroyRef = inject(DestroyRef);
 
-  private subscription = new Subscription();
   get urlRowsFormArray() {
     return this.formGroup.get('urlRows') as FormArray;
   }
@@ -51,15 +52,19 @@ export class UrlRewritesComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    const submitSub = this.rewriteService
+    this.rewriteService
       .generateRewrites((this.formGroup as FormGroup).value)
-      .subscribe(result => this.result.set(result));
-    this.subscription.add(submitSub);
+      .pipe(
+        takeUntilDestroyed(this.destroyRef),
+        tap(result => this.result.set(result)),
+      )
+      .subscribe();
   }
 
   copyRewrites() {
-    const copySub = copyToClipboard(this.result())
+    copyToClipboard(this.result())
       .pipe(
+        takeUntilDestroyed(this.destroyRef),
         tap(() => this.messageService.add({ severity: 'success', detail: `Die Rewrites wurden erfolgreich kopiert` })),
         catchError(err => {
           this.messageService.add({ severity: 'error', detail: `Es gab ein Fehler beim kopieren` });
@@ -67,12 +72,6 @@ export class UrlRewritesComponent implements OnInit, OnDestroy {
         }),
       )
       .subscribe();
-
-    this.subscription.add(copySub);
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 
   private createUrlRow() {
