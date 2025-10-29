@@ -1,28 +1,25 @@
-import { Directive, ElementRef, HostListener, inject, input, OnDestroy, output } from '@angular/core';
+import { DestroyRef, Directive, ElementRef, inject, input, output } from '@angular/core';
 import { State } from '@ng-tool-collection/models';
 import { copyToClipboard } from '../utils/copy-to-clipboard.utils';
-import { catchError, of, Subscription, tap } from 'rxjs';
+import { catchError, of, tap } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
   selector: '[copyToClipboard]',
+  host: {
+    '(click)': 'copy()',
+    '(touchstart)': 'copy()',
+  },
 })
-export class CopyToClipboardDirective<T> implements OnDestroy {
+export class CopyToClipboardDirective<T> {
   copyToClipboard = input<T>();
-
   copyError = output<State.ERROR>();
   success = output<State.SUCCESS>();
   copied = output<State.SUCCESS | State.ERROR>();
-
-  private subscription: Subscription | undefined;
+  private destroyRef = inject(DestroyRef);
   private elementRef: ElementRef<T> = inject(ElementRef);
 
-  ngOnDestroy() {
-    this.subscription?.unsubscribe();
-  }
-
-  @HostListener('click')
-  @HostListener('touchstart')
   copy() {
     const textToCopy = this.copyToClipboard() ?? (this.elementRef.nativeElement as HTMLElement).innerText;
 
@@ -30,8 +27,9 @@ export class CopyToClipboardDirective<T> implements OnDestroy {
       return;
     }
 
-    this.subscription = copyToClipboard(textToCopy)
+    copyToClipboard(textToCopy)
       .pipe(
+        takeUntilDestroyed(this.destroyRef),
         tap(() => this.success.emit(State.SUCCESS)),
         tap(() => this.copied.emit(State.SUCCESS)),
         catchError(() => {

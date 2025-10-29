@@ -20,6 +20,5 @@ export class ServiceWorkerUpdatePromptComponent {
 
   ignoreUpdate() {
     this.serviceWorkerStore.updateHasUpdates(false);
-    this.serviceWorkerStore.destroy();
   }
 }

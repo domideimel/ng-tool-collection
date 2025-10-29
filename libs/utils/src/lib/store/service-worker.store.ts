@@ -1,13 +1,12 @@
 import { patchState, signalStore, withHooks, withMethods, withState } from '@ngrx/signals';
-import { filter, Subscription, tap } from 'rxjs';
-import { inject } from '@angular/core';
+import { filter, tap } from 'rxjs';
+import { DestroyRef, inject } from '@angular/core';
 import { SwUpdate, VersionReadyEvent } from '@angular/service-worker';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 type ServiceWorkerState = {
   hasUpdates: boolean;
 };
-
-const subs = new Subscription();
 
 export const ServiceWorkerStore = signalStore(
   {
@@ -25,28 +24,22 @@ export const ServiceWorkerStore = signalStore(
       document.location.reload();
     };
 
-    const destroy = () => {
-      subs.unsubscribe();
-    };
-    return { updateHasUpdates, update, destroy };
+    return { updateHasUpdates, update };
   }),
   withHooks(store => {
     const swUpdate = inject(SwUpdate);
+    const destroyRef = inject(DestroyRef);
     return {
       onInit() {
-        const sub = swUpdate.versionUpdates
+        swUpdate.versionUpdates
           .pipe(
+            takeUntilDestroyed(destroyRef),
             filter((evt): evt is VersionReadyEvent => evt.type === 'VERSION_READY'),
             tap(() => {
               store.updateHasUpdates(true);
             }),
           )
           .subscribe();
-
-        subs.add(sub);
-      },
-      onDestroy() {
-        store.destroy();
       },
     };
   }),
