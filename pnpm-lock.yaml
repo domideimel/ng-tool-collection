@@ -111,8 +111,8 @@ importers:
         specifier: 20.3.7
         version: 20.3.7(@angular/compiler@20.3.7)(typescript@5.9.3)
       '@angular/language-service':
-        specifier: 20.3.7
-        version: 20.3.7
+        specifier: 20.3.9
+        version: 20.3.9
       '@angular/localize':
         specifier: 20.3.7
         version: 20.3.7(@angular/compiler-cli@20.3.7(@angular/compiler@20.3.7)(typescript@5.9.3))(@angular/compiler@20.3.7)
@@ -571,8 +571,8 @@ packages:
       '@angular/platform-browser': 20.3.7
       rxjs: ^6.5.3 || ^7.4.0
 
-  '@angular/language-service@20.3.7':
-    resolution: {integrity: sha512-isULgp/s2NKpeZnU3xFMPBvYHyjqFkqvDDLA8/dBTKb6NZPyrSC6Ckpy8ZNYwNbA5xN6vYys9mip1Vi+oeRo/Q==}
+  '@angular/language-service@20.3.9':
+    resolution: {integrity: sha512-aCsuzlFx8a/VMBNgXMfwai97j2QHZ8PhQwzwodDNb2X3eQsaUO+nCgs5kNIZmQ/rJESH+fY9ZdlZcrYbVp+nBA==}
     engines: {node: ^20.19.0 || ^22.12.0 || >=24.0.0}
 
   '@angular/localize@20.3.7':
@@ -9209,7 +9209,7 @@ snapshots:
       rxjs: 7.8.2
       tslib: 2.8.1
 
-  '@angular/language-service@20.3.7': {}
+  '@angular/language-service@20.3.9': {}
 
   '@angular/localize@20.3.7(@angular/compiler-cli@20.3.7(@angular/compiler@20.3.7)(typescript@5.9.3))(@angular/compiler@20.3.7)':
     dependencies:
