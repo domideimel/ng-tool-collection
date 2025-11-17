@@ -33,8 +33,8 @@
     "validator": "^13.15.23"
   },
   "devDependencies": {
-    "@analogjs/vite-plugin-angular": "1.22.4",
-    "@analogjs/vitest-angular": "1.22.4",
+    "@analogjs/vite-plugin-angular": "2.0.4",
+    "@analogjs/vitest-angular": "2.0.4",
     "@angular-devkit/build-angular": "20.3.10",
     "@angular-devkit/core": "20.3.10",
     "@angular-devkit/schematics": "20.3.10",
