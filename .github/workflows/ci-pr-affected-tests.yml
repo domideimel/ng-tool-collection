@@ -52,5 +52,4 @@ jobs:
         run: |
           BASE_REF="origin/${{ github.base_ref }}"
           echo "Using base ref: $BASE_REF"
-          pnpm nx reset
           pnpm nx affected -t test -c ci --base=$BASE_REF --head=HEAD --parallel=3
