@@ -1,0 +1,55 @@
+name: CI - PR Affected Tests
+
+on:
+  pull_request:
+    branches:
+      - '**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  affected-tests:
+    name: Run affected unit tests
+    runs-on: ubuntu-latest
+    env:
+      # Connect this run to Nx Cloud for caching and insights
+      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+      # Helpful metadata for Nx Cloud run grouping
+      NX_BRANCH: ${{ github.head_ref || github.ref_name }}
+      NX_RUN_GROUP: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Needed so Nx can compare against the base branch accurately
+          fetch-depth: 0
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify Nx version
+        run: pnpm nx --version
+
+      - name: Run affected unit tests only (Vitest)
+        # Runs tests only for projects affected by the current PR changes
+        # Using the CI configuration defined in nx.json (@nx/vite:test -> configurations.ci)
+        run: |
+          BASE_REF="origin/${{ github.base_ref }}"
+          echo "Using base ref: $BASE_REF"
+          pnpm nx affected -t test -c ci --base=$BASE_REF --head=HEAD --parallel=3
