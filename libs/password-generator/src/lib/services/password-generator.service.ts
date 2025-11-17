@@ -32,7 +32,7 @@ export class PasswordGeneratorService {
 
   private getRandomChar = (start: number, end: number) => String.fromCharCode(random(start, end));
 
-  private getRandomSymbol = (symbols: string[]) => symbols[random(0, symbols.length - 1)];
+  private getRandomSymbol = (symbols: string[] = this.symbols) => symbols[random(0, symbols.length - 1)];
 
   private randomFunc: RandomFunc = {
     lower: () => this.getRandomChar(97, 122),

@@ -3,7 +3,7 @@ import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Va
 import { CardComponent, urlValidator } from '@ng-tool-collection/ui';
 import { UrlRewritesService } from '../services/url-rewrites.service';
 import { Meta } from '@angular/platform-browser';
-import { catchError, tap } from 'rxjs';
+import { catchError, of, tap } from 'rxjs';
 import { copyToClipboard } from '@ng-tool-collection/utils';
 import { MessageService } from 'primeng/api';
 import { Button } from 'primeng/button';
@@ -68,7 +68,7 @@ export class UrlRewritesComponent implements OnInit {
         tap(() => this.messageService.add({ severity: 'success', detail: `Die Rewrites wurden erfolgreich kopiert` })),
         catchError(err => {
           this.messageService.add({ severity: 'error', detail: `Es gab ein Fehler beim kopieren` });
-          return err;
+          return of(err);
         }),
       )
       .subscribe();

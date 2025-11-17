@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { UrlRewritesComponent } from './url-rewrites.component';
 import { Meta } from '@angular/platform-browser';
 import { UrlRewritesService } from '../services/url-rewrites.service';
-import { ToastService } from '@ng-tool-collection/ui';
+import { MessageService } from 'primeng/api';
 import { FormArray, ReactiveFormsModule } from '@angular/forms';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { of } from 'rxjs';
@@ -11,7 +11,7 @@ describe('UrlRewritesComponent', () => {
   let component: UrlRewritesComponent;
   let fixture: ComponentFixture<UrlRewritesComponent>;
   let urlRewritesService: UrlRewritesService;
-  let toastService: ToastService;
+  let messageService: MessageService;
   let metaService: Meta;
 
   beforeEach(async () => {
@@ -19,9 +19,8 @@ describe('UrlRewritesComponent', () => {
       generateRewrites: vi.fn().mockReturnValue(of('mock rewrite rule')),
     };
 
-    const toastServiceMock = {
-      success: vi.fn(),
-      error: vi.fn(),
+    const messageServiceMock = {
+      add: vi.fn(),
     };
 
     const metaServiceMock = {
@@ -32,7 +31,7 @@ describe('UrlRewritesComponent', () => {
       imports: [UrlRewritesComponent, ReactiveFormsModule],
       providers: [
         { provide: UrlRewritesService, useValue: urlRewritesServiceMock },
-        { provide: ToastService, useValue: toastServiceMock },
+        { provide: MessageService, useValue: messageServiceMock },
         { provide: Meta, useValue: metaServiceMock },
       ],
     }).compileComponents();
@@ -40,7 +39,7 @@ describe('UrlRewritesComponent', () => {
     fixture = TestBed.createComponent(UrlRewritesComponent);
     component = fixture.componentInstance;
     urlRewritesService = TestBed.inject(UrlRewritesService);
-    toastService = TestBed.inject(ToastService);
+    messageService = TestBed.inject(MessageService);
     metaService = TestBed.inject(Meta);
     fixture.detectChanges();
   });
@@ -102,7 +101,7 @@ describe('UrlRewritesComponent', () => {
       component.result.set('test rewrite rule');
     });
 
-    it('should handle successful copy', () => {
+    it('should handle successful copy', async () => {
       Object.defineProperty(navigator, 'clipboard', {
         value: { writeText: vi.fn().mockResolvedValue(undefined) },
         configurable: true,
@@ -110,10 +109,14 @@ describe('UrlRewritesComponent', () => {
 
       component.copyRewrites();
 
-      expect(toastService.success).not.toHaveBeenCalled();
+      // wait for observable pipeline to resolve
+      await Promise.resolve();
+      await Promise.resolve();
+
+      expect(messageService.add).toHaveBeenCalledWith(expect.objectContaining({ severity: 'success' }));
     });
 
-    it('should handle copy failure', () => {
+    it('should handle copy failure', async () => {
       Object.defineProperty(navigator, 'clipboard', {
         value: { writeText: vi.fn().mockRejectedValue(new Error('Copy failed')) },
         configurable: true,
@@ -121,13 +124,11 @@ describe('UrlRewritesComponent', () => {
 
       component.copyRewrites();
 
-      expect(toastService.success).not.toHaveBeenCalled();
-    });
-  });
+      // wait for observable pipeline to resolve
+      await Promise.resolve();
+      await Promise.resolve();
 
-  it('should clean up subscriptions on destroy', () => {
-    const unsubscribeSpy = vi.spyOn(component['subscription'], 'unsubscribe');
-    component.ngOnDestroy();
-    expect(unsubscribeSpy).toHaveBeenCalled();
+      expect(messageService.add).toHaveBeenCalledWith(expect.objectContaining({ severity: 'error' }));
+    });
   });
 });
