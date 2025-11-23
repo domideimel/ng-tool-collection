@@ -8,9 +8,7 @@
   "targets": {
     "build": {
       "executor": "@nx/angular:application",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/ng-tool-collection",
         "index": "./src/index.html",
@@ -27,9 +25,7 @@
           "./src/assets",
           "./src/robots.txt"
         ],
-        "styles": [
-          "./src/styles.css"
-        ]
+        "styles": ["./src/styles.css"]
       },
       "configurations": {
         "production": {
@@ -78,13 +74,11 @@
     "lint": {
       "executor": "@nx/eslint:lint",
       "options": {
-        "lintFilePatterns": [
-          "./src"
-        ]
+        "lintFilePatterns": ["./src"]
       }
     },
     "test": {
-      "executor": "@nx/vite:test"
+      "executor": "@nx/vitest:test"
     }
   }
 }
