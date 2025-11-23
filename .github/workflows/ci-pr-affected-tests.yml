@@ -48,7 +48,7 @@ jobs:
 
       - name: Run affected unit tests only (Vitest)
         # Runs tests only for projects affected by the current PR changes
-        # Using the CI configuration defined in nx.json (@nx/vite:test -> configurations.ci)
+        # Using the CI configuration defined in nx.json (@nx/vitest:test -> configurations.ci)
         run: |
           BASE_REF="origin/${{ github.base_ref }}"
           echo "Using base ref: $BASE_REF"
