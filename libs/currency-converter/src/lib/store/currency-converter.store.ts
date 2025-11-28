@@ -1,9 +1,8 @@
 import { patchState, signalStore, withComputed, withHooks, withMethods, withProps, withState } from '@ngrx/signals';
 import { Currencies, Currency } from '@ng-tool-collection/models';
-import { computed, DestroyRef, inject } from '@angular/core';
+import { computed, inject } from '@angular/core';
 import { CurrencyService } from '../services/currency.service';
 import { catchError, map, tap } from 'rxjs';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 type CurrencyConverterState = {
   fromCurrency: keyof Currencies | null | undefined;
@@ -23,7 +22,7 @@ const initialState: CurrencyConverterState = {
   result: 1,
   currencies: [],
 };
-export type CurrencyConverterStoreType = InstanceType<typeof CurrencyConverterStore>;
+
 export const CurrencyConverterStore = signalStore(
   withState<CurrencyConverterState>(initialState),
   withComputed(store => {
@@ -36,11 +35,9 @@ export const CurrencyConverterStore = signalStore(
   }),
   withProps(() => ({
     currencyService: inject(CurrencyService),
-    destoryRef: inject(DestroyRef),
   })),
   withMethods(store => {
     const currencyService = store.currencyService;
-    const destroyRef = store.destoryRef;
     const updateStateFromForm = ({ fromCurrency, toCurrency, amount, result }: FormState) => {
       if (store.fromCurrency() !== fromCurrency) {
         patchState(store, state => ({ ...state, fromCurrency }));
@@ -70,7 +67,6 @@ export const CurrencyConverterStore = signalStore(
         currencyService
           .getConversionList(resultValue)
           .pipe(
-            takeUntilDestroyed(destroyRef),
             map(resp => {
               return (resp[resultValue] as Currencies)[amountValue];
             }),
@@ -92,7 +88,6 @@ export const CurrencyConverterStore = signalStore(
       currencyService
         .getConversionList(amountValue)
         .pipe(
-          takeUntilDestroyed(destroyRef),
           map(resp => {
             return (resp[amountValue] as Currencies)[resultValue];
           }),
@@ -117,13 +112,11 @@ export const CurrencyConverterStore = signalStore(
   }),
   withHooks(store => {
     const currencyService = store.currencyService;
-    const destroyRef = store.destoryRef;
     return {
       onInit: () => {
         currencyService
           .getCurrencyList()
           .pipe(
-            takeUntilDestroyed(destroyRef),
             map(currencies => Object.entries(currencies) as Array<[Currency, string]>),
             tap(currencies => {
               patchState(store, state => ({ ...state, currencies }));

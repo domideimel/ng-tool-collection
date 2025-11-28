@@ -1,8 +1,7 @@
-import { DestroyRef, Directive, ElementRef, inject, input, output } from '@angular/core';
+import { Directive, ElementRef, inject, input, output } from '@angular/core';
 import { State } from '@ng-tool-collection/models';
 import { copyToClipboard } from '../utils/copy-to-clipboard.utils';
 import { catchError, of, tap } from 'rxjs';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
@@ -17,7 +16,6 @@ export class CopyToClipboardDirective<T> {
   copyError = output<State.ERROR>();
   success = output<State.SUCCESS>();
   copied = output<State.SUCCESS | State.ERROR>();
-  private destroyRef = inject(DestroyRef);
   private elementRef: ElementRef<T> = inject(ElementRef);
 
   copy() {
@@ -29,7 +27,6 @@ export class CopyToClipboardDirective<T> {
 
     copyToClipboard(textToCopy)
       .pipe(
-        takeUntilDestroyed(this.destroyRef),
         tap(() => this.success.emit(State.SUCCESS)),
         tap(() => this.copied.emit(State.SUCCESS)),
         catchError(() => {

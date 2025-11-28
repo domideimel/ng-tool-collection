@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CardComponent, urlValidator } from '@ng-tool-collection/ui';
 import { UrlRewritesService } from '../services/url-rewrites.service';
@@ -9,7 +9,6 @@ import { MessageService } from 'primeng/api';
 import { Button } from 'primeng/button';
 import { Textarea } from 'primeng/textarea';
 import { InputText } from 'primeng/inputtext';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -26,7 +25,6 @@ export class UrlRewritesComponent implements OnInit {
   private rewriteService = inject(UrlRewritesService);
   private meta = inject(Meta);
   private messageService = inject(MessageService);
-  private destroyRef = inject(DestroyRef);
 
   get urlRowsFormArray() {
     return this.formGroup.get('urlRows') as FormArray;
@@ -54,17 +52,13 @@ export class UrlRewritesComponent implements OnInit {
   onSubmit() {
     this.rewriteService
       .generateRewrites((this.formGroup as FormGroup).value)
-      .pipe(
-        takeUntilDestroyed(this.destroyRef),
-        tap(result => this.result.set(result)),
-      )
+      .pipe(tap(result => this.result.set(result)))
       .subscribe();
   }
 
   copyRewrites() {
     copyToClipboard(this.result())
       .pipe(
-        takeUntilDestroyed(this.destroyRef),
         tap(() => this.messageService.add({ severity: 'success', detail: `Die Rewrites wurden erfolgreich kopiert` })),
         catchError(err => {
           this.messageService.add({ severity: 'error', detail: `Es gab ein Fehler beim kopieren` });
