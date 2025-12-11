@@ -22,7 +22,5 @@
     "src/**/*.spec.jsx",
     "src/test-setup.ts"
   ],
-  "include": [
-    "src/**/*.ts"
-  ]
+  "include": ["src/**/*.ts"]
 }

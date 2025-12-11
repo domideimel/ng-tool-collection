@@ -5,7 +5,8 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "prepare": "husky"
   },
   "type": "module",
   "private": true,
@@ -22,7 +23,7 @@
     "@angular/router": "20.3.15",
     "@angular/service-worker": "20.3.15",
     "@ngrx/signals": "20.1.0",
-    "@nx/angular": "22.1.3",
+    "@nx/angular": "22.2.1",
     "@primeuix/themes": "^1.2.5",
     "primeicons": "^7.0.0",
     "primeng": "^20.4.0",
@@ -33,8 +34,8 @@
     "validator": "^13.15.23"
   },
   "devDependencies": {
-    "@analogjs/vite-plugin-angular": "2.0.4",
-    "@analogjs/vitest-angular": "2.0.4",
+    "@analogjs/vite-plugin-angular": "2.1.3",
+    "@analogjs/vitest-angular": "2.1.3",
     "@angular-devkit/build-angular": "20.3.12",
     "@angular-devkit/core": "20.3.12",
     "@angular-devkit/schematics": "20.3.12",
@@ -48,48 +49,51 @@
     "@angular/localize": "20.3.15",
     "@eslint/eslintrc": "^3.3.3",
     "@eslint/js": "^9.39.1",
-    "@nx/eslint": "22.1.3",
-    "@nx/eslint-plugin": "22.1.3",
-    "@nx/jest": "22.1.3",
-    "@nx/js": "22.1.3",
-    "@nx/vite": "22.1.3",
-    "@nx/web": "22.1.3",
-    "@nx/workspace": "22.1.3",
+    "@nx/eslint": "22.2.1",
+    "@nx/eslint-plugin": "22.2.1",
+    "@nx/jest": "22.2.1",
+    "@nx/js": "22.2.1",
+    "@nx/vite": "22.2.1",
+    "@nx/vitest": "22.2.1",
+    "@nx/web": "22.2.1",
+    "@nx/workspace": "22.2.1",
     "@schematics/angular": "20.3.12",
     "@swc-node/register": "1.11.1",
     "@swc/core": "1.15.2",
     "@swc/helpers": "0.5.17",
-    "@tailwindcss/postcss": "^4.1.17",
+    "@tailwindcss/postcss": "^4.1.18",
     "@total-typescript/ts-reset": "^0.6.1",
     "@types/jest": "30.0.0",
     "@types/node": "24.10.1",
     "@types/validator": "^13.15.10",
-    "@typescript-eslint/eslint-plugin": "^8.48.1",
-    "@typescript-eslint/parser": "^8.48.1",
+    "@typescript-eslint/eslint-plugin": "^8.49.0",
+    "@typescript-eslint/parser": "^8.49.0",
     "@typescript-eslint/utils": "8.46.4",
-    "@vitest/coverage-v8": "^4.0.15",
-    "@vitest/ui": "^4.0.15",
+    "@vitest/coverage-v8": "4.0.9",
+    "@vitest/ui": "4.0.9",
     "angular-eslint": "20.6.0",
     "autoprefixer": "^10.4.22",
     "eslint": "~9.39.1",
     "eslint-config-prettier": "10.1.8",
+    "husky": "^9.1.7",
     "jest": "30.2.0",
     "jest-environment-jsdom": "30.2.0",
     "jest-preset-angular": "15.0.3",
     "jest-util": "~30.2.0",
     "jiti": "2.6.1",
     "jsdom": "~27.2.0",
-    "nx": "22.1.3",
+    "lint-staged": "^16.2.7",
+    "nx": "22.2.1",
     "postcss": "^8.5.6",
     "prettier": "^3.7.4",
     "prettier-plugin-tailwindcss": "^0.7.2",
-    "tailwindcss": "^4.1.17",
+    "tailwindcss": "^4.1.18",
     "ts-jest": "29.4.5",
     "ts-node": "10.9.2",
     "typescript": "5.9.3",
-    "typescript-eslint": "^8.48.1",
+    "typescript-eslint": "^8.49.0",
     "vite": "7.2.2",
-    "vitest": "^4.0.15",
+    "vitest": "4.0.9",
     "zone.js": "^0.16.0"
   },
   "pnpm": {
@@ -98,6 +102,14 @@
     },
     "onlyBuiltDependencies": [
       "esbuild"
+    ]
+  },
+  "lint-staged": {
+    "*.{js,ts,html,json,md,scss,css}": [
+      "prettier --write"
+    ],
+    "*.{js,ts}": [
+      "eslint --fix"
     ]
   }
 }

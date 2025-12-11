@@ -4,46 +4,46 @@
       <form (ngSubmit)="onSubmit()" [formGroup]="formGroup" class="grid grid-cols-1 gap-4">
         <div class="space-y-4" formArrayName="urlRows">
           @for (row of urlRowsFormArray.controls; track row) {
-            <div class="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_1fr_auto] lg:gap-12" [formGroupName]="$index">
+            <div [formGroupName]="$index" class="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_1fr_auto] lg:gap-12">
               <label>
                 <div class="mb-2">Alte URL</div>
                 <input
-                  type="url"
-                  pInputText
-                  class="w-full"
-                  placeholder="https://old-url.com"
-                  formControlName="oldUrl"
                   [attr.id]="'oldUrl_' + $index"
                   [invalid]="row.get('oldUrl')?.errors && !row.get('oldUrl')?.pristine"
+                  class="w-full"
+                  formControlName="oldUrl"
+                  pInputText
+                  placeholder="https://old-url.com"
+                  type="url"
                 />
               </label>
               <label>
                 <div class="mb-2">Neue URL</div>
                 <input
-                  type="url"
-                  pInputText
-                  class="w-full"
-                  placeholder="https://new-url.com"
-                  formControlName="newUrl"
-                  [invalid]="row.get('newUrl')?.errors && !row.get('newUrl')?.pristine"
                   [attr.id]="'newUrl_' + $index"
+                  [invalid]="row.get('newUrl')?.errors && !row.get('newUrl')?.pristine"
+                  class="w-full"
+                  formControlName="newUrl"
+                  pInputText
+                  placeholder="https://new-url.com"
+                  type="url"
                 />
               </label>
               <div class="flex justify-end gap-2 items-end">
                 <p-button
+                  (click)="addUrlRow()"
+                  [outlined]="true"
+                  [rounded]="true"
                   ariaLabel="Reihe hinzufügen"
                   icon="pi pi-plus"
-                  [rounded]="true"
-                  [outlined]="true"
-                  (click)="addUrlRow()"
                 />
                 <p-button
-                  ariaLabel="Reihe entfernen"
-                  icon="pi pi-times"
-                  [rounded]="true"
-                  [outlined]="true"
                   (click)="removeUrlRow($index)"
                   [disabled]="hasOnlyOneRow"
+                  [outlined]="true"
+                  [rounded]="true"
+                  ariaLabel="Reihe entfernen"
+                  icon="pi pi-times"
                 />
               </div>
             </div>
@@ -59,15 +59,15 @@
             <span>Rewrites</span>
           </label>
           <textarea
-            id="results"
             [ngModel]="result()"
             class="w-full h-48"
+            id="results"
             pTextarea
             placeholder="Rewrites"
             readonly
           ></textarea>
         </div>
-        <p-button (click)="copyRewrites()" styleClass="w-full lg:w-auto" label="Rewrites kopieren" />
+        <p-button (click)="copyRewrites()" label="Rewrites kopieren" styleClass="w-full lg:w-auto" />
       }
     </div>
   </lib-card>

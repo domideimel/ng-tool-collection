@@ -4,10 +4,7 @@
   "sourceRoot": "libs/models/src",
   "prefix": "lib",
   "projectType": "library",
-  "tags": [
-    "type:shared",
-    "domain:models"
-  ],
+  "tags": ["type:shared", "domain:models"],
   "targets": {
     "lint": {
       "executor": "@nx/eslint:lint"

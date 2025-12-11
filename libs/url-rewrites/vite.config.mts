@@ -28,6 +28,7 @@ export default defineConfig(() => ({
     coverage: {
       reportsDirectory: '../../coverage/libs/url-rewrites',
       provider: 'v8' as const,
+      include: ['src/**/*.ts'],
     },
   },
 }));

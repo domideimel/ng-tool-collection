@@ -10,7 +10,7 @@
   @if (showLink()) {
     <ng-template #footer>
       <div class="flex gap-4 mt-1">
-        <p-button [label]="linkText()" (click)="onLinkClick()" class="w-full" styleClass="w-full" />
+        <p-button (click)="onLinkClick()" [label]="linkText()" class="w-full" styleClass="w-full" />
       </div>
     </ng-template>
   }

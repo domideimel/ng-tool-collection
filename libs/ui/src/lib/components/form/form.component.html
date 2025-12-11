@@ -7,16 +7,16 @@
             <span>{{ item.label }}</span>
           </label>
           <input
-            pInputText
-            [placeholder]="item?.placeholder"
-            [formControlName]="item.controlName"
             [attr.id]="item.controlName"
+            [formControlName]="item.controlName"
+            [placeholder]="item?.placeholder"
+            pInputText
           />
         </div>
       }
       @case ('checkbox') {
         <div class="flex items-center gap-2">
-          <p-checkbox [formControlName]="item.controlName" [binary]="true" [inputId]="item.controlName" />
+          <p-checkbox [binary]="true" [formControlName]="item.controlName" [inputId]="item.controlName" />
           <label [for]="item.controlName">
             <span>{{ item.label }}</span>
           </label>
@@ -26,8 +26,8 @@
         <div class="flex flex-col gap-4">
           @for (option of item.options; track option.value) {
             <p-radio-button
-              [inputId]="item.controlName"
               [formControlName]="item.controlName"
+              [inputId]="item.controlName"
               [name]="item.controlName"
               [value]="option.value"
             />
@@ -42,7 +42,7 @@
           <label [for]="item.controlName">
             <span>{{ item.label }}</span>
           </label>
-          <p-select [options]="item.options" [formControlName]="item.controlName" [attr.id]="item.controlName" />
+          <p-select [attr.id]="item.controlName" [formControlName]="item.controlName" [options]="item.options" />
         </div>
       }
       @case ('textarea') {
@@ -50,7 +50,7 @@
           <label [for]="item.controlName">
             <span>{{ item.label }}</span>
           </label>
-          <textarea pTextarea class="h-24" [formControlName]="item.controlName" [attr.id]="item.controlName"></textarea>
+          <textarea [attr.id]="item.controlName" [formControlName]="item.controlName" class="h-24" pTextarea></textarea>
         </div>
       }
       @case ('date') {
@@ -59,8 +59,8 @@
             <span>{{ item.label }}</span>
           </label>
           <p-datepicker
-            [inputId]="item.controlName"
             [formControlName]="item.controlName"
+            [inputId]="item.controlName"
             [invalid]="hasErrors(item.controlName)"
           />
         </div>
@@ -71,7 +71,7 @@
             <span>{{ item.label }}</span>
           </label>
           <div class="flex gap-4 items-center">
-            <p-slider [id]="item.controlName" [formControlName]="item.controlName" class="flex-1" />
+            <p-slider [formControlName]="item.controlName" [id]="item.controlName" class="flex-1" />
             <div class="range-value">{{ formGroup.get(item.controlName)?.value }}</div>
           </div>
         </div>
