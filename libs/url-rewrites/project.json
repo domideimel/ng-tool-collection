@@ -4,10 +4,7 @@
   "sourceRoot": "libs/url-rewrites/src",
   "prefix": "lib",
   "projectType": "library",
-  "tags": [
-    "type:feature",
-    "domain:tools"
-  ],
+  "tags": ["type:feature", "domain:tools"],
   "targets": {
     "lint": {
       "executor": "@nx/eslint:lint"
