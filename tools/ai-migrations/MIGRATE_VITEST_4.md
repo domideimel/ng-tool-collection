@@ -14,15 +14,14 @@ Vitest 4.0. Work systematically through each breaking change category.
    ```
 
 2. **Locate all Vitest configuration files**:
-
-    - Search for `vitest.config.{ts,js,mjs}`
-    - Search for `vitest.workspace.{ts,js,mjs}`
-    - Check `project.json` files for inline Vitest configuration
+   - Search for `vitest.config.{ts,js,mjs}`
+   - Search for `vitest.workspace.{ts,js,mjs}`
+   - Check `project.json` files for inline Vitest configuration
 
 3. **Identify affected code**:
-    - Test files: `**/*.{spec,test}.{ts,js,tsx,jsx}`
-    - Mock usage: Files using `vi.fn()`, `vi.spyOn()`, `vi.mock()`
-    - Coverage configuration references
+   - Test files: `**/*.{spec,test}.{ts,js,tsx,jsx}`
+   - Mock usage: Files using `vi.fn()`, `vi.spyOn()`, `vi.mock()`
+   - Coverage configuration references
 
 ## Migration Steps by Category
 
@@ -283,7 +282,7 @@ const MockConstructor = vi.fn(() => ({ value: 42 }));
 new MockConstructor(); // May have worked in v3
 
 // ✅ AFTER (Vitest 4.0) - Must use function or class
-const MockConstructor = vi.fn(function() {
+const MockConstructor = vi.fn(function () {
   return { value: 42 };
 });
 new MockConstructor(); // Correctly supports 'new'
@@ -362,7 +361,7 @@ const spy = vi.spyOn({ method: mock }, 'method');
 ```typescript
 // ❌ BEFORE (Vitest 3.x)
 vi.mock('./utils', () => ({
-  get value () {
+  get value() {
     return 42;
   }, // Would call getter
 }));
@@ -377,7 +376,7 @@ spy.mockRestore(); // Might work on automocks
 
 // ✅ AFTER (Vitest 4.0)
 vi.mock('./utils', () => ({
-  get value () {
+  get value() {
     return 42;
   },
 }));
@@ -448,13 +447,13 @@ expect(asyncMock.mock.settledResults[0]).toEqual({
 ```typescript
 // ❌ BEFORE (Vitest 3.x)
 export default {
-  onCollected (files) {
+  onCollected(files) {
     // Handle collected files
   },
-  onTaskUpdate (task) {
+  onTaskUpdate(task) {
     // Handle task update
   },
-  onFinished (files) {
+  onFinished(files) {
     // Handle completion
   },
 };

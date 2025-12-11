@@ -68,10 +68,10 @@ The application uses lazy-loaded routes:
 
 - Root (`/`) → Redirects to `/tools`
 - `/tools` → Loads tools module with:
-    - `/tools` → Card grid of available tools
-    - `/tools/password-generator` → Password generator tool
-    - `/tools/currency-converter` → Currency converter tool
-    - `/tools/url-rewrites` → URL redirection tool
+  - `/tools` → Card grid of available tools
+  - `/tools/password-generator` → Password generator tool
+  - `/tools/currency-converter` → Currency converter tool
+  - `/tools/url-rewrites` → URL redirection tool
 
 ### Key Architectural Patterns
 
