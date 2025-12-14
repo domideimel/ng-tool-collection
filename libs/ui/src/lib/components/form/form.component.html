@@ -24,17 +24,22 @@
       }
       @case ('radio') {
         <div class="flex flex-col gap-4">
-          @for (option of item.options; track option.value) {
-            <p-radio-button
-              [formControlName]="item.controlName"
-              [inputId]="item.controlName"
-              [name]="item.controlName"
-              [value]="option.value"
-            />
-            <label [for]="item.controlName">
-              <span>{{ item.label }}</span>
-            </label>
-          }
+          <label [id]="item.controlName + '_label'" class="font-bold">{{ item.label }}</label>
+          <div [attr.aria-labelledby]="item.controlName + '_label'" class="flex flex-col gap-2" role="radiogroup">
+            @for (option of item.options; track option.value; let i = $index) {
+              <div class="flex items-center gap-2">
+                <p-radio-button
+                  [formControlName]="item.controlName"
+                  [inputId]="item.controlName + '_' + i"
+                  [name]="item.controlName"
+                  [value]="option.value"
+                />
+                <label [for]="item.controlName + '_' + i">
+                  <span>{{ option.label }}</span>
+                </label>
+              </div>
+            }
+          </div>
         </div>
       }
       @case ('select') {
@@ -42,7 +47,13 @@
           <label [for]="item.controlName">
             <span>{{ item.label }}</span>
           </label>
-          <p-select [attr.id]="item.controlName" [formControlName]="item.controlName" [options]="item.options" />
+          <p-select
+            [formControlName]="item.controlName"
+            [inputId]="item.controlName"
+            [options]="item.options"
+            optionLabel="label"
+            optionValue="value"
+          />
         </div>
       }
       @case ('textarea') {
