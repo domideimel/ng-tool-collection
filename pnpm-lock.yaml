@@ -49,7 +49,7 @@ importers:
         version: 20.1.0(@angular/core@20.3.15(@angular/compiler@20.3.15)(rxjs@7.8.2)(zone.js@0.16.0))(rxjs@7.8.2)
       '@nx/angular':
         specifier: 22.2.6
-        version: 22.2.6(791b3b6fdf449535a996004d493abdc4)
+        version: 22.2.6(108cfea305ec433ecb4f38f26f110d5b)
       '@primeuix/themes':
         specifier: ^1.2.5
         version: 1.2.5
@@ -88,8 +88,8 @@ importers:
         specifier: 20.3.12
         version: 20.3.12(chokidar@4.0.3)
       '@angular-devkit/schematics':
-        specifier: 20.3.12
-        version: 20.3.12(chokidar@4.0.3)
+        specifier: 20.3.13
+        version: 20.3.13(chokidar@4.0.3)
       '@angular-eslint/eslint-plugin':
         specifier: 20.6.0
         version: 20.6.0(@typescript-eslint/utils@8.46.4(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
@@ -8987,7 +8987,7 @@ snapshots:
   '@angular-eslint/schematics@20.6.0(@angular-eslint/template-parser@20.6.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/types@8.48.0)(@typescript-eslint/utils@8.46.4(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(chokidar@4.0.3)(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)':
     dependencies:
       '@angular-devkit/core': 20.3.12(chokidar@4.0.3)
-      '@angular-devkit/schematics': 20.3.12(chokidar@4.0.3)
+      '@angular-devkit/schematics': 20.3.13(chokidar@4.0.3)
       '@angular-eslint/eslint-plugin': 20.6.0(@typescript-eslint/utils@8.46.4(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
       '@angular-eslint/eslint-plugin-template': 20.6.0(@angular-eslint/template-parser@20.6.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/types@8.48.0)(@typescript-eslint/utils@8.46.4(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
       ignore: 7.0.5
@@ -11857,10 +11857,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@nx/angular@22.2.6(791b3b6fdf449535a996004d493abdc4)':
+  '@nx/angular@22.2.6(108cfea305ec433ecb4f38f26f110d5b)':
     dependencies:
       '@angular-devkit/core': 20.3.12(chokidar@4.0.3)
-      '@angular-devkit/schematics': 20.3.12(chokidar@4.0.3)
+      '@angular-devkit/schematics': 20.3.13(chokidar@4.0.3)
       '@nx/devkit': 22.2.6(nx@22.2.6(@swc-node/register@1.11.1(@swc/core@1.15.2(@swc/helpers@0.5.17))(@swc/types@0.1.25)(typescript@5.9.3))(@swc/core@1.15.2(@swc/helpers@0.5.17)))
       '@nx/eslint': 22.2.6(@babel/traverse@7.28.5)(@swc-node/register@1.11.1(@swc/core@1.15.2(@swc/helpers@0.5.17))(@swc/types@0.1.25)(typescript@5.9.3))(@swc/core@1.15.2(@swc/helpers@0.5.17))(@zkochan/js-yaml@0.0.7)(eslint@9.39.1(jiti@2.6.1))(nx@22.2.6(@swc-node/register@1.11.1(@swc/core@1.15.2(@swc/helpers@0.5.17))(@swc/types@0.1.25)(typescript@5.9.3))(@swc/core@1.15.2(@swc/helpers@0.5.17)))
       '@nx/js': 22.2.6(@babel/traverse@7.28.5)(@swc-node/register@1.11.1(@swc/core@1.15.2(@swc/helpers@0.5.17))(@swc/types@0.1.25)(typescript@5.9.3))(@swc/core@1.15.2(@swc/helpers@0.5.17))(nx@22.2.6(@swc-node/register@1.11.1(@swc/core@1.15.2(@swc/helpers@0.5.17))(@swc/types@0.1.25)(typescript@5.9.3))(@swc/core@1.15.2(@swc/helpers@0.5.17)))
@@ -13532,7 +13532,7 @@ snapshots:
   angular-eslint@20.6.0(chokidar@4.0.3)(eslint@9.39.1(jiti@2.6.1))(typescript-eslint@8.49.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(typescript@5.9.3):
     dependencies:
       '@angular-devkit/core': 20.3.12(chokidar@4.0.3)
-      '@angular-devkit/schematics': 20.3.12(chokidar@4.0.3)
+      '@angular-devkit/schematics': 20.3.13(chokidar@4.0.3)
       '@angular-eslint/builder': 20.6.0(chokidar@4.0.3)(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
       '@angular-eslint/eslint-plugin': 20.6.0(@typescript-eslint/utils@8.46.4(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
       '@angular-eslint/eslint-plugin-template': 20.6.0(@angular-eslint/template-parser@20.6.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/types@8.48.0)(@typescript-eslint/utils@8.46.4(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
