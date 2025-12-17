@@ -1,7 +1,14 @@
 <lib-card [showLink]="false" title="Password Generator">
   <div class="mb-6">
     <p-inputgroup>
-      <input [ngModel]="password()" pInputText placeholder="Passwort" readonly type="text" />
+      <input
+        [ngModel]="password()"
+        aria-label="Generiertes Passwort"
+        pInputText
+        placeholder="Passwort"
+        readonly
+        type="text"
+      />
       <p-button (click)="copyToClipboard()" [disabled]="hasCopied()" ariaLabel="Passwort kopieren" icon="pi pi-copy" />
     </p-inputgroup>
   </div>

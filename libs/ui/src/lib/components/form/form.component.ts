@@ -57,15 +57,13 @@ export class FormComponent<T extends FormModel> implements OnInit {
   }
 
   private generateFormGroup(model: T) {
-    const formGroup = this.fb.group(
-      model.items.reduce(
-        (controls, item) => ({
-          ...controls,
-          [item.controlName]: this.fb.control(item.value, item.validators ? item.validators : []),
-        }),
-        {} as FormControls<T>,
-      ),
-    );
+    const controls: any = {};
+    for (const item of model.items) {
+      controls[item.controlName] = this.fb.control(item.value, item.validators || []);
+    }
+
+    const formGroup = this.fb.group(controls as FormControls<T>);
+
     if (model?.customValidators) {
       formGroup.setValidators(model.customValidators as ValidatorFn | ValidatorFn[]);
     }

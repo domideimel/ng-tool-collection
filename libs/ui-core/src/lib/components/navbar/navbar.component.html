@@ -1,6 +1,6 @@
 <header class="sticky top-0 p-4 flex items-center justify-between">
   <a class="text-2xl" href="/" routerLink>{{ title() }}</a>
-  <p-button (click)="openDrawer()" icon="pi pi-bars" />
+  <p-button (click)="openDrawer()" ariaLabel="Menü öffnen" icon="pi pi-bars" />
 </header>
 <p-drawer #drawerRef [(visible)]="drawerVisible">
   <ng-template #headless>
@@ -11,6 +11,7 @@
         </div>
         <p-button
           (click)="closeCallback($event)"
+          ariaLabel="Menü schließen"
           icon="pi pi-times"
           outlined="true"
           rounded="true"

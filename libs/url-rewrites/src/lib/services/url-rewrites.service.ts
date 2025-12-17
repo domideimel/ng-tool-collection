@@ -1,37 +1,35 @@
 import { Injectable } from '@angular/core';
-import { catchError, from, mergeMap, Observable, reduce } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UrlRewritesService {
-  generateRewrites(urlRows: { urlRows: { oldUrl: string; newUrl: string }[] }): Observable<string> {
-    return from(urlRows.urlRows).pipe(
-      mergeMap(urlRow => {
-        const oldUrl = new URL(urlRow.oldUrl);
+  generateRewrites(data: { urlRows: { oldUrl: string; newUrl: string }[] }): Observable<string> {
+    let output = '';
+    const statusCode = 301; // Assuming 301 for now (can be configurable)
 
-        const statusCode = 301; // Assuming 301 for now (can be configurable)
-
+    for (const row of data.urlRows) {
+      try {
+        const oldUrl = new URL(row.oldUrl);
         const path = this.preparePathForRegex(oldUrl.pathname);
         const query = this.preparePathForRegex(oldUrl.search);
         const host = this.preparePathForRegex(oldUrl.hostname);
 
-        return `
+        output += `
 RewriteCond %{HTTP_HOST} ${host}$
 ${query.length ? `RewriteCond %{QUERY_STRING} ^${query}$` : ''}
 RewriteCond %{REQUEST_URI} ^${path}$
-RewriteRule .* ${urlRow.newUrl} [NE,R=${statusCode},L]
+RewriteRule .* ${row.newUrl} [NE,R=${statusCode},L]
 `;
-      }),
-      catchError(error => {
+      } catch (error) {
         console.error('Error generating rewrite for URL', error);
-        return ''; // return empty string on error to be omitted in the final output
-      }),
-      reduce((acc, rewrite) => acc + rewrite, ''),
-    );
+      }
+    }
+    return of(output);
   }
 
   preparePathForRegex = (path: string): string => {
-    return path.replaceAll(/[\^$*+?{}\[\]\\|()\-\/_.]/g, '\\$&');
+    return path.replaceAll(/[\^$*+?{}[\]\\|()\-/_.]/g, '\\$&');
   };
 }
