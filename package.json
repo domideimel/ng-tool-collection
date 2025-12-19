@@ -81,7 +81,7 @@
     "jest-preset-angular": "16.0.0",
     "jest-util": "~30.2.0",
     "jiti": "2.6.1",
-    "jsdom": "~27.2.0",
+    "jsdom": "~27.3.0",
     "lint-staged": "^16.2.7",
     "nx": "22.3.1",
     "postcss": "^8.5.6",
