@@ -10,7 +10,6 @@ import { appRoutes } from './app.routes';
 import { provideServiceWorker } from '@angular/service-worker';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { providePrimeNG } from 'primeng/config';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import Material from '@primeuix/themes/material';
 import { definePreset } from '@primeuix/themes';
 import { GlobalErrorHandler } from '@ng-tool-collection/utils';
@@ -43,7 +42,6 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
     provideHttpClient(withFetch()),
-    provideAnimationsAsync(),
     providePrimeNG({
       ripple: true,
       theme: {
