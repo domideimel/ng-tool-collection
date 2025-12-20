@@ -23,7 +23,7 @@
     "@angular/router": "21.0.6",
     "@angular/service-worker": "21.0.6",
     "@ngrx/signals": "21.0.0",
-    "@nx/angular": "22.3.1",
+    "@nx/angular": "22.3.3",
     "@primeuix/themes": "^2.0.2",
     "primeicons": "^7.0.0",
     "primeng": "^21.0.2",
@@ -34,8 +34,8 @@
     "validator": "^13.15.23"
   },
   "devDependencies": {
-    "@analogjs/vite-plugin-angular": "2.1.3",
-    "@analogjs/vitest-angular": "2.1.3",
+    "@analogjs/vite-plugin-angular": "2.2.0",
+    "@analogjs/vitest-angular": "2.2.0",
     "@angular-devkit/build-angular": "21.0.4",
     "@angular-devkit/core": "21.0.4",
     "@angular-devkit/schematics": "21.0.4",
@@ -49,14 +49,14 @@
     "@angular/localize": "21.0.6",
     "@eslint/eslintrc": "^3.3.3",
     "@eslint/js": "^9.39.1",
-    "@nx/eslint": "22.3.1",
-    "@nx/eslint-plugin": "22.3.1",
-    "@nx/jest": "22.3.1",
-    "@nx/js": "22.3.1",
-    "@nx/vite": "22.3.1",
-    "@nx/vitest": "22.3.1",
-    "@nx/web": "22.3.1",
-    "@nx/workspace": "22.3.1",
+    "@nx/eslint": "22.3.3",
+    "@nx/eslint-plugin": "22.3.3",
+    "@nx/jest": "22.3.3",
+    "@nx/js": "22.3.3",
+    "@nx/vite": "22.3.3",
+    "@nx/vitest": "22.3.3",
+    "@nx/web": "22.3.3",
+    "@nx/workspace": "22.3.3",
     "@schematics/angular": "21.0.4",
     "@swc-node/register": "1.11.1",
     "@swc/core": "1.15.2",
@@ -83,7 +83,7 @@
     "jiti": "2.6.1",
     "jsdom": "~27.2.0",
     "lint-staged": "^16.2.7",
-    "nx": "22.3.1",
+    "nx": "22.3.3",
     "postcss": "^8.5.6",
     "prettier": "^3.7.4",
     "prettier-plugin-tailwindcss": "^0.7.2",
@@ -101,7 +101,8 @@
       "js-yaml@<4.1.1": ">=4.1.1"
     },
     "onlyBuiltDependencies": [
-      "esbuild"
+      "esbuild",
+      "nx"
     ]
   },
   "lint-staged": {
