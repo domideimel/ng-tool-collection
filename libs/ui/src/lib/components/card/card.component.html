@@ -1,5 +1,5 @@
 <p-card
-  [header]="cardTitle()"
+  [header]="title()"
   [ngClass]="fullHeight() ? 'h-full' : ''"
   [pt]="fullHeight() ? { body: { class: 'h-full' }, footer: { class: 'mt-auto' } } : {}"
 >
@@ -12,7 +12,7 @@
     <ng-template #footer>
       <p-button
         (click)="onLinkClick()"
-        [ariaLabel]="linkText() + ' ' + cardTitle()"
+        [ariaLabel]="linkText() + ' ' + title()"
         [label]="linkText()"
         styleClass="w-full"
       />

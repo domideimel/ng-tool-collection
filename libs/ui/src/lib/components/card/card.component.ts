@@ -11,9 +11,7 @@ import { NgClass } from '@angular/common';
   imports: [Card, Button, NgClass],
 })
 export class CardComponent {
-  cardTitle = input.required<string>({
-    alias: 'title',
-  });
+  title = input.required<string>();
   description = input<string>('');
   link = input<string>('');
   linkText = input<string>('Zum Tool');
