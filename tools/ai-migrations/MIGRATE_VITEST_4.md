@@ -291,7 +291,6 @@ new MockConstructor(); // Correctly supports 'new'
 class MockClass {
   value = 42;
 }
-
 const MockConstructor = vi.fn(MockClass);
 ```
 
@@ -367,7 +366,6 @@ vi.mock('./utils', () => ({
 }));
 
 import { value } from './utils';
-
 console.log(value); // Would execute getter logic
 
 // Restore might have worked
@@ -382,7 +380,6 @@ vi.mock('./utils', () => ({
 }));
 
 import { value } from './utils';
-
 console.log(value); // Returns undefined (doesn't call getter)
 
 // Explicitly return value if needed
