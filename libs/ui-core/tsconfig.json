@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "skipLibCheck": true,
-    "target": "es2022",
+    "target": "esnext",
     "moduleResolution": "bundler",
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
