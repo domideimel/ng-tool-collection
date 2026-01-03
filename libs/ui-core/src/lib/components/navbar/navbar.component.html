@@ -1,27 +1,5 @@
-<header class="sticky top-0 p-4 flex items-center justify-between">
-  <a class="text-2xl" href="/" routerLink>{{ title() }}</a>
-  <p-button (click)="openDrawer()" ariaLabel="Menü öffnen" icon="pi pi-bars" />
-</header>
-<p-drawer #drawerRef [(visible)]="drawerVisible">
-  <ng-template #headless>
-    <div class="flex flex-col h-full">
-      <div class="flex items-center justify-between px-6 pt-4 shrink-0">
-        <div class="flex-1 text-2xl">
-          {{ title() }}
-        </div>
-        <p-button
-          (click)="closeCallback($event)"
-          ariaLabel="Menü schließen"
-          icon="pi pi-times"
-          outlined="true"
-          rounded="true"
-          styleClass="h-8 w-8"
-          type="button"
-        />
-      </div>
-      <div class="overflow-y-auto">
-        <p-menu [model]="links()" class="flex justify-center" styleClass="w-full mt-4 !border-none" />
-      </div>
-    </div>
+<p-menubar [autoHide]="true" [model]="links()">
+  <ng-template #start>
+    <a class="text-2xl" href="/" routerLink>{{ title() }}</a>
   </ng-template>
-</p-drawer>
+</p-menubar>

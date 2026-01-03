@@ -1,7 +1,8 @@
-<p-card>
-  <ng-template #title>
-    {{ cardTitle() }}
-  </ng-template>
+<p-card
+  [header]="title()"
+  [ngClass]="fullHeight() ? 'h-full' : ''"
+  [pt]="fullHeight() ? { body: { class: 'h-full' }, footer: { class: 'mt-auto' } } : {}"
+>
   @if (description().length) {
     <p>{{ description() }}</p>
   } @else {
@@ -9,15 +10,12 @@
   }
   @if (showLink()) {
     <ng-template #footer>
-      <div class="flex gap-4 mt-1">
-        <p-button
-          (click)="onLinkClick()"
-          [ariaLabel]="linkText() + ' ' + cardTitle()"
-          [label]="linkText()"
-          class="w-full"
-          styleClass="w-full"
-        />
-      </div>
+      <p-button
+        (click)="onLinkClick()"
+        [ariaLabel]="linkText() + ' ' + title()"
+        [label]="linkText()"
+        styleClass="w-full"
+      />
     </ng-template>
   }
 </p-card>
