@@ -58,8 +58,8 @@ importers:
         specifier: ^7.0.0
         version: 7.0.0
       primeng:
-        specifier: ^21.0.2
-        version: 21.0.2(1b2e3cf4d23c017a983a8bc926c40d34)
+        specifier: ^21.0.4
+        version: 21.0.4(1b2e3cf4d23c017a983a8bc926c40d34)
       rxjs:
         specifier: ~7.8.2
         version: 7.8.2
@@ -3405,14 +3405,14 @@ packages:
     resolution: {integrity: sha512-QSO/NpOQg8e9BONWRBx9y8VGMCMYz0J/uKfNJEya/RGEu7ARx0oYW0ugI1N3/KB1AAvyGxzKBzGImbwg0KUiOQ==}
     engines: {node: '>=12.11.0'}
 
-  '@primeuix/styles@2.0.2':
-    resolution: {integrity: sha512-LNtkJsTonNHF5ag+9s3+zQzm00+LRmffw68QRIHy6S/dam1JpdrrAnUzNYlWbaY7aE2EkZvQmx7Np7+PyHn+ow==}
+  '@primeuix/styles@2.0.3':
+    resolution: {integrity: sha512-2ykAB6BaHzR/6TwF8ShpJTsZrid6cVIEBVlookSdvOdmlWuevGu5vWOScgIwqWwlZcvkFYAGR/SUV3OHCTBMdw==}
 
   '@primeuix/themes@2.0.2':
     resolution: {integrity: sha512-prwQvA3tDGBz8yWSUenaJUttEMCEvPvxwOfFhDPmSe1vwsfVKL2Nmh5eZvtPFQnxmIOPsHZS7zc0/L3CzJ83Eg==}
 
-  '@primeuix/utils@0.6.3':
-    resolution: {integrity: sha512-/SLNQSKQ73WbBIsflKVqbpVjCfFYvQO3Sf1LMheXyxh8JqxO4M63dzP56wwm9OPGuCQ6MYOd2AHgZXz+g7PZcg==}
+  '@primeuix/utils@0.6.4':
+    resolution: {integrity: sha512-pZ5f+vj7wSzRhC7KoEQRU5fvYAe+RP9+m39CTscZ3UywCD1Y2o6Fe1rRgklMPSkzUcty2jzkA0zMYkiJBD1hgg==}
     engines: {node: '>=12.11.0'}
 
   '@rolldown/binding-android-arm64@1.0.0-beta.47':
@@ -7646,12 +7646,12 @@ packages:
   primeicons@7.0.0:
     resolution: {integrity: sha512-jK3Et9UzwzTsd6tzl2RmwrVY/b8raJ3QZLzoDACj+oTJ0oX7L9Hy+XnVwgo4QVKlKpnP/Ur13SXV/pVh4LzaDw==}
 
-  primeng@21.0.2:
-    resolution: {integrity: sha512-suf+xK3V3z2aG9OmQMAriqhMt79JM3jBSoRDu4XQKCiTiWDRnOvoVdCZCjByT32sE5tYqhrLBsCH0lT7RLcosg==}
+  primeng@21.0.4:
+    resolution: {integrity: sha512-3egRt7p7sERALFVOVnNQ+JsW+GYgHHcqAYeFBxj3wvKN+tgGo1rtkHxBbMQjYGuO9S/V18LPhk8LJwfdE3DNoQ==}
     peerDependencies:
       '@angular/cdk': ^21.0.0
       '@angular/common': ^21.0.0
-      '@angular/core': ^21.0.0
+      '@angular/core': ^21.0.7
       '@angular/forms': ^21.0.0
       '@angular/platform-browser': ^21.0.0
       '@angular/router': ^21.0.0
@@ -8413,6 +8413,7 @@ packages:
   tar@7.5.2:
     resolution: {integrity: sha512-7NyxrTE4Anh8km8iEy7o0QYPs+0JKBTj5ZaqHg6B39erLg0qYXN3BijtShwbsNSvQ+LN75+KV+C4QR/f6Gwnpg==}
     engines: {node: '>=18'}
+    deprecated: Old versions of tar are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exhorbitant rates) by contacting i@izs.me
 
   terser-webpack-plugin@5.3.16:
     resolution: {integrity: sha512-h9oBFCWrq78NyWWVcSwZarJkZ01c2AyGrzs1crmHZO3QUg9D61Wu4NPjBy69n7JqylFF5y+CsUZYmYEIZ3mR+Q==}
@@ -8994,10 +8995,12 @@ packages:
   whatwg-encoding@2.0.0:
     resolution: {integrity: sha512-p41ogyeMUrw3jWclHWTQg1k05DSVXPLcVxRTYsXUk+ZooOCZLcoYgPZ/HL/D/N+uQPOtcp1me1WhBEaX02mhWg==}
     engines: {node: '>=12'}
+    deprecated: Use @exodus/bytes instead for a more spec-conformant and faster implementation
 
   whatwg-encoding@3.1.1:
     resolution: {integrity: sha512-6qN4hJdMwfYBtE3YBTTHhoeuUrDBPZmbQaxWAqSALV/MeEnR5z1xd8UKud2RAkFoPkmB+hli1TZSnyi84xz1vQ==}
     engines: {node: '>=18'}
+    deprecated: Use @exodus/bytes instead for a more spec-conformant and faster implementation
 
   whatwg-mimetype@4.0.0:
     resolution: {integrity: sha512-QaKxh0eNIi2mE9p2vEdzfagOKHCcj1pJ56EEHGQOVxp8r9/iszLUUV7v89x9O1p/T+NlTM5W7jW6+cz4Fq1YVg==}
@@ -13150,13 +13153,13 @@ snapshots:
 
   '@primeuix/motion@0.0.10':
     dependencies:
-      '@primeuix/utils': 0.6.3
+      '@primeuix/utils': 0.6.4
 
   '@primeuix/styled@0.7.4':
     dependencies:
-      '@primeuix/utils': 0.6.3
+      '@primeuix/utils': 0.6.4
 
-  '@primeuix/styles@2.0.2':
+  '@primeuix/styles@2.0.3':
     dependencies:
       '@primeuix/styled': 0.7.4
 
@@ -13164,7 +13167,7 @@ snapshots:
     dependencies:
       '@primeuix/styled': 0.7.4
 
-  '@primeuix/utils@0.6.3': {}
+  '@primeuix/utils@0.6.4': {}
 
   '@rolldown/binding-android-arm64@1.0.0-beta.47':
     optional: true
@@ -17902,7 +17905,7 @@ snapshots:
 
   primeicons@7.0.0: {}
 
-  primeng@21.0.2(1b2e3cf4d23c017a983a8bc926c40d34):
+  primeng@21.0.4(1b2e3cf4d23c017a983a8bc926c40d34):
     dependencies:
       '@angular/cdk': 21.0.6(@angular/common@21.0.8(@angular/core@21.0.8(@angular/compiler@21.0.8)(rxjs@7.8.2)(zone.js@0.16.0))(rxjs@7.8.2))(@angular/core@21.0.8(@angular/compiler@21.0.8)(rxjs@7.8.2)(zone.js@0.16.0))(rxjs@7.8.2)
       '@angular/common': 21.0.8(@angular/core@21.0.8(@angular/compiler@21.0.8)(rxjs@7.8.2)(zone.js@0.16.0))(rxjs@7.8.2)
@@ -17912,8 +17915,8 @@ snapshots:
       '@angular/router': 21.0.8(@angular/common@21.0.8(@angular/core@21.0.8(@angular/compiler@21.0.8)(rxjs@7.8.2)(zone.js@0.16.0))(rxjs@7.8.2))(@angular/core@21.0.8(@angular/compiler@21.0.8)(rxjs@7.8.2)(zone.js@0.16.0))(@angular/platform-browser@21.0.8(@angular/animations@21.0.8(@angular/core@21.0.8(@angular/compiler@21.0.8)(rxjs@7.8.2)(zone.js@0.16.0)))(@angular/common@21.0.8(@angular/core@21.0.8(@angular/compiler@21.0.8)(rxjs@7.8.2)(zone.js@0.16.0))(rxjs@7.8.2))(@angular/core@21.0.8(@angular/compiler@21.0.8)(rxjs@7.8.2)(zone.js@0.16.0)))(rxjs@7.8.2)
       '@primeuix/motion': 0.0.10
       '@primeuix/styled': 0.7.4
-      '@primeuix/styles': 2.0.2
-      '@primeuix/utils': 0.6.3
+      '@primeuix/styles': 2.0.3
+      '@primeuix/utils': 0.6.4
       rxjs: 7.8.2
       tslib: 2.8.1
 
