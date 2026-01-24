@@ -58,6 +58,7 @@ export class UrlRewritesComponent implements OnInit {
   };
 
   removeUrlRowSignal = (index: number) => {
+    if (this.hasOnlyOneSignalRow()) return;
     this.signalFormGroup.update(old => ({
       urlRows: old.urlRows.filter((_, i) => i !== index),
     }));
