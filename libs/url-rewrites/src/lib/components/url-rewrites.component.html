@@ -1,17 +1,17 @@
 <div class="grid">
   <lib-card [showLink]="false" title="URL Rewrites">
     <div class="space-y-4">
-      <form (ngSubmit)="onSubmit()" [formGroup]="formGroup" class="grid grid-cols-1 gap-4">
-        <div class="space-y-4" formArrayName="urlRows">
-          @for (row of urlRowsFormArray.controls; track row) {
-            <div [formGroupName]="$index" class="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_1fr_auto] lg:gap-12">
+      <form (ngSubmit)="onSubmit()" class="grid grid-cols-1 gap-4">
+        <div class="space-y-4">
+          @for (row of signalForm.urlRows; track $index) {
+            <div class="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_1fr_auto] lg:gap-12">
               <label>
                 <div class="mb-2">Alte URL</div>
                 <input
                   [attr.id]="'oldUrl_' + $index"
-                  [invalid]="row.get('oldUrl')?.errors && !row.get('oldUrl')?.pristine"
+                  [class.p-invalid]="!!row.oldUrl().errors() && row.oldUrl().touched()"
+                  [formField]="row.oldUrl"
                   class="w-full"
-                  formControlName="oldUrl"
                   pInputText
                   placeholder="https://old-url.com"
                   type="url"
@@ -21,9 +21,9 @@
                 <div class="mb-2">Neue URL</div>
                 <input
                   [attr.id]="'newUrl_' + $index"
-                  [invalid]="row.get('newUrl')?.errors && !row.get('newUrl')?.pristine"
+                  [class.p-invalid]="!!row.newUrl().errors() && row.newUrl().touched()"
+                  [formField]="row.newUrl"
                   class="w-full"
-                  formControlName="newUrl"
                   pInputText
                   placeholder="https://new-url.com"
                   type="url"
@@ -31,15 +31,15 @@
               </label>
               <div class="flex justify-end gap-2 items-end">
                 <p-button
-                  (click)="addUrlRow()"
+                  (click)="addUrlRowSignal()"
                   [outlined]="true"
                   [rounded]="true"
                   ariaLabel="Reihe hinzufügen"
                   icon="pi pi-plus"
                 />
                 <p-button
-                  (click)="removeUrlRow($index)"
-                  [disabled]="hasOnlyOneRow"
+                  (click)="removeUrlRowSignal($index)"
+                  [disabled]="hasOnlyOneSignalRow()"
                   [outlined]="true"
                   [rounded]="true"
                   ariaLabel="Reihe entfernen"
@@ -50,7 +50,7 @@
           }
         </div>
         <div>
-          <p-button [disabled]="!formGroup.valid" label="Generieren" type="submit" />
+          <p-button [disabled]="!signalForm().valid" label="Generieren" type="submit" />
         </div>
       </form>
       @if (result().length) {

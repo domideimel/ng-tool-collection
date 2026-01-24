@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CardComponent, urlValidator } from '@ng-tool-collection/ui';
+import { ChangeDetectionStrategy, Component, computed, inject, OnInit, signal } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CardComponent } from '@ng-tool-collection/ui';
 import { UrlRewritesService } from '../services/url-rewrites.service';
 import { Meta } from '@angular/platform-browser';
 import { catchError, of, tap } from 'rxjs';
@@ -9,30 +9,40 @@ import { MessageService } from 'primeng/api';
 import { Button } from 'primeng/button';
 import { Textarea } from 'primeng/textarea';
 import { InputText } from 'primeng/inputtext';
+import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
+import { array, nonEmpty, object, pipe, required, string, url } from 'valibot';
+
+const urlFormSchema = object({
+  urlRows: array(
+    required(
+      object({
+        oldUrl: pipe(string(), nonEmpty(), url()),
+        newUrl: pipe(string(), nonEmpty(), url()),
+      }),
+      ['oldUrl', 'newUrl'],
+    ),
+  ),
+});
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'lib-url-rewrites',
   templateUrl: './url-rewrites.component.html',
-  imports: [CardComponent, ReactiveFormsModule, Button, FormsModule, Textarea, InputText],
+  imports: [CardComponent, ReactiveFormsModule, Button, FormsModule, Textarea, InputText, FormField],
 })
 export class UrlRewritesComponent implements OnInit {
   result = signal<string>('');
-  private fb = inject(FormBuilder);
-  formGroup = this.fb.group({
-    urlRows: this.fb.array([this.createUrlRow()]),
+  signalFormGroup = signal({
+    urlRows: [this.createSignalFormGroup()],
   });
+  signalForm = form(this.signalFormGroup, formSchema => {
+    validateStandardSchema(formSchema, urlFormSchema);
+  });
+  hasOnlyOneSignalRow = computed(() => this.signalFormGroup().urlRows.length === 1);
+
   private rewriteService = inject(UrlRewritesService);
   private meta = inject(Meta);
   private messageService = inject(MessageService);
-
-  get urlRowsFormArray() {
-    return this.formGroup.get('urlRows') as FormArray;
-  }
-
-  get hasOnlyOneRow(): boolean {
-    return this.urlRowsFormArray.length === 1;
-  }
 
   ngOnInit() {
     this.meta.updateTag({
@@ -41,17 +51,21 @@ export class UrlRewritesComponent implements OnInit {
     });
   }
 
-  addUrlRow() {
-    this.urlRowsFormArray.push(this.createUrlRow());
-  }
+  addUrlRowSignal = () => {
+    this.signalFormGroup.update(old => ({
+      urlRows: [...old.urlRows, this.createSignalFormGroup()],
+    }));
+  };
 
-  removeUrlRow(index: number) {
-    this.urlRowsFormArray.removeAt(index);
-  }
+  removeUrlRowSignal = (index: number) => {
+    this.signalFormGroup.update(old => ({
+      urlRows: old.urlRows.filter((_, i) => i !== index),
+    }));
+  };
 
   onSubmit() {
     this.rewriteService
-      .generateRewrites((this.formGroup as FormGroup).value)
+      .generateRewrites(this.signalForm().value())
       .pipe(tap(result => this.result.set(result)))
       .subscribe();
   }
@@ -68,10 +82,10 @@ export class UrlRewritesComponent implements OnInit {
       .subscribe();
   }
 
-  private createUrlRow() {
-    return this.fb.group({
-      oldUrl: ['', [Validators.required, urlValidator]],
-      newUrl: ['', [Validators.required, urlValidator]],
-    });
+  private createSignalFormGroup() {
+    return {
+      oldUrl: '',
+      newUrl: '',
+    };
   }
 }
