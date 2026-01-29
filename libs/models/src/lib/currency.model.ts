@@ -357,7 +357,7 @@ const ResponseSchema = intersect([
 
 // Infer types from schemas
 export type Currency = InferInput<typeof CurrencySchema>;
-export type Currencies = InferInput<typeof CurrenciesSchema>;
+export type Currencies = Required<InferInput<typeof CurrenciesSchema>>;
 export type Response = InferInput<typeof ResponseSchema>;
 
 // Export schemas for validation

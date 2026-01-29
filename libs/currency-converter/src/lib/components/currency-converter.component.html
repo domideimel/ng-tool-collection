@@ -1,26 +1,38 @@
 <div class="grid">
   <lib-card [showLink]="false" title="Währungsumrechner">
-    <form [formGroup]="formGroup">
+    <form>
       <div class="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_1fr_auto] lg:gap-12">
         <div class="flex flex-col space-y-4">
           <div>
             <label for="fromCurrency">
               <div class="mb-2">Währung</div>
             </label>
-            <p-select
-              [options]="currencies()"
-              class="w-full"
-              formControlName="fromCurrency"
-              inputId="fromCurrency"
-              optionLabel="name"
-              optionValue="code"
-            />
+            <!--            <p-select-->
+            <!--              [options]="currencies()"-->
+            <!--              class="w-full"-->
+            <!--              [formField]="signalForm.fromCurrency"-->
+            <!--              inputId="fromCurrency"-->
+            <!--              optionLabel="name"-->
+            <!--              optionValue="code"-->
+            <!--            />-->
+            <select [formField]="signalForm.fromCurrency" class="w-full" id="fromCurrency">
+              @for (currency of currencies(); track currency.code) {
+                <option [value]="currency.code">{{ currency.name }}</option>
+              }
+            </select>
           </div>
           <div>
             <label for="amount">
               <div class="mb-2">Menge</div>
             </label>
-            <input class="w-full" formControlName="amount" id="amount" inputmode="decimal" pInputText type="number" />
+            <input
+              [formField]="signalForm.amount"
+              class="w-full"
+              id="amount"
+              inputmode="decimal"
+              pInputText
+              type="number"
+            />
           </div>
         </div>
         <div class="flex flex-col space-y-4">
@@ -28,20 +40,32 @@
             <label for="toCurrency">
               <div class="mb-2">Währung</div>
             </label>
-            <p-select
-              [options]="currencies()"
-              class="w-full"
-              formControlName="toCurrency"
-              inputId="toCurrency"
-              optionLabel="name"
-              optionValue="code"
-            />
+            <!--            <p-select-->
+            <!--              [options]="currencies()"-->
+            <!--              class="w-full"-->
+            <!--              [formField]="signalForm.toCurrency"-->
+            <!--              inputId="toCurrency"-->
+            <!--              optionLabel="name"-->
+            <!--              optionValue="code"-->
+            <!--            />-->
+            <select [formField]="signalForm.toCurrency" class="w-full" id="toCurrency">
+              @for (currency of currencies(); track currency.code) {
+                <option [value]="currency.code">{{ currency.name }}</option>
+              }
+            </select>
           </div>
           <div>
             <label for="result">
               <div class="mb-2">Menge</div>
             </label>
-            <input class="w-full" formControlName="result" id="result" inputmode="decimal" pInputText type="number" />
+            <input
+              [formField]="signalForm.result"
+              class="w-full"
+              id="result"
+              inputmode="decimal"
+              pInputText
+              type="number"
+            />
           </div>
         </div>
       </div>
