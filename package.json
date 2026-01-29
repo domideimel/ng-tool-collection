@@ -97,9 +97,6 @@
     "zone.js": "0.16.0"
   },
   "pnpm": {
-    "overrides": {
-      "hono@<4.11.7": ">=4.11.7"
-    },
     "onlyBuiltDependencies": [
       "@parcel/watcher",
       "@swc/core",
