@@ -105,7 +105,10 @@
       "msgpackr-extract",
       "nx",
       "unrs-resolver"
-    ]
+    ],
+    "overrides": {
+      "hono@<4.11.7": ">=4.11.7"
+    }
   },
   "lint-staged": {
     "*.{js,ts,html,json,md,scss,css}": [
