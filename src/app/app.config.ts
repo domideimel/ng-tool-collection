@@ -3,6 +3,7 @@ import {
   ErrorHandler,
   isDevMode,
   provideBrowserGlobalErrorListeners,
+  provideStabilityDebugging,
   provideZonelessChangeDetection,
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
@@ -34,6 +35,7 @@ const MyPreset = definePreset(Material, {
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideStabilityDebugging(),
     provideRouter(appRoutes),
     provideServiceWorker('ngsw-worker.js', {
       enabled: !isDevMode(),
