@@ -12,7 +12,6 @@ import { form, FormField } from '@angular/forms/signals';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CurrencyConverterComponent {
-  signalForm = form(this.signalFormGroup);
   private readonly converterStore = inject(ConverterStore);
   readonly currencies = computed(() => this.converterStore.currencies());
   readonly signalFormGroup = linkedSignal(() => ({
@@ -21,4 +20,5 @@ export class CurrencyConverterComponent {
     amount: this.converterStore.amount() as number,
     result: this.converterStore.result() as number,
   }));
+  signalForm = form(this.signalFormGroup);
 }
