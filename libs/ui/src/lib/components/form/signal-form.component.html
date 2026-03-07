@@ -1,0 +1,111 @@
+@let valid = form().valid;
+
+<form (submit)="onSubmit()" class="flex flex-col gap-6">
+  @for (item of formModel().items; track item.controlName) {
+    @let formField = getField(item.controlName);
+    @switch (item.type) {
+      @case ('text') {
+        <div>
+          <label [for]="item.controlName">
+            <span>{{ item.label }}</span>
+          </label>
+          <input [attr.id]="item.controlName" [formField]="formField" [placeholder]="item?.placeholder" pInputText />
+          @if (hasErrors(item.controlName)) {
+            <small class="text-red-500">{{ getErrorMessage(item.controlName) }}</small>
+          }
+        </div>
+      }
+      @case ('checkbox') {
+        <div class="flex items-center gap-2">
+          <p-checkbox [binary]="true" [formField]="formField" [inputId]="item.controlName" />
+          <label [for]="item.controlName">
+            <span>{{ item.label }}</span>
+          </label>
+          @if (hasErrors(item.controlName)) {
+            <small class="text-red-500">{{ getErrorMessage(item.controlName) }}</small>
+          }
+        </div>
+      }
+      @case ('radio') {
+        <div class="flex flex-col gap-4">
+          <label [id]="item.controlName + '_label'" class="font-bold">{{ item.label }}</label>
+          <div [attr.aria-labelledby]="item.controlName + '_label'" class="flex flex-col gap-2" role="radiogroup">
+            @for (option of item.options; track option.value; let i = $index) {
+              <div class="flex items-center gap-2">
+                <p-radio-button
+                  [formField]="formField"
+                  [inputId]="item.controlName + '_' + i"
+                  [name]="item.controlName"
+                  [value]="option.value"
+                />
+                <label [for]="item.controlName + '_' + i">
+                  <span>{{ option.label }}</span>
+                </label>
+              </div>
+            }
+          </div>
+          @if (hasErrors(item.controlName)) {
+            <small class="text-red-500">{{ getErrorMessage(item.controlName) }}</small>
+          }
+        </div>
+      }
+      @case ('select') {
+        <div>
+          <label [for]="item.controlName">
+            <span>{{ item.label }}</span>
+          </label>
+          <p-select
+            [formField]="formField"
+            [inputId]="item.controlName"
+            [options]="item.options"
+            optionLabel="label"
+            optionValue="value"
+          />
+          @if (hasErrors(item.controlName)) {
+            <small class="text-red-500">{{ getErrorMessage(item.controlName) }}</small>
+          }
+        </div>
+      }
+      @case ('textarea') {
+        <div>
+          <label [for]="item.controlName">
+            <span>{{ item.label }}</span>
+          </label>
+          <textarea [attr.id]="item.controlName" [formField]="formField" class="h-24" pTextarea></textarea>
+          @if (hasErrors(item.controlName)) {
+            <small class="text-red-500">{{ getErrorMessage(item.controlName) }}</small>
+          }
+        </div>
+      }
+      @case ('date') {
+        <div>
+          <label [for]="item.controlName">
+            <span>{{ item.label }}</span>
+          </label>
+          <p-date-picker [formField]="formField" [inputId]="item.controlName" [invalid]="formField().invalid()" />
+          @if (hasErrors(item.controlName)) {
+            <small class="text-red-500">{{ getErrorMessage(item.controlName) }}</small>
+          }
+        </div>
+      }
+      @case ('range') {
+        <div>
+          <label [for]="item.controlName">
+            <span>{{ item.label }}</span>
+          </label>
+          <div class="flex gap-4 items-center">
+            <p-slider [formField]="formField" [id]="item.controlName" class="flex-1" />
+            <div class="range-value">{{ formField().value() }}</div>
+          </div>
+          @if (hasErrors(item.controlName)) {
+            <small class="text-red-500">{{ getErrorMessage(item.controlName) }}</small>
+          }
+        </div>
+      }
+    }
+  }
+
+  <p-button [disabled]="!valid" [ngClass]="!valid ? 'cursor-not-allowed' : ''" [outlined]="true" type="submit">
+    {{ formModel().submitButtonLabel }}
+  </p-button>
+</form>
