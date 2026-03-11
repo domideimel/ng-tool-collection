@@ -42,4 +42,8 @@ export class SignalFormComponentLib {
     ],
     submitButtonLabel: 'Hallo Welt',
   });
+
+  onFormSubmit<T>(stuff: T) {
+    console.log({ stuff });
+  }
 }

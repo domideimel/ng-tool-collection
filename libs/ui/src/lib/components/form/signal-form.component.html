@@ -1,6 +1,6 @@
 @let valid = form().valid;
 
-<form (submit)="onSubmit()" class="flex flex-col gap-6">
+<form (submit)="onSubmit($event)" class="flex flex-col gap-6">
   @for (item of formModel().items; track item.controlName) {
     @let formField = getField(item.controlName);
     @switch (item.type) {

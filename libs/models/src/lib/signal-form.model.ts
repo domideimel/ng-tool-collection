@@ -43,3 +43,7 @@ export const SignalFormModelSchema = object({
 });
 
 export type SignalFormModel = InferInput<typeof SignalFormModelSchema>;
+
+export type ExtractFormValue<T extends SignalFormModel> = {
+  [K in T['items'][number] as K['controlName']]: K['value'];
+};

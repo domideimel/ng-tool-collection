@@ -9,7 +9,7 @@ import { Slider } from 'primeng/slider';
 import { Textarea } from 'primeng/textarea';
 import { Button } from 'primeng/button';
 import { NgClass } from '@angular/common';
-import { SignalFormModel } from '@ng-tool-collection/models';
+import { ExtractFormValue, SignalFormModel } from '@ng-tool-collection/models';
 
 @Component({
   selector: 'lib-signal-form',
@@ -22,7 +22,7 @@ export class SignalFormComponent<T extends SignalFormModel> {
     items: [],
     submitButtonLabel: 'Submit',
   } as unknown as T);
-  readonly submitEvent = output<unknown>();
+  readonly submitEvent = output<ExtractFormValue<T>>();
   readonly errorEvent = output<unknown>();
   private readonly signalForm = linkedSignal(() => {
     return this.formModel().items.reduce<Record<string, unknown>>((acc, item) => {
@@ -86,7 +86,8 @@ export class SignalFormComponent<T extends SignalFormModel> {
     this.signalForm.set(initialValues);
   }
 
-  onSubmit() {
-    this.submitEvent.emit(this.form().value());
+  onSubmit(event: Event) {
+    event.preventDefault();
+    this.submitEvent.emit(this.form().value() as unknown as ExtractFormValue<T>);
   }
 }
