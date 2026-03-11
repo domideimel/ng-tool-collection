@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { SignalFormModel } from '@ng-tool-collection/models';
+import { defineSignalForm } from '@ng-tool-collection/models';
 import { minLength, pipe, string } from 'valibot';
 import { CardComponent, SignalFormComponent } from '@ng-tool-collection/ui';
 
@@ -10,7 +10,7 @@ import { CardComponent, SignalFormComponent } from '@ng-tool-collection/ui';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SignalFormComponentLib {
-  readonly formConfig: SignalFormModel = {
+  readonly formConfig = defineSignalForm({
     items: [
       {
         controlName: 'some input',
@@ -41,5 +41,5 @@ export class SignalFormComponentLib {
       },
     ],
     submitButtonLabel: 'Hallo Welt',
-  };
+  });
 }

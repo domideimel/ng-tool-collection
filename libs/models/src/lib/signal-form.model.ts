@@ -1,5 +1,7 @@
 import { array, InferInput, literal, never, number, object, optional, string, union, unknown, variant } from 'valibot';
 
+export const defineSignalForm = <const T extends SignalFormModel>(config: T): T => config;
+
 export const SignalFormControlOptionSchema = object({
   label: string(),
   value: string(),
