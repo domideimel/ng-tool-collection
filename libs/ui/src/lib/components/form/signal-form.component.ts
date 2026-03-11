@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, effect, input, linkedSignal, output } from '@angular/core';
 import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
-import { array, GenericSchema, InferInput, object, optional, string, unknown } from 'valibot';
+import { GenericSchema, object, unknown } from 'valibot';
 import { Checkbox } from 'primeng/checkbox';
 import { DatePicker } from 'primeng/datepicker';
 import { InputText } from 'primeng/inputtext';
@@ -11,28 +11,7 @@ import { Slider } from 'primeng/slider';
 import { Textarea } from 'primeng/textarea';
 import { Button } from 'primeng/button';
 import { NgClass } from '@angular/common';
-
-const FormControlOptionSchema = object({
-  label: string(),
-  value: unknown(), // More type-safe than any
-});
-
-const FormControlModelSchema = object({
-  controlName: string(),
-  label: string(),
-  placeholder: optional(string()),
-  value: optional(unknown()),
-  type: string(),
-  validators: optional(unknown()),
-  options: optional(array(FormControlOptionSchema)),
-});
-
-const FormModelSchema = object({
-  items: array(FormControlModelSchema),
-  submitButtonLabel: string(),
-});
-
-type FormModel = InferInput<typeof FormModelSchema>;
+import { SignalFormModel } from '@ng-tool-collection/models';
 
 @Component({
   selector: 'lib-signal-form',
@@ -52,7 +31,7 @@ type FormModel = InferInput<typeof FormModelSchema>;
   templateUrl: './signal-form.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SignalFormComponent<T extends FormModel> {
+export class SignalFormComponent<T extends SignalFormModel> {
   readonly formModel = input<T>({
     items: [],
     submitButtonLabel: 'Submit',

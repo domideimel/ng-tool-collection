@@ -1,16 +1,17 @@
 import { ChangeDetectionStrategy, Component, computed, DestroyRef, effect, inject, OnInit } from '@angular/core';
 
 import { debounceTime, tap } from 'rxjs';
-import { CardComponent } from '@ng-tool-collection/ui';
+import { CardComponent, SignalFormComponent } from '@ng-tool-collection/ui';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { CurrencyConverterStore } from '../store/currency-converter.store';
 import { Select } from 'primeng/select';
 import { InputText } from 'primeng/inputtext';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { SignalFormModel } from '@ng-tool-collection/models';
 
 @Component({
   selector: 'lib-currency-converter',
-  imports: [CardComponent, ReactiveFormsModule, Select, InputText],
+  imports: [CardComponent, ReactiveFormsModule, Select, InputText, SignalFormComponent],
   providers: [CurrencyConverterStore],
   templateUrl: './currency-converter.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -24,6 +25,17 @@ export class CurrencyConverterComponent implements OnInit {
   private toCurrencies = computed(() => this.store.toCurrency());
   private amount = computed(() => this.store.computedAmount());
   private result = computed(() => this.store.computedResult());
+
+  readonly formConfig: SignalFormModel = {
+    items: [
+      {
+        controlName: 'some input',
+        label: 'label',
+        type: 'text',
+      },
+    ],
+    submitButtonLabel: 'Hallo Welt',
+  };
 
   formGroup = this.fb.group({
     fromCurrency: this.fromCurrencies(),
