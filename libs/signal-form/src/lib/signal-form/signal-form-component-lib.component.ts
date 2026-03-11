@@ -4,7 +4,7 @@ import { minLength, pipe, string } from 'valibot';
 import { CardComponent, SignalFormComponent } from '@ng-tool-collection/ui';
 
 @Component({
-  selector: 'lib-signal-form',
+  selector: 'lib-signal-form-lib',
   imports: [CardComponent, SignalFormComponent],
   templateUrl: './signal-form-component-lib.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
