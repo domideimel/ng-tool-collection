@@ -28,7 +28,8 @@
       "@ng-tool-collection/ui": ["libs/ui/src/index.ts"],
       "@ng-tool-collection/ui-core": ["libs/ui-core/src/index.ts"],
       "@ng-tool-collection/url-rewrites": ["libs/url-rewrites/src/index.ts"],
-      "@ng-tool-collection/utils": ["libs/utils/src/index.ts"]
+      "@ng-tool-collection/utils": ["libs/utils/src/index.ts"],
+      "@ng-tool-collection/signal-form": ["libs/signal-form/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

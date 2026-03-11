@@ -1,19 +1,39 @@
-import { array, InferInput, object, optional, string, unknown } from 'valibot';
+import { array, InferInput, literal, never, number, object, optional, string, union, unknown, variant } from 'valibot';
 
 export const SignalFormControlOptionSchema = object({
   label: string(),
-  value: unknown(), // More type-safe than any
+  value: string(),
 });
 
-export const SignalFormControlModelSchema = object({
+const baseControlFields = {
   controlName: string(),
   label: string(),
   placeholder: optional(string()),
-  value: optional(unknown()),
-  type: string(),
+  value: union([string(), number()]),
   validators: optional(unknown()),
-  options: optional(array(SignalFormControlOptionSchema)),
-});
+};
+
+export const SignalFormControlModelSchema = variant('type', [
+  object({
+    ...baseControlFields,
+    type: union([literal('select'), literal('radio'), literal('checkbox-group'), literal('radio-group')]),
+    options: array(SignalFormControlOptionSchema),
+  }),
+  object({
+    ...baseControlFields,
+    type: union([
+      literal('text'),
+      literal('number'),
+      literal('checkbox'),
+      literal('radio'),
+      literal('date'),
+      literal('slider'),
+      literal('textarea'),
+      literal('range'),
+    ]),
+    options: optional(never()),
+  }),
+]);
 
 export const SignalFormModelSchema = object({
   items: array(SignalFormControlModelSchema),

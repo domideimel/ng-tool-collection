@@ -1,12 +1,10 @@
 import { ChangeDetectionStrategy, Component, computed, effect, input, linkedSignal, output } from '@angular/core';
-import { form, FormField, validateStandardSchema } from '@angular/forms/signals';
+import { Field, form, FormField, validateStandardSchema } from '@angular/forms/signals';
 import { GenericSchema, object, unknown } from 'valibot';
 import { Checkbox } from 'primeng/checkbox';
-import { DatePicker } from 'primeng/datepicker';
 import { InputText } from 'primeng/inputtext';
 import { RadioButton } from 'primeng/radiobutton';
 import { ReactiveFormsModule } from '@angular/forms';
-import { Select } from 'primeng/select';
 import { Slider } from 'primeng/slider';
 import { Textarea } from 'primeng/textarea';
 import { Button } from 'primeng/button';
@@ -15,19 +13,7 @@ import { SignalFormModel } from '@ng-tool-collection/models';
 
 @Component({
   selector: 'lib-signal-form',
-  imports: [
-    Checkbox,
-    DatePicker,
-    InputText,
-    RadioButton,
-    ReactiveFormsModule,
-    Select,
-    Slider,
-    Textarea,
-    Button,
-    NgClass,
-    FormField,
-  ],
+  imports: [Checkbox, InputText, RadioButton, ReactiveFormsModule, Slider, Textarea, Button, NgClass, FormField],
   templateUrl: './signal-form.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -86,8 +72,8 @@ export class SignalFormComponent<T extends SignalFormModel> {
     return typeof errors === 'string' ? errors : JSON.stringify(errors);
   }
 
-  getField(controlName: string): any {
-    return (this.form as any)[controlName];
+  getField(controlName: string) {
+    return this.form[controlName] as Field<any, any>;
   }
 
   reset() {

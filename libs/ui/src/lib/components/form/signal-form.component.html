@@ -9,7 +9,12 @@
           <label [for]="item.controlName">
             <span>{{ item.label }}</span>
           </label>
-          <input [attr.id]="item.controlName" [formField]="formField" [placeholder]="item?.placeholder" pInputText />
+          <input
+            [attr.id]="item.controlName"
+            [formField]="formField"
+            [placeholder]="item?.placeholder ?? ''"
+            pInputText
+          />
           @if (hasErrors(item.controlName)) {
             <small class="text-red-500">{{ getErrorMessage(item.controlName) }}</small>
           }
@@ -54,13 +59,15 @@
           <label [for]="item.controlName">
             <span>{{ item.label }}</span>
           </label>
-          <p-select
+          <select
             [formField]="formField"
-            [inputId]="item.controlName"
-            [options]="item.options"
-            optionLabel="label"
-            optionValue="value"
-          />
+            [id]="item.controlName"
+            class="w-full"
+          >
+            @for (option of item.options; track option.value) {
+              <option [value]="option.value">{{ option.label }}</option>
+            }
+          </select>
           @if (hasErrors(item.controlName)) {
             <small class="text-red-500">{{ getErrorMessage(item.controlName) }}</small>
           }
@@ -82,7 +89,7 @@
           <label [for]="item.controlName">
             <span>{{ item.label }}</span>
           </label>
-          <p-date-picker [formField]="formField" [inputId]="item.controlName" [invalid]="formField().invalid()" />
+          <input [formField]="formField" [id]="item.controlName" type="date">
           @if (hasErrors(item.controlName)) {
             <small class="text-red-500">{{ getErrorMessage(item.controlName) }}</small>
           }
