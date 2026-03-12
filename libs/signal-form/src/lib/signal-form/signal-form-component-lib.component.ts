@@ -41,6 +41,7 @@ export class SignalFormComponentLib {
       },
     ],
     submitButtonLabel: 'Hallo Welt',
+    validationMode: 'blur',
   });
 
   onFormSubmit<T>(stuff: T) {

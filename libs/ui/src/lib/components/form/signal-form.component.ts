@@ -1,5 +1,14 @@
-import { ChangeDetectionStrategy, Component, computed, effect, input, linkedSignal, output } from '@angular/core';
-import { Field, form, FormField, validateStandardSchema } from '@angular/forms/signals';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  effect,
+  input,
+  linkedSignal,
+  output,
+  signal,
+} from '@angular/core';
+import { Field, form, FormField, submit, validateStandardSchema } from '@angular/forms/signals';
 import { GenericSchema, object, unknown } from 'valibot';
 import { Checkbox } from 'primeng/checkbox';
 import { InputText } from 'primeng/inputtext';
@@ -9,7 +18,7 @@ import { Slider } from 'primeng/slider';
 import { Textarea } from 'primeng/textarea';
 import { Button } from 'primeng/button';
 import { NgClass } from '@angular/common';
-import { ExtractFormValue, SignalFormModel } from '@ng-tool-collection/models';
+import { AngularSubmitCallback, ExtractFormValue, SignalFormModel } from '@ng-tool-collection/models';
 
 @Component({
   selector: 'lib-signal-form',
@@ -52,6 +61,9 @@ export class SignalFormComponent<T extends SignalFormModel> {
     validateStandardSchema(p, () => this.validationSchema() ?? unknown());
   });
 
+  private readonly touchedFields = signal<Record<string, boolean>>({});
+  private readonly hasAttemptedSubmit = signal(false);
+
   constructor() {
     effect(() => {
       this.errorEvent.emit(this.form().errors?.());
@@ -60,6 +72,23 @@ export class SignalFormComponent<T extends SignalFormModel> {
 
   hasErrors(controlName: string) {
     return !!this.getField(controlName)?.().errors?.();
+  }
+
+  onBlur(controlName: string) {
+    this.touchedFields.update(prev => ({ ...prev, [controlName]: true }));
+  }
+
+  shouldShowError(controlName: string): boolean {
+    const hasError = !!this.getField(controlName)?.().errors?.();
+    if (!hasError) return false;
+
+    const mode = this.formModel().validationMode || 'instant';
+
+    if (mode === 'instant') return true;
+    if (this.hasAttemptedSubmit()) return true;
+    if (mode === 'blur') return this.touchedFields()[controlName];
+
+    return false; // 'submit' mode logic
   }
 
   getErrorMessage(controlName: string) {
@@ -84,10 +113,24 @@ export class SignalFormComponent<T extends SignalFormModel> {
       };
     }, {});
     this.signalForm.set(initialValues);
+    this.touchedFields.set({});
+    this.hasAttemptedSubmit.set(false);
   }
 
   async onSubmit(event: Event) {
     event.preventDefault();
+    this.hasAttemptedSubmit.set(true);
+    const callback = this.formModel().submitFunctionCallback;
+
+    if (callback) {
+      const isValid = await submit(this.form, callback as AngularSubmitCallback<Record<string, unknown>>);
+
+      if (!isValid) return;
+
+      this.submitEvent.emit(this.form().value() as unknown as ExtractFormValue<T>);
+      return;
+    }
+
     this.submitEvent.emit(this.form().value() as unknown as ExtractFormValue<T>);
   }
 }

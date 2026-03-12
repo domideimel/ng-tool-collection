@@ -14,19 +14,21 @@
             [formField]="formField"
             [placeholder]="item?.placeholder ?? ''"
             pInputText
+            (blur)="onBlur(item.controlName)"
           />
-          @if (hasErrors(item.controlName)) {
+          @if (shouldShowError(item.controlName)) {
             <small class="text-red-500">{{ getErrorMessage(item.controlName) }}</small>
           }
         </div>
       }
       @case ('checkbox') {
         <div class="flex items-center gap-2">
-          <p-checkbox [binary]="true" [formField]="formField" [inputId]="item.controlName" />
+          <p-checkbox (onChange)="onBlur(item.controlName)" [binary]="true" [formField]="formField"
+                      [inputId]="item.controlName" />
           <label [for]="item.controlName">
             <span>{{ item.label }}</span>
           </label>
-          @if (hasErrors(item.controlName)) {
+          @if (shouldShowError(item.controlName)) {
             <small class="text-red-500">{{ getErrorMessage(item.controlName) }}</small>
           }
         </div>
@@ -42,6 +44,7 @@
                   [inputId]="item.controlName + '_' + i"
                   [name]="item.controlName"
                   [value]="option.value"
+                  (onClick)="onBlur(item.controlName)"
                 />
                 <label [for]="item.controlName + '_' + i">
                   <span>{{ option.label }}</span>
@@ -49,7 +52,7 @@
               </div>
             }
           </div>
-          @if (hasErrors(item.controlName)) {
+          @if (shouldShowError(item.controlName)) {
             <small class="text-red-500">{{ getErrorMessage(item.controlName) }}</small>
           }
         </div>
@@ -63,12 +66,13 @@
             [formField]="formField"
             [id]="item.controlName"
             class="w-full"
+            (onChange)="onBlur(item.controlName)"
           >
             @for (option of item.options; track option.value) {
               <option [value]="option.value">{{ option.label }}</option>
             }
           </select>
-          @if (hasErrors(item.controlName)) {
+          @if (shouldShowError(item.controlName)) {
             <small class="text-red-500">{{ getErrorMessage(item.controlName) }}</small>
           }
         </div>
@@ -78,8 +82,9 @@
           <label [for]="item.controlName">
             <span>{{ item.label }}</span>
           </label>
-          <textarea [attr.id]="item.controlName" [formField]="formField" class="h-24" pTextarea></textarea>
-          @if (hasErrors(item.controlName)) {
+          <textarea (blur)="onBlur(item.controlName)" [attr.id]="item.controlName" [formField]="formField" class="h-24"
+                    pTextarea></textarea>
+          @if (shouldShowError(item.controlName)) {
             <small class="text-red-500">{{ getErrorMessage(item.controlName) }}</small>
           }
         </div>
@@ -89,8 +94,8 @@
           <label [for]="item.controlName">
             <span>{{ item.label }}</span>
           </label>
-          <input [formField]="formField" [id]="item.controlName" type="date">
-          @if (hasErrors(item.controlName)) {
+          <input (blur)="onBlur(item.controlName)" [formField]="formField" [id]="item.controlName" type="date">
+          @if (shouldShowError(item.controlName)) {
             <small class="text-red-500">{{ getErrorMessage(item.controlName) }}</small>
           }
         </div>
@@ -101,10 +106,11 @@
             <span>{{ item.label }}</span>
           </label>
           <div class="flex gap-4 items-center">
-            <p-slider [formField]="formField" [id]="item.controlName" class="flex-1" />
+            <p-slider (onChange)="onBlur(item.controlName)" [formField]="formField" [id]="item.controlName"
+                      class="flex-1" />
             <div class="range-value">{{ formField().value() }}</div>
           </div>
-          @if (hasErrors(item.controlName)) {
+          @if (shouldShowError(item.controlName)) {
             <small class="text-red-500">{{ getErrorMessage(item.controlName) }}</small>
           }
         </div>
