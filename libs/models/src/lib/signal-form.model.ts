@@ -1,6 +1,5 @@
 import { array, InferInput, literal, never, number, object, optional, string, union, unknown, variant } from 'valibot';
-
-export const defineSignalForm = <const T extends SignalFormModel>(config: T): T => config;
+import { submit } from '@angular/forms/signals';
 
 export const SignalFormControlOptionSchema = object({
   label: string(),
@@ -40,10 +39,19 @@ export const SignalFormControlModelSchema = variant('type', [
 export const SignalFormModelSchema = object({
   items: array(SignalFormControlModelSchema),
   submitButtonLabel: string(),
+  submitCallback: optional(unknown()),
 });
+type AngularSubmitAction = Parameters<typeof submit>[1];
+type RawSignalFormModel = InferInput<typeof SignalFormModelSchema>;
+export type SignalFormConfig<T extends SignalFormModel> = T;
 
-export type SignalFormModel = InferInput<typeof SignalFormModelSchema>;
+export type SignalFormModel = Omit<RawSignalFormModel, 'submitCallback'> & {
+  submitCallback?: AngularSubmitAction;
+};
 
 export type ExtractFormValue<T extends SignalFormModel> = {
   [K in T['items'][number] as K['controlName']]: K['value'];
 };
+
+export const defineSignalForm = <const T extends SignalFormModel>(config: SignalFormConfig<T>): SignalFormConfig<T> =>
+  config;

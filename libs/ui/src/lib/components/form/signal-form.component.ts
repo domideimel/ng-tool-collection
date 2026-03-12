@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, effect, input, linkedSignal, output } from '@angular/core';
-import { Field, form, FormField, validateStandardSchema } from '@angular/forms/signals';
+import { Field, form, FormField, submit, validateStandardSchema } from '@angular/forms/signals';
 import { GenericSchema, object, unknown } from 'valibot';
 import { Checkbox } from 'primeng/checkbox';
 import { InputText } from 'primeng/inputtext';
@@ -86,8 +86,15 @@ export class SignalFormComponent<T extends SignalFormModel> {
     this.signalForm.set(initialValues);
   }
 
-  onSubmit(event: Event) {
+  async onSubmit(event: Event) {
     event.preventDefault();
+    if (this.formModel()?.submitCallback) {
+      const success = await submit(this.form, this.formModel().submitCallback);
+      if (success) {
+        this.submitEvent.emit(this.form().value() as unknown as ExtractFormValue<T>);
+      }
+      return;
+    }
     this.submitEvent.emit(this.form().value() as unknown as ExtractFormValue<T>);
   }
 }
