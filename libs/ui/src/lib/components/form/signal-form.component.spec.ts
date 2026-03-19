@@ -61,10 +61,10 @@ describe('SignalFormComponent', () => {
     expect(component.getErrorMessage('name')).toContain('Too short');
   });
 
-  it('should emit submitEvent on onSubmit', () => {
+  it('should emit submitEvent on onSubmit', async () => {
     let emitted: any;
     component.submitEvent.subscribe(v => (emitted = v));
-    component.onSubmit();
+    await component.onSubmit();
     expect(emitted).toEqual({
       name: 'John Doe',
       email: '',
@@ -78,7 +78,7 @@ describe('SignalFormComponent', () => {
     });
     component.reset();
     await fixture.whenStable();
-    expect(component.form().value().name).toBe('John Doe');
+    expect(component.form().value()?.['name']).toBe('John Doe');
   });
 
   it('should emit errorEvent when form becomes invalid', async () => {

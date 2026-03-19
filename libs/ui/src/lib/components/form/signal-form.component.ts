@@ -117,8 +117,8 @@ export class SignalFormComponent<T extends SignalFormModel> {
     this.hasAttemptedSubmit.set(false);
   }
 
-  async onSubmit(event: Event) {
-    event.preventDefault();
+  async onSubmit(event?: Event) {
+    event?.preventDefault();
     this.hasAttemptedSubmit.set(true);
     const callback = this.formModel().submitFunctionCallback;
 
