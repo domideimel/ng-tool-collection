@@ -3,7 +3,7 @@ import { UrlRewritesComponent } from './url-rewrites.component';
 import { Meta } from '@angular/platform-browser';
 import { UrlRewritesService } from '../services/url-rewrites.service';
 import { MessageService } from 'primeng/api';
-import { FormArray, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { of } from 'rxjs';
 
@@ -49,7 +49,7 @@ describe('UrlRewritesComponent', () => {
   });
 
   it('should initialize with one URL row', () => {
-    expect(component.urlRowsFormArray.length).toBe(1);
+    expect(component.signalFormGroup().urlRows.length).toBe(1);
   });
 
   it('should update meta tag on init', () => {
@@ -61,33 +61,35 @@ describe('UrlRewritesComponent', () => {
 
   describe('Form Array Management', () => {
     it('should add new URL row', () => {
-      const initialLength = component.urlRowsFormArray.length;
-      component.addUrlRow();
-      expect(component.urlRowsFormArray.length).toBe(initialLength + 1);
+      const initialLength = component.signalFormGroup().urlRows.length;
+      component.addUrlRowSignal();
+      expect(component.signalFormGroup().urlRows.length).toBe(initialLength + 1);
     });
 
     it('should remove URL row', () => {
-      component.addUrlRow(); // Add an extra row first
-      const initialLength = component.urlRowsFormArray.length;
-      component.removeUrlRow(1);
-      expect(component.urlRowsFormArray.length).toBe(initialLength - 1);
+      component.addUrlRowSignal(); // Add an extra row first
+      const initialLength = component.signalFormGroup().urlRows.length;
+      component.removeUrlRowSignal(1);
+      expect(component.signalFormGroup().urlRows.length).toBe(initialLength - 1);
     });
 
     it('should not remove last row when only one exists', () => {
-      expect(component.hasOnlyOneRow).toBe(true);
-      component.removeUrlRow(0);
-      expect(component.urlRowsFormArray.length).toBe(0);
+      expect(component.hasOnlyOneSignalRow()).toBe(true);
+      component.removeUrlRowSignal(0);
+      expect(component.signalFormGroup().urlRows.length).toBe(1);
     });
   });
 
   describe('Form Submission', () => {
     it('should generate rewrites on submit', () => {
-      const urlRows = component.urlRowsFormArray as FormArray;
-      const firstRow = urlRows.at(0);
-      firstRow.patchValue({
-        oldUrl: 'https://example.com/old',
-        newUrl: 'https://example.com/new',
-      });
+      component.signalFormGroup.update(() => ({
+        urlRows: [
+          {
+            oldUrl: 'https://example.com/old',
+            newUrl: 'https://example.com/new',
+          },
+        ],
+      }));
 
       component.onSubmit();
 

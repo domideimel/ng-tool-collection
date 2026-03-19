@@ -27,6 +27,11 @@ export const toolsRoutes: Route[] = [
         title: 'Währungs-Umrechner',
       },
       {
+        path: 'signal-form',
+        loadComponent: () => import('@ng-tool-collection/signal-form').then(m => m.SignalFormComponentLib),
+        title: 'Signal Form',
+      },
+      {
         path: 'not-found',
         loadComponent: () => import('./not-found/not-found.component').then(m => m.NotFoundComponent),
         title: 'Seite nicht gefunden',

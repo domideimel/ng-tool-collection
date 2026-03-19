@@ -1,0 +1,13 @@
+{
+  "name": "signal-form",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/signal-form/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": ["type:feature", "domain:tools"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}
