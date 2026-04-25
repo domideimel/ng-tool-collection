@@ -10,8 +10,10 @@ export class GlobalErrorHandler implements ErrorHandler {
   handleError(error: unknown): void {
     const id = this.createErrorId();
 
-    // Log with structured context without leaking sensitive data
-    this.logger.error('Unhandled application error', { id, error });
+    this.logger.error('Unhandled application error', {
+      id,
+      error: this.normalizeError(error),
+    });
 
     // Navigate to a friendly error page; defer to avoid re-entrancy issues
     // Preserve current URL in state so the error page can offer a return action
@@ -34,5 +36,34 @@ export class GlobalErrorHandler implements ErrorHandler {
   private createErrorId(): string {
     // Simple, non-PII identifier
     return (Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 8)).toUpperCase();
+  }
+
+  private normalizeError(error: unknown): { type: string; message: string; name?: string } {
+    if (error instanceof Error) {
+      return {
+        type: 'Error',
+        name: error.name,
+        message: error.message,
+      };
+    }
+
+    if (typeof error === 'string') {
+      return {
+        type: 'string',
+        message: error,
+      };
+    }
+
+    if (error && typeof error === 'object' && 'message' in error && typeof error.message === 'string') {
+      return {
+        type: 'object',
+        message: error.message,
+      };
+    }
+
+    return {
+      type: typeof error,
+      message: 'Unbekannter Fehler',
+    };
   }
 }

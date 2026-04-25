@@ -43,15 +43,12 @@ describe('copyToClipboard', () => {
       const error = new Error('Clipboard error');
 
       vi.spyOn(navigator.clipboard, 'writeText').mockRejectedValueOnce(error);
-      vi.spyOn(console, 'error').mockImplementation(() => {});
 
       try {
         await firstValueFrom(copyToClipboard(testData));
       } catch (err) {
         expect(err).toBe(State.ERROR);
       }
-
-      expect(console.error).toHaveBeenCalledWith(error);
     });
   });
 

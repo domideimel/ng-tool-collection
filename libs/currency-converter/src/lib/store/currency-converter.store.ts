@@ -2,7 +2,7 @@ import { patchState, signalStore, withComputed, withHooks, withMethods, withProp
 import { Currencies, Currency } from '@ng-tool-collection/models';
 import { computed, inject } from '@angular/core';
 import { CurrencyService } from '../services/currency.service';
-import { catchError, debounceTime, distinctUntilChanged, map, of, pipe, switchMap, tap } from 'rxjs';
+import { catchError, debounceTime, distinctUntilChanged, EMPTY, map, of, pipe, switchMap, tap } from 'rxjs';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 
 type CurrencyConverterState = {
@@ -12,7 +12,7 @@ type CurrencyConverterState = {
   rates: Record<string, number>;
   amount: number | null;
   result: number | null;
-  error?: string;
+  error: string | null;
   loading: boolean;
 };
 
@@ -25,7 +25,20 @@ const initialState: CurrencyConverterState = {
   result: 1,
   currencies: [],
   rates: {},
+  error: null,
   loading: false,
+};
+
+const getErrorMessage = (error: unknown): string => {
+  if (error instanceof Error) {
+    return error.message;
+  }
+
+  if (typeof error === 'string') {
+    return error;
+  }
+
+  return 'Die Währungsdaten konnten nicht geladen werden.';
 };
 
 export const CurrencyConverterStore = signalStore(
@@ -70,15 +83,19 @@ export const CurrencyConverterStore = signalStore(
             store.currencyService.getConversionList(baseCurrency).pipe(
               tap(resp => {
                 const rates = (resp[baseCurrency] as Currencies) || {};
-                patchState(store, { rates, loading: false });
+                patchState(store, { rates, loading: false, error: null });
                 // Recalculate result after rates update
                 const result = calculateResult(store.amount(), rates, store.toCurrency() ?? 'usd');
                 patchState(store, { result });
               }),
-              catchError((error: any) => {
-                console.error(error);
-                patchState(store, { error: error.message, loading: false });
-                return of([]);
+              catchError((error: unknown) => {
+                patchState(store, {
+                  error: getErrorMessage(error),
+                  loading: false,
+                  rates: {},
+                  result: null,
+                });
+                return of(null);
               }),
             ),
           ),
@@ -131,14 +148,14 @@ export const CurrencyConverterStore = signalStore(
         .pipe(
           map(currencies => Object.entries(currencies) as Array<[Currency, string]>),
           tap(currencies => {
-            patchState(store, { currencies });
+            patchState(store, { currencies, error: null });
           }),
           tap(() => {
             store.loadRates(store.fromCurrency() ?? 'eur');
           }),
-          catchError(error => {
-            patchState(store, { error: error.message });
-            return [];
+          catchError((error: unknown) => {
+            patchState(store, { error: getErrorMessage(error) });
+            return EMPTY;
           }),
         )
         .subscribe();

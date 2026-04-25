@@ -38,7 +38,7 @@ export const toolsRoutes: Route[] = [
       },
       {
         path: 'error',
-        loadComponent: () => import('@ng-tool-collection/ui').then(m => m.ErrorPageComponent),
+        loadComponent: () => import('./error-page/tools-error-page.component').then(m => m.ToolsErrorPageComponent),
         title: 'Fehler',
       },
       {

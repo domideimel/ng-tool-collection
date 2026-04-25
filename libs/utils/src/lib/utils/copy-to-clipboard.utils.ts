@@ -1,17 +1,27 @@
-import { catchError, from, map, Observable, of, switchMap, throwError } from 'rxjs';
+import { catchError, from, map, Observable, throwError } from 'rxjs';
 import { State } from '@ng-tool-collection/models';
 
 export const copyToClipboard = <T>(data: T) => {
-  if (!navigator?.clipboard || !navigator?.clipboard?.writeText || !data) {
+  if (
+    typeof navigator === 'undefined' ||
+    !navigator.clipboard?.writeText ||
+    data === null ||
+    data === undefined ||
+    data === ''
+  ) {
     return throwError(() => State.ERROR) as Observable<State>;
   }
 
-  const dataToCopy$ = of(data).pipe(map(data => (typeof data === 'string' ? data : JSON.stringify(data))));
+  let dataToCopy: string;
 
-  return dataToCopy$.pipe(
-    switchMap(dataToCopy => from(navigator.clipboard.writeText(dataToCopy))),
-    catchError(err => {
-      console.error(err);
+  try {
+    dataToCopy = typeof data === 'string' ? data : JSON.stringify(data);
+  } catch {
+    return throwError(() => State.ERROR) as Observable<State>;
+  }
+
+  return from(navigator.clipboard.writeText(dataToCopy)).pipe(
+    catchError(() => {
       return throwError(() => State.ERROR) as Observable<State>;
     }),
     map(() => State.SUCCESS),

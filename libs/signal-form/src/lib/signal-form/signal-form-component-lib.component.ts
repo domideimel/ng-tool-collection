@@ -45,6 +45,6 @@ export class SignalFormComponentLib {
   });
 
   onFormSubmit<T>(stuff: T) {
-    console.log({ stuff });
+    void stuff;
   }
 }
