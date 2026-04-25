@@ -9,7 +9,7 @@ getTestBed().initTestEnvironment(BrowserTestingModule, platformBrowserTesting())
 
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
-  value: (query: any) => ({
+  value: (query: string): MediaQueryList => ({
     matches: false,
     media: query,
     onchange: null,

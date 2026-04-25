@@ -31,7 +31,7 @@ describe('UrlRewritesService', () => {
     it('should handle path with query parameters', () => {
       const input = '/search?q=test&page=1';
       const result = service.preparePathForRegex(input);
-      expect(result).toBe('\\/search\\?q=test&page=1');
+      expect(result).toBe('\\/search\\?q\\=test\\&page\\=1');
     });
   });
 
@@ -87,7 +87,7 @@ describe('UrlRewritesService', () => {
 
       const result = await firstValueFrom(service.generateRewrites(input));
 
-      expect(result).toContain('RewriteCond %{QUERY_STRING} ^\\?q=test&page=1$');
+      expect(result).toContain('RewriteCond %{QUERY_STRING} ^q\\=test\\&page\\=1$');
     });
 
     it('should handle invalid URLs gracefully', async () => {
@@ -95,6 +95,34 @@ describe('UrlRewritesService', () => {
         urlRows: [
           {
             oldUrl: 'invalid-url',
+            newUrl: 'https://example.com/new-path',
+          },
+        ],
+      };
+
+      const result = await firstValueFrom(service.generateRewrites(input));
+      expect(result).toBe('');
+    });
+
+    it('should ignore rows with non-http protocols', async () => {
+      const input = {
+        urlRows: [
+          {
+            oldUrl: 'https://example.com/old-path',
+            newUrl: 'javascript:alert(1)',
+          },
+        ],
+      };
+
+      const result = await firstValueFrom(service.generateRewrites(input));
+      expect(result).toBe('');
+    });
+
+    it('should ignore rows with control characters', async () => {
+      const input = {
+        urlRows: [
+          {
+            oldUrl: 'https://example.com/old-path\nRewriteRule .* https://evil.example [L]',
             newUrl: 'https://example.com/new-path',
           },
         ],

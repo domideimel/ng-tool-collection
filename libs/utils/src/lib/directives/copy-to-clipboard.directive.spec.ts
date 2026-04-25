@@ -119,7 +119,7 @@ describe('CopyToClipboardDirective', () => {
   it('should handle null text', async () => {
     // Arrange
     const button = fixture.debugElement.query(By.css('[data-testid="copy-button"]'));
-    component.textToCopy.set(null as any);
+    component.textToCopy.set(null as unknown as string);
     fixture.detectChanges();
 
     // Act

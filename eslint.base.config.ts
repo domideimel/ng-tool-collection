@@ -1,11 +1,24 @@
 import { FlatCompat } from '@eslint/eslintrc';
 
 import nxEslintPlugin from '@nx/eslint-plugin';
-import js from '@eslint/js';
+import * as eslintJsModule from '@eslint/js';
+
+type EslintJsConfigModule = {
+  configs?: {
+    recommended?: object;
+  };
+  default?: {
+    configs?: {
+      recommended?: object;
+    };
+  };
+};
+
+const eslintJs = ((eslintJsModule as EslintJsConfigModule).default ?? eslintJsModule) as EslintJsConfigModule;
 
 const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js?.configs?.recommended,
+  baseDirectory: process.cwd(),
+  recommendedConfig: eslintJs.configs?.recommended,
 });
 
 export default [

@@ -6,7 +6,7 @@ import { beforeEach, describe, expect, it } from 'vitest';
 @Component({
   template: `
     <div id="outside">
-      <div id="container" (clickOutside)="onClickOutside()">
+      <div id="container" (libClickOutside)="onClickOutside()">
         <button id="inside">Inside Button</button>
       </div>
     </div>
