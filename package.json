@@ -9,7 +9,7 @@
     "prepare": "husky"
   },
   "type": "module",
-  "packageManager": "pnpm@11.1.2",
+  "packageManager": "pnpm@11.9.0",
   "private": true,
   "dependencies": {
     "@angular-architects/ngrx-toolkit": "^21.0.1",
