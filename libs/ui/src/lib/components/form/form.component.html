@@ -9,7 +9,7 @@
           <input
             [attr.id]="item.controlName"
             [formControlName]="item.controlName"
-            [placeholder]="item?.placeholder"
+            [placeholder]="$safeNavigationMigration(item?.placeholder)"
             pInputText
           />
         </div>

@@ -24,20 +24,20 @@ jobs:
       NX_RUN_GROUP: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           # Needed so Nx can compare against the base branch accurately
           fetch-depth: 0
 
       - name: Setup PNPM
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
         with:
-          version: 9
+          version: 11.9.0
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 25
           cache: 'pnpm'
 
       - name: Install dependencies
