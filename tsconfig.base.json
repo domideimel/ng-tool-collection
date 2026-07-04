@@ -30,7 +30,10 @@
       "@ng-tool-collection/url-rewrites": ["libs/url-rewrites/src/index.ts"],
       "@ng-tool-collection/utils": ["libs/utils/src/index.ts"],
       "@ng-tool-collection/signal-form": ["libs/signal-form/src/index.ts"]
-    }
+    },
+    "ignoreDeprecations": "6.0",
+    "noUncheckedSideEffectImports": false,
+    "types": ["*"]
   },
   "exclude": ["node_modules", "tmp"]
 }
